@@ -1,8 +1,0 @@
-Base path: 'C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data', plugins path 'C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/PlaybackEngines'
-Cmd: initializeCompiler
-Cmd: compileComputeKernel
-  error: 2 plat 4 at Bonfire.vfx(16): failed to open source file: 'Packages/com.unity.render-pipelines.high-definition/Runtime/VFXGraph/Shaders/VFXDefines.hlsl'
-  api=4 insize=8949 outsize=0 ok=0
-Cmd: initializeCompiler
-
-Quitting shader compiler process
