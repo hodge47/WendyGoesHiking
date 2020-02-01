@@ -3,12 +3,12 @@
 # Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
 #
 WendyGoesHiking/[Ll]ibrary/
-/[Tt]emp/
-/[Oo]bj/
-/[Bb]uild/
-/[Bb]uilds/
-/[Ll]ogs/
-/[Mm]emoryCaptures/
+WendyGoesHiking/[Tt]emp/
+WendyGoesHiking/[Oo]bj/
+WendyGoesHiking/[Bb]uild/
+WendyGoesHiking/[Bb]uilds/
+WendyGoesHiking/[Ll]ogs/
+WendyGoesHiking/[Mm]emoryCaptures/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
