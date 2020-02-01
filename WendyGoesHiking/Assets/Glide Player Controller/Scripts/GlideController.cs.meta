@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 976157c796a6f3648aab554f76203ed7
+timeCreated: 1517590722
+licenseType: Free
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - playerCamera: {instanceID: 0}
+  - walkSound: {fileID: 8300000, guid: b11dd8ab6297961498e8b2124b832756, type: 3}
+  - jumpingSound: {fileID: 8300000, guid: b1a284020840fab42a805511810a77cf, type: 3}
+  - landingSound: {fileID: 8300000, guid: 90c9a8fa7a757214e94190a34d02f19a, type: 3}
+  executionOrder: 0
+  icon: {fileID: 2800000, guid: 0f2895d50df314f48b6c02a3cc01ea87, type: 3}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
