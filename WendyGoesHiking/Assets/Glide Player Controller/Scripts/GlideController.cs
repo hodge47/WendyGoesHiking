@@ -8,6 +8,9 @@ using UnityEngine;
 public class GlideController : MonoBehaviour
 {
 
+    PlayerControlActions playerControls;
+
+
     public static GlideController current; //Just call GlideController.current to access the current player's variables from any other script!
 
     /*
@@ -36,6 +39,8 @@ public class GlideController : MonoBehaviour
     [Tooltip("The key for crouching.")] public KeyCode crouchButton = KeyCode.LeftControl;
     [Tooltip("Changes how crouching will behave.\n\nNone: Disables crouching entirely.\n\nNormal: Crouching won't affect how sprinting behaves.\n\nNo Sprint: Sprinting cannot be enabled while you're crouching.")] public GlideCrouchSetting crouchMode = GlideCrouchSetting.normal;
     [Space]
+    [Tooltip("The key for sliding.")] public KeyCode slideButton = KeyCode.C;
+    [Space]
     [Tooltip("The axis used for looking left and right. \n\nCheck Edit>Project Settings>Input for more information.")] public string lookAxisX = "Mouse X";
     [Tooltip("The axis used for looking up and down. \n\nCheck Edit>Project Settings>Input for more information.")] public string lookAxisY = "Mouse Y";
     [Tooltip("How sensitive the player's mouse is.")] public float mouseSensitivity = 1.5f;
@@ -52,12 +57,17 @@ public class GlideController : MonoBehaviour
     [Tooltip("How fast the player is when walking normally.")] public float moveSpeed = 5f;
     [Tooltip("How fast the player is when crouch-walking like a creepy little crab.")] public float crouchSpeed = 3f;
     [Tooltip("How fast the player moves when sprinting.")] public float sprintSpeed = 8f;
+    [Tooltip("How fast the player moves when sliding.")] public float slideSpeed = 20f;
     [Space]
     [Tooltip("The amount of force the player jumps with.")] public float jumpPower = 4f;
     [Space]
     [Tooltip("Whether or not the player is affected by slopes.")] public bool slidingOnSlopes = true;
     [Tooltip("Determines at what normal value the player will slide down a sloped surface (assuming slidingOnSlopes is enabled). The higher this is, the steeper a surface a player can walk up.")] [Range(0f, 1f)] public float slopeBias = 0.7f;
     [Tooltip("A precentage of the player's current height that represents how low they can crouch.")] [Range(0.5f, 1f)] public float crouchPercent = 0.4f;
+    [Tooltip("A precentage of the player's current height that represents how low they slide.")] [Range(0.01f, 1f)] public float slidePercent = 0.5f;
+
+    [Tooltip("The length of time (in seconds) that a slide lasts")] public float lengthOfSlide = 1;
+
     public Vector3 movement; //The vector3 representing player motion.
 
     [Header("Glide - Camera")]
@@ -78,6 +88,7 @@ public class GlideController : MonoBehaviour
 
     [Header("Glide - Zoom")]
     [Tooltip("The FOV the camera will set to when the player sprints. To disable this effect, just set it to the same value as the default FOV!")] public float sprintIntensity = 15f;
+    [Tooltip("The FOV the camera will set to when the player slides. To disable this effect, just set it to the same value as the default FOV!")] public float slideFOV = 95f;
     [Tooltip("This value represents how many degrees the zoom changes. The higher this value is, the further in the camera will zoom.")] public float zoomIntensity = 30f;
 
     [Header("Glide - Sounds")]
@@ -88,6 +99,7 @@ public class GlideController : MonoBehaviour
     [Tooltip("The sound that plays whenever the player walks. The rate this plays at is scaled based on speed.")] public AudioClip[] walkSounds;
     [Tooltip("The sound that plays whenever the player jumps.")] public AudioClip jumpingSound;
     [Tooltip("The sound that plays whenever the player lands on the ground.")] public AudioClip landingSound;
+    [Tooltip("The sound that plays whenever the player slides.")] public AudioClip slidingSound;
 
     [Header("Glide - Animation")]
     [Tooltip("^ Leave this unassigned to ignore animations. ^\n\nExplanation of used animator parameters below:")] public Animator playerAnimator; //This is important, please read the tooltip for a comprehensive list of the animator parameters used.
@@ -111,7 +123,13 @@ public class GlideController : MonoBehaviour
     [HideInInspector]
     public bool isCrouching = false; //Internal boolean, name is self explanatory.
     [HideInInspector]
-    public bool isSprinting; //Whether or not the player is sprinting. 
+    public bool isSprinting; //Whether or not the player is sprinting.
+    [HideInInspector]
+    public bool isSliding; //Whether or not the player is sliding. 
+
+    private float slide_time;
+    private Vector3 storedAngles;
+    private Vector3 slide_direction;
 
     /// Private variables.
     private float FOV = 60f; //The default FOV value the camera will be set to. 
@@ -136,11 +154,23 @@ public class GlideController : MonoBehaviour
 
     private Rigidbody m_rig; //Reference to the rigidbody component attached to the player object;
     private CapsuleCollider m_capsule; //Reference to the capsule collider component, cached for performance reasons.
+
+    public Transform weaponParent;
+    private Vector3 weaponParentOrigin;
+    private Vector3 weaponParentBase;
+
+
     ///
 
+    // Weapon Variables
+    private float movementCounter;  //weapon bob var
+    private float idleCounter;      //weapon bob var
+    private float sprintCounter;   //weapon bob var
+    private Vector3 targetWeaponBobPosition;
 
     void Start()
     {
+        PlayerControlActions.CreateWithDefaultBindings();
 
         FOV = playerCamera.fieldOfView;
 
@@ -150,7 +180,7 @@ public class GlideController : MonoBehaviour
         gameObject.GetComponent<AudioManager>().Init(); //The AudioManager is initialized so that player sounds can be objectpooled.
 
         m_topSpeed = moveSpeed; //The top speed is set to the default moveSpeed.
- 
+
         m_goalAngles = playerCamera.gameObject.transform.rotation.eulerAngles; //Goal angles are based on the player camera's rotation.
         m_camOrigin = playerCamera.transform.localPosition; //The camera's origin is cached so bobbing and landing effects can be applied without the camera losing its default position.
         m_camOriginBaseHeight = m_camOrigin.y;
@@ -158,6 +188,7 @@ public class GlideController : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked; //Cursor is locked.
         Cursor.visible = false; //Cursor is hidden.
+
 
 
         if (playerAnimator != null) //This is used to help keep animator objects in place when crouching.
@@ -206,6 +237,10 @@ public class GlideController : MonoBehaviour
         }
         ///
 
+
+        weaponParentOrigin = weaponParent.localPosition;
+        weaponParentBase = weaponParentOrigin;
+
     }
 
     void Update()
@@ -245,6 +280,10 @@ public class GlideController : MonoBehaviour
         ///Crouch motion
         if (isCrouching)
         {
+
+
+            weaponParentBase = weaponParentOrigin + Vector3.down * crouchPercent * 1.625f;
+
             if (Mathf.Abs((playerHeight * crouchPercent) - m_capsule.height) > 0.02f) //If we're outside the snapping threshold for crouching, we do the following:
             {
                 m_shift = ((playerHeight * crouchPercent) - m_capsule.height) * 0.1f; //We get the difference between the current height and the goal here, then multiply by a smoothing value.
@@ -256,6 +295,8 @@ public class GlideController : MonoBehaviour
         }
         else
         {
+            weaponParentBase = weaponParentOrigin;
+
             if (Mathf.Abs((playerHeight) - m_capsule.height) > 0.02f) //When returning to the normal height, check to make sure we're outside of the snapping threshold. If so, do the following:
             {
                 m_shift = (playerHeight - m_capsule.height) * 0.1f; //Get the difference between our current height and the normal height.
@@ -278,7 +319,7 @@ public class GlideController : MonoBehaviour
 
                 if (crouchingWeight != string.Empty)
                     playerAnimator.SetLayerWeight(playerAnimator.GetLayerIndex(crouchingWeight), 1f - Mathf.Abs(playerHeight * crouchPercent - m_capsule.height) / Mathf.Abs(playerHeight * crouchPercent - playerHeight));
-                
+
             }
         }
         ///
@@ -318,6 +359,68 @@ public class GlideController : MonoBehaviour
                 m_topSpeed = crouchSpeed;
         }
         ///
+
+
+
+        /// Sliding 
+
+        if (Input.GetKey(slideButton) && !isSliding && isSprinting)
+        {
+            slide_time = 0.0f;
+            isSliding = true;
+            slide_direction = movement;
+            AudioManager.PlaySound(slidingSound, soundVolume);
+
+        }
+
+        if (isSliding)
+        {
+
+
+            if (Mathf.Abs((playerHeight * slidePercent) - m_capsule.height) > 0.02f) //If we're outside the snapping threshold for crouching, we do the following:
+            {
+                m_shift = ((playerHeight * slidePercent) - m_capsule.height) * 0.1f; //We get the difference between the current height and the goal here, then multiply by a smoothing value.
+                m_capsule.height += m_shift; //Apply the shift to the current height.
+                transform.position += Vector3.up * m_shift * 0.5f; //Position is shifted to help keep crouching smooth.
+            }
+            else
+            {
+                m_capsule.height = playerHeight * slidePercent; //Snap to the crouch height if we're within the threshold.
+            }
+
+            weaponParentBase = weaponParentOrigin + Vector3.down * slidePercent * 1.625f;
+
+
+            // m_capsule.height = playerHeight * slidePercent; //Snap to the crouch height if we're within the threshold.
+
+            // m_capsule.height += ((m_camOriginBaseHeight * slidePercent) - m_capsule.height) * 0.1f;
+            m_topSpeed += (slideSpeed - m_topSpeed) * 0.2f;
+            playerCamera.fieldOfView += ((slideFOV + m_zoomAdditive) - playerCamera.fieldOfView) * 0.2f;
+            storedAngles = m_goalAngles;
+            m_goalAngles = new Vector3(m_goalAngles.x, m_goalAngles.y, -10);
+
+            slide_time += Time.deltaTime;
+            if (slide_time > lengthOfSlide)
+            {
+                isSliding = false;
+                m_goalAngles = new Vector3(m_goalAngles.x, m_goalAngles.y, 0);
+            }
+        }
+        else if (!isSliding && !isCrouching)
+        {
+            if (Mathf.Abs((playerHeight) - m_capsule.height) > 0.02f) //When returning to the normal height, check to make sure we're outside of the snapping threshold. If so, do the following:
+            {
+                m_shift = (playerHeight - m_capsule.height) * 0.1f; //Get the difference between our current height and the normal height.
+                m_capsule.height += m_shift; //Shift the position to keep the transition smooth.
+                transform.position += Vector3.up * m_shift * 0.3f; //Shift the height up.
+            }
+            else
+                m_capsule.height = playerHeight; //Snap to the normal height if we're within the threshold.
+        }
+
+
+
+
 
         /// General Motion.
         if (!lockMovement) //If the movement isn't locked, manage player controls to figure out where they want to go.
@@ -415,7 +518,7 @@ public class GlideController : MonoBehaviour
         ///
 
         /// Ceiling bumping. Prevents that obnoxious "sticky" feel you get whenever you jump into something above you.
-        
+
         if (Physics.Raycast(transform.position, Vector3.up, out m_hit, m_capsule.height * 0.55f, ~0, QueryTriggerInteraction.Ignore))
         {
             if (m_hit.collider.GetComponent<Rigidbody>() != null)
@@ -522,7 +625,7 @@ public class GlideController : MonoBehaviour
              * ground, and this looks extremely ugly.
             */
 
-            m_grav = Mathf.Clamp(m_grav, -0.2f, Mathf.Infinity);
+            m_grav = Mathf.Clamp(m_grav, -1f, Mathf.Infinity);
 
         }
         ///
@@ -649,6 +752,8 @@ public class GlideController : MonoBehaviour
                     gameObject.transform.rotation = Quaternion.Euler(0f, m_goalAngles.y, 0f); //The horizontal rotation is applied to the player's body.
                     playerCamera.transform.rotation = Quaternion.Euler(m_goalAngles); //The vertical rotation is applied to the player's head.
 
+                    weaponParent.rotation = playerCamera.transform.rotation; //sets the gun to follow the rotation of the camera
+
                     break;
 
             }
@@ -698,8 +803,38 @@ public class GlideController : MonoBehaviour
                 playerAnimator.SetFloat(relativeSpeedParameter, m_topSpeed / moveSpeed);
         }
 
-        ///
 
+        /// WEAPON BOB
+        /// 
+        if (!Input.GetMouseButton(1))
+        {
+            if (Input.GetAxis(walkAxis) == 0 && Input.GetAxis(strafeAxis) == 0)
+            {
+                WeaponBob(idleCounter, 0.025f, 0.025f);
+                idleCounter += Time.deltaTime;
+                weaponParent.localPosition = Vector3.Lerp(weaponParent.localPosition, targetWeaponBobPosition, Time.deltaTime * 2f);
+
+            }
+            else if (!isSprinting)
+            {
+                WeaponBob(movementCounter, 0.035f, 0.035f);
+                movementCounter += Time.deltaTime * 3f;
+                weaponParent.localPosition = Vector3.Lerp(weaponParent.localPosition, targetWeaponBobPosition, Time.deltaTime * 6f);
+
+            }
+            else if (isSprinting)
+            {
+
+                WeaponBob(sprintCounter, 0.05f, 0.05f);
+                sprintCounter += Time.deltaTime * 6f;
+                weaponParent.localPosition = Vector3.Lerp(weaponParent.localPosition, targetWeaponBobPosition, Time.deltaTime * 9f);
+            }
+        }
+        else
+        {
+            weaponParent.localPosition = weaponParentBase;
+
+        }
 
         m_lastGrav = m_grav; //The gravity from the last frame is set here. This is mostly used to compare against prior frame motion.
 
@@ -719,7 +854,6 @@ public class GlideController : MonoBehaviour
             movement.z += (1f - m_slidingNormal.y) * m_slidingNormal.z * 0.5f;
         }
 
-        m_rig.velocity = movement; //Movement is applied here. Motion is scaled on framerate to smooth things out.
         m_rig.velocity = movement; //Movement is applied here. Motion is scaled on framerate to smooth things out.
 
         ///Third-person outputs are assigned here!
@@ -802,7 +936,7 @@ public class GlideController : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
-        
+
         if (collision.collider.GetComponent<Rigidbody>() != null)
             if (!collision.collider.GetComponent<Rigidbody>().isKinematic)
                 return;
@@ -815,7 +949,7 @@ public class GlideController : MonoBehaviour
             normal += m_pnt.normal;
         */
 
-        if(Physics.Raycast(transform.position, Vector3.down, out m_hit))
+        if (Physics.Raycast(transform.position, Vector3.down, out m_hit))
             normal = m_hit.normal;
 
         normal = normal.normalized;
@@ -843,7 +977,7 @@ public class GlideController : MonoBehaviour
                 m_canJump = true;
         }
         ///
-        
+
     }
 
     public void Teleport(Vector3 position)
@@ -885,6 +1019,13 @@ public class GlideController : MonoBehaviour
 
                 break;
         }
+    }
+
+    void WeaponBob(float parameterZ, float xIntensity, float yIntensity)
+    {
+
+        targetWeaponBobPosition = weaponParentBase + new Vector3(Mathf.Cos(parameterZ) * xIntensity, Mathf.Sin(parameterZ * 2) * yIntensity, 0);
+
     }
 
     private void OnDrawGizmos()
