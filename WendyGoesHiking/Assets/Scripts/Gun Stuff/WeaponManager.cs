@@ -14,6 +14,7 @@ public class WeaponManager : MonoBehaviour
 
     public Transform weaponParent;  //transform of empty gameobject
 
+    public float recoverySpeed = 2;
 
     public GameObject[] bulletHolePrefabs;
     public LayerMask shootableLayers;
@@ -95,7 +96,7 @@ public class WeaponManager : MonoBehaviour
                 }
             }
             // weapon position return
-            equippedWeapon.transform.localPosition = Vector3.Lerp(equippedWeapon.transform.localPosition, Vector3.zero, Time.deltaTime * 4f);
+            equippedWeapon.transform.localPosition = Vector3.Lerp(equippedWeapon.transform.localPosition, Vector3.zero, Time.deltaTime * recoverySpeed);
 
             //Cooldown
             if (currentCooldown > 0)
