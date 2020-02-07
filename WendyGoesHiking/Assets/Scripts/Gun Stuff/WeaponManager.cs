@@ -53,7 +53,6 @@ public class WeaponManager : MonoBehaviour
     private void Update()
     {
 
-        Debug.Log("Cooldown: " + currentCooldown);
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {     //if the number key '1' is pressed, equip first weapon
@@ -155,7 +154,7 @@ public class WeaponManager : MonoBehaviour
 
     void Shoot()
     {
-        Transform spawn = transform.Find("Cameras/PlayerCamera");
+        Transform spawn = transform.Find("PlayerCamera");
 
         //Cooldown
         currentCooldown = loadout[currentIndex].fireRate;
@@ -185,10 +184,8 @@ public class WeaponManager : MonoBehaviour
 
                 GameObject newBulletHole = Instantiate(bulletHolePrefabs[Random.Range(0, bulletHolePrefabs.Length - 1)], tempHit.point + tempHit.normal * 0.001f, Quaternion.FromToRotation(Vector3.up, tempHit.normal));
 
-                // GameObject newBulletHole = Instantiate(bulletHolePrefabs[Random.Range(0, bulletHolePrefabs.Length - 1)], tempHit.point + tempHit.normal * 0.001f, Quaternion.identity) as GameObject;
                 newBulletHole.transform.LookAt(tempHit.point + tempHit.normal);
 
-                //newBulletHole.transform.rotation = new Quaternion(Random.Range(0, 360), 0, 0, 0);
                 newBulletHole.transform.Rotate(0, 0, Random.Range(0, 360));
 
                 newBulletHole.transform.SetParent(tempHit.transform);
@@ -220,11 +217,6 @@ public class WeaponManager : MonoBehaviour
     void SpawnBulletShell()
     {
         if (equippedWeapon.name == loadout[0].name + "(Clone)")
-        {
-            GameObject bullet = Instantiate(bulletshell, equippedWeapon.transform.Find("Anchor/Model/Silenced_Handgun/Cartridge_Release").position + new Vector3(0, 0.05f, 0), Quaternion.Euler(90, 0, 0));
-            bullet.GetComponent<Rigidbody>().AddForce(200 * transform.up);
-        }
-        else if (equippedWeapon.name == loadout[1].name + "(Clone)")
         {
             GameObject bullet = Instantiate(bulletshell, equippedWeapon.transform.Find("Anchor/Model/Shotgun/Cartridge_Release").position + new Vector3(0, 0.05f, 0), Quaternion.Euler(90, 0, 0));
             bullet.GetComponent<Rigidbody>().AddForce(200 * transform.up);

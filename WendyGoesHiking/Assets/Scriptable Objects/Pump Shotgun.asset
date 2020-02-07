@@ -23,9 +23,9 @@ MonoBehaviour:
   aimSpeed: 4
   reloadSpeed: 2
   recovery: 0
-  gunshotSound: {fileID: 0}
-  reloadSound: {fileID: 0}
+  gunshotSound: {fileID: 8300000, guid: 899de3a4ccf913e4a986fb9012f1028f, type: 3}
+  reloadSound: {fileID: 8300000, guid: de58b5411c8dec9409cec2f9b76c88bb, type: 3}
   emptyMagSound: {fileID: 0}
   recoverySound: {fileID: 0}
-  pitchRandomization: 0
+  pitchRandomization: 0.21
   prefab: {fileID: 6980909579959716551, guid: 3810f369925e5da48b8a504402b764fd, type: 3}
