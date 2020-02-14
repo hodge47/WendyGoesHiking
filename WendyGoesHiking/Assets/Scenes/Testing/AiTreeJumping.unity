@@ -379,7 +379,7 @@ PrefabInstance:
     - target: {fileID: 6670141732771390101, guid: 178d017993c740148b8829da619bf9db,
         type: 3}
       propertyPath: m_Name
-      value: Tree4 (6)
+      value: Tree10
       objectReference: {fileID: 0}
     - target: {fileID: 6670141732771390101, guid: 178d017993c740148b8829da619bf9db,
         type: 3}
@@ -493,7 +493,7 @@ PrefabInstance:
     - target: {fileID: 6670141732771390101, guid: 178d017993c740148b8829da619bf9db,
         type: 3}
       propertyPath: m_Name
-      value: Tree4 (1)
+      value: Tree5
       objectReference: {fileID: 0}
     - target: {fileID: 6670141732771390101, guid: 178d017993c740148b8829da619bf9db,
         type: 3}
@@ -717,7 +717,7 @@ PrefabInstance:
     - target: {fileID: 6670141732771390101, guid: 178d017993c740148b8829da619bf9db,
         type: 3}
       propertyPath: m_Name
-      value: Tree4 (12)
+      value: Tree16
       objectReference: {fileID: 0}
     - target: {fileID: 6670141732771390101, guid: 178d017993c740148b8829da619bf9db,
         type: 3}
@@ -831,7 +831,7 @@ PrefabInstance:
     - target: {fileID: 6670141732771390101, guid: 178d017993c740148b8829da619bf9db,
         type: 3}
       propertyPath: m_Name
-      value: Tree4 (2)
+      value: Tree6
       objectReference: {fileID: 0}
     - target: {fileID: 6670141732771390101, guid: 178d017993c740148b8829da619bf9db,
         type: 3}
@@ -1196,20 +1196,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2a7ad5a7eae4c94ab3dca6e945f8475, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentArc: 0
   nextTree: {fileID: 0}
   startPosition: {fileID: 329791416}
   destination: {fileID: 1152589377}
   targetPosition: {fileID: 754961137}
   jumpSpeed: {x: 30, y: 45}
-  arcHeight: {x: 15, y: 30}
+  arcHeight: {x: 15, y: 25}
+  arrivalPauseTime: {x: 1, y: 2}
   jumpRange: 50
   maxTreeFieldRange: 200
   aiTrees: []
   isTesting: 1
-  closestAITrees: []
+  hasJumpSequence: 0
+  jumpPause: 0
+  canMove: 1
+  timeSinceJumpPause: 0
+  hasTimeSinceArrived: 0
+  firstArrived: 0
+  pauseTime: 0
   treesIveBeenTo: []
-  randJumpSpeed: 0
-  randArcHeight: 0
 --- !u!1 &754961137
 GameObject:
   m_ObjectHideFlags: 0
@@ -1315,7 +1321,7 @@ PrefabInstance:
     - target: {fileID: 6670141732771390101, guid: 178d017993c740148b8829da619bf9db,
         type: 3}
       propertyPath: m_Name
-      value: Tree4 (5)
+      value: Tree9
       objectReference: {fileID: 0}
     - target: {fileID: 6670141732771390101, guid: 178d017993c740148b8829da619bf9db,
         type: 3}
@@ -1554,7 +1560,7 @@ PrefabInstance:
     - target: {fileID: 6670141732771390101, guid: 178d017993c740148b8829da619bf9db,
         type: 3}
       propertyPath: m_Name
-      value: Tree4 (11)
+      value: Tree15
       objectReference: {fileID: 0}
     - target: {fileID: 6670141732771390101, guid: 178d017993c740148b8829da619bf9db,
         type: 3}
@@ -1698,7 +1704,7 @@ PrefabInstance:
     - target: {fileID: 6670141732771390101, guid: 178d017993c740148b8829da619bf9db,
         type: 3}
       propertyPath: m_Name
-      value: Tree4 (9)
+      value: Tree13
       objectReference: {fileID: 0}
     - target: {fileID: 6670141732771390101, guid: 178d017993c740148b8829da619bf9db,
         type: 3}
@@ -1921,7 +1927,7 @@ PrefabInstance:
     - target: {fileID: 6670141732771390101, guid: 178d017993c740148b8829da619bf9db,
         type: 3}
       propertyPath: m_Name
-      value: Tree4 (14)
+      value: Tree18
       objectReference: {fileID: 0}
     - target: {fileID: 6670141732771390101, guid: 178d017993c740148b8829da619bf9db,
         type: 3}
@@ -2035,7 +2041,7 @@ PrefabInstance:
     - target: {fileID: 6670141732771390101, guid: 178d017993c740148b8829da619bf9db,
         type: 3}
       propertyPath: m_Name
-      value: Tree4 (10)
+      value: Tree14
       objectReference: {fileID: 0}
     - target: {fileID: 6670141732771390101, guid: 178d017993c740148b8829da619bf9db,
         type: 3}
@@ -2429,7 +2435,7 @@ PrefabInstance:
     - target: {fileID: 6670141732771390101, guid: 178d017993c740148b8829da619bf9db,
         type: 3}
       propertyPath: m_Name
-      value: Tree4 (3)
+      value: Tree7
       objectReference: {fileID: 0}
     - target: {fileID: 6670141732771390101, guid: 178d017993c740148b8829da619bf9db,
         type: 3}
@@ -2543,7 +2549,7 @@ PrefabInstance:
     - target: {fileID: 6670141732771390101, guid: 178d017993c740148b8829da619bf9db,
         type: 3}
       propertyPath: m_Name
-      value: Tree4 (4)
+      value: Tree8
       objectReference: {fileID: 0}
     - target: {fileID: 6670141732771390101, guid: 178d017993c740148b8829da619bf9db,
         type: 3}
@@ -2657,7 +2663,7 @@ PrefabInstance:
     - target: {fileID: 6670141732771390101, guid: 178d017993c740148b8829da619bf9db,
         type: 3}
       propertyPath: m_Name
-      value: Tree4 (7)
+      value: Tree11
       objectReference: {fileID: 0}
     - target: {fileID: 6670141732771390101, guid: 178d017993c740148b8829da619bf9db,
         type: 3}
@@ -3048,7 +3054,7 @@ PrefabInstance:
     - target: {fileID: 6670141732771390101, guid: 178d017993c740148b8829da619bf9db,
         type: 3}
       propertyPath: m_Name
-      value: Tree4 (8)
+      value: Tree12
       objectReference: {fileID: 0}
     - target: {fileID: 6670141732771390101, guid: 178d017993c740148b8829da619bf9db,
         type: 3}
@@ -3162,7 +3168,7 @@ PrefabInstance:
     - target: {fileID: 6670141732771390101, guid: 178d017993c740148b8829da619bf9db,
         type: 3}
       propertyPath: m_Name
-      value: Tree4 (13)
+      value: Tree17
       objectReference: {fileID: 0}
     - target: {fileID: 6670141732771390101, guid: 178d017993c740148b8829da619bf9db,
         type: 3}

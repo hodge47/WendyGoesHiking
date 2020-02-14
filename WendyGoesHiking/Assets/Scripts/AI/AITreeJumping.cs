@@ -5,6 +5,9 @@ using Sirenix.OdinInspector;
 
 public class AITreeJumping : MonoBehaviour
 {
+    [SerializeField]
+    [ReadOnly]
+    private float currentArc = 0;
     public AITree nextTree;
     public GameObject startPosition;
     public GameObject destination;
@@ -13,11 +16,13 @@ public class AITreeJumping : MonoBehaviour
     public Vector2 jumpSpeed = new Vector2(20f, 25f);
     [MinMaxSlider(5f, 35f, showFields: true)]
     public Vector2 arcHeight = new Vector2(15f, 20f);
+    [MinMaxSlider(0f, 10f, showFields: true)]
+    public Vector2 arrivalPauseTime = new Vector2(1f, 5f);
     public float jumpRange = 20f;
 
     public float maxTreeFieldRange = 30f;
 
-    [ReadOnly]
+    [HideInInspector]
     public AITree[] aiTrees;
 
     public bool isTesting;
@@ -29,27 +34,42 @@ public class AITreeJumping : MonoBehaviour
         SetUpAITreeJumping();
     }
 
-    private bool hasJumpSequence = false;
-    private bool arrived = false;
-    private AITree lastJumpPoint = null; // Need this to see if we are stuck
-
-    [ReadOnly]
-    private int numberOfJumps = 0;
-
     [SerializeField]
     [ReadOnly]
-    private List<AITree> closestAITrees = new List<AITree>();
+    private bool hasJumpSequence = false;
+    private bool arrived = false;
+    [SerializeField]
     [ReadOnly]
+    private bool jumpPause = false;
+    [SerializeField]
+    [ReadOnly]
+    private bool canMove = true;
+    [SerializeField]
+    [ReadOnly]
+    private float timeSinceJumpPause = 0;
+    [SerializeField]
+    [ReadOnly]
+    private bool hasTimeSinceArrived = false;
+    [SerializeField]
+    [ReadOnly]
+    private bool firstArrived = false;
+    [SerializeField]
+    [ReadOnly]
+    private float pauseTime;
+    private Vector3 lastPosition = new Vector3();
+    private AITree lastJumpPoint = null; // Need this to see if we are stuck
+
+    private int numberOfJumps = 0;
+
+    private List<AITree> closestAITrees = new List<AITree>();
+    [HideInInspector]
     public List<AITree> treesIveBeenTo = new List<AITree>();
 
     private System.Random rand = new System.Random();
 
-    [SerializeField]
-    [ReadOnly]
     private int randJumpSpeed = 0;
-    [SerializeField]
-    [ReadOnly]
     private int randArcHeight = 0;
+    private bool isStuck = false;
 
     // Start is called before the first frame update
     void Start()
@@ -81,6 +101,7 @@ public class AITreeJumping : MonoBehaviour
 
     private void SetUpAITreeJumping()
     {
+        isStuck = false;
         lastJumpPoint = null;
         arrived = false;
         closestAITrees.Clear();
@@ -122,10 +143,11 @@ public class AITreeJumping : MonoBehaviour
     private void InitiateJumpSequence()
     {
          if(this.transform.position == targetPosition.transform.position){
+             firstArrived = true;
              Arrived();
-            
         }
         else{
+            firstArrived = false;
             // Rotate to face the next jump position
             RotateTowardsNextJump();
             // Jump to next position
@@ -172,24 +194,65 @@ public class AITreeJumping : MonoBehaviour
 
     public void Arrived()
     {
+        
         // Set random jump speed and arc height
         randJumpSpeed = rand.Next((int)jumpSpeed.x, (int)jumpSpeed.y + 1);
         randArcHeight = rand.Next((int)arcHeight.x, (int)arcHeight.y + 1);
 
-        if(this.transform.position == destination.transform.position){
+        if(this.transform.position == destination.transform.position || isStuck){
             arrived = true;
             hasJumpSequence = false;
             treesIveBeenTo.Clear();
+            nextTree = null;
+            Debug.Log("Jump sequence completed!");
             return;
         }
-        else{
+        else
+        {
+            if(CheckIfCanMove())
+            {
+                
+                timeSinceJumpPause = 0f;
+                lastJumpPoint = nextTree;
+                nextTree = GetNextTreeDestination();
+                if(lastJumpPoint == nextTree){
+                    isStuck = true;
+                    return;
+                }
+                startPosition = targetPosition;
+                targetPosition = nextTree.jumpPoint;  
+                hasTimeSinceArrived = false;
+            }
+
             
-            nextTree = GetNextTreeDestination();
-            lastJumpPoint = nextTree;
-            startPosition = targetPosition;
-            targetPosition = nextTree.jumpPoint;
         }
-        
+    }
+
+    private bool CheckIfCanMove()
+    {
+        bool _canMove = false;
+
+        if(firstArrived && !hasTimeSinceArrived)
+        {
+            timeSinceJumpPause = Time.time;
+            hasTimeSinceArrived = true;
+            pauseTime = rand.Next((int)arrivalPauseTime.x, (int)arrivalPauseTime.y + 1);
+
+        }
+
+        // See if I can move
+        if(hasTimeSinceArrived)
+        {
+            if(Time.time - timeSinceJumpPause > (float)pauseTime)
+            {
+                _canMove = true;
+                timeSinceJumpPause = 0;
+            }
+            else{
+                _canMove = false;
+            }
+        }
+        return _canMove;
     }
 
     private void RotateTowardsNextJump()
@@ -215,6 +278,7 @@ public class AITreeJumping : MonoBehaviour
         float baseY = Mathf.Abs(Mathf.Lerp(startPosition.transform.position.y, targetPosition.transform.position.y, 1));
         Vector3 moveVector = Vector3.MoveTowards(transform.position, targetPosition.transform.position, Time.deltaTime * jumpSpeed.x);
         float arc = Mathf.Abs((randArcHeight * ((nextX - x0) * (nextX - x1) - (nextZ - z0) * (nextZ - z1)) ) / (-0.25f * dist * dist));
+        currentArc = arc;
         Vector3 nextPosition = new Vector3(moveVector.x, baseY + arc, moveVector.z);
 
         return nextPosition;
