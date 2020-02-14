@@ -90,6 +90,7 @@ public class Door : InteractiveObject
         if (key != null && consumesKey)
         {
             PlayerInventory.InventoryObjects.Remove(key);
+            Debug.Log($"The {key} has been removed from the inventory.");
         }
     }
 }
