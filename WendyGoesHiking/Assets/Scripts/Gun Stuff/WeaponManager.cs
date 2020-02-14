@@ -29,6 +29,8 @@ public class WeaponManager : MonoBehaviour
 
     private Text uiAmmo;
 
+    //GlideController glideController = GlideController.current;
+
     [SerializeField] GameObject bulletshell;
 
 
@@ -70,7 +72,7 @@ public class WeaponManager : MonoBehaviour
         {
             Aim(Input.GetMouseButton(1));
 
-            if (Input.GetMouseButtonDown(0) && currentCooldown <= 0)
+            if (Input.GetMouseButtonDown(0) && currentCooldown <= 0 && !GlideController.current.isSprinting)
             {
                 if (loadout[currentIndex].CanFireBullet())
                 {
@@ -119,16 +121,25 @@ public class WeaponManager : MonoBehaviour
         Transform anchorTransform = equippedWeapon.transform.Find("Anchor");
         Transform stateADS = equippedWeapon.transform.Find("States/ADS");
         Transform stateHip = equippedWeapon.transform.Find("States/Hip");
+        Transform stateRunning = equippedWeapon.transform.Find("States/Running");
 
-        if (isAiming)
+        if (isAiming && !GlideController.current.isSprinting)
         {
             //ADS
             anchorTransform.position = Vector3.Lerp(anchorTransform.position, stateADS.position, Time.deltaTime * loadout[currentIndex].aimSpeed);
+            anchorTransform.rotation = Quaternion.Lerp(anchorTransform.rotation, stateADS.rotation, Time.deltaTime * loadout[currentIndex].aimSpeed);
         }
-        else
+        else if (!isAiming && !GlideController.current.isSprinting)
         {
             //Hip
             anchorTransform.position = Vector3.Lerp(anchorTransform.position, stateHip.position, Time.deltaTime * loadout[currentIndex].aimSpeed);
+            anchorTransform.rotation = Quaternion.Lerp(anchorTransform.rotation, stateHip.rotation, Time.deltaTime * loadout[currentIndex].aimSpeed);
+        }
+        else if (GlideController.current.isSprinting)
+        {
+            //sprinting
+            anchorTransform.position = Vector3.Lerp(anchorTransform.position, stateRunning.position, Time.deltaTime * loadout[currentIndex].aimSpeed);
+            anchorTransform.rotation = Quaternion.Lerp(anchorTransform.rotation, stateRunning.rotation, Time.deltaTime * loadout[currentIndex].aimSpeed);
         }
     }
 
