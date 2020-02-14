@@ -11,7 +11,10 @@ public class AITree : MonoBehaviour
     void Start()
     {
         // Get the jump point of this tree
-        jumpPoint = this.transform.Find("JumpPoint").gameObject;
+        if(jumpPoint == null)
+        {
+            Debug.LogError($"{this.gameObject.name} does not have a jump point Assigned!", this.gameObject);
+        }
     }
 
     // Update is called once per frame
