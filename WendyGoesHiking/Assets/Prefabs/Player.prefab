@@ -619,5 +619,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eadbf959261840646b6e12c556dd95b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  raycastOrigin: {fileID: 0}
+  raycastOrigin: {fileID: 8889721390183370616}
   maxRange: 3
