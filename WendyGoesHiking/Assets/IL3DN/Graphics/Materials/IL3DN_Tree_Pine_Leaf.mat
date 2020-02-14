@@ -120,7 +120,7 @@ Material:
     - _ZWrite: 1
     - __dirty: 1
     m_Colors:
-    - _Color: {r: 0.094117455, g: 0.44313708, b: 0.32116348, a: 1}
+    - _Color: {r: 0.094117425, g: 0.44313705, b: 0.32116345, a: 1}
     - _Color0: {r: 1, g: 1, b: 1, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
     - _HueVariation: {r: 1, g: 0.8997179, b: 0.740566, a: 1}
