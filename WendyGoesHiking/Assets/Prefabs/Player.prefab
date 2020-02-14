@@ -523,7 +523,7 @@ MonoBehaviour:
   thirdPersonOrbitDistance: 3
   sprintIntensity: 15
   slideFOV: 95
-  zoomIntensity: 0
+  zoomIntensity: 30
   enableSounds: 1
   soundVolume: 1
   landingSoundTimer: 0.3
