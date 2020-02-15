@@ -1201,6 +1201,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114317455535621936, guid: d46c81fde8881ed44913f6aaa6f5bd75,
+        type: 3}
+      propertyPath: sprintingParameter
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114317455535621936, guid: d46c81fde8881ed44913f6aaa6f5bd75,
+        type: 3}
+      propertyPath: staminaSystem
+      value: 
+      objectReference: {fileID: 1019387305}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d46c81fde8881ed44913f6aaa6f5bd75, type: 3}
 --- !u!1 &1019387301 stripped
@@ -1241,6 +1251,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37a3333c61228484fab128f3b4108e9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1019387305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019387301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4096e75238527b3408129f46a055c7c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minStaminaBeforeSprintingEnabled: 10
+  currentStamina: 0
+  staminaReductionAmount: 1
+  staminaRecoveryAmount: 1
+  timeToWaitBeforeStaminaRecovers: 5
+  hasEnoughStamina: 1
 --- !u!1 &1195288109
 GameObject:
   m_ObjectHideFlags: 0
