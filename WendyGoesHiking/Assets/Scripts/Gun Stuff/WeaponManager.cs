@@ -29,12 +29,13 @@ public class WeaponManager : MonoBehaviour
 
     private bool isReloading;
 
-    private Text uiAmmo;
+    [SerializeField] GameObject ammoOne;
+    [SerializeField] GameObject ammoTwo;
+    [SerializeField] Text uiAmmo;
 
 
 
     [SerializeField] LayerMask mask;
-
 
 
     private void Start()
@@ -47,8 +48,6 @@ public class WeaponManager : MonoBehaviour
         {
             guns.Initialize();
         }
-
-        uiAmmo = GameObject.Find("Player HUD/Main Player Canvas/Ammo/Text").GetComponent<Text>();
 
     }
 
