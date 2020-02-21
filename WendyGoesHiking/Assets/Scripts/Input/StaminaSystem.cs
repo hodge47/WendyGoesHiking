@@ -18,6 +18,7 @@ public class StaminaSystem : MonoBehaviour
     public float minStaminaBeforeSprintingEnabled = 10;
     /// <summary>
     /// The player's current stamina, it decreases by a set amount while the player is sprinting.
+    /// It is set to maxStamina at the start of the game.
     /// </summary>
     public float currentStamina;
     /// <summary>
@@ -33,8 +34,14 @@ public class StaminaSystem : MonoBehaviour
     /// </summary>
     public float timeToWaitBeforeStaminaRecovers;
 
-
+    /// <summary>
+    /// Bool used to tell whether the player has stamina above the minStaminaBeforeSprintingEnabled amount
+    /// </summary>
     public bool hasEnoughStamina = true;
+    /// <summary>
+    /// Bool used to tell whether the player is sprinting
+    /// It is set based on the GlideController
+    /// </summary>
     public bool IsSprinting
     {
         get;
@@ -50,26 +57,7 @@ public class StaminaSystem : MonoBehaviour
 
     private void Update()
     {
-        currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina);
-
-        CheckIfPlayerHasEnoughStamina();
-        CheckIfPlayerIsSprinting();
-
-        if (IsSprinting)
-            StartCoroutine(DecreaseStamina());
-        if (IsSprinting == false && currentStamina != maxStamina)
-            StartCoroutine(IncreaseStamina());
-
-
-        if (currentStamina == maxStamina)
-            StopCoroutine(IncreaseStamina());
-        if (currentStamina == 0 || IsSprinting == false)
-            StopCoroutine(DecreaseStamina());
-
-        if (currentStamina > maxStamina)
-            currentStamina = maxStamina;
-
-        Debug.Log($"Current stamina: {currentStamina}");
+        RunCoroutines();
     }
 
     private void CheckIfPlayerHasEnoughStamina()
@@ -87,6 +75,43 @@ public class StaminaSystem : MonoBehaviour
             IsSprinting = false;
     }
 
+    private void RunCoroutines()
+    {
+        currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina);
+
+        CheckIfPlayerHasEnoughStamina();
+        CheckIfPlayerIsSprinting();
+
+        if (currentStamina == maxStamina)
+        {
+            //CancelInvoke("IncreaseStamina2");
+            StopCoroutine(IncreaseStamina());
+        }
+        else if (currentStamina == 0 || IsSprinting == false)
+        {
+            //CancelInvoke("DecreaseStamina2");
+            StopCoroutine(DecreaseStamina());
+        }
+
+        if (IsSprinting)
+        {
+            //Invoke("DecreaseStamina2", 1f);
+            StartCoroutine(DecreaseStamina());
+        }
+        else if (IsSprinting == false && currentStamina != maxStamina)
+        {
+            //Invoke("IncreaseStamina2", 1f);
+            StartCoroutine(IncreaseStamina());
+        }
+
+
+
+        if (currentStamina > maxStamina)
+            currentStamina = maxStamina;
+
+        Debug.Log($"Current stamina: {currentStamina}");
+    }
+
     IEnumerator DecreaseStamina()
     {
         if(currentStamina > 0)
@@ -97,6 +122,14 @@ public class StaminaSystem : MonoBehaviour
             
     }
 
+    private void DecreaseStamina2()
+    {
+        if (currentStamina > 0)
+        {
+            currentStamina -= staminaReductionAmount;
+        }
+    }
+
     IEnumerator IncreaseStamina()
     {
         yield return new WaitForSeconds(timeToWaitBeforeStaminaRecovers);
@@ -105,5 +138,13 @@ public class StaminaSystem : MonoBehaviour
             currentStamina += staminaRecoveryAmount;
         }
             
+    }
+
+    private void IncreaseStamina2()
+    {
+        if (currentStamina < maxStamina)
+        {
+            currentStamina += staminaRecoveryAmount;
+        }
     }
 }
