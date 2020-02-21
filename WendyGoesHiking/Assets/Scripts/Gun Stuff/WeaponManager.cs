@@ -54,7 +54,7 @@ public class WeaponManager : MonoBehaviour
 
     private void Update()
     {
-
+        Debug.Log("Current Ammo: " + loadout[currentIndex].GetAmmo());
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {     //if the number key '1' is pressed, equip first weapon
@@ -73,11 +73,11 @@ public class WeaponManager : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0) && currentCooldown <= 0 && !GlideController.current.isSprinting)
             {
-                if (loadout[currentIndex].CanFireBullet())
+                if (loadout[currentIndex].CanFireBullet() && !isReloading)
                 {
                     Shoot();
                 }
-                else if (loadout[currentIndex].GetAmmo() > 0)
+                else if (loadout[currentIndex].GetAmmo() > 0 && !isReloading)
                 {
                     StartCoroutine(Reload(loadout[currentIndex].reloadSpeed));
                 }
@@ -227,7 +227,7 @@ public class WeaponManager : MonoBehaviour
     IEnumerator Reload(float waitTime)
     {
         isReloading = true;
-        equippedWeapon.SetActive(false);
+        equippedWeapon.SetActive(false);        //this should be replaced by triggering an animation
         if (loadout[currentIndex].reloadSound != null)
         {
             sfx2.clip = loadout[currentIndex].reloadSound;
