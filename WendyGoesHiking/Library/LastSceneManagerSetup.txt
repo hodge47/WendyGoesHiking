@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/Testing/ObjectInteraction.unity
+- path: Assets/Scenes/Testing/Terrain_Testing_2.0.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

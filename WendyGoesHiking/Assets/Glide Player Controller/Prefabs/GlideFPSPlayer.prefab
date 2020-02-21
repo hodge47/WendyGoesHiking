@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 4824964809271614}
   - component: {fileID: 114317455535621936}
   - component: {fileID: 114666690275523056}
+  - component: {fileID: 1019387303}
+  - component: {fileID: 1019387304}
+  - component: {fileID: 1019387305}
   m_Layer: 0
   m_Name: GlideFPSPlayer
   m_TagString: Player
@@ -45,15 +48,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976157c796a6f3648aab554f76203ed7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  staminaSystem: {fileID: 1019387305}
   playerMode: 0
-  movementMode: 1
   playerRadius: 0.3
   playerHeight: 1.64
-  slopeLimit: 45
-  stepOffset: 0.3
-  skinWidth: 0.08
-  minMoveDistance: 0.001
-  center: {x: 0, y: 0, z: 0}
   strafeAxis: Horizontal
   walkAxis: Vertical
   jumpButton: 32
@@ -62,6 +60,7 @@ MonoBehaviour:
   sprintMode: 1
   crouchButton: 306
   crouchMode: 1
+  slideButton: 99
   lookAxisX: Mouse X
   lookAxisY: Mouse Y
   mouseSensitivity: 1.5
@@ -74,10 +73,13 @@ MonoBehaviour:
   moveSpeed: 5
   crouchSpeed: 2
   sprintSpeed: 9
+  slideSpeed: 20
   jumpPower: 12
   slidingOnSlopes: 1
   slopeBias: 0.4
   crouchPercent: 0.4
+  slidePercent: 0.5
+  lengthOfSlide: 1
   movement: {x: 0, y: 0, z: 0}
   lockCamera: 0
   playerCamera: {fileID: 20768807671117420}
@@ -87,8 +89,10 @@ MonoBehaviour:
   viewBobRate: 1
   viewBobPower: 1
   landingEffects: 1
+  rigidbodyOcclusion: 1
   thirdPersonOrbitDistance: 3
   sprintIntensity: 15
+  slideFOV: 95
   zoomIntensity: 30
   enableSounds: 1
   soundVolume: 1
@@ -100,6 +104,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b074d3a6b288e0c45b6d297c6f993468, type: 3}
   jumpingSound: {fileID: 8300000, guid: c2e97f3cf1a02d644b7e58c10ff53a17, type: 3}
   landingSound: {fileID: 8300000, guid: c06be735375ec78418299f8fc2da9bd1, type: 3}
+  slidingSound: {fileID: 0}
   playerAnimator: {fileID: 0}
   walkingParameter: 
   sprintingParameter: 
@@ -113,6 +118,8 @@ MonoBehaviour:
   isGrounded: 0
   isCrouching: 0
   isSprinting: 0
+  isSliding: 0
+  weaponParent: {fileID: 0}
 --- !u!114 &114666690275523056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,6 +133,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   instances: []
+--- !u!114 &1019387303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1070759060988834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eadbf959261840646b6e12c556dd95b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  raycastOrigin: {fileID: 4823036449449272}
+  maxRange: 5
+--- !u!114 &1019387304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1070759060988834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a3333c61228484fab128f3b4108e9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1019387305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1070759060988834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4096e75238527b3408129f46a055c7c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minStaminaBeforeSprintingEnabled: 10
+  currentStamina: 0
+  staminaReductionAmount: 1
+  staminaRecoveryAmount: 1
+  timeToWaitBeforeStaminaRecovers: 5
+  hasEnoughStamina: 1
 --- !u!1 &1155672140221416
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,9 +222,10 @@ Camera:
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
-  m_GateFitMode: 2
   m_FocalLength: 50
   m_NormalizedViewPortRect:
     serializedVersion: 2
