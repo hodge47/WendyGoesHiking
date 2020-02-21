@@ -83,7 +83,7 @@ public class WeaponManager : MonoBehaviour
                 }
                 else if (loadout[currentIndex].GetAmmo() > 0 && !isReloading)
                 {
-                    StartCoroutine(Reload(loadout[currentIndex].reloadSpeed));
+                    StartCoroutine(Reload());
                 }
                 else
                 {
@@ -97,7 +97,7 @@ public class WeaponManager : MonoBehaviour
             {
                 if (loadout[currentIndex].GetMagazine() < loadout[currentIndex].magazineSize && loadout[currentIndex].GetAmmo() > 0)
                 {
-                    StartCoroutine(Reload(loadout[currentIndex].reloadSpeed));
+                    StartCoroutine(Reload());
                 }
             }
             // weapon position return
@@ -246,20 +246,23 @@ public class WeaponManager : MonoBehaviour
 
     }
 
-    IEnumerator Reload(float waitTime)
+    IEnumerator Reload()
     {
         isReloading = true;
-        equippedWeapon.SetActive(false);        //this should be replaced by triggering an animation
+
+        equippedWeapon.GetComponent<Animator>().Play("Reload", 0, 0);
+
+
         if (loadout[currentIndex].reloadSound != null)
         {
             sfx2.clip = loadout[currentIndex].reloadSound;
             sfx2.pitch = 1 - loadout[currentIndex].pitchRandomization + Random.Range(-loadout[currentIndex].pitchRandomization, loadout[currentIndex].pitchRandomization);
             sfx2.Play();
         }
-        yield return new WaitForSeconds(waitTime);
+        
+        yield return new WaitForSeconds(equippedWeapon.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
 
         loadout[currentIndex].Reload();
-        equippedWeapon.SetActive(true);
         isReloading = false;
 
     }
