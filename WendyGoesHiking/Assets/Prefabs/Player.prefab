@@ -482,6 +482,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976157c796a6f3648aab554f76203ed7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  staminaSystem: {fileID: 0}
   playerMode: 0
   playerRadius: 0.3
   playerHeight: 1.64
@@ -617,7 +618,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   raycastOrigin: {fileID: 8889721390183370616}
-  maxRange: 3
+  maxRange: 
 --- !u!114 &1442645294
 MonoBehaviour:
   m_ObjectHideFlags: 0
