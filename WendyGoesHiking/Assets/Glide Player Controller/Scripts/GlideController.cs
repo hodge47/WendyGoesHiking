@@ -328,7 +328,7 @@ public class GlideController : MonoBehaviour
         switch (sprintMode)
         {
             case (GlideSprintSetting.normal):
-                if (Mathf.Abs(Input.GetAxis(walkAxis)) > 0)
+                if (Input.GetAxis(walkAxis) > 0)
                     isSprinting = Input.GetKey(sprintButton);
                 else
                     isSprinting = false;
