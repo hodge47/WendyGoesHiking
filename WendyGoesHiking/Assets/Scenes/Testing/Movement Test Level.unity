@@ -1555,12 +1555,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 1754544700954064156, guid: 8547f0c50b5871a42bf17360ede1bb74, type: 3}
---- !u!4 &1299853413 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8889721390183370616, guid: 02d00a751304b014ea686ea91a376143,
-    type: 3}
-  m_PrefabInstance: {fileID: 8885461360085339429}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1335941308
 GameObject:
   m_ObjectHideFlags: 0
@@ -16662,30 +16656,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1070759581336776, guid: 02d00a751304b014ea686ea91a376143, type: 3}
-      propertyPath: loadout.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1070759581336776, guid: 02d00a751304b014ea686ea91a376143, type: 3}
-      propertyPath: loadout.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: 9965a2f09671cba4eb581c46f406958f,
-        type: 2}
-    - target: {fileID: 1831681106289819404, guid: 02d00a751304b014ea686ea91a376143,
-        type: 3}
-      propertyPath: raycastOrigin
-      value: 
-      objectReference: {fileID: 1299853413}
-    - target: {fileID: 8852285871426071920, guid: 02d00a751304b014ea686ea91a376143,
-        type: 3}
-      propertyPath: viewBobRate
-      value: 0.84
-      objectReference: {fileID: 0}
-    - target: {fileID: 8852285871426071920, guid: 02d00a751304b014ea686ea91a376143,
-        type: 3}
-      propertyPath: viewBobPower
-      value: 1.19
-      objectReference: {fileID: 0}
     - target: {fileID: 8884561780859521506, guid: 02d00a751304b014ea686ea91a376143,
         type: 3}
       propertyPath: m_Name
