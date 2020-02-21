@@ -1,52 +1,45 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
+using DG.Tweening.Core;
 
 /// <summary>
-/// Checks how long the player has been running for
+/// Increases and Decreases stamina of the player based on whether they are sprinting or not.
 /// </summary>
 public class StaminaSystem : MonoBehaviour
 {
     /// <summary>
     /// The maximum amount of stamina the player can have at any given time.
-    /// Can not be changed.
+    /// Should not be changed in code.
     /// </summary>
-    public const float maxStamina = 100;
+    public float maxStamina = 100;
     /// <summary>
     /// The minimum amount of stamina required for sprinting
     /// </summary>
-    public float minStaminaBeforeSprintingEnabled = 10;
+    [Tooltip("The minimum amount of stamina the player should have before being able to sprint.")]
+    public float minStaminaBeforeSprintingEnabled;
     /// <summary>
     /// The player's current stamina, it decreases by a set amount while the player is sprinting.
     /// It is set to maxStamina at the start of the game.
     /// </summary>
+    [HideInInspector]
     public float currentStamina;
     /// <summary>
     /// The amount of stamina removed every second
     /// </summary>
-    public float staminaReductionAmount = 1;
+    [Tooltip("How much stamina is recovered per second. Smaller the number the more is recovered.")]
+    public float staminaRecoveryTime;
     /// <summary>
     /// The amount of stamina recovered every second
     /// </summary>
-    public float staminaRecoveryAmount = 1;
-    /// <summary>
-    /// This is the amount of time that passes before the player's stamina starts to recover
-    /// </summary>
-    public float timeToWaitBeforeStaminaRecovers;
-
+    [Tooltip("How much stamina is removed per second. Smaller the number the more is removed.")]
+    public float staminaDecreaseTime;
     /// <summary>
     /// Bool used to tell whether the player has stamina above the minStaminaBeforeSprintingEnabled amount
     /// </summary>
+    [HideInInspector]
     public bool hasEnoughStamina = true;
-    /// <summary>
-    /// Bool used to tell whether the player is sprinting
-    /// It is set based on the GlideController
-    /// </summary>
-    public bool IsSprinting
-    {
-        get;
-        set;
-    }
 
 
     private void Start()
@@ -54,12 +47,38 @@ public class StaminaSystem : MonoBehaviour
         currentStamina = maxStamina;
     }
 
-
-    private void Update()
+    /// <summary>
+    /// Fixed Update works better than Update()
+    /// The numbers decrease more consistently.
+    /// </summary>
+    private void FixedUpdate()
     {
-        RunCoroutines();
+        PreventStaminaFromGoingOutofBounds();
+
+        CheckIfPlayerHasEnoughStamina();
+
+        IncreaseStamina();
+        DecreaseStamina();
+
+        Debug.Log($"Current stamina: {currentStamina}");
+    }
+    /// <summary>
+    /// This makes sure the stamina doesn't go above max stamina or below zero
+    /// </summary>
+    private void PreventStaminaFromGoingOutofBounds()
+    {
+        currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina);
+        if (currentStamina > maxStamina)
+            currentStamina = maxStamina;
+        if (currentStamina < 0)
+            currentStamina = 0;
     }
 
+    /// <summary>
+    /// Checks to see if the player's currentStamina is equal to or greater than <param>minStaminaBeforeSprintingEnabled</param>
+    /// if it is then the player is allowed to run, if not then they are not.
+    /// The variable <param>hasEnoughStamina</param> is used by the GlideController to determine whether or not the player is allowed to sprint
+    /// </summary>
     private void CheckIfPlayerHasEnoughStamina()
     {
         if (currentStamina < minStaminaBeforeSprintingEnabled)
@@ -67,84 +86,23 @@ public class StaminaSystem : MonoBehaviour
         if (currentStamina >= minStaminaBeforeSprintingEnabled)
             hasEnoughStamina = true;
     }
-    private void CheckIfPlayerIsSprinting()
+
+    /// <summary>
+    /// Decreases the currentStamina if the sprintButton is held down
+    /// currentStamina is decreased everysecond by the amount of staminaDecreaseTime * 10
+    /// </summary>
+    private void DecreaseStamina()
     {
-        if (GlideController.current.isSprinting)
-            IsSprinting = true;
-        if (!GlideController.current.isSprinting)
-            IsSprinting = false;
+        if (Input.GetKey(GlideController.current.sprintButton) && currentStamina > 0)
+            currentStamina -= ((1/staminaDecreaseTime) * Time.deltaTime);
     }
-
-    private void RunCoroutines()
+    /// <summary>
+    /// Increases the currentStamina if the sprintButton is not held down
+    /// currentStamina is increased everysecond by the amount of staminaIncreaseTime * 10
+    /// </summary>
+    private void IncreaseStamina()
     {
-        currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina);
-
-        CheckIfPlayerHasEnoughStamina();
-        CheckIfPlayerIsSprinting();
-
-        if (currentStamina == maxStamina)
-        {
-            //CancelInvoke("IncreaseStamina2");
-            StopCoroutine(IncreaseStamina());
-        }
-        else if (currentStamina == 0 || IsSprinting == false)
-        {
-            //CancelInvoke("DecreaseStamina2");
-            StopCoroutine(DecreaseStamina());
-        }
-
-        if (IsSprinting)
-        {
-            //Invoke("DecreaseStamina2", 1f);
-            StartCoroutine(DecreaseStamina());
-        }
-        else if (IsSprinting == false && currentStamina != maxStamina)
-        {
-            //Invoke("IncreaseStamina2", 1f);
-            StartCoroutine(IncreaseStamina());
-        }
-
-
-
-        if (currentStamina > maxStamina)
-            currentStamina = maxStamina;
-
-        Debug.Log($"Current stamina: {currentStamina}");
-    }
-
-    IEnumerator DecreaseStamina()
-    {
-        if(currentStamina > 0)
-        {
-            yield return new WaitForSeconds(1);
-            currentStamina -= staminaReductionAmount;
-        }
-            
-    }
-
-    private void DecreaseStamina2()
-    {
-        if (currentStamina > 0)
-        {
-            currentStamina -= staminaReductionAmount;
-        }
-    }
-
-    IEnumerator IncreaseStamina()
-    {
-        yield return new WaitForSeconds(timeToWaitBeforeStaminaRecovers);
-        if(currentStamina < maxStamina)
-        {           
-            currentStamina += staminaRecoveryAmount;
-        }
-            
-    }
-
-    private void IncreaseStamina2()
-    {
-        if (currentStamina < maxStamina)
-        {
-            currentStamina += staminaRecoveryAmount;
-        }
+        if (!Input.GetKey(GlideController.current.sprintButton) && currentStamina != maxStamina)
+            currentStamina += ((1 / staminaDecreaseTime) * Time.deltaTime);
     }
 }
