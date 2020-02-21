@@ -10,7 +10,9 @@ using UnityEngine.AI;
 public class WeaponManager : MonoBehaviour
 {
 
-    public Gun[] loadout;    //array of gun inventory
+    public static WeaponManager current;
+
+    public List <Gun> loadout;    //array of gun inventory
 
     public Transform weaponParent;  //transform of empty gameobject
 
@@ -29,12 +31,8 @@ public class WeaponManager : MonoBehaviour
 
     private Text uiAmmo;
 
-    //GlideController glideController = GlideController.current;
-
-    [SerializeField] GameObject bulletshell;
 
 
-    [SerializeField] GameObject bloodSplat, bodyBlood;
     [SerializeField] LayerMask mask;
 
 
@@ -43,6 +41,7 @@ public class WeaponManager : MonoBehaviour
     {
         // Equip(0);
 
+        current = this; //The current weapon Manager is assigned so you can access it whenever you need to.
 
         foreach (Gun guns in loadout)
         {
@@ -143,7 +142,7 @@ public class WeaponManager : MonoBehaviour
         }
     }
 
-    void Equip(int loadoutIndex)
+   public void Equip(int loadoutIndex)
     {
         if (equippedWeapon != null)
         {
@@ -171,7 +170,6 @@ public class WeaponManager : MonoBehaviour
         //Cooldown
         currentCooldown = loadout[currentIndex].fireRate;
 
-        SpawnBulletShell();
 
         //bloom
         Vector3 bloom = spawn.position + spawn.forward * 1000f;
@@ -224,16 +222,6 @@ public class WeaponManager : MonoBehaviour
         }
 
 
-    }
-
-    void SpawnBulletShell()
-    {
-        if (equippedWeapon.name == loadout[0].name + "(Clone)")
-        {
-            GameObject bullet = Instantiate(bulletshell, equippedWeapon.transform.Find("Anchor/Model/Shotgun/Cartridge_Release").position + new Vector3(0, 0.05f, 0), Quaternion.Euler(90, 0, 0));
-            bullet.GetComponent<Rigidbody>().AddForce(200 * transform.up);
-
-        }
     }
 
     IEnumerator Reload(float waitTime)
