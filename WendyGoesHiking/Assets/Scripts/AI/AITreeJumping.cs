@@ -8,10 +8,12 @@ public class AITreeJumping : MonoBehaviour
     [SerializeField]
     [ReadOnly]
     private float currentArc = 0;
+    
     public AITree nextTree;
     public GameObject startPosition;
     public GameObject destination;
     public GameObject targetPosition;
+    public float startPositionDistance = 30f;
     [MinMaxSlider(10f, 60f, showFields: true)]
     public Vector2 jumpSpeed = new Vector2(20f, 25f);
     [MinMaxSlider(5f, 35f, showFields: true)]
@@ -19,13 +21,15 @@ public class AITreeJumping : MonoBehaviour
     [MinMaxSlider(0f, 10f, showFields: true)]
     public Vector2 arrivalPauseTime = new Vector2(1f, 5f);
     public float jumpRange = 20f;
-
     public float maxTreeFieldRange = 30f;
 
     [HideInInspector]
     public AITree[] aiTrees;
+    [HideInInspector]
+    public List<AITree> treesIveBeenTo = new List<AITree>();
 
     public bool isTesting;
+
     [ShowIf("isTesting")]
     [DisableInEditorMode]
     [Button(ButtonSizes.Small)]
@@ -34,66 +38,39 @@ public class AITreeJumping : MonoBehaviour
         SetUpAITreeJumping();
     }
 
-    [SerializeField]
-    [ReadOnly]
     private bool hasJumpSequence = false;
     private bool arrived = false;
-    [SerializeField]
-    [ReadOnly]
     private bool jumpPause = false;
-    [SerializeField]
-    [ReadOnly]
     private bool canMove = true;
-    [SerializeField]
-    [ReadOnly]
     private float timeSinceJumpPause = 0;
-    [SerializeField]
-    [ReadOnly]
     private bool hasTimeSinceArrived = false;
-    [SerializeField]
-    [ReadOnly]
     private bool firstArrived = false;
-    [SerializeField]
-    [ReadOnly]
     private float pauseTime;
     private Vector3 lastPosition = new Vector3();
     private AITree lastJumpPoint = null; // Need this to see if we are stuck
-
     private int numberOfJumps = 0;
-
     private List<AITree> closestAITrees = new List<AITree>();
-    [HideInInspector]
-    public List<AITree> treesIveBeenTo = new List<AITree>();
-
     private System.Random rand = new System.Random();
-
     private int randJumpSpeed = 0;
     private int randArcHeight = 0;
     private bool isStuck = false;
+    [SerializeField]
+    private bool bentTree = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        // Get our start position
-        this.transform.position = startPosition.transform.position;
         // Set first random jump speed and arcHeight
         randJumpSpeed = rand.Next((int)jumpSpeed.x, (int)jumpSpeed.y + 1);
         randArcHeight = rand.Next((int)arcHeight.x, (int)arcHeight.y + 1);
-
+        // Get all of the AI Trees in the scene
         aiTrees = GameObject.FindObjectsOfType<AITree>();
-
-        foreach(AITree tree in aiTrees)
-        {
-            if(tree.jumpPoint != startPosition){
-            //Debug.Log($"Dist from {startPosition.transform.parent.gameObject.name} to {tree.gameObject.name} is: {Vector3.Distance(startPosition.gameObject.transform.position, tree.transform.position)}");
-
-            }
-        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        // If the AI has a jump sequence, then it can plan it's next move
         if(hasJumpSequence){
             InitiateJumpSequence();
         }
@@ -104,9 +81,11 @@ public class AITreeJumping : MonoBehaviour
         isStuck = false;
         lastJumpPoint = null;
         arrived = false;
+        bentTree = false;
         closestAITrees.Clear();
         var player = GameObject.FindGameObjectWithTag("Player");
 
+        // Get the closest trees to the player in the max tree field distance
         foreach(AITree tree in aiTrees){
             var dist = Vector3.Distance(tree.gameObject.transform.position, player.transform.position);
             //Debug.Log(dist);
@@ -115,25 +94,66 @@ public class AITreeJumping : MonoBehaviour
                 closestAITrees.Add(tree);
             }
         }
-        // TODO: Choose randomly start and destination positions that are relatively close to the player
         
         // Define the start position randomly closest to the player
-        // startPosition = closestAITrees[rand.Next(0, closestAITrees.Count)].jumpPoint;
-        // this.transform.position = startPosition.transform.position;
-        // //Debug.Log("Start position: " + startPosition.transform.parent.gameObject.name);
-        // // Define destination based on furthest tree from the start point
-        // float _fursthestDist = 0;
-        // foreach(AITree tree in closestAITrees){
-        //     if(tree.jumpPoint != startPosition)
-        //     {
-        //         var dist = Vector3.Distance(transform.gameObject.transform.position, startPosition.transform.position);
-        //         //Debug.Log("Furthest tree from start:" + _fursthestDist);
-        //         if(dist >= _fursthestDist){
-        //             destination = tree.jumpPoint.gameObject;
-        //         }
-        //     }
-        // }
-        //Debug.Log("Destination:" + destination.transform.parent.gameObject.name);
+        List<AITree> _possibleStartingPositions = new List<AITree>();
+        foreach(AITree tree in aiTrees)
+        {
+            if(Vector3.Distance(player.transform.position, tree.transform.position) < startPositionDistance)
+            {
+                _possibleStartingPositions.Add(tree);
+            }
+        }
+
+        if(_possibleStartingPositions.Count > 0){
+            startPosition = _possibleStartingPositions[rand.Next(0, _possibleStartingPositions.Count)].jumpPoint;
+        }
+        else
+        {
+            float _leastDist = 9999;
+            AITree _startTree = null;
+            foreach(AITree tree in aiTrees)
+            {
+                float _dist = Vector3.Distance(player.transform.position, tree.transform.position);
+                if(_dist < _leastDist)
+                {
+                    _leastDist = _dist;
+                    _startTree = tree;
+                    Debug.Log(_startTree.gameObject.name);
+                }
+            }
+
+            startPosition = _startTree.jumpPoint;
+        }
+
+        this.transform.position = startPosition.transform.position;
+
+        // Define the destination randomly near the player
+        float _greatDist = 0;
+        AITree _destTree = null;
+        foreach(AITree tree in aiTrees)
+        {
+            if(tree != startPosition.transform.parent.GetComponent<AITree>())
+            {
+                float _dist = Vector3.Distance(tree.transform.position, player.transform.position);
+                if(_dist > _greatDist){
+                    _greatDist = _dist;
+                    _destTree = tree;
+                }
+            }
+        }
+        destination = _destTree.jumpPoint;
+
+        // Get the next jump point
+        List<AITree> _possibleTargets = new List<AITree>();
+        AITree _targetDest = null;
+        foreach(AITree tree in aiTrees){
+            if(tree.jumpPoint != startPosition && tree.jumpPoint != destination){
+                _possibleTargets.Add(tree);
+            }
+        }
+        targetPosition = _possibleTargets[rand.Next(0, _possibleTargets.Count)].jumpPoint;
+        nextTree = targetPosition.transform.parent.GetComponent<AITree>();
         // Add start tree to trees I've been to so AI can't double back
         treesIveBeenTo.Add(startPosition.transform.parent.GetComponent<AITree>());
         lastJumpPoint = startPosition.transform.parent.GetComponent<AITree>();
@@ -142,7 +162,8 @@ public class AITreeJumping : MonoBehaviour
 
     private void InitiateJumpSequence()
     {
-         if(this.transform.position == targetPosition.transform.position){
+        // If we are at the destination, tell the jump sequence we have arrived. If not, continue moving to the next destination
+        if(this.transform.position == targetPosition.transform.position){
              firstArrived = true;
              Arrived();
         }
@@ -199,6 +220,13 @@ public class AITreeJumping : MonoBehaviour
         randJumpSpeed = rand.Next((int)jumpSpeed.x, (int)jumpSpeed.y + 1);
         randArcHeight = rand.Next((int)arcHeight.x, (int)arcHeight.y + 1);
 
+        if(bentTree == false)
+        {
+            nextTree.TweenBendDeformer(1, Quaternion.Euler(new Vector3(0, this.transform.rotation.eulerAngles.y, 0)));
+            bentTree = true;
+        }
+            
+
         if(this.transform.position == destination.transform.position || isStuck){
             arrived = true;
             hasJumpSequence = false;
@@ -222,6 +250,7 @@ public class AITreeJumping : MonoBehaviour
                 startPosition = targetPosition;
                 targetPosition = nextTree.jumpPoint;  
                 hasTimeSinceArrived = false;
+                bentTree = false;
             }
 
             
@@ -243,13 +272,14 @@ public class AITreeJumping : MonoBehaviour
         // See if I can move
         if(hasTimeSinceArrived)
         {
-            if(Time.time - timeSinceJumpPause > (float)pauseTime)
+            if(Time.time - timeSinceJumpPause > (float)pauseTime && lastJumpPoint.isBending == false)
             {
                 _canMove = true;
                 timeSinceJumpPause = 0;
             }
             else{
                 _canMove = false;
+                this.transform.position = nextTree.jumpPoint.transform.position;
             }
         }
         return _canMove;
