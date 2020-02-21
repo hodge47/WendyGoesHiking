@@ -696,7 +696,7 @@ public class GlideController : MonoBehaviour
                         float m_walkTime = 0f;
                         m_walkTime += viewBobRate * Time.time * ((isSprinting) ? (10f + (sprintSpeed / moveSpeed) * 2f) : 10f); //m_walkTime controls the viewbob's rate! It's scaled depending on speed.
 
-                        if (enableViewbob)
+                        if (enableViewbob && !WeaponManager.current.isAiming)
                             m_camPosTracer += (m_camOrigin + (Vector3.up * viewBobPower * Mathf.Sin(m_walkTime) * ((isSprinting) ? 0.15f : 0.1f)) - m_camPosTracer) * 0.4f; //Bobbing effects.
                         else
                             m_camPosTracer += (m_camOrigin - m_camPosTracer) * 0.4f; //The camera is lerped to its default position if viewbobbing is disabled.
@@ -809,7 +809,7 @@ public class GlideController : MonoBehaviour
 
         /// WEAPON BOB
         /// 
-        if (!Input.GetMouseButton(1))
+        if (!WeaponManager.current.isAiming)
         {
             if (Input.GetAxis(walkAxis) == 0 && Input.GetAxis(strafeAxis) == 0)
             {
