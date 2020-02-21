@@ -328,14 +328,14 @@ public class GlideController : MonoBehaviour
         switch (sprintMode)
         {
             case (GlideSprintSetting.normal):
-                if (Input.GetAxis(walkAxis) > 0)
+                if (Mathf.Abs(Input.GetAxis(walkAxis)) > 0)
                     isSprinting = Input.GetKey(sprintButton);
                 else
                     isSprinting = false;
                 break;
 
             case (GlideSprintSetting.classic):
-                if (Input.GetKey(sprintButton))
+                if (Input.GetKey(sprintButton) && Mathf.Abs(Input.GetAxis(walkAxis)) > 0)
                     isSprinting = true;
                 if ((Mathf.Abs(Input.GetAxis(strafeAxis)) + Mathf.Abs(Input.GetAxis(walkAxis))) * 0.5f < 0.5f) //Player's intended movement is averaged on intensity and analyzed. If it falls below a threshold, sprinting turns off.
                     isSprinting = false;
