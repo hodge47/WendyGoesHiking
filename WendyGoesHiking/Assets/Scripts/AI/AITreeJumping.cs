@@ -5,23 +5,24 @@ using Sirenix.OdinInspector;
 
 public class AITreeJumping : MonoBehaviour
 {
-    [SerializeField]
-    [ReadOnly]
-    private float currentArc = 0;
     
-    public AITree nextTree;
-    public GameObject startPosition;
-    public GameObject destination;
-    public GameObject targetPosition;
-    public float startPositionDistance = 30f;
+    [SerializeField]
+    private float startPositionDistance = 30f;
+    [SerializeField]
     [MinMaxSlider(10f, 60f, showFields: true)]
-    public Vector2 jumpSpeed = new Vector2(20f, 25f);
+    private Vector2 jumpSpeed = new Vector2(20f, 25f);
+    [SerializeField]
     [MinMaxSlider(5f, 35f, showFields: true)]
-    public Vector2 arcHeight = new Vector2(15f, 20f);
+    private Vector2 arcHeight = new Vector2(15f, 20f);
+    [SerializeField]
     [MinMaxSlider(0f, 10f, showFields: true)]
-    public Vector2 arrivalPauseTime = new Vector2(1f, 5f);
-    public float jumpRange = 20f;
-    public float maxTreeFieldRange = 30f;
+    private Vector2 arrivalPauseTime = new Vector2(1f, 5f);
+    [SerializeField]
+    private float jumpRange = 20f;
+    [SerializeField]
+    private float maxTreeFieldRange = 30f;
+    [SerializeField]
+    private bool bendTreeOnArrival = false;
 
     [HideInInspector]
     public AITree[] aiTrees;
@@ -38,6 +39,11 @@ public class AITreeJumping : MonoBehaviour
         SetUpAITreeJumping();
     }
 
+    private AITree nextTree;
+    private GameObject startPosition;
+    private GameObject destination;
+    private GameObject targetPosition;
+    private float currentArc = 0;
     private bool hasJumpSequence = false;
     private bool arrived = false;
     private bool jumpPause = false;
@@ -54,7 +60,6 @@ public class AITreeJumping : MonoBehaviour
     private int randJumpSpeed = 0;
     private int randArcHeight = 0;
     private bool isStuck = false;
-    [SerializeField]
     private bool bentTree = false;
 
     // Start is called before the first frame update
@@ -220,7 +225,7 @@ public class AITreeJumping : MonoBehaviour
         randJumpSpeed = rand.Next((int)jumpSpeed.x, (int)jumpSpeed.y + 1);
         randArcHeight = rand.Next((int)arcHeight.x, (int)arcHeight.y + 1);
 
-        if(bentTree == false)
+        if(bendTreeOnArrival && bentTree == false)
         {
             nextTree.TweenBendDeformer(1, Quaternion.Euler(new Vector3(0, this.transform.rotation.eulerAngles.y, 0)));
             bentTree = true;

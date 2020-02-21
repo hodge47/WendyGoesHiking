@@ -21,7 +21,8 @@ public class AITree : MonoBehaviour
     [Button(ButtonSizes.Small)]
     private void TestBend()
     {
-        //TweenBendDeformer(1, Quaternion.Euler(new Vector3(0, random.Next(0, 361), 0)));
+        if(!isBending)
+            TweenBendDeformer(1, Quaternion.Euler(new Vector3(0, random.Next(0, 361), 0)));
     }
 
     // Start is called before the first frame update
