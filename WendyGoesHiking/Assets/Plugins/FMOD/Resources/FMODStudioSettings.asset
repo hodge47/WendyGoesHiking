@@ -78,6 +78,7 @@ MonoBehaviour:
   Plugins: []
   MasterBanks:
   - Master
-  Banks: []
+  Banks:
+  - Ambience
   BanksToLoad: []
   LiveUpdatePort: 9264
