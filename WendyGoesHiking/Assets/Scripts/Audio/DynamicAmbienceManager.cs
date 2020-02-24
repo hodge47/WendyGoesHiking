@@ -15,6 +15,7 @@ public class DynamicAmbienceManager : MonoBehaviour
     private void Start()
     {
         nearbyGameObjects = new List<GameObject>();
+        InvokeRepeating("CheckNearbyGameObjects", 1f, Random.Range(5f, 10f));
     }
 
     //a way of detecting if a nearbyGameObject is tagged "Tree"
@@ -23,14 +24,34 @@ public class DynamicAmbienceManager : MonoBehaviour
         if(other.gameObject.tag == "Tree")
         {
             nearbyGameObjects.Add(other.gameObject);
+            //PlayTreeAmbience(other.gameObject);
         }
     }
+
     //a way of detecting if a nearbyGameObject is tagged "Tree" and the player has moved away from it
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "Tree")
         {
             nearbyGameObjects.Remove(other.gameObject);
+        }
+    }
+
+    //a way of playing the FMOD tree ambience event
+    void PlayTreeAmbience(GameObject gameObject)
+    {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Ambience/sx_wgh_game_amb_tree", gameObject.GetComponent<Transform>().position);
+    }
+
+    //a way of checking if the player is still in proximity to relevant gameobjects
+    void CheckNearbyGameObjects()
+    {
+        if(nearbyGameObjects.Count > 0)
+        {
+            foreach(GameObject g in nearbyGameObjects)
+            {
+                PlayTreeAmbience(g);
+            }
         }
     }
 }
