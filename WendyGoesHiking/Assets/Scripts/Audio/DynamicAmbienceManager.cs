@@ -24,7 +24,7 @@ public class DynamicAmbienceManager : MonoBehaviour
         if(other.gameObject.tag == "Tree")
         {
             nearbyGameObjects.Add(other.gameObject);
-            //PlayTreeAmbience(other.gameObject);
+            PlayTreeAmbience(other.gameObject);
         }
     }
 
@@ -50,7 +50,11 @@ public class DynamicAmbienceManager : MonoBehaviour
         {
             foreach(GameObject g in nearbyGameObjects)
             {
-                PlayTreeAmbience(g);
+                if(nearbyGameObjects.IndexOf(g) % 2 == 0)
+                {
+                    PlayTreeAmbience(g);
+                }
+                
             }
         }
     }
