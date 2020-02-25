@@ -715,7 +715,9 @@ public class GlideController : MonoBehaviour
                             {
                                 if (!m_stepped)
                                 {
-                                    AudioManager.PlaySound(walkSounds[Random.Range(0, walkSounds.Length)], soundVolume);
+                                    //jpost Audio testing out FMOD footsteps
+
+                                    //AudioManager.PlaySound(walkSounds[Random.Range(0, walkSounds.Length)], soundVolume);
                                     m_stepped = true;
                                 }
                             }

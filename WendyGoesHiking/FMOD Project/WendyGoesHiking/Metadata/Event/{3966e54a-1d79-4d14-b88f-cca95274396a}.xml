@@ -163,7 +163,7 @@
 			<value>startOffset</value>
 		</property>
 		<property name="amount">
-			<value>13.5</value>
+			<value>20</value>
 		</property>
 	</object>
 	<object class="SingleSound" id="{d731ec8e-d75d-4bb6-aa66-190aa31ba577}">
