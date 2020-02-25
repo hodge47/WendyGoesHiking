@@ -24,7 +24,7 @@ public class DynamicAmbienceManager : MonoBehaviour
         if(other.gameObject.tag == "Tree")
         {
             nearbyGameObjects.Add(other.gameObject);
-            PlayTreeAmbience(other.gameObject);
+            //PlayTreeAmbience(other.gameObject);
         }
     }
 

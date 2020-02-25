@@ -70,11 +70,11 @@
 		<relationship name="modules">
 			<destination>{b1abe947-bb66-43d7-9358-1f37ed265ef9}</destination>
 		</relationship>
-		<relationship name="markers">
-			<destination>{ec555083-104d-4230-bf15-340a79a74916}</destination>
-		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{c8b7291b-d2e1-437c-a80b-dd22655b75a9}">
+		<property name="volume">
+			<value>-32</value>
+		</property>
 		<relationship name="effectChain">
 			<destination>{f82a2c1d-ca4c-45cb-97fe-7ecab0d91277}</destination>
 		</relationship>
@@ -107,6 +107,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{9c35741d-0256-49bc-a2ef-303322ebbc4f}">
+		<property name="volume">
+			<value>-8</value>
+		</property>
 		<property name="name">
 			<value>Dirt Footsteps</value>
 		</property>
@@ -118,20 +121,6 @@
 		</relationship>
 		<relationship name="output">
 			<destination>{c8b7291b-d2e1-437c-a80b-dd22655b75a9}</destination>
-		</relationship>
-	</object>
-	<object class="LoopRegion" id="{ec555083-104d-4230-bf15-340a79a74916}">
-		<property name="position">
-			<value>0</value>
-		</property>
-		<property name="length">
-			<value>1.5</value>
-		</property>
-		<relationship name="timeline">
-			<destination>{38bd4187-aa90-449e-818d-7cd310b69247}</destination>
-		</relationship>
-		<relationship name="markerTrack">
-			<destination>{9ad7d914-826f-4ea3-9def-d0ef9f292064}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusEffectChain" id="{f82a2c1d-ca4c-45cb-97fe-7ecab0d91277}">

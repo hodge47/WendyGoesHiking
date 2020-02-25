@@ -113,7 +113,7 @@
 			<value>true</value>
 		</property>
 		<property name="triggerProbability">
-			<value>40</value>
+			<value>10.5</value>
 		</property>
 		<property name="length">
 			<value>2</value>
@@ -124,8 +124,11 @@
 		<property name="maximumTimeBetweenSounds">
 			<value>6000</value>
 		</property>
+		<property name="minimumScatterDistance">
+			<value>4.99999952</value>
+		</property>
 		<property name="maximumScatterDistance">
-			<value>5</value>
+			<value>15</value>
 		</property>
 		<property name="volumeRandomization">
 			<value>-4</value>
@@ -156,10 +159,13 @@
 			<value>true</value>
 		</property>
 		<property name="triggerProbability">
-			<value>75</value>
+			<value>25</value>
 		</property>
 		<property name="length">
 			<value>2</value>
+		</property>
+		<property name="minimumTimeBetweenSounds">
+			<value>3000</value>
 		</property>
 		<property name="maximumTimeBetweenSounds">
 			<value>9500</value>
@@ -168,7 +174,7 @@
 			<value>8.04999924</value>
 		</property>
 		<property name="maximumScatterDistance">
-			<value>65</value>
+			<value>200</value>
 		</property>
 		<property name="volumeRandomization">
 			<value>-4</value>
@@ -199,10 +205,13 @@
 			<value>true</value>
 		</property>
 		<property name="triggerProbability">
-			<value>33</value>
+			<value>20.5</value>
 		</property>
 		<property name="length">
 			<value>2</value>
+		</property>
+		<property name="minimumTimeBetweenSounds">
+			<value>4500</value>
 		</property>
 		<property name="maximumTimeBetweenSounds">
 			<value>9500</value>
@@ -211,7 +220,7 @@
 			<value>5.5999999</value>
 		</property>
 		<property name="maximumScatterDistance">
-			<value>35</value>
+			<value>250</value>
 		</property>
 		<property name="volumeRandomization">
 			<value>-4</value>
