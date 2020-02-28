@@ -10,6 +10,8 @@ public class Gun : ScriptableObject
     public int magazineSize;
     public int pellets;     //number of shots fired at once
 
+    public int healthAmount;
+
     public float fireRate;
     public float bloom;     //accuracy --- higher bloom = less accurate
     public float recoil;    //vertical rotation intensity when gun is fired

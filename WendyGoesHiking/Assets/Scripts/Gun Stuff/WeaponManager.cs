@@ -30,7 +30,8 @@ public class WeaponManager : MonoBehaviour
     private bool isReloading;
 
     private Text uiAmmo;
-
+    [SerializeField]
+    private PlayerHealth playerHealth;
 
 
     [SerializeField] LayerMask mask;
@@ -50,6 +51,7 @@ public class WeaponManager : MonoBehaviour
 
         uiAmmo = GameObject.Find("Player HUD/Main Player Canvas/Ammo/Text").GetComponent<Text>();
 
+        //playerHealth = GetComponent<PlayerHealth>();
     }
 
     private void Update()
@@ -59,12 +61,10 @@ public class WeaponManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {     //if the number key '1' is pressed, equip first weapon
             Equip(0);
-
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
-        {     //if the number key '1' is pressed, equip first weapon
+        {     //if the number key '2' is pressed, equip second weapon
             Equip(1);
-
         }
 
         if (equippedWeapon != null)
@@ -105,14 +105,28 @@ public class WeaponManager : MonoBehaviour
                 currentCooldown -= Time.deltaTime;
             }
 
+            
+
         }
 
-        RefreshAmmo(uiAmmo);
+        //RefreshAmmo(uiAmmo);
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            Debug.Log("ASDFHJSDKGAGFKSNJDGKSFNHLSFKJGLKSDFGKL:SDFJH:LSDFGNK:FGH:SKDF");
+            UseHealthKit();
+        }
 
 
 
 
+    }
 
+    void UseHealthKit()
+    {
+        Debug.Log("Current Health: " + playerHealth.currentHealth);
+        if( loadout[currentIndex].healthAmount != 0)
+            playerHealth.currentHealth += loadout[currentIndex].healthAmount;
+        Debug.Log("Current Health: " + playerHealth.currentHealth);
     }
 
     void Aim(bool isAiming)

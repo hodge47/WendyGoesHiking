@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -72,7 +72,7 @@ LightmapSettings:
     m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
     m_MixedBakeMode: 2
-    m_BakeBackend: 1
+    m_BakeBackend: 2
     m_PVRSampling: 1
     m_PVRDirectSampleCount: 32
     m_PVRSampleCount: 512
@@ -97,7 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 9076cea51cfbdb34c915ac0f6c2110da,
+    type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
@@ -1735,6 +1736,30 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -8511130367887946407, guid: 8547f0c50b5871a42bf17360ede1bb74, type: 3}
+--- !u!1 &1523463501 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8884561780859521506, guid: 02d00a751304b014ea686ea91a376143,
+    type: 3}
+  m_PrefabInstance: {fileID: 8885461360085339429}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1523463509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1523463501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4096e75238527b3408129f46a055c7c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxStamina: 100
+  minStaminaBeforeSprintingEnabled: 0
+  currentStamina: 0
+  staminaRecoveryTime: 0
+  staminaDecreaseTime: 0
+  hasEnoughStamina: 1
 --- !u!1 &1561117306 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4494018446685829031, guid: 8547f0c50b5871a42bf17360ede1bb74,
@@ -1781,7 +1806,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh24294
+  m_Name: pb_Mesh50212
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1964,7 +1989,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh24412
+  m_Name: pb_Mesh50326
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -16231,6 +16256,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8852285871426071920, guid: 02d00a751304b014ea686ea91a376143,
+        type: 3}
+      propertyPath: crouchPercent
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8852285871426071920, guid: 02d00a751304b014ea686ea91a376143,
+        type: 3}
+      propertyPath: staminaSystem
+      value: 
+      objectReference: {fileID: 1523463509}
     - target: {fileID: 8884561780859521506, guid: 02d00a751304b014ea686ea91a376143,
         type: 3}
       propertyPath: m_Name
