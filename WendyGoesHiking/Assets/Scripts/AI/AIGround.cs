@@ -35,13 +35,14 @@ public class AIGround : MonoBehaviour
     [Tooltip("Check this to test dashing.")]
     private bool isTesting = false;
 
-    [SerializeField]
-    [ReadOnly]
-    [ShowIf("isTesting")]
-    private WendigoState wendigoState = WendigoState.PASSIVE;
+    [HideInInspector]
+    public WendigoState wendigoState = WendigoState.PASSIVE;
+    [HideInInspector]
+    public bool arrivedAtDashEndPoint = false;
 
     private GameObject player;
     private NavMeshAgent agent;
+    private bool dashActive = false;
     private Vector3 dashStartPoint = Vector3.zero;
     private Vector3 dashEndPoint = Vector3.zero;
     private RaycastHit raycastHit;
@@ -79,9 +80,25 @@ public class AIGround : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        // Check to see if a dash is active so we can see if the AI arrived at the dash end point
+        if(dashActive)
+        {
+            if((this.gameObject.transform.position.x == dashEndPoint.x && this.gameObject.transform.position.z == dashEndPoint.z) || agent.isPathStale)
+            {   
+                dashActive = false;
+                arrivedAtDashEndPoint = true;
+                HideAI();
+            }
+        }
+    }
+
     // Call a dash based on AI aggression state
     public void Dash()
     {
+        dashActive = true;
+        arrivedAtDashEndPoint = false;
         // See what state the wendigo is in
         switch(wendigoState)
         {
@@ -147,7 +164,16 @@ public class AIGround : MonoBehaviour
         dashEndPoint = _player.position;
         dashEndPoint = CalculatePointAxisY(dashEndPoint);
         // Move the ground AI to the dash start position
-        this.gameObject.transform.position = new Vector3(dashStartPoint.x, this.gameObject.transform.position.y, dashStartPoint.z);
+        if(Physics.Raycast(new Vector3(this.transform.position.x, 1000, this.transform.position.z), Vector3.down, out raycastHit, Mathf.Infinity, groundLayer))
+        {
+             agent.Warp(new Vector3(dashStartPoint.x, raycastHit.point.y, dashStartPoint.z));
+        }
+        else{
+            Debug.Log("You need to assign your ground layer!");
+            dashActive = false;
+            return;
+        }
+        
         // Set the agent's destination to the dash end point
         agent.destination = dashEndPoint;
         // Set the agent's speed from tge speed range
@@ -178,5 +204,10 @@ public class AIGround : MonoBehaviour
             Gizmos.DrawSphere(dashEndPoint, 0.5f);
             Gizmos.DrawLine(dashStartPoint, dashEndPoint);
         }
+    }
+
+    private void HideAI()
+    {
+        this.gameObject.SetActive(false);
     }
 }

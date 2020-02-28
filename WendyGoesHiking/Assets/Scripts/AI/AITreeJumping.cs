@@ -92,7 +92,7 @@ public class AITreeJumping : MonoBehaviour
     }
 
     // This sets up the jump sequence
-    private void SetUpAITreeJumping()
+    public void SetUpAITreeJumping()
     {
         isStuck = false;
         lastJumpPoint = null;
@@ -255,6 +255,7 @@ public class AITreeJumping : MonoBehaviour
             hasJumpSequence = false;
             treesIveBeenTo.Clear();
             nextTree = null;
+            HideAI();
             Debug.Log("Jump sequence completed!");
             return;
         }
@@ -339,5 +340,10 @@ public class AITreeJumping : MonoBehaviour
         Vector3 nextPosition = new Vector3(moveVector.x, baseY + arc, moveVector.z);
 
         return nextPosition;
+    }
+
+    private void HideAI()
+    {
+        this.gameObject.SetActive(false);
     }
 }
