@@ -6,22 +6,30 @@ using Sirenix.OdinInspector;
 public class AITreeJumping : MonoBehaviour
 {
     
+    [Title("Tree Jumping - General")]
     [SerializeField]
+    [Tooltip("The distance a starting tree is choosen by the player.")]
     private float startPositionDistance = 30f;
     [SerializeField]
+    [Tooltip("The range [min, max] of the speed the AI moves along the jump arc.")]
     [MinMaxSlider(10f, 60f, showFields: true)]
     private Vector2 jumpSpeed = new Vector2(20f, 25f);
     [SerializeField]
+    [Tooltip("The range [min, max] of the max height the AI reaches during its jump.")]
     [MinMaxSlider(5f, 35f, showFields: true)]
     private Vector2 arcHeight = new Vector2(15f, 20f);
     [SerializeField]
+    [Tooltip("The range [min, max] of time the AI has to wait to jump to the next tree after finishing a jump.")]
     [MinMaxSlider(0f, 10f, showFields: true)]
     private Vector2 arrivalPauseTime = new Vector2(1f, 5f);
     [SerializeField]
+    [Tooltip("The max distances the AI can jump from tree to tree.")]
     private float jumpRange = 20f;
     [SerializeField]
+    [Tooltip("The max radius the script looks for available trees to jump to.")]
     private float maxTreeFieldRange = 30f;
     [SerializeField]
+    [Tooltip("If checked, the trees will bend when the player completes a jump.")]
     private bool bendTreeOnArrival = false;
 
     [HideInInspector]
@@ -29,7 +37,9 @@ public class AITreeJumping : MonoBehaviour
     [HideInInspector]
     public List<AITree> treesIveBeenTo = new List<AITree>();
 
-    public bool isTesting;
+    [SerializeField]
+    [Tooltip("Check this to test tree jumping.")]
+    private bool isTesting;
 
     [ShowIf("isTesting")]
     [DisableInEditorMode]
@@ -81,6 +91,7 @@ public class AITreeJumping : MonoBehaviour
         }
     }
 
+    // This sets up the jump sequence
     private void SetUpAITreeJumping()
     {
         isStuck = false;
@@ -165,6 +176,7 @@ public class AITreeJumping : MonoBehaviour
         hasJumpSequence = true;
     }
 
+    // This starts the jump sequence
     private void InitiateJumpSequence()
     {
         // If we are at the destination, tell the jump sequence we have arrived. If not, continue moving to the next destination
@@ -181,9 +193,12 @@ public class AITreeJumping : MonoBehaviour
         }
     }
 
+    // This gets the next tree destination
     private AITree GetNextTreeDestination()
     {
+        // Add this tree to the trees Ive been to
         treesIveBeenTo.Add(this.targetPosition.transform.parent.GetComponent<AITree>());
+        // Look for trees that I can jump to next
         List<AITree> nextJumpCanidates = new List<AITree>();
         foreach(AITree tree in aiTrees){
             var dist = Vector3.Distance(tree.gameObject.transform.position, this.transform.position);
@@ -195,6 +210,7 @@ public class AITreeJumping : MonoBehaviour
 
         numberOfJumps++;
 
+        // Pick a tree to jump to next
         var _pickJumpCanidate = (nextJumpCanidates.Count > 0) ? nextJumpCanidates[rand.Next(0, nextJumpCanidates.Count)] : null;
         if(_pickJumpCanidate == null){
             var dist = 9999f;
@@ -218,6 +234,7 @@ public class AITreeJumping : MonoBehaviour
         return _pickJumpCanidate;
     }
 
+    // This is called when the AI arrives at a tree
     public void Arrived()
     {
         
@@ -225,13 +242,14 @@ public class AITreeJumping : MonoBehaviour
         randJumpSpeed = rand.Next((int)jumpSpeed.x, (int)jumpSpeed.y + 1);
         randArcHeight = rand.Next((int)arcHeight.x, (int)arcHeight.y + 1);
 
+        // Bend the tree if bendTreeOnArrival is true
         if(bendTreeOnArrival && bentTree == false)
         {
             nextTree.TweenBendDeformer(1, Quaternion.Euler(new Vector3(0, this.transform.rotation.eulerAngles.y, 0)));
             bentTree = true;
         }
             
-
+        // Complete the jump sequence if destination reached or the AI is stuck because there are no trees to jump to
         if(this.transform.position == destination.transform.position || isStuck){
             arrived = true;
             hasJumpSequence = false;
@@ -242,6 +260,7 @@ public class AITreeJumping : MonoBehaviour
         }
         else
         {
+            // Move to the next tree if the jump cool down is over
             if(CheckIfCanMove())
             {
                 
@@ -262,6 +281,7 @@ public class AITreeJumping : MonoBehaviour
         }
     }
 
+    // This checks to see if the AI has a jump cool down
     private bool CheckIfCanMove()
     {
         bool _canMove = false;
@@ -290,6 +310,7 @@ public class AITreeJumping : MonoBehaviour
         return _canMove;
     }
 
+    // This rotates the AI to face the next tree
     private void RotateTowardsNextJump()
     {
         var target = targetPosition.transform.position;
@@ -301,6 +322,7 @@ public class AITreeJumping : MonoBehaviour
         }
     }
 
+    // This gets the next jump position on the tree and moves the AI along an arc
     private Vector3 ComputeNextJumpPosition()
     {
         float x0 = startPosition.transform.position.x;

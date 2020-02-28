@@ -1823,7 +1823,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh20286
+
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2006,7 +2006,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh20400
+
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3665,7 +3665,7 @@ PrefabInstance:
     - target: {fileID: 2373427807681938809, guid: 0cec9a1dbd0f7af408559219e1d787b4,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2373427807681938809, guid: 0cec9a1dbd0f7af408559219e1d787b4,
         type: 3}
@@ -12589,6 +12589,75 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1001 &6431136675695484995
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3011636261586103574, guid: 3810f369925e5da48b8a504402b764fd,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 31.502071
+      objectReference: {fileID: 0}
+    - target: {fileID: 3011636261586103574, guid: 3810f369925e5da48b8a504402b764fd,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 3011636261586103574, guid: 3810f369925e5da48b8a504402b764fd,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 33.96593
+      objectReference: {fileID: 0}
+    - target: {fileID: 3011636261586103574, guid: 3810f369925e5da48b8a504402b764fd,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3011636261586103574, guid: 3810f369925e5da48b8a504402b764fd,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3011636261586103574, guid: 3810f369925e5da48b8a504402b764fd,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3011636261586103574, guid: 3810f369925e5da48b8a504402b764fd,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3011636261586103574, guid: 3810f369925e5da48b8a504402b764fd,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3011636261586103574, guid: 3810f369925e5da48b8a504402b764fd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3011636261586103574, guid: 3810f369925e5da48b8a504402b764fd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3011636261586103574, guid: 3810f369925e5da48b8a504402b764fd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6980909579959716551, guid: 3810f369925e5da48b8a504402b764fd,
+        type: 3}
+      propertyPath: m_Name
+      value: Shotgun
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3810f369925e5da48b8a504402b764fd, type: 3}
 --- !u!1 &6437529873807820213
 GameObject:
   m_ObjectHideFlags: 0
@@ -16436,30 +16505,7 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1442645294, guid: 02d00a751304b014ea686ea91a376143, type: 3}
-      propertyPath: healthBar
-      value: 
-      objectReference: {fileID: 1095798256}
-    - target: {fileID: 1442645294, guid: 02d00a751304b014ea686ea91a376143, type: 3}
-      propertyPath: currentHealth
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 1070759581336776, guid: 02d00a751304b014ea686ea91a376143, type: 3}
-      propertyPath: ammoOne
-      value: 
-      objectReference: {fileID: 1479760802}
-    - target: {fileID: 1070759581336776, guid: 02d00a751304b014ea686ea91a376143, type: 3}
-      propertyPath: ammoTwo
-      value: 
-      objectReference: {fileID: 168154767}
-    - target: {fileID: 1070759581336776, guid: 02d00a751304b014ea686ea91a376143, type: 3}
-      propertyPath: uiAmmo
-      value: 
-      objectReference: {fileID: 135090135}
-    - target: {fileID: 8852285871426071920, guid: 02d00a751304b014ea686ea91a376143,
-        type: 3}
-      propertyPath: crouchPercent
-      value: 0.5
+
       objectReference: {fileID: 0}
     - target: {fileID: 8884561780859521506, guid: 02d00a751304b014ea686ea91a376143,
         type: 3}

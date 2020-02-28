@@ -12,7 +12,7 @@ public class WeaponManager : MonoBehaviour
 
     public static WeaponManager current;
 
-    public List <Gun> loadout;    //array of gun inventory
+    public List<Gun> loadout;    //array of gun inventory
 
     public Transform weaponParent;  //transform of empty gameobject
 
@@ -22,6 +22,8 @@ public class WeaponManager : MonoBehaviour
     public LayerMask shootableLayers;
     public AudioSource sfx;
     public AudioSource sfx2;
+
+    public bool isAiming;
 
     private GameObject equippedWeapon;
     private int currentIndex;
@@ -53,6 +55,8 @@ public class WeaponManager : MonoBehaviour
 
     private void Update()
     {
+        isAiming = Input.GetMouseButton(1);
+
         Debug.Log("Current Ammo: " + loadout[currentIndex].GetAmmo());
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -68,7 +72,7 @@ public class WeaponManager : MonoBehaviour
 
         if (equippedWeapon != null)
         {
-            Aim(Input.GetMouseButton(1));
+            Aim(isAiming);
 
             if (Input.GetMouseButtonDown(0) && currentCooldown <= 0 && !GlideController.current.isSprinting)
             {
@@ -78,7 +82,7 @@ public class WeaponManager : MonoBehaviour
                 }
                 else if (loadout[currentIndex].GetAmmo() > 0 && !isReloading)
                 {
-                    StartCoroutine(Reload(loadout[currentIndex].reloadSpeed));
+                    StartCoroutine(Reload());
                 }
                 else
                 {
@@ -92,7 +96,7 @@ public class WeaponManager : MonoBehaviour
             {
                 if (loadout[currentIndex].GetMagazine() < loadout[currentIndex].magazineSize && loadout[currentIndex].GetAmmo() > 0)
                 {
-                    StartCoroutine(Reload(loadout[currentIndex].reloadSpeed));
+                    StartCoroutine(Reload());
                 }
             }
             // weapon position return
@@ -114,20 +118,21 @@ public class WeaponManager : MonoBehaviour
 
     }
 
-    void Aim(bool isAiming)
+    void Aim(bool aiming)
     {
+
         Transform anchorTransform = equippedWeapon.transform.Find("Anchor");
         Transform stateADS = equippedWeapon.transform.Find("States/ADS");
         Transform stateHip = equippedWeapon.transform.Find("States/Hip");
         Transform stateRunning = equippedWeapon.transform.Find("States/Running");
 
-        if (isAiming && !GlideController.current.isSprinting)
+        if (aiming && !GlideController.current.isSprinting)
         {
             //ADS
             anchorTransform.position = Vector3.Lerp(anchorTransform.position, stateADS.position, Time.deltaTime * loadout[currentIndex].aimSpeed);
             anchorTransform.rotation = Quaternion.Lerp(anchorTransform.rotation, stateADS.rotation, Time.deltaTime * loadout[currentIndex].aimSpeed);
         }
-        else if (!isAiming && !GlideController.current.isSprinting)
+        else if (!aiming && !GlideController.current.isSprinting)
         {
             //Hip
             anchorTransform.position = Vector3.Lerp(anchorTransform.position, stateHip.position, Time.deltaTime * loadout[currentIndex].aimSpeed);
@@ -141,7 +146,7 @@ public class WeaponManager : MonoBehaviour
         }
     }
 
-   public void Equip(int loadoutIndex)
+    public void Equip(int loadoutIndex)
     {
 
         if (equippedWeapon != null)
@@ -181,8 +186,16 @@ public class WeaponManager : MonoBehaviour
 
             bloom = spawn.position + spawn.forward * 1000f;
 
-            bloom += Random.Range(-loadout[currentIndex].bloom, loadout[currentIndex].bloom) * spawn.up;
-            bloom += Random.Range(-loadout[currentIndex].bloom, loadout[currentIndex].bloom) * spawn.right;
+            if (isAiming)
+            {
+                bloom += Random.Range(-loadout[currentIndex].adsBloom, loadout[currentIndex].adsBloom) * spawn.up;
+                bloom += Random.Range(-loadout[currentIndex].adsBloom, loadout[currentIndex].adsBloom) * spawn.right;
+            }
+            else
+            {
+                bloom += Random.Range(-loadout[currentIndex].bloom, loadout[currentIndex].bloom) * spawn.up;
+                bloom += Random.Range(-loadout[currentIndex].bloom, loadout[currentIndex].bloom) * spawn.right;
+            }
             bloom -= spawn.position;
             bloom.Normalize();
 
@@ -210,8 +223,17 @@ public class WeaponManager : MonoBehaviour
         sfx.Play();
 
         // Gun FX
-        equippedWeapon.transform.Rotate(-loadout[currentIndex].recoil, 0, 0);
-        equippedWeapon.transform.position -= equippedWeapon.transform.forward * loadout[currentIndex].kickback;
+        if (isAiming)
+        {
+            equippedWeapon.transform.Rotate(-loadout[currentIndex].adsRecoil, 0, 0);
+            equippedWeapon.transform.position -= equippedWeapon.transform.forward * loadout[currentIndex].adsKickback;
+        }
+        else
+        {
+            equippedWeapon.transform.Rotate(-loadout[currentIndex].recoil, 0, 0);
+            equippedWeapon.transform.position -= equippedWeapon.transform.forward * loadout[currentIndex].kickback;
+
+        }
 
         if (loadout[currentIndex].recovery)
         {
@@ -224,20 +246,23 @@ public class WeaponManager : MonoBehaviour
 
     }
 
-    IEnumerator Reload(float waitTime)
+    IEnumerator Reload()
     {
         isReloading = true;
-        equippedWeapon.SetActive(false);        //this should be replaced by triggering an animation
+
+        equippedWeapon.GetComponent<Animator>().Play("Reload", 0, 0);
+
+
         if (loadout[currentIndex].reloadSound != null)
         {
             sfx2.clip = loadout[currentIndex].reloadSound;
             sfx2.pitch = 1 - loadout[currentIndex].pitchRandomization + Random.Range(-loadout[currentIndex].pitchRandomization, loadout[currentIndex].pitchRandomization);
             sfx2.Play();
         }
-        yield return new WaitForSeconds(waitTime);
+        
+        yield return new WaitForSeconds(equippedWeapon.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
 
         loadout[currentIndex].Reload();
-        equippedWeapon.SetActive(true);
         isReloading = false;
 
     }

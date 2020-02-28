@@ -12,8 +12,11 @@ public class Gun : ScriptableObject
 
     public float fireRate;
     public float bloom;     //accuracy --- higher bloom = less accurate
+    public float adsBloom;  //accuracy while aiming the gun
     public float recoil;    //vertical rotation intensity when gun is fired
+    public float adsRecoil;
     public float kickback;  //z axis movement intensity when gun is fired (local z position decreases as the gun moves toward the player/camera)
+    public float adsKickback;
     public float aimSpeed;
     public float reloadSpeed;   //higher number = longer time = slower reload
     public bool recovery;   //whether or not you hava a recovery (like pumping a pump shotgun)

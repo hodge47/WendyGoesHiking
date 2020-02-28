@@ -9,6 +9,7 @@ public class GlideController : MonoBehaviour
 {
 
     PlayerControlActions playerControls;
+    public StaminaSystem staminaSystem;
 
 
     public static GlideController current; //Just call GlideController.current to access the current player's variables from any other script!
@@ -328,7 +329,7 @@ public class GlideController : MonoBehaviour
         switch (sprintMode)
         {
             case (GlideSprintSetting.normal):
-                if (Input.GetAxis(walkAxis) > 0)
+                if (Mathf.Abs(Input.GetAxis(walkAxis)) > 0 && staminaSystem.hasEnoughStamina)
                     isSprinting = Input.GetKey(sprintButton);
                 else
                     isSprinting = false;
@@ -341,6 +342,10 @@ public class GlideController : MonoBehaviour
                     isSprinting = false;
                 break;
         }
+
+        //Added in to work with the StaminaSystem
+        if (!staminaSystem.hasEnoughStamina)
+            isSprinting = false;
 
         if (crouchMode == GlideCrouchSetting.noSprint && isCrouching)
             isSprinting = false;
@@ -696,7 +701,7 @@ public class GlideController : MonoBehaviour
                         float m_walkTime = 0f;
                         m_walkTime += viewBobRate * Time.time * ((isSprinting) ? (10f + (sprintSpeed / moveSpeed) * 2f) : 10f); //m_walkTime controls the viewbob's rate! It's scaled depending on speed.
 
-                        if (enableViewbob)
+                        if (enableViewbob && !WeaponManager.current.isAiming)
                             m_camPosTracer += (m_camOrigin + (Vector3.up * viewBobPower * Mathf.Sin(m_walkTime) * ((isSprinting) ? 0.15f : 0.1f)) - m_camPosTracer) * 0.4f; //Bobbing effects.
                         else
                             m_camPosTracer += (m_camOrigin - m_camPosTracer) * 0.4f; //The camera is lerped to its default position if viewbobbing is disabled.
@@ -710,7 +715,9 @@ public class GlideController : MonoBehaviour
                             {
                                 if (!m_stepped)
                                 {
-                                    AudioManager.PlaySound(walkSounds[Random.Range(0, walkSounds.Length)], soundVolume);
+                                    //jpost Audio testing out FMOD footsteps                                    
+                                    FMODUnity.RuntimeManager.PlayOneShot("event:/Player/sx_wgh_game_plr_footstep_dirt", GetComponent<Transform>().position);
+                                    //AudioManager.PlaySound(walkSounds[Random.Range(0, walkSounds.Length)], soundVolume);
                                     m_stepped = true;
                                 }
                             }
@@ -809,7 +816,7 @@ public class GlideController : MonoBehaviour
 
         /// WEAPON BOB
         /// 
-        if (!Input.GetMouseButton(1))
+        if (!WeaponManager.current.isAiming)
         {
             if (Input.GetAxis(walkAxis) == 0 && Input.GetAxis(strafeAxis) == 0)
             {
