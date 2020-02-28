@@ -31,12 +31,13 @@ public class WeaponManager : MonoBehaviour
 
     private bool isReloading;
 
-    private Text uiAmmo;
+    [SerializeField] GameObject ammoOne;
+    [SerializeField] GameObject ammoTwo;
+    [SerializeField] Text uiAmmo;
 
 
 
     [SerializeField] LayerMask mask;
-
 
 
     private void Start()
@@ -49,8 +50,6 @@ public class WeaponManager : MonoBehaviour
         {
             guns.Initialize();
         }
-
-        uiAmmo = GameObject.Find("Player HUD/Main Player Canvas/Ammo/Text").GetComponent<Text>();
 
     }
 
@@ -149,6 +148,7 @@ public class WeaponManager : MonoBehaviour
 
     public void Equip(int loadoutIndex)
     {
+
         if (equippedWeapon != null)
         {
             if (isReloading)
@@ -273,7 +273,33 @@ public class WeaponManager : MonoBehaviour
         int clip = loadout[currentIndex].GetMagazine();
         int ammo = loadout[currentIndex].GetAmmo();
 
-        uiText.text = clip.ToString("D2") + " / " + ammo.ToString("D2");
+        if (clip == 2)
+        {
+            ammoOne.SetActive(true);
+            ammoTwo.SetActive(true);
+        } 
+
+        if (clip == 1)
+        {
+            ammoOne.SetActive(false);
+            ammoTwo.SetActive(true);
+        }
+
+        if (clip == 0)
+        {
+            ammoOne.SetActive(false);
+            ammoTwo.SetActive(false);
+        }
+
+        if (currentIndex == 1)
+        {
+            uiText.text = ammo.ToString("D2");
+        }
+        else
+        {
+            uiText.text = "";
+        }
+
 
     }
 
