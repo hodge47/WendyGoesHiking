@@ -71,9 +71,9 @@ public class PlayerControlActions : PlayerActionSet
         playerControlActions.Zoom.AddDefaultBinding(Mouse.RightButton);
         playerControlActions.Reload.AddDefaultBinding(Key.R);
         playerControlActions.Use.AddDefaultBinding(Key.E);
-        playerControlActions.ShotgunSwitch.AddDefaultBinding(Key.Key1);
-        playerControlActions.FlashlightSwitch.AddDefaultBinding(Key.Key2);
-        playerControlActions.CompassSwitch.AddDefaultBinding(Key.Key3);
+        playerControlActions.CompassSwitch.AddDefaultBinding(Key.Key1);
+        playerControlActions.ShotgunSwitch.AddDefaultBinding(Key.Key2);
+        playerControlActions.FlashlightSwitch.AddDefaultBinding(Key.Key3);
         // Controller inputs
         playerControlActions.MoveRight.AddDefaultBinding(InputControlType.LeftStickRight);
         playerControlActions.MoveLeft.AddDefaultBinding(InputControlType.LeftStickLeft);
