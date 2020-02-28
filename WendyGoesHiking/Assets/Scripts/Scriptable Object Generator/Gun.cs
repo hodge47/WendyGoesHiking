@@ -9,7 +9,6 @@ public class Gun : ScriptableObject
     public int ammoSize;    //total ammo
     public int magazineSize;
     public int pellets;     //number of shots fired at once
-
     public float fireRate;
     public float bloom;     //accuracy --- higher bloom = less accurate
     public float adsBloom;  //accuracy while aiming the gun
@@ -26,7 +25,7 @@ public class Gun : ScriptableObject
     public AudioClip recoverySound;
     public float pitchRandomization;
     public GameObject prefab;
-
+    public bool isEquipped;
 
 
     private int ammo;       // current stored ammo

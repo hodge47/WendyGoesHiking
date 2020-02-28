@@ -59,7 +59,7 @@ public class WeaponManager : MonoBehaviour
 
         Debug.Log("Current Ammo: " + loadout[currentIndex].GetAmmo());
 
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha1) && !loadout[currentIndex].isEquipped)
         {     //if the number key '1' is pressed, equip first weapon
             Equip(0);
 
@@ -149,6 +149,11 @@ public class WeaponManager : MonoBehaviour
     public void Equip(int loadoutIndex)
     {
 
+        if (loadoutIndex != currentIndex)
+        {
+            loadout[currentIndex].isEquipped = false;
+        }
+
         if (equippedWeapon != null)
         {
             if (isReloading)
@@ -158,13 +163,19 @@ public class WeaponManager : MonoBehaviour
             Destroy(equippedWeapon);
         }
 
-        currentIndex = loadoutIndex;
+        
 
-        GameObject newGun = Instantiate(loadout[loadoutIndex].prefab, weaponParent.position, weaponParent.rotation, weaponParent) as GameObject;
-        newGun.transform.localPosition = Vector3.zero;      //zeros out the local postion
-        newGun.transform.localEulerAngles = Vector3.zero;   //zeros out the local rotation (euler angles is rotation in vector form)
+        if (loadout[loadoutIndex] != null)
+        {
+            currentIndex = loadoutIndex;
+            GameObject newGun = Instantiate(loadout[loadoutIndex].prefab, weaponParent.position, weaponParent.rotation, weaponParent) as GameObject;
+            newGun.transform.localPosition = Vector3.zero;      //zeros out the local postion
+            newGun.transform.localEulerAngles = Vector3.zero;   //zeros out the local rotation (euler angles is rotation in vector form)
+            loadout[currentIndex].isEquipped = true;
+            equippedWeapon = newGun;
 
-        equippedWeapon = newGun;
+
+        }
     }
 
 
