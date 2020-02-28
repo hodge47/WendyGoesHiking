@@ -13,7 +13,6 @@ public class AITrigger : MonoBehaviour
     [Tooltip("This will set the wendigo aggression state. (This will be dynamic in the future)")]
     private WendigoState wendigoState = WendigoState.PASSIVE;
 
-    [SerializeField]
     private AIManager aIManager;
 
     // Start is called before the first frame update
