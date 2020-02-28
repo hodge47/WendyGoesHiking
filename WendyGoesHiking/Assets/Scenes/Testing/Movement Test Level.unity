@@ -722,12 +722,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
---- !u!1 &514500528 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2042810951733271529, guid: 02d00a751304b014ea686ea91a376143,
-    type: 3}
-  m_PrefabInstance: {fileID: 1786985861}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &606228068 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -5046980731415888446, guid: 8547f0c50b5871a42bf17360ede1bb74,
@@ -1002,18 +996,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2598835819404414415, guid: 8547f0c50b5871a42bf17360ede1bb74, type: 3}
---- !u!114 &1069889959 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 735293557, guid: 02d00a751304b014ea686ea91a376143,
-    type: 3}
-  m_PrefabInstance: {fileID: 1786985861}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17761e32ae3a4fc4fbd4a132b5d6b556, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1113458053 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4745244833202482034, guid: 8547f0c50b5871a42bf17360ede1bb74,
@@ -1606,12 +1588,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -8532172296572721988, guid: 8547f0c50b5871a42bf17360ede1bb74, type: 3}
---- !u!1 &1510039961 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2042810951316636380, guid: 02d00a751304b014ea686ea91a376143,
-    type: 3}
-  m_PrefabInstance: {fileID: 1786985861}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1512500403 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3707136281616123231, guid: 8547f0c50b5871a42bf17360ede1bb74,
@@ -1890,18 +1866,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1442645294, guid: 02d00a751304b014ea686ea91a376143, type: 3}
-      propertyPath: healthBar
-      value: 
-      objectReference: {fileID: 1069889959}
-    - target: {fileID: 1070759581336776, guid: 02d00a751304b014ea686ea91a376143, type: 3}
-      propertyPath: ammoOne
-      value: 
-      objectReference: {fileID: 1510039961}
-    - target: {fileID: 1070759581336776, guid: 02d00a751304b014ea686ea91a376143, type: 3}
-      propertyPath: ammoTwo
-      value: 
-      objectReference: {fileID: 514500528}
     - target: {fileID: 8884561780859521506, guid: 02d00a751304b014ea686ea91a376143,
         type: 3}
       propertyPath: m_Name
