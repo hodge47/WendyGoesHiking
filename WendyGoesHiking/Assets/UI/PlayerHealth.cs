@@ -19,7 +19,7 @@ public class PlayerHealth : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("Current Health is: " + currentHealth);
+        //Debug.Log("Current Health is: " + currentHealth);
         if (Input.GetKeyDown(KeyCode.Backspace))
         {
             Damage(20);

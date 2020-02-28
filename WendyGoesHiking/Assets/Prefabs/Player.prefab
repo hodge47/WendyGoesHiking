@@ -460,6 +460,7 @@ GameObject:
   - component: {fileID: 1831681106289819404}
   - component: {fileID: 1442645294}
   - component: {fileID: 68823243}
+  - component: {fileID: 847948954634238972}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -502,19 +503,10 @@ MonoBehaviour:
   playerMode: 0
   playerRadius: 0.3
   playerHeight: 1.64
-  strafeAxis: Horizontal
-  walkAxis: Vertical
-  jumpButton: 32
   jumpMode: 0
-  sprintButton: 304
   sprintMode: 1
-  crouchButton: 306
   crouchMode: 0
-  slideButton: 0
-  lookAxisX: Mouse X
-  lookAxisY: Mouse Y
   mouseSensitivity: 1.5
-  zoomButton: 1
   lockMovement: 0
   gravity: 0.5
   gravityCap: -100
@@ -570,6 +562,8 @@ MonoBehaviour:
   isSprinting: 0
   isSliding: 0
   weaponParent: {fileID: 3065721146138927576}
+  inControlPrefab: {fileID: 7589908050195870151, guid: e07cafb53bc0c2e4c968b1a28a08fe99,
+    type: 3}
 --- !u!114 &8852072151917630384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -672,6 +666,35 @@ MonoBehaviour:
   staminaRecoveryAmount: 1
   timeToWaitBeforeStaminaRecovers: 0
   hasEnoughStamina: 1
+--- !u!114 &847948954634238972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8884561780859521506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b5e8de77c5b4597ae7fbfb49a95e22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  logDebugInfo: 0
+  invertYAxis: 0
+  useFixedUpdate: 0
+  dontDestroyOnLoad: 0
+  suspendInBackground: 0
+  enableICade: 0
+  enableXInput: 0
+  xInputOverrideUpdateRate: 0
+  xInputUpdateRate: 0
+  xInputOverrideBufferSize: 0
+  xInputBufferSize: 0
+  enableNativeInput: 0
+  nativeInputEnableXInput: 1
+  nativeInputPreventSleep: 0
+  nativeInputOverrideUpdateRate: 0
+  nativeInputUpdateRate: 0
+  customProfiles: []
 --- !u!1001 &2438554361346407170
 PrefabInstance:
   m_ObjectHideFlags: 0

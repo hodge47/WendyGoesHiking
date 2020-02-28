@@ -10,11 +10,19 @@ public class InteractWithLookedAt : MonoBehaviour
 {
     private IInteractive lookedAtInteractive;
 
+    // Input
+    PlayerControlActions playerControlActiosn;
+
+    private void Start()
+    {
+        // Initialize input
+        playerControlActiosn = PlayerControlActions.CreateWithDefaultBindings();
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if((Input.GetKeyDown(KeyCode.E) && lookedAtInteractive != null) || (Input.GetButtonDown("Interact") && lookedAtInteractive != null))
+        if((playerControlActiosn.Use.IsPressed && lookedAtInteractive != null))
         {
             Debug.Log("Player pressed the interact button");
             lookedAtInteractive.InteractWith();
