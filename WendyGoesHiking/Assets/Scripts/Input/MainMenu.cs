@@ -17,11 +17,25 @@ public class MainMenu : MonoBehaviour
     public void FadeAway()
     {
         panel.SetAlpha(0);
+        panel.gameObject.SetActive(false);
     }
 
     public void ExitGame()
     {
         Application.Quit();
+    }
+
+    public void OpenPauseMenu()
+    {
+        panel.gameObject.SetActive(true);
+    }
+
+    private void Awake()
+    {
+        if(panel == null)
+        {
+            panel = GetComponentInChildren<CanvasRenderer>();
+        }
     }
 
     public void Start()

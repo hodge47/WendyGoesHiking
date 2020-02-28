@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "com.unity.burst": "1.1.2",
+    "com.unity.burst": "1.2.3",
     "com.unity.collab-proxy": "1.2.16",
     "com.unity.collections": "0.5.2-preview.8",
     "com.unity.ide.rider": "1.1.4",
@@ -10,10 +10,10 @@
     "com.unity.progrids": "3.0.3-preview.4",
     "com.unity.shadergraph": "7.1.8",
     "com.unity.terrain-tools": "2.0.2-preview",
-    "com.unity.test-framework": "1.1.9",
+    "com.unity.test-framework": "1.1.11",
     "com.unity.test-framework.performance": "2.0.7-preview",
     "com.unity.textmeshpro": "2.0.1",
-    "com.unity.timeline": "1.2.10",
+    "com.unity.timeline": "1.2.12",
     "com.unity.ugui": "1.0.0",
     "com.unity.vectorgraphics": "2.0.0-preview.12",
     "com.unity.modules.ai": "1.0.0",
