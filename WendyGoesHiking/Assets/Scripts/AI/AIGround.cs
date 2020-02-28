@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using Sirenix.OdinInspector;
 
-enum WendigoState {PASSIVE, AGGRESSIVE}
+public enum WendigoState {PASSIVE, AGGRESSIVE}
 
 public class AIGround : MonoBehaviour
 {
