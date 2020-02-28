@@ -18,8 +18,11 @@ MonoBehaviour:
   pellets: 8
   fireRate: 0.5
   bloom: 60
+  adsBloom: 40
   recoil: 80
+  adsRecoil: 50
   kickback: 0.85
+  adsKickback: 0.4
   aimSpeed: 4
   reloadSpeed: 2
   recovery: 0

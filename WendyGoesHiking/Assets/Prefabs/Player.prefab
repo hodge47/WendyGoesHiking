@@ -459,6 +459,7 @@ GameObject:
   - component: {fileID: 5454265985950863719}
   - component: {fileID: 1831681106289819404}
   - component: {fileID: 1442645294}
+  - component: {fileID: 68823243}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -496,7 +497,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976157c796a6f3648aab554f76203ed7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  staminaSystem: {fileID: 0}
+  staminaSystem: {fileID: 68823243}
   playerMode: 0
   playerRadius: 0.3
   playerHeight: 1.64
@@ -604,6 +605,10 @@ MonoBehaviour:
     m_Bits: 1
   sfx: {fileID: 2008191667}
   sfx2: {fileID: 741620585}
+  isAiming: 0
+  ammoOne: {fileID: 0}
+  ammoTwo: {fileID: 0}
+  uiAmmo: {fileID: 0}
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -632,7 +637,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   raycastOrigin: {fileID: 8889721390183370616}
-  maxRange: 0
+  maxRange: 3
 --- !u!114 &1442645294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -648,3 +653,21 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   healthBar: {fileID: 0}
+--- !u!114 &68823243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8884561780859521506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4096e75238527b3408129f46a055c7c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minStaminaBeforeSprintingEnabled: 10
+  currentStamina: 0
+  staminaReductionAmount: 1
+  staminaRecoveryAmount: 1
+  timeToWaitBeforeStaminaRecovers: 0
+  hasEnoughStamina: 1
