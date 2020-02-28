@@ -39,6 +39,9 @@ public class WeaponManager : MonoBehaviour
 
     [SerializeField] LayerMask mask;
 
+    //Input
+    private PlayerControlActions playerControlActions;
+
 
     private void Start()
     {
@@ -51,30 +54,33 @@ public class WeaponManager : MonoBehaviour
             guns.Initialize();
         }
 
+        // Initialize input
+        playerControlActions = PlayerControlActions.CreateWithDefaultBindings();
+
     }
 
     private void Update()
     {
-        isAiming = Input.GetMouseButton(1);
+        isAiming = playerControlActions.Zoom.IsPressed;
 
-        Debug.Log("Current Ammo: " + loadout[currentIndex].GetAmmo());
+        //Debug.Log("Current Ammo: " + loadout[currentIndex].GetAmmo());
 
-        if (Input.GetKeyDown(KeyCode.Alpha1) && !loadout[currentIndex].isEquipped)
+        // Compass, shotgun, flashlight
+        if (playerControlActions.CompassSwitch.WasPressed && !loadout[currentIndex].isEquipped)
         {     //if the number key '1' is pressed, equip first weapon
             Equip(0);
 
         }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
+        if (playerControlActions.ShotgunSwitch.WasPressed)
         {     //if the number key '1' is pressed, equip first weapon
             Equip(1);
-
         }
 
         if (equippedWeapon != null)
         {
             Aim(isAiming);
 
-            if (Input.GetMouseButtonDown(0) && currentCooldown <= 0 && !GlideController.current.isSprinting)
+            if (playerControlActions.Shoot.IsPressed && currentCooldown <= 0 && !GlideController.current.isSprinting)
             {
                 if (loadout[currentIndex].CanFireBullet() && !isReloading)
                 {
@@ -92,7 +98,7 @@ public class WeaponManager : MonoBehaviour
                 }
             }
 
-            if (Input.GetKeyDown(KeyCode.R))    //RELOAD
+            if (playerControlActions.Reload.WasPressed)    //RELOAD
             {
                 if (loadout[currentIndex].GetMagazine() < loadout[currentIndex].magazineSize && loadout[currentIndex].GetAmmo() > 0)
                 {

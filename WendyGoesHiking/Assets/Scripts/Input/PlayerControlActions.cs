@@ -13,7 +13,10 @@ public class PlayerControlActions : PlayerActionSet
     public PlayerAction LookLeft;
     public PlayerAction LookUp;
     public PlayerAction LookDown;
+    public PlayerAction Jump;
+    public PlayerAction Sprint;
     public PlayerAction Shoot;
+    public PlayerAction Zoom;
     public PlayerAction Reload;
     public PlayerAction Use;
     public PlayerAction ShotgunSwitch;
@@ -34,7 +37,10 @@ public class PlayerControlActions : PlayerActionSet
         LookLeft = CreatePlayerAction("LookLeft");
         LookUp = CreatePlayerAction("LookUp");
         LookDown = CreatePlayerAction("LookDown");
+        Jump = CreatePlayerAction("Jump");
+        Sprint = CreatePlayerAction("Sprint");
         Shoot = CreatePlayerAction("Shoot");
+        Zoom = CreatePlayerAction("Zoom");
         Reload = CreatePlayerAction("Reload");
         Use = CreatePlayerAction("Use");
         ShotgunSwitch = CreatePlayerAction("ShotgunSwitch");
@@ -59,7 +65,10 @@ public class PlayerControlActions : PlayerActionSet
         playerControlActions.LookLeft.AddDefaultBinding(Mouse.NegativeX);
         playerControlActions.LookUp.AddDefaultBinding(Mouse.PositiveY);
         playerControlActions.LookDown.AddDefaultBinding(Mouse.NegativeY);
+        playerControlActions.Jump.AddDefaultBinding(Key.Space);
+        playerControlActions.Sprint.AddDefaultBinding(Key.LeftShift);
         playerControlActions.Shoot.AddDefaultBinding(Mouse.LeftButton);
+        playerControlActions.Zoom.AddDefaultBinding(Mouse.RightButton);
         playerControlActions.Reload.AddDefaultBinding(Key.R);
         playerControlActions.Use.AddDefaultBinding(Key.E);
         playerControlActions.ShotgunSwitch.AddDefaultBinding(Key.Key1);
@@ -74,7 +83,10 @@ public class PlayerControlActions : PlayerActionSet
         playerControlActions.LookLeft.AddDefaultBinding(InputControlType.RightStickLeft);
         playerControlActions.LookUp.AddDefaultBinding(InputControlType.RightStickUp);
         playerControlActions.LookDown.AddDefaultBinding(InputControlType.RightStickDown);
+        playerControlActions.Jump.AddDefaultBinding(InputControlType.Button2);
+        playerControlActions.Sprint.AddDefaultBinding(InputControlType.LeftStickButton);
         playerControlActions.Shoot.AddDefaultBinding(InputControlType.RightTrigger);
+        playerControlActions.Zoom.AddDefaultBinding(InputControlType.LeftTrigger);
         playerControlActions.Reload.AddDefaultBinding(InputControlType.Button3);
         playerControlActions.Use.AddDefaultBinding(InputControlType.Button1);
         playerControlActions.ShotgunSwitch.AddDefaultBinding(InputControlType.DPadUp);
