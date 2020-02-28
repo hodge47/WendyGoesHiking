@@ -9,6 +9,7 @@ public class GlideController : MonoBehaviour
 {
 
     PlayerControlActions playerControls;
+    public StaminaSystem staminaSystem;
 
 
     public static GlideController current; //Just call GlideController.current to access the current player's variables from any other script!
@@ -328,7 +329,7 @@ public class GlideController : MonoBehaviour
         switch (sprintMode)
         {
             case (GlideSprintSetting.normal):
-                if (Input.GetAxis(walkAxis) > 0)
+                if (Mathf.Abs(Input.GetAxis(walkAxis)) > 0 && staminaSystem.hasEnoughStamina)
                     isSprinting = Input.GetKey(sprintButton);
                 else
                     isSprinting = false;
@@ -341,6 +342,10 @@ public class GlideController : MonoBehaviour
                     isSprinting = false;
                 break;
         }
+
+        //Added in to work with the StaminaSystem
+        if (!staminaSystem.hasEnoughStamina)
+            isSprinting = false;
 
         if (crouchMode == GlideCrouchSetting.noSprint && isCrouching)
             isSprinting = false;
@@ -710,7 +715,9 @@ public class GlideController : MonoBehaviour
                             {
                                 if (!m_stepped)
                                 {
-                                    AudioManager.PlaySound(walkSounds[Random.Range(0, walkSounds.Length)], soundVolume);
+                                    //jpost Audio testing out FMOD footsteps                                    
+                                    FMODUnity.RuntimeManager.PlayOneShot("event:/Player/sx_wgh_game_plr_footstep_dirt", GetComponent<Transform>().position);
+                                    //AudioManager.PlaySound(walkSounds[Random.Range(0, walkSounds.Length)], soundVolume);
                                     m_stepped = true;
                                 }
                             }

@@ -297,6 +297,7 @@ GameObject:
   - component: {fileID: 8860474101153015856}
   - component: {fileID: 8822117470780602374}
   - component: {fileID: 1775026149}
+  - component: {fileID: 6640976579124599069}
   m_Layer: 8
   m_Name: PlayerCamera
   m_TagString: MainCamera
@@ -376,7 +377,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8884365201784807848}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!114 &1775026149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -430,6 +431,19 @@ MonoBehaviour:
   profile: {fileID: 11400000, guid: c516024461997364f995fff307819980, type: 2}
   ub: {fileID: 2100000, guid: 23f251be192cd1341aed054f1e2adf1d, type: 2}
   gm: {fileID: 2100000, guid: 8c9430ef03ac7f843bc22de27c15d502, type: 2}
+--- !u!114 &6640976579124599069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8884365201784807848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ListenerNumber: -1
 --- !u!1 &8884561780859521506
 GameObject:
   m_ObjectHideFlags: 0
@@ -482,6 +496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 976157c796a6f3648aab554f76203ed7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  staminaSystem: {fileID: 0}
   playerMode: 0
   playerRadius: 0.3
   playerHeight: 1.64
@@ -510,7 +525,7 @@ MonoBehaviour:
   jumpPower: 12
   slidingOnSlopes: 1
   slopeBias: 0.4
-  crouchPercent: 0.4
+  crouchPercent: 0.5
   slidePercent: 0.5
   lengthOfSlide: 1
   movement: {x: 0, y: 0, z: 0}
@@ -617,7 +632,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   raycastOrigin: {fileID: 8889721390183370616}
-  maxRange: 3
+  maxRange: 0
 --- !u!114 &1442645294
 MonoBehaviour:
   m_ObjectHideFlags: 0

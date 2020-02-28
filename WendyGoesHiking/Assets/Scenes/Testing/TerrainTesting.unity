@@ -5097,8 +5097,8 @@ MonoBehaviour:
   size: 0.4
   luminanceContribution: 0
   animated: 0
-  _palette: {fileID: 11400000, guid: 1682e2b0486ae824085f577ac96e14e2, type: 2}
-  _pattern: {fileID: 11400000, guid: a5205f6c2ce0473499ead6549adb16f7, type: 2}
+  _palette: {fileID: 0}
+  _pattern: {fileID: 0}
   _patternTexture: {fileID: 0}
   _shader: {fileID: 4800000, guid: 0e4c0c6d48b7240d8b59f441b94c2b0e, type: 3}
   _pixelScale: 0.5
