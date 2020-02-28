@@ -7,7 +7,7 @@ using Sirenix.OdinInspector;
 
 public class AITree : MonoBehaviour
 {
-
+    [Tooltip("This is a child gameobject that the AI jumps to/from.")]
     public GameObject jumpPoint;
 
     [HideInInspector]
@@ -36,17 +36,9 @@ public class AITree : MonoBehaviour
 
         // Get the deformer object(S)
         bendDeformer = this.gameObject.GetComponentInChildren<BendDeformer>();
-
-        // Instantiate player object for testing bend
-        //player = GameObject.CreatePrimitive(PrimitiveType.Cube);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    // This animates the tree band
     public void TweenBendDeformer(float _speed, Quaternion _rotation)
     {
         Quaternion _bendDeformerRotation = Quaternion.Euler(new Vector3(0, _rotation.eulerAngles.y -90, 0));
