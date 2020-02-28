@@ -109,7 +109,7 @@ public class StaminaSystem : MonoBehaviour
         if (currentStamina > maxStamina)
             currentStamina = maxStamina;
 
-        Debug.Log($"Current stamina: {currentStamina}");
+        //Debug.Log($"Current stamina: {currentStamina}");
     }
 
     IEnumerator DecreaseStamina()

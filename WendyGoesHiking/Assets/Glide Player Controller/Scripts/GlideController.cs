@@ -28,24 +28,16 @@ public class GlideController : MonoBehaviour
     [Min(0f)] public float playerHeight = 1.64f;
 
     [Header("Glide - Controls")]
-    [Tooltip("The axis used for strafing. \n\nCheck Edit>Project Settings>Input for more information.")] public string strafeAxis = "Horizontal";
-    [Tooltip("The axis used for walking forward. \n\nCheck Edit>Project Settings>Input for more information.")] public string walkAxis = "Vertical";
-    [Space]
-    [Tooltip("The key for jumping.")] public KeyCode jumpButton = KeyCode.Space;
     [Tooltip("Changes how jumping will behave.\n\nNone: Disables jumping entirely.\n\nNormal: Jumping is unaffected by anything else. Just pure jump power, baby.\n\nEnhanced: If you're sprinting, your jump power is scaled to be 115% of the original. If you aren't sprinting, it's just normal.\n\nLeaping: Suggested by Aaron. Leaping will make it so that if you're sprinting, you'll leap in the direction you're running, scaled by 2x the current sprint speed. Good for games focused on mobility. If you aren't sprinting, things are normal.")] public GlideJump jumpMode = GlideJump.enhanced;
     [Space]
-    [Tooltip("The key for sprinting.")] public KeyCode sprintButton = KeyCode.LeftShift;
     [Tooltip("Changes how sprinting will behave.\n\nNone: Disables sprinting entirely.\n\nNormal: Sprinting engages when the sprint key is held down, and stops when you release.\n\nClassic: If you're walking, pressing the sprint key engages sprintng. Releasing it won't stop sprinting, it's only when you stop walking that sprinting will stop.")] public GlideSprintSetting sprintMode = GlideSprintSetting.normal;
     [Space]
-    [Tooltip("The key for crouching.")] public KeyCode crouchButton = KeyCode.LeftControl;
+    [Tooltip("The key for crouching.")] private KeyCode crouchButton = KeyCode.LeftControl;
     [Tooltip("Changes how crouching will behave.\n\nNone: Disables crouching entirely.\n\nNormal: Crouching won't affect how sprinting behaves.\n\nNo Sprint: Sprinting cannot be enabled while you're crouching.")] public GlideCrouchSetting crouchMode = GlideCrouchSetting.normal;
     [Space]
-    [Tooltip("The key for sliding.")] public KeyCode slideButton = KeyCode.C;
+    [Tooltip("The key for sliding.")] private KeyCode slideButton = KeyCode.C;
     [Space]
-    [Tooltip("The axis used for looking left and right. \n\nCheck Edit>Project Settings>Input for more information.")] public string lookAxisX = "Mouse X";
-    [Tooltip("The axis used for looking up and down. \n\nCheck Edit>Project Settings>Input for more information.")] public string lookAxisY = "Mouse Y";
     [Tooltip("How sensitive the player's mouse is.")] public float mouseSensitivity = 1.5f;
-    [Tooltip("Which mouse button allows the player to zoom in.")] public GlideMouseSetting zoomButton = GlideMouseSetting.rightMouse;
 
     [Header("Glide - Movement")]
     [Tooltip("Whether or not the player can walk around, sprint or jump.")] public bool lockMovement = false;
@@ -169,6 +161,9 @@ public class GlideController : MonoBehaviour
     private float sprintCounter;   //weapon bob var
     private Vector3 targetWeaponBobPosition;
 
+    // Input
+    private PlayerControlActions playerControlActions;
+
     void Start()
     {
         PlayerControlActions.CreateWithDefaultBindings();
@@ -242,6 +237,8 @@ public class GlideController : MonoBehaviour
         weaponParentOrigin = weaponParent.localPosition;
         weaponParentBase = weaponParentOrigin;
 
+        // Initialize input
+        playerControlActions = PlayerControlActions.CreateWithDefaultBindings();
     }
 
     void Update()
@@ -329,16 +326,16 @@ public class GlideController : MonoBehaviour
         switch (sprintMode)
         {
             case (GlideSprintSetting.normal):
-                if (Mathf.Abs(Input.GetAxis(walkAxis)) > 0 && staminaSystem.hasEnoughStamina)
-                    isSprinting = Input.GetKey(sprintButton);
+                if (Mathf.Abs(playerControlActions.MoveY) > 0 && staminaSystem.hasEnoughStamina)
+                    isSprinting = playerControlActions.Sprint.IsPressed;
                 else
                     isSprinting = false;
                 break;
 
             case (GlideSprintSetting.classic):
-                if (Input.GetKey(sprintButton) && Mathf.Abs(Input.GetAxis(walkAxis)) > 0)
+                if (playerControlActions.Sprint.IsPressed && Mathf.Abs(playerControlActions.MoveY) > 0)
                     isSprinting = true;
-                if ((Mathf.Abs(Input.GetAxis(strafeAxis)) + Mathf.Abs(Input.GetAxis(walkAxis))) * 0.5f < 0.5f) //Player's intended movement is averaged on intensity and analyzed. If it falls below a threshold, sprinting turns off.
+                if ((Mathf.Abs(playerControlActions.MoveX) + Mathf.Abs(playerControlActions.MoveY)) * 0.5f < 0.5f) //Player's intended movement is averaged on intensity and analyzed. If it falls below a threshold, sprinting turns off.
                     isSprinting = false;
                 break;
         }
@@ -439,7 +436,7 @@ public class GlideController : MonoBehaviour
             {
                 case (GlideMode.firstPerson):
 
-                    m_attemptVelocity = (gameObject.transform.TransformDirection(new Vector3(Input.GetAxis(strafeAxis) * m_topSpeed, 0f, Input.GetAxis(walkAxis) * m_topSpeed)) - movement) * movementShiftRate * ((!isGrounded) ? airControl : 1f);
+                    m_attemptVelocity = (gameObject.transform.TransformDirection(new Vector3(playerControlActions.MoveX * m_topSpeed, 0f, playerControlActions.MoveY * m_topSpeed)) - movement) * movementShiftRate * ((!isGrounded) ? airControl : 1f);
 
                     if (m_sliding)
                     {
@@ -462,7 +459,7 @@ public class GlideController : MonoBehaviour
                     break;
 
                 case (GlideMode.thirdPerson):
-                    m_attemptVelocity = (new Vector3((Input.GetAxis(walkAxis) * m_topSpeed * Mathf.Cos(Mathf.Deg2Rad * (-m_goalAngles.y + 90f))) + (Input.GetAxis(strafeAxis) * m_topSpeed * Mathf.Cos(Mathf.Deg2Rad * (-m_goalAngles.y))), 0f, (Input.GetAxis(walkAxis) * m_topSpeed * Mathf.Sin(Mathf.Deg2Rad * (-m_goalAngles.y + 90f))) + (Input.GetAxis(strafeAxis) * m_topSpeed * Mathf.Sin(Mathf.Deg2Rad * (-m_goalAngles.y)))) - movement) * movementShiftRate * ((!isGrounded) ? airControl : 1f);
+                    m_attemptVelocity = (new Vector3((playerControlActions.MoveY * m_topSpeed * Mathf.Cos(Mathf.Deg2Rad * (-m_goalAngles.y + 90f))) + (playerControlActions.MoveX * m_topSpeed * Mathf.Cos(Mathf.Deg2Rad * (-m_goalAngles.y))), 0f, (playerControlActions.MoveY * m_topSpeed * Mathf.Sin(Mathf.Deg2Rad * (-m_goalAngles.y + 90f))) + (playerControlActions.MoveX * m_topSpeed * Mathf.Sin(Mathf.Deg2Rad * (-m_goalAngles.y)))) - movement) * movementShiftRate * ((!isGrounded) ? airControl : 1f);
 
                     if (m_sliding)
                     {
@@ -561,7 +558,7 @@ public class GlideController : MonoBehaviour
         {
             if (!lockMovement)
             {
-                if (m_grav > 0f && Input.GetKeyUp(jumpButton)) //Whenever the player is in midair and going up, we allow them to halve their vertical speed by releasing the jump button.
+                if (m_grav > 0f &&  playerControlActions.Jump.WasPressed) //Whenever the player is in midair and going up, we allow them to halve their vertical speed by releasing the jump button.
                     m_grav -= m_grav * 0.5f;
             }
 
@@ -575,7 +572,7 @@ public class GlideController : MonoBehaviour
                 {
                     if (m_canJump)
                     {
-                        if (Input.GetKeyDown(jumpButton))
+                        if (playerControlActions.Jump.IsPressed)
                         {
                             if (m_jumpTimer <= 0f)
                             {
@@ -600,13 +597,13 @@ public class GlideController : MonoBehaviour
                                             switch (playerMode)
                                             {
                                                 case (GlideMode.firstPerson):
-                                                    m_applied = transform.TransformDirection(new Vector3(Input.GetAxis(strafeAxis) * sprintSpeed * 2f, 0f, Input.GetAxis(walkAxis) * sprintSpeed * 2f));
+                                                    m_applied = transform.TransformDirection(new Vector3(playerControlActions.MoveX * sprintSpeed * 2f, 0f, playerControlActions.MoveY * sprintSpeed * 2f));
                                                     m_applied.y = jumpPower * 0.5f;
                                                     movement += m_applied;
                                                     break;
 
                                                 case (GlideMode.thirdPerson):
-                                                    m_applied = new Vector3((Input.GetAxis(walkAxis) * sprintSpeed * 2f * Mathf.Cos(Mathf.Deg2Rad * (-m_goalAngles.y + 90f))) + (Input.GetAxis(strafeAxis) * sprintSpeed * 2f * Mathf.Cos(Mathf.Deg2Rad * (-m_goalAngles.y))), 0f, (Input.GetAxis(walkAxis) * sprintSpeed * 2f * Mathf.Sin(Mathf.Deg2Rad * (-m_goalAngles.y + 90f))) + (Input.GetAxis(strafeAxis) * sprintSpeed * 2f * Mathf.Sin(Mathf.Deg2Rad * (-m_goalAngles.y))));
+                                                    m_applied = new Vector3((playerControlActions.MoveY * sprintSpeed * 2f * Mathf.Cos(Mathf.Deg2Rad * (-m_goalAngles.y + 90f))) + (playerControlActions.MoveX * sprintSpeed * 2f * Mathf.Cos(Mathf.Deg2Rad * (-m_goalAngles.y))), 0f, (playerControlActions.MoveY * sprintSpeed * 2f * Mathf.Sin(Mathf.Deg2Rad * (-m_goalAngles.y + 90f))) + (playerControlActions.MoveX * sprintSpeed * 2f * Mathf.Sin(Mathf.Deg2Rad * (-m_goalAngles.y))));
                                                     m_applied.y = jumpPower * 0.5f;
                                                     movement += m_applied;
                                                     break;
@@ -695,7 +692,7 @@ public class GlideController : MonoBehaviour
             {
                 if (isGrounded)
                 {
-                    if (new Vector3(Input.GetAxis(strafeAxis), 0f, Input.GetAxis(walkAxis)).magnitude > 0.3f)
+                    if (new Vector3(playerControlActions.MoveX, 0f, playerControlActions.MoveY).magnitude > 0.3f)
                     {
                         /// Viewbob effects and management for the m_walkTime value. Scales relative to your current speed and however fast you normally move, meaning a low moveSpeed and high sprintSpeed result in quick footsteps.
                         float m_walkTime = 0f;
@@ -755,7 +752,7 @@ public class GlideController : MonoBehaviour
 
                     playerCamera.transform.localPosition += (m_camPosTracer - playerCamera.transform.localPosition) * 0.1f; //The position of the camera is shifted as needed.
 
-                    m_goalAngles += new Vector3(-Input.GetAxis(lookAxisY) * mouseSensitivity, Input.GetAxis(lookAxisX) * mouseSensitivity); //The current motion of the mouse is taken in, multiplied by the mouse sensitivity, and then added onto the goal camera angles.
+                    m_goalAngles += new Vector3(-playerControlActions.LookY * mouseSensitivity, playerControlActions.LookX * mouseSensitivity); //The current motion of the mouse is taken in, multiplied by the mouse sensitivity, and then added onto the goal camera angles.
 
                     m_goalAngles.x = Mathf.Clamp(m_goalAngles.x, verticalRestraint.x, verticalRestraint.y); //The camera angles are restricted here, so the player can't flip their head completely down and snap their neck.
 
@@ -778,12 +775,9 @@ public class GlideController : MonoBehaviour
 
         if (!lockCamera) //We first determine if we're zooming with the zoom button.
         {
-            if ((int)zoomButton != 5)
+            if (playerControlActions.Zoom.IsPressed)
             {
-                if (Input.GetMouseButton((int)zoomButton))
-                {
-                    m_zoomGoal += -zoomIntensity;
-                }
+                m_zoomGoal += -zoomIntensity;
             }
         }
 
@@ -802,7 +796,7 @@ public class GlideController : MonoBehaviour
         if (playerAnimator != null)
         {
             if (walkingParameter != string.Empty)
-                playerAnimator.SetBool(walkingParameter, Input.GetButton(walkAxis) || Input.GetButton(strafeAxis));
+                playerAnimator.SetBool(walkingParameter, playerControlActions.MoveY || playerControlActions.MoveX);
             if (sprintingParameter != string.Empty)
                 playerAnimator.SetBool(sprintingParameter, isSprinting);
             if (crouchingParameter != string.Empty)
@@ -818,7 +812,7 @@ public class GlideController : MonoBehaviour
         /// 
         if (!WeaponManager.current.isAiming)
         {
-            if (Input.GetAxis(walkAxis) == 0 && Input.GetAxis(strafeAxis) == 0)
+            if (playerControlActions.MoveY == 0 && playerControlActions.MoveX == 0)
             {
                 WeaponBob(idleCounter, 0.025f, 0.025f);
                 idleCounter += Time.deltaTime;
@@ -873,7 +867,7 @@ public class GlideController : MonoBehaviour
             case (GlideMode.thirdPerson):
                 transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0f, Mathf.Rad2Deg * Mathf.Atan2(movement.x, movement.z), 0f), 0.2f * (new Vector3(movement.x, 0f, movement.z).magnitude / moveSpeed));
 
-                m_goalAngles += new Vector3(-Input.GetAxis(lookAxisY) * mouseSensitivity, Input.GetAxis(lookAxisX) * mouseSensitivity); //The current motion of the mouse is taken in, multiplied by the mouse sensitivity, and then added onto the goal camera angles.
+                m_goalAngles += new Vector3(-playerControlActions.LookY * mouseSensitivity, playerControlActions.LookX * mouseSensitivity); //The current motion of the mouse is taken in, multiplied by the mouse sensitivity, and then added onto the goal camera angles.
 
                 Vector3 m_camPos = Vector3.zero;
 
