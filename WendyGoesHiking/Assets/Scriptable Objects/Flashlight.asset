@@ -18,8 +18,11 @@ MonoBehaviour:
   pellets: 0
   fireRate: 0
   bloom: 0
+  adsBloom: 0
   recoil: 0
+  adsRecoil: 0
   kickback: 0
+  adsKickback: 0
   aimSpeed: 4
   reloadSpeed: 0
   recovery: 0
@@ -29,3 +32,4 @@ MonoBehaviour:
   recoverySound: {fileID: 0}
   pitchRandomization: 0.21
   prefab: {fileID: 442449261848542573, guid: 6b2c4227fe4f7a4408a96401057af49e, type: 3}
+  isEquipped: 0
