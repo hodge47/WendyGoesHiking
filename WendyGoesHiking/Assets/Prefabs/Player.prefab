@@ -562,8 +562,6 @@ MonoBehaviour:
   isSprinting: 0
   isSliding: 0
   weaponParent: {fileID: 3065721146138927576}
-  inControlPrefab: {fileID: 7589908050195870151, guid: e07cafb53bc0c2e4c968b1a28a08fe99,
-    type: 3}
 --- !u!114 &8852072151917630384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -590,6 +588,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadout:
+  - {fileID: 11400000, guid: 260f83da55384c84fa9c4eae505da3d1, type: 2}
+  - {fileID: 11400000, guid: c342fe57681405648a0ee87da40aa90d, type: 2}
   - {fileID: 11400000, guid: 9965a2f09671cba4eb581c46f406958f, type: 2}
   weaponParent: {fileID: 3065721146138927576}
   recoverySpeed: 2
