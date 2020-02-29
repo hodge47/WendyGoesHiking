@@ -153,7 +153,7 @@ public class GlideController : MonoBehaviour
 
     RaycastHit m_hit; //A cached raycast for performance. The script recycles this often to avoid allocation issues.
 
-    private Rigidbody m_rig; //Reference to the rigidbody component attached to the player object;
+    public Rigidbody m_rig; //Reference to the rigidbody component attached to the player object;
     private CapsuleCollider m_capsule; //Reference to the capsule collider component, cached for performance reasons.
 
     public Transform weaponParent;
