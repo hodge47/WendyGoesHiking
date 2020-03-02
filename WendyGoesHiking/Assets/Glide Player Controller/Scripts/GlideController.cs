@@ -152,6 +152,8 @@ public class GlideController : MonoBehaviour
     private Vector3 weaponParentOrigin;
     private Vector3 weaponParentBase;
 
+    //jpostAudio
+    public FootstepManager footstepManager;
 
     ///
 
@@ -239,6 +241,9 @@ public class GlideController : MonoBehaviour
 
         // Initialize input
         playerControlActions = PlayerControlActions.CreateWithDefaultBindings();
+
+        //jpost Audio initialization
+        footstepManager = GetComponentInChildren<FootstepManager>();
     }
 
     void Update()
