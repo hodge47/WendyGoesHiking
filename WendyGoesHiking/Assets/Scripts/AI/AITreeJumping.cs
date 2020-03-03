@@ -58,7 +58,7 @@ public class AITreeJumping : MonoBehaviour
     private bool arrived = false;
     private bool jumpPause = false;
     private bool canMove = true;
-    private float timeSinceJumpPause = 0;
+    private float timeSinceJumpPause = 0f;
     private bool hasTimeSinceArrived = false;
     private bool firstArrived = false;
     private float pauseTime;
@@ -298,7 +298,7 @@ public class AITreeJumping : MonoBehaviour
         // See if I can move
         if(hasTimeSinceArrived)
         {
-            if(Time.time - timeSinceJumpPause > (float)pauseTime && lastJumpPoint.isBending == false)
+            if(Time.time - timeSinceJumpPause > (float)pauseTime && (bendTreeOnArrival) ? lastJumpPoint.isBending == false : 1 == 1)
             {
                 _canMove = true;
                 timeSinceJumpPause = 0;
