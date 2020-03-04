@@ -7,6 +7,7 @@ TagManager:
   - Tree
   - Grass
   - Dirt
+  - Shrub
   layers:
   - Default
   - TransparentFX
