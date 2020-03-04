@@ -5,22 +5,19 @@ using UnityEngine;
 public class FootstepManager : MonoBehaviour
 {
     ///jpost Audio
-    ///a class to check the gameobject tag of objects directly below the player
+    ///a class to check the gameobject tag of objects directly below the player and tell the GlideController.cs what footstep sfx to play
     ///
-
-    //public string footStepType;
-    public SphereCollider sphereCollider;
-    public List<GameObject> footStepObjects;
+    
+    private SphereCollider sphereCollider;    
     public string currentFootstepType;
 
     private void Start()
     {
-        sphereCollider = GetComponentInParent<SphereCollider>();
-        footStepObjects = new List<GameObject>();
-        currentFootstepType = "none";
+        sphereCollider = GetComponentInParent<SphereCollider>();        
+        currentFootstepType = "none";       
     }
 
-    //a way of detecting if a nearbyGameObject is tagged "Grass"
+    //a way of detecting if a nearby GameObject is tagged "Grass"
     private void OnTriggerStay(Collider other)
     {
         switch (other.gameObject.tag)
@@ -34,25 +31,10 @@ public class FootstepManager : MonoBehaviour
             default:
                 currentFootstepType = "Default";
                 break;
-        }
-        //if (other.gameObject.tag == "Grass")
-        //{
-        //    footStepObjects.Add(other.gameObject);
-        //    currentFootstepType = other.gameObject.tag;
-        //}
+        }        
     }
 
-    //a way of detecting if a nearbyGameObject is tagged "Grass" and the player has moved away from it
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.tag == "Grass")
-        {
-            footStepObjects.Remove(other.gameObject);
-        }
-    }
-
-
-    ///not working currently
+    ///deprecated and currently broken
     //private void Start()
     //{
     //    //footStepType = "Dirt";
