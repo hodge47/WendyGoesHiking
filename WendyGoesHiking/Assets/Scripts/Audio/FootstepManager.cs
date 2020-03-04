@@ -21,7 +21,7 @@ public class FootstepManager : MonoBehaviour
     }
 
     //a way of detecting if a nearbyGameObject is tagged "Grass"
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         switch (other.gameObject.tag)
         {
