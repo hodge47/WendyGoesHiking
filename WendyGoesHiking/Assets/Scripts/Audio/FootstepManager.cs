@@ -32,14 +32,14 @@ public class FootstepManager : MonoBehaviour
                 currentFootstepType = "Dirt";
                 break;
             default:
-                currentFootstepType = "none";
+                currentFootstepType = "Default";
                 break;
         }
-        if (other.gameObject.tag == "Grass")
-        {
-            footStepObjects.Add(other.gameObject);
-            currentFootstepType = other.gameObject.tag;
-        }
+        //if (other.gameObject.tag == "Grass")
+        //{
+        //    footStepObjects.Add(other.gameObject);
+        //    currentFootstepType = other.gameObject.tag;
+        //}
     }
 
     //a way of detecting if a nearbyGameObject is tagged "Grass" and the player has moved away from it

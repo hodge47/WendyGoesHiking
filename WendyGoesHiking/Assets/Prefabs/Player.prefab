@@ -127,21 +127,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &764505983
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6727225728091521556}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: add0f044444fc744599af243de220eb5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sphereCollider: {fileID: 0}
-  footStepObjects: []
-  currentFootstepType: 
 --- !u!1 &2008191666
 GameObject:
   m_ObjectHideFlags: 0
@@ -299,6 +284,21 @@ Transform:
   m_Father: {fileID: 8889723309963215742}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &764505983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6727225728091521556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: add0f044444fc744599af243de220eb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sphereCollider: {fileID: 0}
+  footStepObjects: []
+  currentFootstepType: 
 --- !u!1 &8884365201784807848
 GameObject:
   m_ObjectHideFlags: 0
@@ -742,7 +742,7 @@ PrefabInstance:
     - target: {fileID: 3731188887399025887, guid: 0aa1a00e53ff8c64c8683b0ba3872c94,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.582
       objectReference: {fileID: 0}
     - target: {fileID: 3731188887399025887, guid: 0aa1a00e53ff8c64c8683b0ba3872c94,
         type: 3}
@@ -792,7 +792,12 @@ PrefabInstance:
     - target: {fileID: 6727225727121244745, guid: 0aa1a00e53ff8c64c8683b0ba3872c94,
         type: 3}
       propertyPath: m_Name
-      value: ProximitySphereClose
+      value: FootstepSphere
+      objectReference: {fileID: 0}
+    - target: {fileID: 7270480589234087645, guid: 0aa1a00e53ff8c64c8683b0ba3872c94,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.45
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0aa1a00e53ff8c64c8683b0ba3872c94, type: 3}
