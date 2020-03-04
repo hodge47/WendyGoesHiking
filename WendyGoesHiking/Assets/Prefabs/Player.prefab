@@ -296,8 +296,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: add0f044444fc744599af243de220eb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sphereCollider: {fileID: 0}
-  footStepObjects: []
   currentFootstepType: 
 --- !u!1 &8884365201784807848
 GameObject:
@@ -823,37 +821,37 @@ PrefabInstance:
     - target: {fileID: 3731188887399025887, guid: 0aa1a00e53ff8c64c8683b0ba3872c94,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.369995
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3731188887399025887, guid: 0aa1a00e53ff8c64c8683b0ba3872c94,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.38000488
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3731188887399025887, guid: 0aa1a00e53ff8c64c8683b0ba3872c94,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.8299866
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3731188887399025887, guid: 0aa1a00e53ff8c64c8683b0ba3872c94,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.12244054
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3731188887399025887, guid: 0aa1a00e53ff8c64c8683b0ba3872c94,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.46989465
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3731188887399025887, guid: 0aa1a00e53ff8c64c8683b0ba3872c94,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.08298993
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3731188887399025887, guid: 0aa1a00e53ff8c64c8683b0ba3872c94,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.8702414
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3731188887399025887, guid: 0aa1a00e53ff8c64c8683b0ba3872c94,
         type: 3}
