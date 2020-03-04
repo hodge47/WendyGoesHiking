@@ -154,6 +154,7 @@ public class GlideController : MonoBehaviour
 
     //jpostAudio
     public FootstepManager footstepManager;
+    
 
     ///
 
@@ -717,8 +718,22 @@ public class GlideController : MonoBehaviour
                             {
                                 if (!m_stepped)
                                 {
-                                    //jpost Audio testing out FMOD footsteps                                    
-                                    FMODUnity.RuntimeManager.PlayOneShot("event:/Player/sx_wgh_game_plr_footstep_dirt", GetComponent<Transform>().position);
+                                    //jpost Audio
+                                    switch (footstepManager.currentFootstepType)
+                                    {
+                                        case "Grass":
+                                            //jpost Audio testing out FMOD footsteps                                    
+                                            FMODUnity.RuntimeManager.PlayOneShot("event:/Player/sx_wgh_game_plr_footstep_grass", GetComponent<Transform>().position);
+                                            break;
+                                        case "Dirt":
+                                            //jpost Audio testing out FMOD footsteps                                    
+                                            FMODUnity.RuntimeManager.PlayOneShot("event:/Player/sx_wgh_game_plr_footstep_dirt", GetComponent<Transform>().position);
+                                            break;
+                                        default:
+                                            FMODUnity.RuntimeManager.PlayOneShot("event:/Player/sx_wgh_game_plr_footstep_dirt", GetComponent<Transform>().position);
+                                            break;
+                                    }
+
                                     //AudioManager.PlaySound(walkSounds[Random.Range(0, walkSounds.Length)], soundVolume);
                                     m_stepped = true;
                                 }

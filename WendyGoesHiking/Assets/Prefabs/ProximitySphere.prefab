@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3731188887399025887}
   - component: {fileID: 7270480589234087645}
-  - component: {fileID: 969194603093426103}
   m_Layer: 0
   m_Name: ProximitySphere
   m_TagString: Untagged
@@ -25,13 +24,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6727225727121244745}
-  m_LocalRotation: {x: -0.12244054, y: -0.46989465, z: 0.08298993, w: -0.8702414}
+  m_LocalRotation: {x: 0.12244422, y: 0.46989647, z: -0.08298758, w: 0.8702401}
   m_LocalPosition: {x: -9.369995, y: 0.38000488, z: -3.8299866}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 16.924002, y: 56.473003, z: -1.7590001}
 --- !u!135 &7270480589234087645
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -43,18 +42,5 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 30
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &969194603093426103
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6727225727121244745}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e619c3a25c098254ca663cb9d678cbbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nearbyGameObjects: []

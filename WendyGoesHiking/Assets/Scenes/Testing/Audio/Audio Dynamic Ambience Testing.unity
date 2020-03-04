@@ -5342,18 +5342,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: ProximitySphereClose
       objectReference: {fileID: 0}
-    - target: {fileID: 6727225727121244745, guid: 0aa1a00e53ff8c64c8683b0ba3872c94,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7270480589234087645, guid: 0aa1a00e53ff8c64c8683b0ba3872c94,
-        type: 3}
-      propertyPath: m_Radius
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 969194603093426103, guid: 0aa1a00e53ff8c64c8683b0ba3872c94, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0aa1a00e53ff8c64c8683b0ba3872c94, type: 3}
 --- !u!1 &764505982 stripped
 GameObject:
@@ -5373,6 +5362,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: add0f044444fc744599af243de220eb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sphereCollider: {fileID: 0}
+  footStepObjects: []
+  currentFootstepType: 
 --- !u!1001 &764971929
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17961,6 +17953,16 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 1545466898673546273, guid: 02d00a751304b014ea686ea91a376143,
+        type: 3}
+      propertyPath: debugMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1545466898673546273, guid: 02d00a751304b014ea686ea91a376143,
+        type: 3}
+      propertyPath: SphereCollider
+      value: 
+      objectReference: {fileID: 764505982}
     - target: {fileID: 8852285871426071920, guid: 02d00a751304b014ea686ea91a376143,
         type: 3}
       propertyPath: crouchPercent
@@ -18026,7 +18028,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1545466898673546273, guid: 02d00a751304b014ea686ea91a376143, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 02d00a751304b014ea686ea91a376143, type: 3}
 --- !u!4 &1740418849 stripped
 Transform:
