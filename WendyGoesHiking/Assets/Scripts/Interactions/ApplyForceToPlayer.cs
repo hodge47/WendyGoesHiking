@@ -17,10 +17,16 @@ public class ApplyForceToPlayer : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        //if(collision.gameObject.tag == "Wendigo")
-        forceToApply = collision.rigidbody.velocity;
-        GlideController.current.m_rig.AddForce(forceToApply * forceMultiplier, ForceMode.Impulse);
+        if(collision.gameObject.tag == "Wendigo")
+        {
+            forceToApply = collision.rigidbody.velocity;
+            //GlideController.current.m_rig.velocity = collision.rigidbody.velocity * forceMultiplier;
+            GlideController.current.m_rig.AddForceAtPosition((new Vector3(forceToApply.x, 10, forceToApply.z) * forceMultiplier) * Time.deltaTime, this.gameObject.transform.position, ForceMode.VelocityChange);
+
+        }
+        
     }
+
     private void Update()
     {
         
