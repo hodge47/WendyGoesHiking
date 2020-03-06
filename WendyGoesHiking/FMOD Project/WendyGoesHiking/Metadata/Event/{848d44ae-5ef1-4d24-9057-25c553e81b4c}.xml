@@ -125,10 +125,10 @@
 			<value>6000</value>
 		</property>
 		<property name="minimumScatterDistance">
-			<value>4.99999952</value>
+			<value>9.14999962</value>
 		</property>
 		<property name="maximumScatterDistance">
-			<value>15</value>
+			<value>90</value>
 		</property>
 		<property name="volumeRandomization">
 			<value>-4</value>
@@ -141,6 +141,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{f6951dae-4baa-4594-a9bf-fbf7ff55977b}">
+		<property name="volume">
+			<value>10</value>
+		</property>
 		<property name="name">
 			<value>Tree Creaks</value>
 		</property>
@@ -164,17 +167,26 @@
 		<property name="length">
 			<value>2</value>
 		</property>
+		<property name="volume">
+			<value>5.5</value>
+		</property>
+		<property name="polyphony">
+			<value>2</value>
+		</property>
 		<property name="minimumTimeBetweenSounds">
-			<value>3000</value>
+			<value>82</value>
 		</property>
 		<property name="maximumTimeBetweenSounds">
 			<value>9500</value>
 		</property>
+		<property name="spawnRate">
+			<value>74</value>
+		</property>
 		<property name="minimumScatterDistance">
-			<value>8.04999924</value>
+			<value>9</value>
 		</property>
 		<property name="maximumScatterDistance">
-			<value>200</value>
+			<value>60</value>
 		</property>
 		<property name="volumeRandomization">
 			<value>-4</value>
@@ -182,11 +194,17 @@
 		<property name="pitchRandomization">
 			<value>1.49999988</value>
 		</property>
+		<relationship name="modulators">
+			<destination>{7e62fa09-21d6-4183-97c7-c6b1cbef0ff7}</destination>
+		</relationship>
 		<relationship name="sound">
 			<destination>{973d4f86-e6b0-4bed-8873-b35aa08108e5}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{2eeac169-a3a2-4e97-af32-a3ae712b4c62}">
+		<property name="volume">
+			<value>7.5</value>
+		</property>
 		<property name="name">
 			<value>Wind Short</value>
 		</property>
@@ -205,10 +223,13 @@
 			<value>true</value>
 		</property>
 		<property name="triggerProbability">
-			<value>20.5</value>
+			<value>10.5</value>
 		</property>
 		<property name="length">
 			<value>2</value>
+		</property>
+		<property name="polyphony">
+			<value>1</value>
 		</property>
 		<property name="minimumTimeBetweenSounds">
 			<value>4500</value>
@@ -216,8 +237,11 @@
 		<property name="maximumTimeBetweenSounds">
 			<value>9500</value>
 		</property>
+		<property name="spawnRate">
+			<value>10</value>
+		</property>
 		<property name="minimumScatterDistance">
-			<value>5.5999999</value>
+			<value>40</value>
 		</property>
 		<property name="maximumScatterDistance">
 			<value>250</value>
@@ -274,11 +298,22 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{d17c4909-a9a8-47e4-8441-c771cea61c10}" />
+	<object class="RandomizerModulator" id="{7e62fa09-21d6-4183-97c7-c6b1cbef0ff7}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>pitch</value>
+		</property>
+		<property name="amount">
+			<value>8</value>
+		</property>
+	</object>
 	<object class="MultiSound" id="{973d4f86-e6b0-4bed-8873-b35aa08108e5}">
 		<relationship name="sounds">
 			<destination>{5346e5e9-62cc-465f-9934-3e78b407cf8f}</destination>
 			<destination>{fdb17827-7751-43b5-a288-1df48d94cbe0}</destination>
 			<destination>{c34e6b9a-b185-473a-86a4-d44fd8f8952c}</destination>
+		</relationship>
+		<relationship name="playPercentages">
+			<destination>{7d6d5522-d128-452b-8485-67365c02c40e}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusEffectChain" id="{c8d27d85-95cd-49f8-9882-bb2c704c89e1}">
@@ -370,6 +405,14 @@
 	<object class="SingleSound" id="{c34e6b9a-b185-473a-86a4-d44fd8f8952c}">
 		<relationship name="audioFile">
 			<destination>{607fd828-e891-4372-ad16-698d9d0abdb6}</destination>
+		</relationship>
+	</object>
+	<object class="PlayPercentage" id="{7d6d5522-d128-452b-8485-67365c02c40e}">
+		<property name="percentage">
+			<value>5</value>
+		</property>
+		<relationship name="sound">
+			<destination>{5346e5e9-62cc-465f-9934-3e78b407cf8f}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{179a79d3-7260-4479-8003-10111d9e6a6a}" />

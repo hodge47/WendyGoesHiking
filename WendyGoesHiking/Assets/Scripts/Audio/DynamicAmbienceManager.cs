@@ -15,7 +15,7 @@ public class DynamicAmbienceManager : MonoBehaviour
     private void Start()
     {
         nearbyGameObjects = new List<GameObject>();
-        InvokeRepeating("CheckNearbyGameObjects", 1f, Random.Range(5f, 10f));
+        InvokeRepeating("CheckNearbyGameObjects", 1f, Random.Range(2f, 20f));
     }
 
     //a way of detecting if a nearbyGameObject is tagged "Tree"
@@ -24,7 +24,7 @@ public class DynamicAmbienceManager : MonoBehaviour
         if(other.gameObject.tag == "Tree")
         {
             nearbyGameObjects.Add(other.gameObject);
-            PlayTreeAmbience(other.gameObject);
+            //PlayTreeAmbience(other.gameObject);
         }
     }
 
