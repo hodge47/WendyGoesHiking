@@ -247,9 +247,10 @@ GameObject:
   m_Component:
   - component: {fileID: 30544356680541109}
   - component: {fileID: 3994980785413604190}
+  - component: {fileID: 6255656801901419747}
   m_Layer: 0
   m_Name: IL3DN_Plant_Grass_03
-  m_TagString: Tree
+  m_TagString: Grass
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -298,3 +299,16 @@ LODGroup:
     renderers:
     - renderer: {fileID: 2551823551298317744}
   m_Enabled: 1
+--- !u!65 &6255656801901419747
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5726233754395843129}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
