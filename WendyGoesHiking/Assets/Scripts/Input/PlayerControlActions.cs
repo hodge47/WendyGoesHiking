@@ -93,6 +93,30 @@ public class PlayerControlActions : PlayerActionSet
         playerControlActions.FlashlightSwitch.AddDefaultBinding(InputControlType.DPadRight);
         playerControlActions.CompassSwitch.AddDefaultBinding(InputControlType.DPadDown);
 
+        playerControlActions.ListenOptions.IncludeUnknownControllers = true;
+        playerControlActions.ListenOptions.MaxAllowedBindings = 2;
+
+        playerControlActions.ListenOptions.AllowDuplicateBindingsPerSet = false;
+        playerControlActions.ListenOptions.UnsetDuplicateBindingsOnSet = true;
+        playerControlActions.ListenOptions.IncludeMouseButtons = true;
+
+        playerControlActions.ListenOptions.OnBindingFound = ( action, binding ) => {
+            if (binding == new KeyBindingSource( Key.Escape ))
+            {
+                action.StopListeningForBinding();
+                return false;
+            }
+            return true;
+        };
+
+        playerControlActions.ListenOptions.OnBindingAdded += ( action, binding ) => {
+            Debug.Log( "Binding added... " + binding.DeviceName + ": " + binding.Name );
+        };
+
+        playerControlActions.ListenOptions.OnBindingRejected += ( action, binding, reason ) => {
+            Debug.Log( "Binding rejected... " + reason );
+        };
+
         return playerControlActions;
     }
 }
