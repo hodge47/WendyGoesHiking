@@ -390,7 +390,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8884365201784807848}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!114 &1775026149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -555,13 +555,9 @@ MonoBehaviour:
   enableSounds: 1
   soundVolume: 1
   landingSoundTimer: 0.3
-  walkSounds:
-  - {fileID: 8300000, guid: 88cb40e51c12ef0409d8b820c91dae8d, type: 3}
-  - {fileID: 8300000, guid: 82c9e70742b05484795f42ef50f461aa, type: 3}
-  - {fileID: 8300000, guid: 239f23dc61abbc14983c3edb86523171, type: 3}
-  - {fileID: 8300000, guid: b074d3a6b288e0c45b6d297c6f993468, type: 3}
-  jumpingSound: {fileID: 8300000, guid: c2e97f3cf1a02d644b7e58c10ff53a17, type: 3}
-  landingSound: {fileID: 8300000, guid: c06be735375ec78418299f8fc2da9bd1, type: 3}
+  walkSounds: []
+  jumpingSound: {fileID: 0}
+  landingSound: {fileID: 0}
   slidingSound: {fileID: 0}
   playerAnimator: {fileID: 0}
   walkingParameter: 

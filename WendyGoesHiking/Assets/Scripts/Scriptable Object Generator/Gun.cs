@@ -19,10 +19,10 @@ public class Gun : ScriptableObject
     public float aimSpeed;
     public float reloadSpeed;   //higher number = longer time = slower reload
     public bool recovery;   //whether or not you hava a recovery (like pumping a pump shotgun)
-    public AudioClip gunshotSound;
-    public AudioClip reloadSound;
-    public AudioClip emptyMagSound;
-    public AudioClip recoverySound;
+    public AudioClip[] gunshotSounds;
+    public AudioClip[] reloadSounds;
+    public AudioClip[] emptyMagSounds;
+    public AudioClip[] recoverySounds;
     public float pitchRandomization;
     public GameObject prefab;
     public bool isEquipped;

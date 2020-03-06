@@ -97,7 +97,7 @@ public class WeaponManager : MonoBehaviour
                 }
                 else
                 {
-                    sfx.clip = loadout[currentIndex].emptyMagSound;
+                    sfx.clip = loadout[currentIndex].emptyMagSounds[Random.Range(0, loadout[currentIndex].emptyMagSounds.Length - 1)];
                     sfx.pitch = 1 - loadout[currentIndex].pitchRandomization + Random.Range(-loadout[currentIndex].pitchRandomization, loadout[currentIndex].pitchRandomization);
                     sfx.Play();
                 }
@@ -240,7 +240,7 @@ public class WeaponManager : MonoBehaviour
 
 
         //Audio
-        sfx.clip = loadout[currentIndex].gunshotSound;
+        sfx.clip = loadout[currentIndex].gunshotSounds[Random.Range(0, loadout[currentIndex].gunshotSounds.Length-1)];
         sfx.pitch = 1 - loadout[currentIndex].pitchRandomization + Random.Range(-loadout[currentIndex].pitchRandomization, loadout[currentIndex].pitchRandomization);
         sfx.Play();
 
@@ -259,7 +259,7 @@ public class WeaponManager : MonoBehaviour
 
         if (loadout[currentIndex].recovery)
         {
-            sfx2.clip = loadout[currentIndex].recoverySound;
+            sfx2.clip = loadout[currentIndex].recoverySounds[Random.Range(0, loadout[currentIndex].recoverySounds.Length-1)];
             sfx2.pitch = 1 - loadout[currentIndex].pitchRandomization + Random.Range(-loadout[currentIndex].pitchRandomization, loadout[currentIndex].pitchRandomization);
             sfx2.Play();
             equippedWeapon.GetComponent<Animator>().Play("Recovery", 0, 0);
@@ -275,14 +275,30 @@ public class WeaponManager : MonoBehaviour
         equippedWeapon.GetComponent<Animator>().Play("Reload", 0, 0);
 
 
-        if (loadout[currentIndex].reloadSound != null)
+        if (loadout[currentIndex].reloadSounds[0] != null)
         {
-            sfx2.clip = loadout[currentIndex].reloadSound;
+            sfx2.clip = loadout[currentIndex].reloadSounds[Random.Range(0, loadout[currentIndex].reloadSounds.Length-1)];
             sfx2.pitch = 1 - loadout[currentIndex].pitchRandomization + Random.Range(-loadout[currentIndex].pitchRandomization, loadout[currentIndex].pitchRandomization);
-            sfx2.Play();
+            if (loadout[currentIndex].GetMagazine() == 0)
+            {
+                sfx2.Play();
+                yield return new WaitForSeconds(sfx2.clip.length);
+                sfx2.clip = loadout[currentIndex].reloadSounds[Random.Range(0, loadout[currentIndex].reloadSounds.Length - 1)];
+                sfx2.pitch = 1 - loadout[currentIndex].pitchRandomization + Random.Range(-loadout[currentIndex].pitchRandomization, loadout[currentIndex].pitchRandomization);
+                sfx2.Play();
+
+            }
+            else
+            {
+                sfx2.Play();
+
+            }
         }
-        
-        yield return new WaitForSeconds(equippedWeapon.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
+
+        yield return new WaitForSeconds(sfx2.clip.length * 1.5f);
+
+
+        //yield return new WaitForSeconds(equippedWeapon.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
 
         loadout[currentIndex].Reload();
         isReloading = false;
@@ -315,11 +331,11 @@ public class WeaponManager : MonoBehaviour
 
         if (currentIndex == 1)
         {
-            uiText.text = ammo.ToString("D2");
+          //  uiText.text = ammo.ToString("D2");
         }
         else
         {
-            uiText.text = "";
+           // uiText.text = "";
         }
 
 

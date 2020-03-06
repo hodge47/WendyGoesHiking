@@ -1,0 +1,159 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8938810824461866011
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8938810824461866005}
+  - component: {fileID: 8938810824461866007}
+  - component: {fileID: 8938810824461866004}
+  - component: {fileID: 8938810824461866006}
+  m_Layer: 0
+  m_Name: IL3DN_ColorManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8938810824461866005
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8938810824461866011}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8938810824461866007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8938810824461866011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11ef2c28c3102d64891e6c203a6206db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slot: 1
+--- !u!114 &8938810824461866004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8938810824461866011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dd1cf9394fcd3e4bb04dc519c424459, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materials:
+  - meterial: {fileID: 2100000, guid: 221f9488657b1f1498bb5860cf4c5ff3, type: 2}
+    properties:
+    - colors:
+      - color: {r: 0.78431374, g: 0.16470587, b: 0.5522902, a: 1}
+        name: _SkyTint
+      - color: {r: 0.8584906, g: 0.7144934, b: 0.49808654, a: 1}
+        name: _GroundColor
+    selectedProperty: 0
+  - meterial: {fileID: 2100000, guid: 9dffff67a35fe044da801331236ae2ef, type: 2}
+    properties:
+    - colors:
+      - color: {r: 0.3882353, g: 0.3623959, b: 0.12156861, a: 0}
+        name: _Color0
+      - color: {r: 0.5849056, g: 0.40817118, b: 0.17933428, a: 0}
+        name: _Color1
+      - color: {r: 0, g: 0, b: 0, a: 0}
+        name: _Color2
+      - color: {r: 0, g: 0, b: 0, a: 0}
+        name: _Color3
+    selectedProperty: 0
+--- !u!114 &8938810824461866006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8938810824461866011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 108d10b2386140d48b82696f16f22f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materials:
+  - meterial: {fileID: 2100000, guid: 098fefc7ca6dc3048baacf21ed822e3d, type: 2}
+    properties:
+    - color: {r: 0.5660378, g: 0.42964253, b: 0.3177286, a: 1}
+      mainTex: {fileID: 0}
+    selectedProperty: 0
+  - meterial: {fileID: 2100000, guid: af3d69dd3ab4777479ce92faa440698b, type: 2}
+    properties:
+    - color: {r: 0.41219157, g: 0.5188676, b: 0.2129314, a: 1}
+      mainTex: {fileID: 2800000, guid: f0138d7c83fe3474287bec057e360c70, type: 3}
+    selectedProperty: 0
+  - meterial: {fileID: 2100000, guid: e3ac01954a8b90b418546e44fa6011b2, type: 2}
+    properties:
+    - color: {r: 0.99056596, g: 0.8732876, b: 0.31305602, a: 1}
+      mainTex: {fileID: 2800000, guid: 2da6fe53f02e06843b63af00699b6e0a, type: 3}
+    selectedProperty: 0
+  - meterial: {fileID: 2100000, guid: 856a2ac8937804e4e99a804faa0a61d5, type: 2}
+    properties:
+    - color: {r: 0.9056604, g: 0.20078298, b: 0.28405765, a: 1}
+      mainTex: {fileID: 2800000, guid: 6ab0f5f5ed2482e43a5ace7eeced19e6, type: 3}
+    selectedProperty: 0
+  - meterial: {fileID: 2100000, guid: 51381b84eb87d3d4a8987d5206af840f, type: 2}
+    properties:
+    - color: {r: 0.8868468, g: 0.2691347, b: 0.9056604, a: 1}
+      mainTex: {fileID: 2800000, guid: 70b706d8f2de2dc42891234a863b5b62, type: 3}
+    selectedProperty: 0
+  - meterial: {fileID: 2100000, guid: 49a047f6fab4c994cb92aa690ba93401, type: 2}
+    properties:
+    - color: {r: 0.094117425, g: 0.44313705, b: 0.32116345, a: 1}
+      mainTex: {fileID: 2800000, guid: f6ca14d1b28767248b6da146831632a1, type: 3}
+    selectedProperty: 0
+  - meterial: {fileID: 2100000, guid: 1d97d3e66d3177240ae59310c2388d2b, type: 2}
+    properties:
+    - color: {r: 0.5960784, g: 0.37647042, b: 0.29019594, a: 1}
+      mainTex: {fileID: 2800000, guid: e632c8e2a28f7e445a58672b91bfd65e, type: 3}
+    selectedProperty: 0
+  - meterial: {fileID: 2100000, guid: 40a5534813ec1694eb348d8ddbe4ca23, type: 2}
+    properties:
+    - color: {r: 0.6509434, g: 0.5782386, b: 0.49434853, a: 1}
+      mainTex: {fileID: 2800000, guid: 73f9ff498af5bfb48bb4614c1957e6a8, type: 3}
+    selectedProperty: 0
+  - meterial: {fileID: 2100000, guid: 67e642841af2acc4492399d0ff294789, type: 2}
+    properties:
+    - color: {r: 0.5377358, g: 0.43652758, b: 0.22574759, a: 1}
+      mainTex: {fileID: 2800000, guid: a73c218e0d8156240a793d22710686d1, type: 3}
+    selectedProperty: 0
+  - meterial: {fileID: 2100000, guid: b599d9a28d2afd24ab0a53fd5a5ce3ea, type: 2}
+    properties:
+    - color: {r: 0.764151, g: 0.51754487, b: 0.2270826, a: 1}
+      mainTex: {fileID: 2800000, guid: 2038a37a87e1eff4fa5efd69c9d1312e, type: 3}
+    selectedProperty: 0
+  - meterial: {fileID: 2100000, guid: d196cda956361f54cb094f4acad1b233, type: 2}
+    properties:
+    - color: {r: 0.5943396, g: 0.3767291, b: 0.288759, a: 1}
+      mainTex: {fileID: 0}
+    selectedProperty: 0
+  - meterial: {fileID: 2100000, guid: 49205e5c7b68f364b92a10e9b3e76a83, type: 2}
+    properties:
+    - color: {r: 0.49056602, g: 0.41276017, b: 0.12726949, a: 1}
+      mainTex: {fileID: 2800000, guid: 60e1c0ade03583e409cd4d7e6b5995fa, type: 3}
+    selectedProperty: 0
+  - meterial: {fileID: 2100000, guid: 0007dba6afb45374c88b62d209ed9c5e, type: 2}
+    properties:
+    - color: {r: 0.064213075, g: 0.3109832, b: 0.3679243, a: 1}
+      mainTex: {fileID: 2800000, guid: 46fa255f11489784a86ff91e1485cca5, type: 3}
+    selectedProperty: 0
