@@ -47,6 +47,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   intensity: 5
   adjustmentSpeed: 5
+--- !u!1 &880982421200374673
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6203529617849573480}
+  m_Layer: 0
+  m_Name: Needle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6203529617849573480
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 880982421200374673}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 9042124708680444175}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2328370329844336302
 GameObject:
   m_ObjectHideFlags: 0
@@ -521,6 +551,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2498217309339957414}
     m_Modifications:
+    - target: {fileID: 743995065017102736, guid: 9fd4a89c3733dc84cbdfb09335acc2a9,
+        type: 3}
+      propertyPath: compassOffset
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1375645808680209008, guid: 9fd4a89c3733dc84cbdfb09335acc2a9,
         type: 3}
       propertyPath: m_Name
@@ -598,6 +633,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9fd4a89c3733dc84cbdfb09335acc2a9, type: 3}
+--- !u!4 &9042124708680444175 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7090203722960469055, guid: 9fd4a89c3733dc84cbdfb09335acc2a9,
+    type: 3}
+  m_PrefabInstance: {fileID: 2240930297813914928}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4203403748874038611 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2687557488856103011, guid: 9fd4a89c3733dc84cbdfb09335acc2a9,
