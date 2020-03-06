@@ -109,11 +109,11 @@
 	</object>
 	<object class="MixerBusPanner" id="{3d0cf2ce-e279-40c0-bfa7-56d5268bd10e}" />
 	<object class="SoundScatterer" id="{8b9586ad-61ce-4ffe-9da1-76870d6dbfff}">
-		<property name="triggerProbabilityEnabled">
-			<value>true</value>
-		</property>
 		<property name="triggerProbability">
 			<value>10.5</value>
+		</property>
+		<property name="start">
+			<value>3</value>
 		</property>
 		<property name="length">
 			<value>2</value>
@@ -136,6 +136,10 @@
 		<property name="pitchRandomization">
 			<value>1.89999986</value>
 		</property>
+		<relationship name="modulators">
+			<destination>{5351a02b-faf9-4db0-9f11-170dd394a65a}</destination>
+			<destination>{17cb8de0-f274-4326-a5bc-56a777c3d98b}</destination>
+		</relationship>
 		<relationship name="sound">
 			<destination>{f091e209-5f9c-460e-9aea-6159e1b3ab96}</destination>
 		</relationship>
@@ -158,9 +162,6 @@
 		</relationship>
 	</object>
 	<object class="SoundScatterer" id="{2afb8613-f5b1-48fc-b69f-d6a99b8a7c29}">
-		<property name="triggerProbabilityEnabled">
-			<value>true</value>
-		</property>
 		<property name="triggerProbability">
 			<value>25</value>
 		</property>
@@ -219,9 +220,6 @@
 		</relationship>
 	</object>
 	<object class="SoundScatterer" id="{2508a534-54f2-420b-ab39-95da7fa3c904}">
-		<property name="triggerProbabilityEnabled">
-			<value>true</value>
-		</property>
 		<property name="triggerProbability">
 			<value>10.5</value>
 		</property>
@@ -237,14 +235,11 @@
 		<property name="maximumTimeBetweenSounds">
 			<value>9500</value>
 		</property>
-		<property name="spawnRate">
-			<value>10</value>
-		</property>
 		<property name="minimumScatterDistance">
-			<value>40</value>
+			<value>15</value>
 		</property>
 		<property name="maximumScatterDistance">
-			<value>250</value>
+			<value>75</value>
 		</property>
 		<property name="volumeRandomization">
 			<value>-4</value>
@@ -252,6 +247,9 @@
 		<property name="pitchRandomization">
 			<value>1.49999988</value>
 		</property>
+		<relationship name="modulators">
+			<destination>{d11ce4ed-4d8c-463a-925d-dbb1269c1fdc}</destination>
+		</relationship>
 		<relationship name="sound">
 			<destination>{8e0aa060-fc7c-4bb8-b15f-77995cecc7e1}</destination>
 		</relationship>
@@ -278,6 +276,22 @@
 	</object>
 	<object class="MixerBusPanner" id="{1df6b581-bc97-47d6-a018-159de1c69855}" />
 	<object class="MixerBusFader" id="{4947b90a-23b5-4e55-b83f-ba473e1e09ab}" />
+	<object class="RandomizerModulator" id="{5351a02b-faf9-4db0-9f11-170dd394a65a}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>pitch</value>
+		</property>
+		<property name="amount">
+			<value>4.5</value>
+		</property>
+	</object>
+	<object class="RandomizerModulator" id="{17cb8de0-f274-4326-a5bc-56a777c3d98b}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>volume</value>
+		</property>
+		<property name="amount">
+			<value>3.5</value>
+		</property>
+	</object>
 	<object class="MultiSound" id="{f091e209-5f9c-460e-9aea-6159e1b3ab96}">
 		<relationship name="sounds">
 			<destination>{d35b0775-508b-439f-96ac-6c77c754a84d}</destination>
@@ -322,6 +336,14 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{3ab72d76-76a2-4f99-9df9-e6f346187288}" />
+	<object class="RandomizerModulator" id="{d11ce4ed-4d8c-463a-925d-dbb1269c1fdc}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>pitch</value>
+		</property>
+		<property name="amount">
+			<value>8.5</value>
+		</property>
+	</object>
 	<object class="MultiSound" id="{8e0aa060-fc7c-4bb8-b15f-77995cecc7e1}">
 		<relationship name="sounds">
 			<destination>{422b3f03-71e5-44a3-a8de-bff4cf96ac0d}</destination>
