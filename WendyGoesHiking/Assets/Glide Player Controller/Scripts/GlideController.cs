@@ -4,6 +4,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class GlideController : MonoBehaviour
 {
@@ -249,6 +251,11 @@ public class GlideController : MonoBehaviour
 
     void Update()
     {
+
+        if (Input.GetKeyDown(KeyCode.F1)) {                                 /////////////////////////////////////////////////////// GET RID OF THIS
+            Scene s = SceneManager.GetActiveScene();
+            SceneManager.LoadScene(s.name);
+        }
 
         ///Crouching control/logic (check just a bit further down for the part where the height is actually affected!)
         if (crouchMode != GlideCrouchSetting.none) //Assuming we're actually letting the player crouch

@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Testing/Milestone 1 Demo Scene.unity
+    guid: bee57b77773d5cb499874841ba5d6cad
   m_configObjects: {}

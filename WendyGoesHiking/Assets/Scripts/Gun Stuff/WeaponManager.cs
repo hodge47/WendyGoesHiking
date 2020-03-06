@@ -254,9 +254,7 @@ public class WeaponManager : MonoBehaviour
 
         GameObject muzzleFlash = Instantiate(loadout[currentIndex].muzzleFlashes[Random.Range(0, loadout[currentIndex].muzzleFlashes.Length - 1)], position, rotation); 
 
-        Debug.Log("MUZZLE FLASH");
-
-        //Destroy(muzzleFlash, 4);
+        Destroy(muzzleFlash, 4);
 
         if (isAiming)
         {
