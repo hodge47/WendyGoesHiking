@@ -19,10 +19,10 @@ MonoBehaviour:
   fireRate: 0.5
   bloom: 60
   adsBloom: 40
-  recoil: 80
-  adsRecoil: 50
-  kickback: 0.85
-  adsKickback: 0.4
+  recoil: 0
+  adsRecoil: 0
+  kickback: 0
+  adsKickback: 0
   aimSpeed: 4
   reloadSpeed: 2
   recovery: 0
@@ -41,3 +41,14 @@ MonoBehaviour:
   pitchRandomization: 0.21
   prefab: {fileID: 6980909579959716551, guid: 3810f369925e5da48b8a504402b764fd, type: 3}
   isEquipped: 1
+  muzzleFlashes:
+  - {fileID: 124018, guid: 1f389bb139e76154582cf3c5e4f9214b, type: 3}
+  - {fileID: 146992, guid: 24bc114e4759e464eab5d9664127a034, type: 3}
+  - {fileID: 153266, guid: 39b2a3d1ecfa5614b97e75a9b5561f21, type: 3}
+  - {fileID: 160582, guid: 8ff371e17619a504b9822fc6a2facdb2, type: 3}
+  - {fileID: 183908, guid: fa6d29df930056640bf15fb9b6a54e4a, type: 3}
+  - {fileID: 110062, guid: 30902f8af10daa04cabd79e9ef258f08, type: 3}
+  - {fileID: 179846, guid: a7730127594a3ad46a512f70521a6446, type: 3}
+  - {fileID: 141106, guid: c69a6f3b834888c468f57ec885c39db3, type: 3}
+  - {fileID: 136518, guid: 35277ee4b65d54d4199c4e0e48053745, type: 3}
+  - {fileID: 161002, guid: 489aba68c9dfe9342accb1f3a0be4e5b, type: 3}

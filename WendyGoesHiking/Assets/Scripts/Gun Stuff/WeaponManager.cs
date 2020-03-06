@@ -240,11 +240,24 @@ public class WeaponManager : MonoBehaviour
 
 
         //Audio
-        sfx.clip = loadout[currentIndex].gunshotSounds[Random.Range(0, loadout[currentIndex].gunshotSounds.Length-1)];
+        sfx.clip = loadout[currentIndex].gunshotSounds[Random.Range(0, loadout[currentIndex].gunshotSounds.Length - 1)];
         sfx.pitch = 1 - loadout[currentIndex].pitchRandomization + Random.Range(-loadout[currentIndex].pitchRandomization, loadout[currentIndex].pitchRandomization);
         sfx.Play();
 
         // Gun FX
+
+        Transform muzzleFlashLocation = equippedWeapon.transform.Find("Anchor/Resources/MuzzleFlash");
+
+        Vector3 position = new Vector3(muzzleFlashLocation.position.x, muzzleFlashLocation.position.y, muzzleFlashLocation.position.z);
+        Quaternion rotation = new Quaternion(muzzleFlashLocation.rotation.x, muzzleFlashLocation.rotation.y, muzzleFlashLocation.rotation.z, muzzleFlashLocation.rotation.w);
+
+
+        GameObject muzzleFlash = Instantiate(loadout[currentIndex].muzzleFlashes[Random.Range(0, loadout[currentIndex].muzzleFlashes.Length - 1)], position, rotation); 
+
+        Debug.Log("MUZZLE FLASH");
+
+        //Destroy(muzzleFlash, 4);
+
         if (isAiming)
         {
             equippedWeapon.transform.Rotate(-loadout[currentIndex].adsRecoil, 0, 0);

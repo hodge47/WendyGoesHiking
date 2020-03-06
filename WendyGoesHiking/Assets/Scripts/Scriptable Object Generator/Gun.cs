@@ -27,6 +27,8 @@ public class Gun : ScriptableObject
     public GameObject prefab;
     public bool isEquipped;
 
+    public GameObject[] muzzleFlashes;
+
 
     private int ammo;       // current stored ammo
     private int magazine;   //current ammo in magazine
