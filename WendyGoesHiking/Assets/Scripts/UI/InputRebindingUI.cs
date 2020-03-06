@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
+using InControl;
 
 class InputRebindingUI : MonoBehaviour
 {
@@ -45,17 +46,18 @@ class InputRebindingUI : MonoBehaviour
             Button _button = _actionButton.GetComponent<Button>();
             int _buttonIndex = i;
             _button.onClick.AddListener(delegate {
-                InitiateInputRebind(_buttonIndex);
+                InitiateInputRebind(_buttonIndex, _action);
             });
             Text _buttonText = _actionButton.gameObject.GetComponentInChildren<Text>();
-            _buttonText.text = _actionBindings[0].Name;
+            _buttonText.text = _actionBindings[0].DeviceName + ": " + _actionBindings[0].Name;
             bindingButtons.Add(_button);
         }
     }
 
-    private void InitiateInputRebind(int _index)
+    private void InitiateInputRebind(int _index, PlayerAction _action)
     {
-        Debug.Log($"{bindingButtons[_index].gameObject.name}");
+        Debug.Log($"{bindingButtons[_index].gameObject.name} + {_action.Name}");
+        _action.ListenForBinding();
     }
 
     private void OnDisable()
