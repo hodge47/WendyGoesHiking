@@ -131,6 +131,9 @@
 		<property name="volume">
 			<value>-21.5</value>
 		</property>
+		<property name="polyphony">
+			<value>2</value>
+		</property>
 		<property name="maximumTimeBetweenSounds">
 			<value>6000</value>
 		</property>
@@ -181,7 +184,7 @@
 			<value>5.5</value>
 		</property>
 		<property name="polyphony">
-			<value>2</value>
+			<value>1</value>
 		</property>
 		<property name="minimumTimeBetweenSounds">
 			<value>82</value>
@@ -288,7 +291,7 @@
 			<value>2</value>
 		</property>
 		<property name="polyphony">
-			<value>4</value>
+			<value>2</value>
 		</property>
 		<property name="minimumTimeBetweenSounds">
 			<value>68</value>
@@ -393,8 +396,6 @@
 	<object class="MixerBusPanner" id="{b0991329-7bf4-4dae-ab53-1ab17a1b9fd3}" />
 	<object class="MultiSound" id="{b2716e40-8e42-46d7-9383-2bfca7f080f8}">
 		<relationship name="sounds">
-			<destination>{5a3a6b99-9a30-4c51-8dcc-380753dba66c}</destination>
-			<destination>{56ff3435-a140-4828-a61d-f31b7481c37a}</destination>
 			<destination>{73020aca-9f29-4111-9438-fdb7453a88d1}</destination>
 		</relationship>
 	</object>
@@ -406,6 +407,9 @@
 	<object class="MixerBusPanner" id="{a1530162-f35a-40f3-abd6-77a842582da8}" />
 	<object class="MixerBusFader" id="{46e01313-8a5d-46de-8e76-4e2296761ea8}" />
 	<object class="SpatialiserEffect" id="{2c4dbbef-4957-4def-9a2c-020c6a4b5e16}">
+		<property name="minimumDistance">
+			<value>10</value>
+		</property>
 		<property name="maximumDistance">
 			<value>100</value>
 		</property>
@@ -501,16 +505,6 @@
 		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{f83afe49-55eb-4619-9a3e-1f56e5ad4e0c}" />
-	<object class="SingleSound" id="{5a3a6b99-9a30-4c51-8dcc-380753dba66c}">
-		<relationship name="audioFile">
-			<destination>{3d492cac-44e1-4898-b3b8-1a05f5642bfe}</destination>
-		</relationship>
-	</object>
-	<object class="SingleSound" id="{56ff3435-a140-4828-a61d-f31b7481c37a}">
-		<relationship name="audioFile">
-			<destination>{659a2799-3f6f-4d2f-934e-2c2b7df00396}</destination>
-		</relationship>
-	</object>
 	<object class="SingleSound" id="{73020aca-9f29-4111-9438-fdb7453a88d1}">
 		<property name="looping">
 			<value>true</value>
