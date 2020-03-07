@@ -11,10 +11,15 @@ public class DynamicAmbienceManager : MonoBehaviour
 
     //a list of gameObjects
     [SerializeField] List<GameObject> nearbyGameObjects;
+    //a variable to adjust the maximum number of nearbyGameobjects
+    [SerializeField] int maxNearbyGameObjects;
+    //a variable to track the current number of nearbyGameObjects
+    [SerializeField] int currentNearbyGameObjects;
 
     private void Start()
     {
         nearbyGameObjects = new List<GameObject>();
+        maxNearbyGameObjects = 24;
         InvokeRepeating("CheckNearbyGameObjects", 1f, Random.Range(2f, 20f));
     }
 
@@ -23,7 +28,16 @@ public class DynamicAmbienceManager : MonoBehaviour
     {
         if(other.gameObject.tag == "Tree")
         {
+            //count the number of gameobjects in proximity to the player
+            currentNearbyGameObjects = nearbyGameObjects.Count;
+            //add the new gameojbect
             nearbyGameObjects.Add(other.gameObject);
+            //remove the "oldest" nearby gameobject if currentNearbyGameObjects has too many elements in it
+            if(currentNearbyGameObjects >= maxNearbyGameObjects)
+            {
+                nearbyGameObjects.Remove(nearbyGameObjects[0]);
+            }
+            
             //PlayTreeAmbience(other.gameObject);
         }
     }
@@ -34,6 +48,8 @@ public class DynamicAmbienceManager : MonoBehaviour
         if (other.gameObject.tag == "Tree")
         {
             nearbyGameObjects.Remove(other.gameObject);
+            //count the number of gameobjects in proximity to the player
+            currentNearbyGameObjects = nearbyGameObjects.Count;
         }
     }
 
@@ -46,7 +62,9 @@ public class DynamicAmbienceManager : MonoBehaviour
     //a way of checking if the player is still in proximity to relevant gameobjects
     void CheckNearbyGameObjects()
     {
-        if(nearbyGameObjects.Count > 0)
+        //count the number of gameobjects in proximity to the player
+        currentNearbyGameObjects = nearbyGameObjects.Count;
+        if (currentNearbyGameObjects > 0)
         {
             foreach(GameObject g in nearbyGameObjects)
             {
@@ -54,7 +72,12 @@ public class DynamicAmbienceManager : MonoBehaviour
                 {
                     PlayTreeAmbience(g);
                 }
-                
+
+                //if (nearbyGameObjects.IndexOf(g) % 2 == 0)
+                //{
+                //    PlayTreeAmbience(g);
+                //}
+
             }
         }
     }
