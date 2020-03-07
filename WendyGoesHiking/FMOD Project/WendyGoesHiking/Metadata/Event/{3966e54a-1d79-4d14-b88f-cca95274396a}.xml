@@ -108,7 +108,7 @@
 	</object>
 	<object class="EventMixerGroup" id="{9c35741d-0256-49bc-a2ef-303322ebbc4f}">
 		<property name="volume">
-			<value>-8</value>
+			<value>-1.5</value>
 		</property>
 		<property name="name">
 			<value>Dirt Footsteps</value>
@@ -152,7 +152,7 @@
 			<value>startOffset</value>
 		</property>
 		<property name="amount">
-			<value>20</value>
+			<value>28.5</value>
 		</property>
 	</object>
 	<object class="SingleSound" id="{d731ec8e-d75d-4bb6-aa66-190aa31ba577}">
