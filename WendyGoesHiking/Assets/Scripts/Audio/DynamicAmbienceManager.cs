@@ -26,9 +26,9 @@ public class DynamicAmbienceManager : MonoBehaviour
     {
         nearbyGameObjects = new List<GameObject>();
         maxNearbyGameObjects = 24;
-        minRepeatRate = 3f;
-        maxRepeatRate = 15f;
-        InvokeRepeating("CheckNearbyGameObjects", 1f, minRepeatRate);
+        minRepeatRate = 2f;
+        maxRepeatRate = 15f;        
+        Invoke("CheckNearbyGameObjects", 1f);
     }
 
     //a way of detecting if a nearbyGameObject is tagged "Tree"
@@ -44,9 +44,7 @@ public class DynamicAmbienceManager : MonoBehaviour
             if(currentNearbyGameObjects >= maxNearbyGameObjects)
             {
                 nearbyGameObjects.Remove(nearbyGameObjects[0]);
-            }
-            
-            //PlayTreeAmbience(other.gameObject);
+            }            
         }
     }
 
@@ -72,19 +70,19 @@ public class DynamicAmbienceManager : MonoBehaviour
     {
         //count the number of gameobjects in proximity to the player
         currentNearbyGameObjects = nearbyGameObjects.Count;
-        //recalculate repeat rate
-        CalculateRepeatRate();
+        
         if (currentNearbyGameObjects > 0)
         {
             foreach(GameObject g in nearbyGameObjects)
             {
                 if(nearbyGameObjects.IndexOf(g) % 2 == 0)
-                {
-                    Invoke("PlayTreeAmbience(g)", CalculateRepeatRate());
-                    //PlayTreeAmbience(g);
+                {                    
+                    PlayTreeAmbience(g);
                 }
             }
         }
+        //recursively call self at random intervals to produce the effect of ever changing wind patterns
+        Invoke("CheckNearbyGameObjects", CalculateRepeatRate());
     }
     //a method to determine a float within a random range constrained by the user
     private float CalculateRepeatRate()
