@@ -61,11 +61,7 @@
 			<destination>{38a7276b-6bf0-49bd-bdde-93126a562c28}</destination>
 		</relationship>
 	</object>
-	<object class="EventAutomatableProperties" id="{327d9970-aab1-4fb8-968b-989ee15504e3}">
-		<property name="maxVoices">
-			<value>36</value>
-		</property>
-	</object>
+	<object class="EventAutomatableProperties" id="{327d9970-aab1-4fb8-968b-989ee15504e3}" />
 	<object class="MarkerTrack" id="{97eee8da-646a-4f2c-9855-18b64838458f}" />
 	<object class="GroupTrack" id="{631b6d49-7d17-49c7-b5c6-dc971db4d691}">
 		<relationship name="modules">
@@ -161,6 +157,9 @@
 		<property name="polyphony">
 			<value>2</value>
 		</property>
+		<property name="totalSounds">
+			<value>3</value>
+		</property>
 		<property name="maximumTimeBetweenSounds">
 			<value>6000</value>
 		</property>
@@ -232,7 +231,7 @@
 			<value>35</value>
 		</property>
 		<property name="maximumScatterDistance">
-			<value>80</value>
+			<value>150</value>
 		</property>
 		<property name="pitchRandomization">
 			<value>3.99999976</value>
@@ -266,6 +265,9 @@
 			<value>2</value>
 		</property>
 		<property name="soundStealing">
+			<value>3</value>
+		</property>
+		<property name="totalSounds">
 			<value>3</value>
 		</property>
 		<property name="spawnRate">
@@ -318,6 +320,9 @@
 			<value>1</value>
 		</property>
 		<property name="soundStealing">
+			<value>3</value>
+		</property>
+		<property name="totalSounds">
 			<value>3</value>
 		</property>
 		<property name="minimumTimeBetweenSounds">
@@ -381,6 +386,9 @@
 		<property name="soundStealing">
 			<value>3</value>
 		</property>
+		<property name="totalSounds">
+			<value>3</value>
+		</property>
 		<property name="minimumTimeBetweenSounds">
 			<value>1000</value>
 		</property>
@@ -431,6 +439,9 @@
 			<value>4</value>
 		</property>
 		<property name="soundStealing">
+			<value>3</value>
+		</property>
+		<property name="totalSounds">
 			<value>3</value>
 		</property>
 		<property name="minimumTimeBetweenSounds">
@@ -587,7 +598,7 @@
 			<value>0.49999997</value>
 		</property>
 		<property name="maximumDistance">
-			<value>200</value>
+			<value>150</value>
 		</property>
 	</object>
 	<object class="SingleSound" id="{d35b0775-508b-439f-96ac-6c77c754a84d}">

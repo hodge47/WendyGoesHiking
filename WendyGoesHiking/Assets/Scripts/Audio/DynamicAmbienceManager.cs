@@ -25,9 +25,9 @@ public class DynamicAmbienceManager : MonoBehaviour
     private void Start()
     {
         nearbyGameObjects = new List<GameObject>();
-        maxNearbyGameObjects = 24;
+        maxNearbyGameObjects = 32;
         minRepeatRate = 2f;
-        maxRepeatRate = 30f;        
+        maxRepeatRate = 20f;        
         Invoke("CheckNearbyGameObjects", 1f);
     }
 
