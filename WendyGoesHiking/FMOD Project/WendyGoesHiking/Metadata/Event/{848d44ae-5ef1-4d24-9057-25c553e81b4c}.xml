@@ -194,14 +194,23 @@
 		</relationship>
 	</object>
 	<object class="SoundScatterer" id="{d35c39d9-9c02-4caf-8c65-bb15b37f9272}">
+		<property name="triggerProbabilityEnabled">
+			<value>true</value>
+		</property>
+		<property name="triggerProbability">
+			<value>25</value>
+		</property>
 		<property name="length">
 			<value>2</value>
 		</property>
 		<property name="volume">
-			<value>3.5</value>
+			<value>5.5</value>
 		</property>
 		<property name="polyphony">
-			<value>5</value>
+			<value>3</value>
+		</property>
+		<property name="totalSounds">
+			<value>2</value>
 		</property>
 		<property name="minimumTimeBetweenSounds">
 			<value>4000</value>
@@ -213,13 +222,13 @@
 			<value>32</value>
 		</property>
 		<property name="minimumScatterDistance">
-			<value>15</value>
+			<value>35</value>
 		</property>
 		<property name="maximumScatterDistance">
-			<value>60</value>
+			<value>80</value>
 		</property>
 		<property name="pitchRandomization">
-			<value>2.29999995</value>
+			<value>3.99999976</value>
 		</property>
 		<relationship name="sound">
 			<destination>{5f3e9863-2d66-4d7a-873d-e2b40026b43c}</destination>
@@ -256,7 +265,7 @@
 			<value>29.5</value>
 		</property>
 		<property name="maximumScatterDistance">
-			<value>70</value>
+			<value>40</value>
 		</property>
 		<property name="volumeRandomization">
 			<value>-3</value>
