@@ -102,6 +102,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{4412ba87-5a89-4b8f-938a-3d27003afefd}">
+		<property name="volume">
+			<value>7</value>
+		</property>
 		<relationship name="effectChain">
 			<destination>{28f2ea11-a243-40b4-84d8-eafa45bb8536}</destination>
 		</relationship>
@@ -250,9 +253,6 @@
 		<property name="maximumTimeBetweenSounds">
 			<value>9500</value>
 		</property>
-		<property name="spawnRate">
-			<value>10</value>
-		</property>
 		<property name="minimumScatterDistance">
 			<value>10</value>
 		</property>
@@ -270,6 +270,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{239a579e-3389-469b-bbc4-1486b4c44f43}">
+		<property name="volume">
+			<value>6</value>
+		</property>
 		<property name="name">
 			<value>Wind Long</value>
 		</property>
@@ -300,7 +303,7 @@
 			<value>525</value>
 		</property>
 		<property name="minimumScatterDistance">
-			<value>7.64999962</value>
+			<value>0.299999982</value>
 		</property>
 		<property name="maximumScatterDistance">
 			<value>80</value>
