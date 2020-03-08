@@ -15,12 +15,20 @@ public class DynamicAmbienceManager : MonoBehaviour
     [SerializeField] int maxNearbyGameObjects;
     //a variable to track the current number of nearbyGameObjects
     [SerializeField] int currentNearbyGameObjects;
+    //how often to repeat playback of an FMOD event
+    [SerializeField] float repeatRate;
+    //the minimum possible repeatrate
+    [SerializeField] float minRepeatRate;
+    //the maximum possible repeatrate
+    [SerializeField] float maxRepeatRate;
 
     private void Start()
     {
         nearbyGameObjects = new List<GameObject>();
         maxNearbyGameObjects = 24;
-        InvokeRepeating("CheckNearbyGameObjects", 1f, Random.Range(2f, 20f));
+        minRepeatRate = 3f;
+        maxRepeatRate = 15f;
+        InvokeRepeating("CheckNearbyGameObjects", 1f, minRepeatRate);
     }
 
     //a way of detecting if a nearbyGameObject is tagged "Tree"
@@ -64,21 +72,24 @@ public class DynamicAmbienceManager : MonoBehaviour
     {
         //count the number of gameobjects in proximity to the player
         currentNearbyGameObjects = nearbyGameObjects.Count;
+        //recalculate repeat rate
+        CalculateRepeatRate();
         if (currentNearbyGameObjects > 0)
         {
             foreach(GameObject g in nearbyGameObjects)
             {
                 if(nearbyGameObjects.IndexOf(g) % 2 == 0)
                 {
-                    PlayTreeAmbience(g);
+                    Invoke("PlayTreeAmbience(g)", CalculateRepeatRate());
+                    //PlayTreeAmbience(g);
                 }
-
-                //if (nearbyGameObjects.IndexOf(g) % 2 == 0)
-                //{
-                //    PlayTreeAmbience(g);
-                //}
-
             }
         }
+    }
+    //a method to determine a float within a random range constrained by the user
+    private float CalculateRepeatRate()
+    {
+        float repeatRateLocal = Random.Range(minRepeatRate, maxRepeatRate);
+        return repeatRateLocal;
     }
 }
