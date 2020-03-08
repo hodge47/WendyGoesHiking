@@ -421,7 +421,7 @@
 			<value>525</value>
 		</property>
 		<property name="minimumScatterDistance">
-			<value>0.299999982</value>
+			<value>5</value>
 		</property>
 		<property name="maximumScatterDistance">
 			<value>80</value>
@@ -628,6 +628,12 @@
 		</relationship>
 	</object>
 	<object class="SingleSound" id="{0361c509-0049-4322-9f53-6001c7ccbd90}">
+		<property name="startOffset">
+			<value>30</value>
+		</property>
+		<property name="volume">
+			<value>-14.5</value>
+		</property>
 		<relationship name="audioFile">
 			<destination>{97c05636-7e04-46ad-8a45-247fa96d6d21}</destination>
 		</relationship>

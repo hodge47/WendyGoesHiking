@@ -27,7 +27,7 @@ public class DynamicAmbienceManager : MonoBehaviour
         nearbyGameObjects = new List<GameObject>();
         maxNearbyGameObjects = 24;
         minRepeatRate = 2f;
-        maxRepeatRate = 15f;        
+        maxRepeatRate = 30f;        
         Invoke("CheckNearbyGameObjects", 1f);
     }
 
@@ -81,8 +81,10 @@ public class DynamicAmbienceManager : MonoBehaviour
                 }
             }
         }
-        //recursively call self at random intervals to produce the effect of ever changing wind patterns
-        Invoke("CheckNearbyGameObjects", CalculateRepeatRate());
+        //recalculate repeatrate
+        repeatRate = CalculateRepeatRate();
+        //recursively call self at repeatrate
+        Invoke("CheckNearbyGameObjects", repeatRate);
     }
     //a method to determine a float within a random range constrained by the user
     private float CalculateRepeatRate()
