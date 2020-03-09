@@ -1,5 +1,23 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9167529456307540650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD Project/WendyGoesHiking/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637192955579960214
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
 --- !u!114 &-9143244874810369769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,6 +216,24 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &-7816000274753846332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Interactibles.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD Project/WendyGoesHiking/Build/Desktop/Interactibles.bank
+  SubDir: 
+  lastModified: 637192965204356690
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
 --- !u!114 &-7795171577225948295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -270,6 +306,24 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &-7263128687405757509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Ambience.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD Project/WendyGoesHiking/Build/Desktop/Ambience.bank
+  SubDir: 
+  lastModified: 637192955579614146
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
 --- !u!114 &-7256459558419087505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -339,6 +393,24 @@ MonoBehaviour:
   Path: FMOD Project/WendyGoesHiking/Build/Desktop/Master.bank
   SubDir: 
   lastModified: 637180783771051530
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
+--- !u!114 &-6912437583854745967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Ambience.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD Project/WendyGoesHiking/Build/Desktop/Ambience.bank
+  SubDir: 
+  lastModified: 637192953989363397
   LoadResult: 0
   FileSizes: []
   Exists: 0
@@ -414,6 +486,29 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &-6579534937046190943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Interactibles/sx_wgh_game_int_shotgun_reload
+  m_EditorClassIdentifier: 
+  Path: event:/Interactibles/sx_wgh_game_int_shotgun_reload
+  guid: aad98e72dd56bf4d9fb58fa6b55b116c
+  Banks:
+  - {fileID: -4625542078495834131}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2000
 --- !u!114 &-6560738060718920956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -483,7 +578,7 @@ MonoBehaviour:
   Path: event:/Player/sx_wgh_game_plr_footstep_grass
   guid: 1db21ff705d72b4b8f07eaee07ffd780
   Banks:
-  - {fileID: 6273279884809900931}
+  - {fileID: -6197255242045676151}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -509,6 +604,24 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &-6197255242045676151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Player.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD Project/WendyGoesHiking/Build/Desktop/Player.bank
+  SubDir: 
+  lastModified: 637192973133642454
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &-6164053003193679336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -830,7 +943,7 @@ MonoBehaviour:
   Path: event:/Player/sx_wgh_game_plr_footstep_dirt
   guid: 4ae56639791d144db88fcca95274396a
   Banks:
-  - {fileID: 6273279884809900931}
+  - {fileID: -6197255242045676151}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -856,6 +969,24 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &-4793512841149738802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD Project/WendyGoesHiking/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637192973133266789
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &-4778131256845989274
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -889,6 +1020,24 @@ MonoBehaviour:
   Path: FMOD Project/WendyGoesHiking/Build/Desktop/Master.bank
   SubDir: 
   lastModified: 637180791296139535
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
+--- !u!114 &-4625542078495834131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Interactibles.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD Project/WendyGoesHiking/Build/Desktop/Interactibles.bank
+  SubDir: 
+  lastModified: 637192973134198129
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -1252,6 +1401,24 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &-3282620003482505591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Interactibles.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD Project/WendyGoesHiking/Build/Desktop/Interactibles.bank
+  SubDir: 
+  lastModified: 637192953992537714
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
 --- !u!114 &-3277081803767097243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1288,6 +1455,29 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &-2988745953093821188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Interactibles/sx_wgh_game_int_flashlight_turnon
+  m_EditorClassIdentifier: 
+  Path: event:/Interactibles/sx_wgh_game_int_flashlight_turnon
+  guid: 10b6bbb96949a749bbe4d23a11b5db13
+  Banks:
+  - {fileID: -4625542078495834131}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1000
 --- !u!114 &-2980812687724327793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1792,6 +1982,24 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &-482143344156006087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Player.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD Project/WendyGoesHiking/Build/Desktop/Player.bank
+  SubDir: 
+  lastModified: 637192965203996758
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
 --- !u!114 &-423197073501570868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1864,6 +2072,29 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &-213525161091375369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Interactibles/sx_wgh_game_int_shotgun_fire_doublebarrel
+  m_EditorClassIdentifier: 
+  Path: event:/Interactibles/sx_wgh_game_int_shotgun_fire_doublebarrel
+  guid: 8dff2706fa66bf4fa01c86f87af04e6a
+  Banks:
+  - {fileID: -4625542078495834131}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2000
 --- !u!114 &-202243961010032882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1932,21 +2163,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 8914403071283873561}
-  - {fileID: -7910723585060528724}
-  - {fileID: 8809444449395998315}
-  - {fileID: 6273279884809900931}
+  - {fileID: 3489843674194719726}
+  - {fileID: -4625542078495834131}
+  - {fileID: -4793512841149738802}
+  - {fileID: -6197255242045676151}
   EditorEvents:
   - {fileID: 6907778105595484926}
   - {fileID: 6370282740856571230}
   - {fileID: -4845599138590674480}
   - {fileID: -6374373514354190725}
   - {fileID: 6301165012269058987}
+  - {fileID: 875330764657214516}
+  - {fileID: -213525161091375369}
+  - {fileID: -6579534937046190943}
+  - {fileID: -2988745953093821188}
+  - {fileID: 6756785913064220546}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 8809444449395998315}
+  - {fileID: -4793512841149738802}
   StringsBanks:
   - {fileID: 8914403071283873561}
-  stringsBankWriteTime: 637192857512757791
+  stringsBankWriteTime: 637192973133324238
   cacheVersion: 3
 --- !u!114 &98827734528073634
 MonoBehaviour:
@@ -2164,6 +2401,65 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &864578829537158114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Player.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD Project/WendyGoesHiking/Build/Desktop/Player.bank
+  SubDir: 
+  lastModified: 637192962745208095
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
+--- !u!114 &875330764657214516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Interactibles/sx_wgh_game_int_shotgun_fire_singlebarrel
+  m_EditorClassIdentifier: 
+  Path: event:/Interactibles/sx_wgh_game_int_shotgun_fire_singlebarrel
+  guid: 7293c562914a8e4eb552dd32be1e80ff
+  Banks:
+  - {fileID: -4625542078495834131}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2000
+--- !u!114 &912925101294821713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Ambience.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD Project/WendyGoesHiking/Build/Desktop/Ambience.bank
+  SubDir: 
+  lastModified: 637192967426803197
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
 --- !u!114 &1213048850476334299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2179,6 +2475,24 @@ MonoBehaviour:
   Path: FMOD Project/WendyGoesHiking/Build/Desktop/Master.bank
   SubDir: 
   lastModified: 637191957252119647
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
+--- !u!114 &1287341315112315857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD Project/WendyGoesHiking/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637192953990142477
   LoadResult: 0
   FileSizes: []
   Exists: 0
@@ -2398,6 +2712,42 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &2258222427537664462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD Project/WendyGoesHiking/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637192962744860161
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
+--- !u!114 &2487033841160663357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Interactibles.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD Project/WendyGoesHiking/Build/Desktop/Interactibles.bank
+  SubDir: 
+  lastModified: 637192955580626468
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
 --- !u!114 &2713091577407461940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2506,6 +2856,24 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &3112042058132019120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Interactibles.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD Project/WendyGoesHiking/Build/Desktop/Interactibles.bank
+  SubDir: 
+  lastModified: 637192967428068098
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
 --- !u!114 &3365192439563267567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2560,6 +2928,24 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &3489843674194719726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Ambience.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD Project/WendyGoesHiking/Build/Desktop/Ambience.bank
+  SubDir: 
+  lastModified: 637192973132932280
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &3595417200298883334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2596,6 +2982,24 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &3693559823747917113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Player.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD Project/WendyGoesHiking/Build/Desktop/Player.bank
+  SubDir: 
+  lastModified: 637192955580324448
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
 --- !u!114 &3745015104419010533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2611,6 +3015,24 @@ MonoBehaviour:
   Path: FMOD Project/WendyGoesHiking/Build/Desktop/Master.bank
   SubDir: 
   lastModified: 637191978231046079
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
+--- !u!114 &3814611042536568774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Player.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD Project/WendyGoesHiking/Build/Desktop/Player.bank
+  SubDir: 
+  lastModified: 637192967427509608
   LoadResult: 0
   FileSizes: []
   Exists: 0
@@ -2704,6 +3126,24 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &4254687450633759888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD Project/WendyGoesHiking/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637192967427135810
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
 --- !u!114 &4556412683262236809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2737,6 +3177,24 @@ MonoBehaviour:
   Path: FMOD Project/WendyGoesHiking/Build/Desktop/Master.bank
   SubDir: 
   lastModified: 637180780403080278
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
+--- !u!114 &4642316279223057461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Ambience.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD Project/WendyGoesHiking/Build/Desktop/Ambience.bank
+  SubDir: 
+  lastModified: 637192962744563486
   LoadResult: 0
   FileSizes: []
   Exists: 0
@@ -2888,6 +3346,24 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &5699692123528507195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Ambience.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD Project/WendyGoesHiking/Build/Desktop/Ambience.bank
+  SubDir: 
+  lastModified: 637192965203289444
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
 --- !u!114 &5734270170145986066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3104,6 +3580,24 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &6275030962016887732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Interactibles.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD Project/WendyGoesHiking/Build/Desktop/Interactibles.bank
+  SubDir: 
+  lastModified: 637192962745955867
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
 --- !u!114 &6285349763891633498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3137,7 +3631,7 @@ MonoBehaviour:
   Path: event:/Ambience/sx_wgh_game_amb_tree_static
   guid: 06a560b7ee65db4db02b0e55f96c7c25
   Banks:
-  - {fileID: -7910723585060528724}
+  - {fileID: 3489843674194719726}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
@@ -3183,7 +3677,7 @@ MonoBehaviour:
   - {fileID: 7515221639825633920}
   - {fileID: -6560738060718920956}
   - {fileID: 1558935740861319505}
-  - {fileID: 8809444449395998315}
+  - {fileID: -4793512841149738802}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -3191,6 +3685,24 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1200
+--- !u!114 &6376909076925161236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD Project/WendyGoesHiking/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637192965203633337
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
 --- !u!114 &6386606729584245506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3245,6 +3757,47 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &6624424461828684553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Player.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD Project/WendyGoesHiking/Build/Desktop/Player.bank
+  SubDir: 
+  lastModified: 637192953991053797
+  LoadResult: 0
+  FileSizes: []
+  Exists: 0
+--- !u!114 &6756785913064220546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Interactibles/sx_wgh_game_int_flashlight_turnoff
+  m_EditorClassIdentifier: 
+  Path: event:/Interactibles/sx_wgh_game_int_flashlight_turnoff
+  guid: 64349864986fb341b6702e3f697810bb
+  Banks:
+  - {fileID: -4625542078495834131}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 800
 --- !u!114 &6907778105595484926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3265,7 +3818,7 @@ MonoBehaviour:
   - {fileID: -2396235195182777537}
   - {fileID: -7256459558419087505}
   - {fileID: -3427483880215273888}
-  - {fileID: -7910723585060528724}
+  - {fileID: 3489843674194719726}
   IsStream: 1
   Is3D: 1
   IsOneShot: 1
@@ -3773,11 +4326,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: FMOD Project/WendyGoesHiking/Build/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637192857512757791
+  lastModified: 637192973133324238
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 1074
+    Value: 1412
   Exists: 1
 --- !u!114 &8919386266249165866
 MonoBehaviour:
