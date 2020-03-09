@@ -238,11 +238,19 @@ public class WeaponManager : MonoBehaviour
             }
         }
 
+        //jpost Audio
+        //play shotgun fire single barrel
+        if (!isAiming)
+        {
+            PlayFireSingleBarrel();
+        }
+        
 
-        //Audio
-        sfx.clip = loadout[currentIndex].gunshotSounds[Random.Range(0, loadout[currentIndex].gunshotSounds.Length - 1)];
-        sfx.pitch = 1 - loadout[currentIndex].pitchRandomization + Random.Range(-loadout[currentIndex].pitchRandomization, loadout[currentIndex].pitchRandomization);
-        sfx.Play();
+        //unity audio deprecated DO NOT USE
+        ////Audio
+        //sfx.clip = loadout[currentIndex].gunshotSounds[Random.Range(0, loadout[currentIndex].gunshotSounds.Length - 1)];
+        //sfx.pitch = 1 - loadout[currentIndex].pitchRandomization + Random.Range(-loadout[currentIndex].pitchRandomization, loadout[currentIndex].pitchRandomization);
+        //sfx.Play();
 
         // Gun FX
 
@@ -260,6 +268,8 @@ public class WeaponManager : MonoBehaviour
         {
             equippedWeapon.transform.Rotate(-loadout[currentIndex].adsRecoil, 0, 0);
             equippedWeapon.transform.position -= equippedWeapon.transform.forward * loadout[currentIndex].adsKickback;
+            //jpost Audio
+            PlayFireDoubleBarrel();
         }
         else
         {
@@ -292,16 +302,22 @@ public class WeaponManager : MonoBehaviour
             sfx2.pitch = 1 - loadout[currentIndex].pitchRandomization + Random.Range(-loadout[currentIndex].pitchRandomization, loadout[currentIndex].pitchRandomization);
             if (loadout[currentIndex].GetMagazine() == 0)
             {
-                sfx2.Play();
-                yield return new WaitForSeconds(sfx2.clip.length);
-                sfx2.clip = loadout[currentIndex].reloadSounds[Random.Range(0, loadout[currentIndex].reloadSounds.Length - 1)];
-                sfx2.pitch = 1 - loadout[currentIndex].pitchRandomization + Random.Range(-loadout[currentIndex].pitchRandomization, loadout[currentIndex].pitchRandomization);
-                sfx2.Play();
+                //jpost Audio
+                PlayShotgunReload();
+
+                //unity audio deprecated DO NOT USE
+                //sfx2.Play();
+                //yield return new WaitForSeconds(sfx2.clip.length);
+                //sfx2.clip = loadout[currentIndex].reloadSounds[Random.Range(0, loadout[currentIndex].reloadSounds.Length - 1)];
+                //sfx2.pitch = 1 - loadout[currentIndex].pitchRandomization + Random.Range(-loadout[currentIndex].pitchRandomization, loadout[currentIndex].pitchRandomization);
+                //sfx2.Play();
 
             }
             else
             {
-                sfx2.Play();
+                PlayShotgunReload();
+                //unity audio deprecated DO NOT USE
+                //sfx2.Play();
 
             }
         }
@@ -351,7 +367,19 @@ public class WeaponManager : MonoBehaviour
 
 
     }
-
-
-
+    //jpost Audio
+    private void PlayFireSingleBarrel()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Interactibles/sx_wgh_game_int_shotgun_fire_singlebarrel", gameObject.transform.position);
+    }
+    //jpost Audio
+    private void PlayFireDoubleBarrel()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Interactibles/sx_wgh_game_int_shotgun_fire_doublebarrel", gameObject.transform.position);
+    }
+    //jpost Audio
+    private void PlayShotgunReload()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Interactibles/sx_wgh_game_int_shotgun_reload", gameObject.transform.position);
+    }
 }
