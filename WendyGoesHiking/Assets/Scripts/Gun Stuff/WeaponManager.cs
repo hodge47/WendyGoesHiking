@@ -79,6 +79,8 @@ public class WeaponManager : MonoBehaviour
         if (playerControlActions.FlashlightSwitch.WasPressed)
         {     //if the number key '1' is pressed, equip first weapon
             Equip(2);
+            //jpost Audio
+            PlayFlashlightTurnOn();
         }
 
         if (equippedWeapon != null)
@@ -367,6 +369,7 @@ public class WeaponManager : MonoBehaviour
 
 
     }
+
     //jpost Audio
     private void PlayFireSingleBarrel()
     {
@@ -381,5 +384,10 @@ public class WeaponManager : MonoBehaviour
     private void PlayShotgunReload()
     {
         FMODUnity.RuntimeManager.PlayOneShot("event:/Interactibles/sx_wgh_game_int_shotgun_reload", gameObject.transform.position);
+    }
+    //jpost Audio
+    private void PlayFlashlightTurnOn()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Interactibles/sx_wgh_game_int_flashlight_turnon", gameObject.transform.position);
     }
 }
