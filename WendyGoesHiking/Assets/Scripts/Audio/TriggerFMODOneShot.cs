@@ -9,7 +9,7 @@ public class TriggerFMODOneShot : MonoBehaviour
     ///
 
     //serialized fields
-    //decide whether or not this event can be played *every* time the triggerObject enters this objects box collider
+    //decide whether or not this event can be played *every* time the triggerTag enters this objects box collider
     [SerializeField] bool playEventOnce = true;
     //decide whether or not the event should play at the location of the main camera
     [SerializeField] bool playEventAtMainCamera = true;
@@ -20,12 +20,12 @@ public class TriggerFMODOneShot : MonoBehaviour
     //box collider
     private BoxCollider boxCollider;
     //the tag (string) of the collider to trigger this event
-    public string triggerObject;
+    public string triggerTag;
     //the name (string) of the FMOD event to play
     public string eventPath;
     //the gameobject that the FMOD event should play at
     public GameObject playBackObject;
-    //a boolean gate to allow for the FMOD event to only be played the *first* time the triggerObject enters 
+    //a boolean gate to allow for the FMOD event to only be played the *first* time the triggerTag enters 
     private bool canPlayOneShot = true;
     
     private void Start()
@@ -38,18 +38,18 @@ public class TriggerFMODOneShot : MonoBehaviour
         {
             playBackObject = GameObject.FindGameObjectWithTag("MainCamera");
         }
-        //initialze triggerObject to be the player if playerTrigger is true
+        //initialze triggerTag to be the player if playerTrigger is true
         if (playerTrigger)
         {
-            triggerObject = "Player";
+            triggerTag = "Player";
         }        
     }
     
     //method for detecting trigger
     private void OnTriggerEnter(Collider other)
     {
-        //if the gameobject collides with the triggerObject
-        if (other.CompareTag(triggerObject))
+        //if the gameobject collides with the triggerTag
+        if (other.CompareTag(triggerTag))
         {
             if (canPlayOneShot)
             {

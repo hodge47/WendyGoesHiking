@@ -82,5 +82,6 @@ MonoBehaviour:
   - Ambience
   - Interactibles
   - Player
+  - VO
   BanksToLoad: []
   LiveUpdatePort: 9264
