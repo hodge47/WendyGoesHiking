@@ -13,6 +13,8 @@ public class TriggerFMODOneShot : MonoBehaviour
     [SerializeField] bool playEventAtMainCamera = true;
     //decide whether or not the event should be triggered by the player colliding with the trigger's boxcollider
     [SerializeField] bool playerTrigger = true;
+    //decide whether or not this event can be played *every* time the triggerObject enters this objects box collider
+    [SerializeField] bool playEventOnce = true;
 
     //box collider
     private BoxCollider boxCollider;
@@ -22,6 +24,8 @@ public class TriggerFMODOneShot : MonoBehaviour
     public string eventPath;
     //the gameobject that the FMOD event should play at
     public GameObject playBackObject;
+    //a boolean gate to allow for the FMOD event to only be played the *first* time the triggerObject enters 
+    private bool canPlayOneShot = true;
 
     
 
@@ -39,7 +43,7 @@ public class TriggerFMODOneShot : MonoBehaviour
         if (playerTrigger)
         {
             triggerObject = "Player";
-        }
+        }        
     }
     
     //method for detecting trigger
@@ -48,7 +52,16 @@ public class TriggerFMODOneShot : MonoBehaviour
         //if the gameobject collides with the triggerObject
         if (other.CompareTag(triggerObject))
         {
-            PlayFMODOneShot();
+            if (canPlayOneShot)
+            {
+                PlayFMODOneShot();
+            }          
+
+            //if playEventOnce is true, set canPlayOneShot to false
+            if (playEventOnce)
+            {
+                canPlayOneShot = false;
+            }
         }
     }
 
