@@ -71,15 +71,17 @@ public class WeaponManager : MonoBehaviour
             Equip(0);
 
         }
-        if (playerControlActions.ShotgunSwitch.WasPressed)
+
+        if (playerControlActions.FlashlightSwitch.WasPressed)
         {     //if the number key '1' is pressed, equip first weapon
             Equip(1);
         }
 
-        if (playerControlActions.FlashlightSwitch.WasPressed)
+        if (playerControlActions.ShotgunSwitch.WasPressed)
         {     //if the number key '1' is pressed, equip first weapon
             Equip(2);
         }
+
 
         if (equippedWeapon != null)
         {

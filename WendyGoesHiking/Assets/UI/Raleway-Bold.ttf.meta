@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 84545f4ce2f3978479f7f13ee95993dd
+guid: f34f714155bc1b14ab98c40a1ec97270
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -8,9 +8,9 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: Barlow
+  fontName: Raleway
   fontNames:
-  - Barlow
+  - Raleway
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

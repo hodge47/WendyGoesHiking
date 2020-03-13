@@ -2,31 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
     [SerializeField]
-    private CanvasRenderer panel;
+    //private CanvasRenderer panel;
 
-    private Button startButton;
-    private Button quitButton;
-
-    /// <summary>
-    /// Sets the panel to fade away when the player presses startButton
-    /// </summary>
-    public void FadeAway()
+    public void StartGame()
     {
-        panel.SetAlpha(0);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void ExitGame()
     {
+        Debug.Log("the game has been quit");
         Application.Quit();
     }
 
-    public void Start()
-    {
-        panel.SetAlpha(1);
-        Cursor.visible = true;
-    }
 }
