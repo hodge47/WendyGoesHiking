@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="EventFolder" id="{b9b05870-48f3-4dc1-92c6-bd10c55524db}">
+		<property name="name">
+			<value>Inner Monologue</value>
+		</property>
+		<relationship name="folder">
+			<destination>{63bd654c-d925-422e-b628-12bd41e44592}</destination>
+		</relationship>
+	</object>
+</objects>
