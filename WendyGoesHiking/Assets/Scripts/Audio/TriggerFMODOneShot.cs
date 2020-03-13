@@ -8,6 +8,12 @@ public class TriggerFMODOneShot : MonoBehaviour
     ///a class dedicated to playing an FMOD event OnTriggerEnter
     ///
 
+    //serialized fields
+    //decide whether or not the event should play at the location of the main camera
+    [SerializeField] bool playEventAtMainCamera = true;
+    //decide whether or not the event should be triggered by the player colliding with the trigger's boxcollider
+    [SerializeField] bool playerTrigger = true;
+
     //box collider
     private BoxCollider boxCollider;
     //the tag (string) of the collider to trigger this event
@@ -17,16 +23,13 @@ public class TriggerFMODOneShot : MonoBehaviour
     //the gameobject that the FMOD event should play at
     public GameObject playBackObject;
 
-    //serialized fields
-    [SerializeField] bool playEventAtMainCamera = true;
-    [SerializeField] bool playerTrigger = true;
+    
 
     private void Start()
     {
         //initialize boxCollider to be the gameObject's box collider
         boxCollider = gameObject.GetComponent<BoxCollider>();
-        //initialize event name to default empty string
-        //eventPath = "";
+        
         //initialize play back object to default player camera
         if (playEventAtMainCamera)
         {
@@ -49,7 +52,7 @@ public class TriggerFMODOneShot : MonoBehaviour
         }
     }
 
-    //a method to play the desired FMOD event at the location set by 
+    //a method to play the desired FMOD event at the location set by playBackObject
     public void PlayFMODOneShot()
     {
         FMODUnity.RuntimeManager.PlayOneShot(eventPath, playBackObject.transform.position);
