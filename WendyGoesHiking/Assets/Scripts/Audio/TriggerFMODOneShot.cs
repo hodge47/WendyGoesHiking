@@ -26,7 +26,7 @@ public class TriggerFMODOneShot : MonoBehaviour
         //initialize boxCollider to be the gameObject's box collider
         boxCollider = gameObject.GetComponent<BoxCollider>();
         //initialize event name to default empty string
-        eventPath = "";
+        //eventPath = "";
         //initialize play back object to default player camera
         if (playEventAtMainCamera)
         {
