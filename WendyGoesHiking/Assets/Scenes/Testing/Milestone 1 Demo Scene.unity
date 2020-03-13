@@ -16167,6 +16167,60 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 368093166}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &375497443
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 375497445}
+  - component: {fileID: 375497444}
+  m_Layer: 0
+  m_Name: StaticAmbienceTestObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &375497444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 375497443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  Event: event:/Ambience/sx_wgh_game_amb_tree_static
+  PlayEvent: 1
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 71.7
+  OverrideMaxDistance: 300
+--- !u!4 &375497445
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 375497443}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 155.3398, y: 49.230896, z: 206.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &375979558 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4474864807913598676, guid: 14d4e37b42c7b6b4fa894914f6345bc8,
@@ -72305,6 +72359,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 790351278, guid: 02d00a751304b014ea686ea91a376143, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1347190515, guid: 02d00a751304b014ea686ea91a376143, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
@@ -72321,10 +72379,15 @@ PrefabInstance:
       propertyPath: Pixelate
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7608456397366884564, guid: 02d00a751304b014ea686ea91a376143,
+        type: 3}
+      propertyPath: m_Radius
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 8822117470780602374, guid: 02d00a751304b014ea686ea91a376143,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8852285871426071920, guid: 02d00a751304b014ea686ea91a376143,
         type: 3}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{3009b472-3bbd-421b-947e-9d13f20ddc8f}">
+		<property name="assetPath">
+			<value>sx_wgh_game_amb_tree_groan_ 03.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>9.5</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{6e3e2055-3c6c-4108-a84c-1a76373f8264}</destination>
+		</relationship>
+	</object>
+</objects>
