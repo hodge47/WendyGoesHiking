@@ -72299,15 +72299,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 735293544, guid: 02d00a751304b014ea686ea91a376143, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 735293544, guid: 02d00a751304b014ea686ea91a376143, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1347190515, guid: 02d00a751304b014ea686ea91a376143, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1355671726, guid: 02d00a751304b014ea686ea91a376143, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1775026149, guid: 02d00a751304b014ea686ea91a376143, type: 3}
       propertyPath: m_Enabled
@@ -72345,6 +72349,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8884561780859521506, guid: 02d00a751304b014ea686ea91a376143,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8889723309963215742, guid: 02d00a751304b014ea686ea91a376143,
         type: 3}
