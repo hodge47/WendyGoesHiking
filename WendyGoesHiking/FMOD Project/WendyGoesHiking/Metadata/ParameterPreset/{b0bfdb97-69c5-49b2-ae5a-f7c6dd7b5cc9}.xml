@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="ParameterPreset" id="{b0bfdb97-69c5-49b2-ae5a-f7c6dd7b5cc9}">
+		<property name="name">
+			<value>safeZoneMusicPlayerState</value>
+		</property>
+		<relationship name="folder">
+			<destination>{0fa6c0f7-ec53-4dc7-8f9c-d8d628e79e0c}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{e4a7d5af-e116-4c20-b92e-ef8227fc7408}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{e4a7d5af-e116-4c20-b92e-ef8227fc7408}">
+		<property name="maximum">
+			<value>5</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
