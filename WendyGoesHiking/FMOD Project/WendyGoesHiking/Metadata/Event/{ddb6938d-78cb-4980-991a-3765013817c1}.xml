@@ -136,6 +136,12 @@
 	</object>
 	<object class="MixerBusPanner" id="{30c179de-5e4d-43c0-a652-41f3220ebb40}" />
 	<object class="SingleSound" id="{ce8ff34d-2399-4e7f-a4de-39269d1dd668}">
+		<property name="triggerProbabilityEnabled">
+			<value>true</value>
+		</property>
+		<property name="triggerProbability">
+			<value>65.5</value>
+		</property>
 		<property name="length">
 			<value>134</value>
 		</property>
@@ -147,9 +153,6 @@
 		<property name="name">
 			<value>Lead Melodic</value>
 		</property>
-		<relationship name="modulators">
-			<destination>{cceb0eb6-a1e4-4337-a8c6-ce71c2d7d458}</destination>
-		</relationship>
 		<relationship name="effectChain">
 			<destination>{191495ea-7add-4298-9a64-34324cd8e052}</destination>
 		</relationship>
@@ -161,6 +164,12 @@
 		</relationship>
 	</object>
 	<object class="SingleSound" id="{41db0340-387a-4af9-a966-6ff53ccd2f48}">
+		<property name="triggerProbabilityEnabled">
+			<value>true</value>
+		</property>
+		<property name="triggerProbability">
+			<value>25</value>
+		</property>
 		<property name="length">
 			<value>134</value>
 		</property>
@@ -186,6 +195,12 @@
 		</relationship>
 	</object>
 	<object class="SingleSound" id="{54b0c807-bb08-4e1c-bf22-ca906ece6bf7}">
+		<property name="triggerProbabilityEnabled">
+			<value>true</value>
+		</property>
+		<property name="triggerProbability">
+			<value>75</value>
+		</property>
 		<property name="length">
 			<value>134</value>
 		</property>
@@ -211,6 +226,12 @@
 		</relationship>
 	</object>
 	<object class="SingleSound" id="{a421f5d0-742a-425b-bfee-feecdb196cea}">
+		<property name="triggerProbabilityEnabled">
+			<value>true</value>
+		</property>
+		<property name="triggerProbability">
+			<value>50</value>
+		</property>
 		<property name="length">
 			<value>134</value>
 		</property>
@@ -233,6 +254,12 @@
 		</relationship>
 	</object>
 	<object class="SingleSound" id="{f12707da-99c2-445e-a540-cc0e9a364d5c}">
+		<property name="triggerProbabilityEnabled">
+			<value>true</value>
+		</property>
+		<property name="triggerProbability">
+			<value>50.5</value>
+		</property>
 		<property name="length">
 			<value>134</value>
 		</property>
@@ -306,23 +333,6 @@
 	</object>
 	<object class="MixerBusPanner" id="{2fa86746-3188-49a4-b905-6c0136dbad47}" />
 	<object class="MixerBusFader" id="{9a844148-e70b-49a9-a7b3-5c6734d9e025}" />
-	<object class="LFOModulator" id="{cceb0eb6-a1e4-4337-a8c6-ce71c2d7d458}">
-		<property name="nameOfPropertyBeingModulated">
-			<value>volume</value>
-		</property>
-		<property name="isTempoSync">
-			<value>true</value>
-		</property>
-		<property name="beats">
-			<value>24</value>
-		</property>
-		<property name="depth">
-			<value>6.5</value>
-		</property>
-		<property name="direction">
-			<value>-100</value>
-		</property>
-	</object>
 	<object class="MixerBusEffectChain" id="{191495ea-7add-4298-9a64-34324cd8e052}">
 		<relationship name="effects">
 			<destination>{fbc9f487-3982-47ab-9448-f71f067cddab}</destination>
@@ -363,7 +373,7 @@
 			<value>16</value>
 		</property>
 		<property name="depth">
-			<value>6</value>
+			<value>16</value>
 		</property>
 		<property name="direction">
 			<value>-100</value>
@@ -392,7 +402,7 @@
 			<value>24</value>
 		</property>
 		<property name="depth">
-			<value>80</value>
+			<value>30</value>
 		</property>
 		<property name="direction">
 			<value>-100</value>
