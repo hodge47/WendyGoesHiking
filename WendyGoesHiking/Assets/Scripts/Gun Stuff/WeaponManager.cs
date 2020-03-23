@@ -69,6 +69,8 @@ public class WeaponManager : MonoBehaviour
         if (playerControlActions.CompassSwitch.WasPressed )
         {     //if the number key '1' is pressed, equip first weapon            && !loadout[currentIndex].isEquipped
             Equip(0);
+            //jpost Audio
+            PlayCompassEquip();
 
         }
         if (playerControlActions.ShotgunSwitch.WasPressed)
@@ -389,5 +391,10 @@ public class WeaponManager : MonoBehaviour
     private void PlayFlashlightTurnOn()
     {
         FMODUnity.RuntimeManager.PlayOneShot("event:/Interactibles/sx_wgh_game_int_flashlight_turnon", gameObject.transform.position);
+    }
+    //jpost Audio
+    private void PlayCompassEquip()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Interactibles/sx_wgh_game_int_compass_equip", gameObject.transform.position);
     }
 }
