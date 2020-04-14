@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.00.00">
-	<object class="AudioFile" id="{8fb2e665-cbe7-4797-b7c0-0e6706cb2b61}">
+	<object class="AudioFile" id="{d9cd0f94-76a1-4aff-91a8-aa67d91d95b5}">
 		<property name="assetPath">
-			<value>sx_wgh_game_npc_wendigo_jump_tree_03.wav</value>
+			<value>sx_wgh_game_npc_wendigo_atk_04.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>
@@ -11,7 +11,7 @@
 			<value>1</value>
 		</property>
 		<property name="length">
-			<value>0.79093749999999996</value>
+			<value>1.5</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{6e3e2055-3c6c-4108-a84c-1a76373f8264}</destination>

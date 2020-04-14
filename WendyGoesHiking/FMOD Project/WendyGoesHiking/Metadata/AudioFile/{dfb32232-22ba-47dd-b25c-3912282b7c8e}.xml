@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.00.00">
-	<object class="AudioFile" id="{9dbc6a79-8874-4104-8291-fc26a3b2fb5e}">
+	<object class="AudioFile" id="{dfb32232-22ba-47dd-b25c-3912282b7c8e}">
 		<property name="assetPath">
-			<value>sx_wgh_game_npc_wendigo_land_tree_01.wav</value>
+			<value>sx_wgh_game_int_door_close_01.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>
@@ -11,7 +11,7 @@
 			<value>1</value>
 		</property>
 		<property name="length">
-			<value>1</value>
+			<value>0.5</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{6e3e2055-3c6c-4108-a84c-1a76373f8264}</destination>
