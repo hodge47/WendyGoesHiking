@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 using UnityEngine.AI;
+using Sirenix.OdinInspector;
 
 
 public class WeaponManager : MonoBehaviour
@@ -38,6 +39,15 @@ public class WeaponManager : MonoBehaviour
 
 
     [SerializeField] LayerMask mask;
+
+    [Button(ButtonSizes.Medium), GUIColor(0, 1, 0)]
+    private void GiveAmmo()
+    {
+        if(loadout[currentIndex].isEquipped)
+        {
+            loadout[currentIndex].GiveAmmo(50);
+        }
+    }
 
     //Input
     private PlayerControlActions playerControlActions;
@@ -99,9 +109,13 @@ public class WeaponManager : MonoBehaviour
                 }
                 else
                 {
-                    sfx.clip = loadout[currentIndex].emptyMagSounds[Random.Range(0, loadout[currentIndex].emptyMagSounds.Length - 1)];
-                    sfx.pitch = 1 - loadout[currentIndex].pitchRandomization + Random.Range(-loadout[currentIndex].pitchRandomization, loadout[currentIndex].pitchRandomization);
-                    sfx.Play();
+                    // I was annoyed with the out of bounds error of the empty mag sound so I just added this check for uninitialized array/list lol -Michael
+                    if(loadout[currentIndex].emptyMagSounds.Length > 0)
+                    {
+                        sfx.clip = loadout[currentIndex].emptyMagSounds[Random.Range(0, loadout[currentIndex].emptyMagSounds.Length)];
+                        sfx.pitch = 1 - loadout[currentIndex].pitchRandomization + Random.Range(-loadout[currentIndex].pitchRandomization, loadout[currentIndex].pitchRandomization);
+                        sfx.Play();
+                    } 
                 }
             }
 
@@ -237,6 +251,20 @@ public class WeaponManager : MonoBehaviour
 
                 newBulletHole.transform.SetParent(tempHit.transform);
                 //Destroy(newBulletHole, 5f);
+                GameObject _hitObject = tempHit.collider.gameObject;
+                // Damage the wendigo - check raycast hit AI GameObject
+                if(_hitObject.tag == "AI")
+                {
+                    Debug.Log("Hit AI");
+                    // Get the AIHealth script from the AI GameObject
+                    AIHealth _aiHealth = _hitObject.GetComponent<AIHealth>();
+                    // Check to make sure the AIHealth script isn't null
+                    if(_aiHealth != null)
+                    {
+                        // Call DamageWendigo(AIHealth, (int)amount) function
+                        DamageWendigo(_aiHealth, loadout[currentIndex].damage);
+                    }
+                }
             }
         }
 
@@ -289,6 +317,16 @@ public class WeaponManager : MonoBehaviour
         }
 
 
+    }
+
+    /// <summary>
+    /// Damages the wendigo's health by calling the RemoveHealth() function in AIHealth
+    /// </summary>
+    /// <param name="_healthScript"></param>
+    /// <param name="_amount"></param>
+    private void DamageWendigo(AIHealth _healthScript, int _amount)
+    {
+        _healthScript.RemoveHealth(_amount);
     }
 
     IEnumerator Reload()
