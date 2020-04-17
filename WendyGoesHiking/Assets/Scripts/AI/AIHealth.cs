@@ -34,6 +34,7 @@ public class AIHealth : MonoBehaviour
 
     private void Kill()
     {
+        isAlive = false;
         Destroy(this.gameObject);
     }
 }

@@ -40,7 +40,7 @@ public class AITrigger : MonoBehaviour
     {
         if(coll.gameObject.tag == "Player")
         {
-            if(firstTrigger == false || elapsedTimeSinceTrigger >= triggerCooldownTime)
+            if((firstTrigger == false || elapsedTimeSinceTrigger >= triggerCooldownTime) && aIManager.AiIsAlive)
             {
                 Debug.Log("Player hit an AITrigger!", this.gameObject);
                 // Need to show the AI
