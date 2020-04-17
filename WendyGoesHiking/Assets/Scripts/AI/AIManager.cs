@@ -18,6 +18,8 @@ public class AIManager : MonoBehaviour
     [SerializeField]
     private GameObject AI;
 
+    public bool AiIsAlive { get => healthAIScript.IsAlive; }
+
     private AIHealth healthAIScript;
     private AIGround groundAIScript;
     private AITreeJumping treeJumpingAIScript;
@@ -42,6 +44,7 @@ public class AIManager : MonoBehaviour
 
     public void TriggerAITreeJumping()
     {
+        if (AiIsAlive == false) return;
         // Need to disable the NavMeshAgent so the AI can leave the ground
         treeJumpingAIScript.enabled = true;
         navMeshAgent.enabled = false;
@@ -53,6 +56,7 @@ public class AIManager : MonoBehaviour
 
     public void TriggerAIGroundDashing(WendigoState _wendigoState)
     {
+        if (AiIsAlive == false) return;
         // Need to enable the NavMeshAganet so the AI can use the dash points around the player
         treeJumpingAIScript.enabled = false;
         navMeshAgent.enabled = true;
@@ -74,16 +78,19 @@ public class AIManager : MonoBehaviour
 
     public void ShowAI()
     {
+        if (AiIsAlive == false) return;
         AI.gameObject.SetActive(true);
     }
 
     public void HideAI()
     {
+        if (AiIsAlive == false) return;
         AI.gameObject.SetActive(false);
     }
 
     private void HideAIOnStart()
     {
+        if (AiIsAlive == false) return;
         AI.gameObject.SetActive(false);
     }
 }
