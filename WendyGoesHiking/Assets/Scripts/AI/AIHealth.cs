@@ -1,16 +1,15 @@
 ﻿using UnityEngine;
 using Sirenix.OdinInspector;
 
-public enum WendigoAliveState { ALIVE, DEAD }
 public class AIHealth : MonoBehaviour
 {
     public bool IsAlive { get => isAlive; set => isAlive = value; }
-    private bool isAlive = true;
-
     public int Health { get => health; set => health = value; }
-    [SerializeField]
-    [ReadOnly]
+    public bool DestroyGameObjectOnDeath { get => destroyGameObjectOnDeath; set => destroyGameObjectOnDeath = value; }
+
     private int health = 0;
+    private bool isAlive = true;
+    private bool destroyGameObjectOnDeath = false;
 
     public void Initialize(int _health)
     {
@@ -35,6 +34,7 @@ public class AIHealth : MonoBehaviour
     private void Kill()
     {
         isAlive = false;
-        Destroy(this.gameObject);
+        if(destroyGameObjectOnDeath)
+            Destroy(this.gameObject);
     }
 }
