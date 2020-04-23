@@ -9,6 +9,9 @@ public class AIManager : MonoBehaviour
     [FoldoutGroup("Health")]
     [SerializeField]
     private int health = 100;
+    [FoldoutGroup("Health")]
+    [SerializeField]
+    private bool destroyGameObjectOnKill = false;
 
     [FoldoutGroup("Testing")]
     [SerializeField]
@@ -37,6 +40,7 @@ public class AIManager : MonoBehaviour
         healthAIScript.Initialize(health);
         // Make sure the wendigo is alive
         healthAIScript.IsAlive = true;
+        healthAIScript.DestroyGameObjectOnDeath = destroyGameObjectOnKill;
         // Hide the AI
         if(!isTesting)
             Invoke(nameof(HideAIOnStart), 0.5f);
