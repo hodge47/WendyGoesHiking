@@ -17,6 +17,7 @@ MonoBehaviour:
   magazineSize: 2
   pellets: 8
   fireRate: 0.5
+  damage: 1
   bloom: 60
   adsBloom: 40
   recoil: 80
@@ -36,7 +37,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 25eab325216b73f42b1007f6293c9def, type: 3}
   - {fileID: 8300000, guid: ac1ced6e0f80ec74c9fcb38965e11900, type: 3}
   - {fileID: 8300000, guid: 3db66154f8517824bbe791b008a0c0dd, type: 3}
-  emptyMagSounds: []
+  emptyMagSounds:
+  - {fileID: 8300000, guid: b4bb5888b4742684ba69631108ffb3ca, type: 3}
   recoverySounds: []
   pitchRandomization: 0.21
   prefab: {fileID: 6980909579959716551, guid: 3810f369925e5da48b8a504402b764fd, type: 3}
