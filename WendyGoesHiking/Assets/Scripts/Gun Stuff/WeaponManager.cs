@@ -170,8 +170,11 @@ public class WeaponManager : MonoBehaviour
         else if (GlideController.current.isSprinting)
         {
             //sprinting
-            anchorTransform.position = Vector3.Lerp(anchorTransform.position, stateRunning.position, Time.deltaTime * loadout[currentIndex].aimSpeed);
-            anchorTransform.rotation = Quaternion.Lerp(anchorTransform.rotation, stateRunning.rotation, Time.deltaTime * loadout[currentIndex].aimSpeed);
+            if (stateRunning != null)
+            {
+                anchorTransform.position = Vector3.Lerp(anchorTransform.position, stateRunning.position, Time.deltaTime * loadout[currentIndex].aimSpeed);
+                anchorTransform.rotation = Quaternion.Lerp(anchorTransform.rotation, stateRunning.rotation, Time.deltaTime * loadout[currentIndex].aimSpeed);
+            }
         }
     }
 
