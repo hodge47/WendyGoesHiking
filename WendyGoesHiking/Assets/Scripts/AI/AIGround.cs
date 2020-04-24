@@ -17,12 +17,17 @@ public class AIGround : MonoBehaviour
     [SerializeField]
     [Tooltip("This is the ground that the raycasting looks for. This is needed for dynamic Y-axis dash points.")]
     private LayerMask groundLayer;
+
     [Title("Dash - Passive Settings")]
     [SerializeField]
     [MinMaxSlider(0f, 50f, showFields: true)]
     [Tooltip("The random dash radius range [min, max] that the ground AI uses to choose it's start and end points.")]
     private Vector2 dashRadius = new Vector2(5f, 15f);
-    [Title("Dash - Aggressive Settingsd")]
+    [SerializeField]
+    [Tooltip("How much the AI damages the player if it comes into contact in a passive state")]
+    private int damagePassive = 5;
+
+    [Title("Dash - Aggressive Settings")]
     [SerializeField]
     [MinMaxSlider(5f, 40f, showFields: true)]
     [Tooltip("This is the random aggressive dash start distance range [min, max].")]
@@ -30,6 +35,10 @@ public class AIGround : MonoBehaviour
     [SerializeField]
     [Tooltip("This is the max offset in units that the aggressive dash uses to make sure the dash start position isn't directly in front of the player.")]
     private float maxAggressiveDashStartOffset = 10f;
+    [SerializeField]
+    [Tooltip("How much the AI damages the player if it comes into contact in an aggressive state")]
+    private int damageAggressive = 10;
+
     [Title("Dash - Testing")]
     [SerializeField]
     [Tooltip("Check this to test dashing.")]
@@ -41,6 +50,7 @@ public class AIGround : MonoBehaviour
     public bool arrivedAtDashEndPoint = false;
 
     private GameObject player;
+    private PlayerHealth playerHealth;
     private NavMeshAgent agent;
     private bool dashActive = false;
     private Vector3 dashStartPoint = Vector3.zero;
@@ -73,6 +83,7 @@ public class AIGround : MonoBehaviour
         agent = this.GetComponent<NavMeshAgent>();
         // Find the player object
         player = GameObject.FindGameObjectWithTag("Player");
+        playerHealth = player.gameObject.GetComponent<PlayerHealth>();
 
         int _groundLayerMask = 1 << LayerMask.NameToLayer("Ground");
         if(groundLayer.value != _groundLayerMask){
@@ -209,5 +220,22 @@ public class AIGround : MonoBehaviour
     private void HideAI()
     {
         this.gameObject.SetActive(false);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player" || collision.gameObject.layer == LayerMask.NameToLayer("Player"))
+        {
+            Debug.Log("Attacked player!", this.gameObject);
+            switch (wendigoState)
+            {
+                case WendigoState.AGGRESSIVE:
+                    playerHealth.RemoveHealth(damageAggressive);
+                    break;
+                case WendigoState.PASSIVE:
+                    playerHealth.RemoveHealth(damagePassive);
+                    break;
+            }
+        }
     }
 }
