@@ -326,6 +326,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shotgun Shell Right
       objectReference: {fileID: 0}
+    - target: {fileID: 705118075850465986, guid: 89837471b15b1954c87861153319c591,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4580808431712129233, guid: 89837471b15b1954c87861153319c591,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -410,6 +415,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shotgun Shell Left
       objectReference: {fileID: 0}
+    - target: {fileID: 705118075850465986, guid: 89837471b15b1954c87861153319c591,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4580808431712129233, guid: 89837471b15b1954c87861153319c591,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -487,12 +497,22 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 753141698876380107}
+    m_TransformParent: {fileID: 4189197259677243505}
     m_Modifications:
     - target: {fileID: 705118075850465986, guid: 89837471b15b1954c87861153319c591,
         type: 3}
       propertyPath: m_Name
       value: Shotgun Shell Right (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 705118075850465986, guid: 89837471b15b1954c87861153319c591,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1294155060717295134, guid: 89837471b15b1954c87861153319c591,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4580808431712129233, guid: 89837471b15b1954c87861153319c591,
         type: 3}
@@ -502,7 +522,7 @@ PrefabInstance:
     - target: {fileID: 4580808431712129233, guid: 89837471b15b1954c87861153319c591,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.064946756
+      value: 0.06494676
       objectReference: {fileID: 0}
     - target: {fileID: 4580808431712129233, guid: 89837471b15b1954c87861153319c591,
         type: 3}
@@ -532,7 +552,7 @@ PrefabInstance:
     - target: {fileID: 4580808431712129233, guid: 89837471b15b1954c87861153319c591,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4580808431712129233, guid: 89837471b15b1954c87861153319c591,
         type: 3}
@@ -552,12 +572,12 @@ PrefabInstance:
     - target: {fileID: 4580808431712129233, guid: 89837471b15b1954c87861153319c591,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.6140556
+      value: 2.6140554
       objectReference: {fileID: 0}
     - target: {fileID: 4580808431712129233, guid: 89837471b15b1954c87861153319c591,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 2.6140556
+      value: 2.6140554
       objectReference: {fileID: 0}
     - target: {fileID: 4580808431712129233, guid: 89837471b15b1954c87861153319c591,
         type: 3}
@@ -571,12 +591,22 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 753141698876380107}
+    m_TransformParent: {fileID: 4189197259677243505}
     m_Modifications:
     - target: {fileID: 705118075850465986, guid: 89837471b15b1954c87861153319c591,
         type: 3}
       propertyPath: m_Name
       value: Shotgun Shell Left (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 705118075850465986, guid: 89837471b15b1954c87861153319c591,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1294155060717295134, guid: 89837471b15b1954c87861153319c591,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4580808431712129233, guid: 89837471b15b1954c87861153319c591,
         type: 3}
@@ -586,7 +616,7 @@ PrefabInstance:
     - target: {fileID: 4580808431712129233, guid: 89837471b15b1954c87861153319c591,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.064946756
+      value: 0.06494676
       objectReference: {fileID: 0}
     - target: {fileID: 4580808431712129233, guid: 89837471b15b1954c87861153319c591,
         type: 3}
@@ -616,7 +646,7 @@ PrefabInstance:
     - target: {fileID: 4580808431712129233, guid: 89837471b15b1954c87861153319c591,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4580808431712129233, guid: 89837471b15b1954c87861153319c591,
         type: 3}
@@ -636,12 +666,12 @@ PrefabInstance:
     - target: {fileID: 4580808431712129233, guid: 89837471b15b1954c87861153319c591,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.6140556
+      value: 2.6140554
       objectReference: {fileID: 0}
     - target: {fileID: 4580808431712129233, guid: 89837471b15b1954c87861153319c591,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 2.6140556
+      value: 2.6140554
       objectReference: {fileID: 0}
     - target: {fileID: 4580808431712129233, guid: 89837471b15b1954c87861153319c591,
         type: 3}
@@ -690,6 +720,11 @@ PrefabInstance:
     - target: {fileID: 6814885142693139783, guid: d2af06a18d7c3044f9740c62783f3456,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6814885142693139783, guid: d2af06a18d7c3044f9740c62783f3456,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7981472806860381949, guid: d2af06a18d7c3044f9740c62783f3456,
