@@ -96,8 +96,9 @@ GameObject:
   - component: {fileID: 3174481059143587899}
   - component: {fileID: 3174481059143587900}
   - component: {fileID: 3174481059143587901}
-  - component: {fileID: 3174481059143587902}
   - component: {fileID: 3174481059143587896}
+  - component: {fileID: 525571649}
+  - component: {fileID: 525571657}
   m_Layer: 0
   m_Name: AI
   m_TagString: AI
@@ -202,30 +203,6 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &3174481059143587902
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3174481059143587903}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5dfb3eda2b821e4f9e846f2dd909f7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dashSpeed: {x: 35, y: 50}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 512
-  dashRadius: {x: 5, y: 15}
-  damagePassive: 5
-  aggressiveDashStartDistance: {x: 15, y: 35}
-  maxAggressiveDashStartOffset: 10
-  damageAggressive: 10
-  isTesting: 0
-  wendigoState: 0
-  arrivedAtDashEndPoint: 0
 --- !u!114 &3174481059143587896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,3 +225,43 @@ MonoBehaviour:
   aiTrees: []
   treesIveBeenTo: []
   isTesting: 0
+  hasJumpSequence: 0
+--- !u!114 &525571649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3174481059143587903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80c9bed3daf46e746a46614f72fc8067, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashSpeed: {x: 35, y: 50}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  dashRadius: {x: 5, y: 15}
+  damagePassive: 5
+  dashActive: 0
+--- !u!114 &525571657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3174481059143587903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d1c91f0b76d7a643aeafd784c519cb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashSpeed: {x: 35, y: 50}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  aggressiveDashStartDistance: {x: 15, y: 35}
+  maxAggressiveDashStartOffset: 10
+  damageAggressive: 10
+  dashActive: 0
