@@ -18,10 +18,8 @@ public class TriggerAnimation : MonoBehaviour
         {
             GlideController.current.lockMovement = true;
             GlideController.current.lockCamera = true;
+            GlideController.current.playerCamera.enabled = false;
             player = coll.gameObject;
-            player.SetActive(false);
-            player.transform.position = spawnPoint.position;
-            player.transform.rotation = spawnPoint.rotation;
             objectToAnimate.SetActive(true);
             objectToAnimate.GetComponent<Animator>().Play("FallingCutscene", 0, 0);
             StartCoroutine(cutscenePause());
@@ -34,10 +32,10 @@ public class TriggerAnimation : MonoBehaviour
     IEnumerator cutscenePause()
     {
         yield return new WaitForSeconds(objectToAnimate.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
+        GlideController.current.playerCamera.enabled = true;
+        GlideController.current.Teleport(spawnPoint.position);
         GlideController.current.lockMovement = false;
         GlideController.current.lockCamera = false;
-        GlideController.current.movement = Vector3.zero;
-        player.SetActive(true);
 
     }
 
