@@ -1,0 +1,115 @@
+{
+    "format": {
+        "version": "1.0"
+    },
+    "shaders": {
+        "Main shader": {
+            "parameters": {
+                "Common Parameters": {
+                    "ao_intensity": 0.75,
+                    "emissive_intensity": 1,
+                    "horizonFade": 1.2999999523162842,
+                    "nbSamples": 16
+                },
+                "Parallax Occlusion Mapping": {
+                    "maxPOMSamples": 16,
+                    "minPOMSamples": 4,
+                    "pomStrength": 1,
+                    "usePOM": false
+                },
+                "Subsurface Scattering Parameters": {
+                    "sssColor": [
+                        0.7009999752044678,
+                        0.3009999990463257,
+                        0.3050000071525574
+                    ],
+                    "sssEnabled": true,
+                    "sssScale": 0.5,
+                    "sssType": 1
+                }
+            },
+            "shader": "pbr-metal-rough",
+            "shaderInstance": "Main shader"
+        }
+    },
+    "texturesets": {
+        "BookShelf1": {
+            "shader": "Main shader"
+        },
+        "Books1": {
+            "shader": "Main shader"
+        },
+        "Cabinet1": {
+            "shader": "Main shader"
+        },
+        "Cabinet2a3": {
+            "shader": "Main shader"
+        },
+        "Cabinet_4": {
+            "shader": "Main shader"
+        },
+        "Cabinet_6": {
+            "shader": "Main shader"
+        },
+        "Cabinet_7": {
+            "shader": "Main shader"
+        },
+        "Chair3": {
+            "shader": "Main shader"
+        },
+        "Counter": {
+            "shader": "Main shader"
+        },
+        "EnranceProps": {
+            "shader": "Main shader"
+        },
+        "FirstAid": {
+            "shader": "Main shader"
+        },
+        "Floor": {
+            "shader": "Main shader"
+        },
+        "Fridge1": {
+            "shader": "Main shader"
+        },
+        "FridgeReal": {
+            "shader": "Main shader"
+        },
+        "Furnace1": {
+            "shader": "Main shader"
+        },
+        "MiddleShelf": {
+            "shader": "Main shader"
+        },
+        "Sink2": {
+            "shader": "Main shader"
+        },
+        "StoolAClipboard": {
+            "shader": "Main shader"
+        },
+        "StoveDetails": {
+            "shader": "Main shader"
+        },
+        "StoveMain": {
+            "shader": "Main shader"
+        },
+        "Table": {
+            "shader": "Main shader"
+        },
+        "Wood": {
+            "shader": "Main shader"
+        },
+        "bedFrame1": {
+            "shader": "Main shader"
+        },
+        "lambert1": {
+            "shader": "Main shader"
+        },
+        "lambert2": {
+            "shader": "Main shader"
+        },
+        "lambert3": {
+            "shader": "Main shader"
+        }
+    }
+}

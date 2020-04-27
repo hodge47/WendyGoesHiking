@@ -66,3 +66,5 @@ Assets/StreamingAssets/**/*.bank.meta
 fmod_editor.log
 
 WendyGoesHiking/Assets/Plugins/FMOD/Resources/FMODStudioCache.asset
+*.meta
+*.meta

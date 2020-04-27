@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 3174481059143587896}
   m_Layer: 0
   m_Name: AI
-  m_TagString: Untagged
+  m_TagString: AI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -219,8 +219,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   dashRadius: {x: 5, y: 15}
+  damagePassive: 5
   aggressiveDashStartDistance: {x: 15, y: 35}
   maxAggressiveDashStartOffset: 10
+  damageAggressive: 10
   isTesting: 0
   wendigoState: 0
   arrivedAtDashEndPoint: 0
