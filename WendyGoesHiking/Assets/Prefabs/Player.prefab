@@ -309,7 +309,6 @@ GameObject:
   - component: {fileID: 8864853289791495212}
   - component: {fileID: 8860474101153015856}
   - component: {fileID: 8822117470780602374}
-  - component: {fileID: 1775026149}
   - component: {fileID: 6640976579124599069}
   m_Layer: 8
   m_Name: PlayerCamera
@@ -360,7 +359,7 @@ Camera:
   field of view: 60
   orthographic: 0
   orthographic size: 5
-  m_Depth: 0
+  m_Depth: 2
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -391,59 +390,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8884365201784807848}
   m_Enabled: 1
---- !u!114 &1775026149
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8884365201784807848}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccfa547679dfb8b43aeef1e0ae038448, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Dither: 1
-  Pixelate: 0
-  Grain: 0
-  Grain_Old: 0
-  Grain_New: 1
-  grain:
-    m_Enabled: 1
-    m_Settings:
-      colored: 0
-      intensity: 0.121
-      size: 3
-      luminanceContribution: 1
-      animated: 0
-  colored: 0
-  intensity: 0.121
-  size: 3
-  luminanceContribution: 1
-  animated: 0
-  _palette: {fileID: 11400000, guid: 854bc12718d567943a288b57517a95c7, type: 2}
-  _pattern: {fileID: 11400000, guid: 805069b704972564cb72ed299cc8ec7e, type: 2}
-  _patternTexture: {fileID: 0}
-  _shader: {fileID: 4800000, guid: 0e4c0c6d48b7240d8b59f441b94c2b0e, type: 3}
-  _pixelScale: 0.5
-  intensityMultiplier: 0.25
-  generalIntensity: 0.5
-  blackIntensity: 1
-  whiteIntensity: 1
-  midGrey: 0.2
-  dx11Grain: 0
-  softness: 0.0001
-  monochrome: 1
-  intensities: {x: 1, y: 1, z: 1}
-  tiling: {x: 64, y: 64, z: 64}
-  monochromeTiling: 64
-  filterMode: 1
-  noiseTexture: {fileID: 2800000, guid: 7a632f967e8ad42f5bd275898151ab6a, type: 3}
-  noiseShader: {fileID: 4800000, guid: 68560b76e4c6d9b4d8b8bf6e844a3654, type: 3}
-  dx11NoiseShader: {fileID: 0}
-  profile: {fileID: 11400000, guid: c516024461997364f995fff307819980, type: 2}
-  ub: {fileID: 2100000, guid: 23f251be192cd1341aed054f1e2adf1d, type: 2}
-  gm: {fileID: 2100000, guid: 8c9430ef03ac7f843bc22de27c15d502, type: 2}
 --- !u!114 &6640976579124599069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -533,7 +479,7 @@ MonoBehaviour:
   crouchSpeed: 2
   sprintSpeed: 9
   slideSpeed: 20
-  jumpPower: 12
+  jumpPower: 5
   slidingOnSlopes: 1
   slopeBias: 0.4
   crouchPercent: 0.5
@@ -659,9 +605,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4096e75238527b3408129f46a055c7c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minStaminaBeforeSprintingEnabled: 10
+  minStaminaBeforeSprintingEnabled: 0
   currentStamina: 0
-  staminaReductionAmount: 1
+  staminaReductionAmount: 0
   staminaRecoveryAmount: 1
   timeToWaitBeforeStaminaRecovers: 0
   hasEnoughStamina: 1
@@ -812,6 +758,11 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 0.45
       objectReference: {fileID: 0}
+    - target: {fileID: 7270480589234087645, guid: 0aa1a00e53ff8c64c8683b0ba3872c94,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0aa1a00e53ff8c64c8683b0ba3872c94, type: 3}
 --- !u!1 &6727225728091521556 stripped
@@ -917,6 +868,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2438554362152516840, guid: 9f1a3aba2a7c2ce45a09403f2000a8e9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 27.200195
       objectReference: {fileID: 0}
     - target: {fileID: 2438554362684232619, guid: 9f1a3aba2a7c2ce45a09403f2000a8e9,
         type: 3}
