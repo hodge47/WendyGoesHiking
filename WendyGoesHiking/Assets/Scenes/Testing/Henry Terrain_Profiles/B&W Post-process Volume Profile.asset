@@ -18,13 +18,13 @@ MonoBehaviour:
     value: 1
   _Density:
     overrideState: 1
-    value: 5
+    value: 26.2
   _NearColor:
     overrideState: 1
     value: {r: 0.23584908, g: 0.23584908, b: 0.23584908, a: 0.7137255}
   _FarColor:
     overrideState: 1
-    value: {r: 0.764151, g: 0.764151, b: 0.764151, a: 0.83137256}
+    value: {r: 0.4528302, g: 0.43360627, b: 0.43360627, a: 0.83137256}
   _GlowColor:
     overrideState: 1
     value: {r: 0, g: 0, b: 0, a: 0.80784315}
@@ -107,8 +107,8 @@ MonoBehaviour:
     overrideState: 0
     value: {r: 1, g: 1, b: 1, a: 1}
   hueShift:
-    overrideState: 0
-    value: -55
+    overrideState: 1
+    value: 27
   saturation:
     overrideState: 1
     value: -100
@@ -116,8 +116,8 @@ MonoBehaviour:
     overrideState: 0
     value: 0
   postExposure:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: -0.59
   contrast:
     overrideState: 1
     value: 100

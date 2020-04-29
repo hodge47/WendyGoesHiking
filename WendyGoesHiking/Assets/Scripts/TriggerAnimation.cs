@@ -14,6 +14,14 @@ public class TriggerAnimation : MonoBehaviour
 
     [SerializeField]
     GameObject BlackAndWhitePPVolume;
+    [SerializeField]
+    GameObject IntroPPVolume;
+
+    [SerializeField]
+    Material nightTimeSkybox;
+
+    [SerializeField]
+    Light sun;
 
     private void OnTriggerEnter(Collider coll)
     {
@@ -35,7 +43,11 @@ public class TriggerAnimation : MonoBehaviour
     IEnumerator cutscenePause()
     {
         yield return new WaitForSeconds(objectToAnimate.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
+        RenderSettings.skybox = nightTimeSkybox;
+        sun.intensity = 0.25f;
+        IntroPPVolume.SetActive(false);
         BlackAndWhitePPVolume.SetActive(true);
+        objectToAnimate.SetActive(false);
         GlideController.current.playerCamera.enabled = true;
         GlideController.current.Teleport(spawnPoint.position);
         GlideController.current.lockMovement = false;
