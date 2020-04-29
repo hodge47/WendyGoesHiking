@@ -32,6 +32,7 @@ public class TriggerAnimation : MonoBehaviour
     IEnumerator cutscenePause()
     {
         yield return new WaitForSeconds(objectToAnimate.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
+        GlideController.current.GetComponentInChildren<StylizerBase>().enabled = true;
         GlideController.current.playerCamera.enabled = true;
         GlideController.current.Teleport(spawnPoint.position);
         GlideController.current.lockMovement = false;
