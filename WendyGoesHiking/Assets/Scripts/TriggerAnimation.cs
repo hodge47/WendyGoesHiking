@@ -23,6 +23,9 @@ public class TriggerAnimation : MonoBehaviour
     [SerializeField]
     Light sun;
 
+    [SerializeField]
+    GameObject blackOverlay;
+
     private void OnTriggerEnter(Collider coll)
     {
         if (coll.gameObject.tag == "Player")
@@ -42,7 +45,10 @@ public class TriggerAnimation : MonoBehaviour
 
     IEnumerator cutscenePause()
     {
-        yield return new WaitForSeconds(objectToAnimate.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
+        yield return new WaitForSeconds(objectToAnimate.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length-0.25f);
+        blackOverlay.SetActive(true);
+        yield return new WaitForSeconds(0.24f);
+        blackOverlay.SetActive(false);
         RenderSettings.skybox = nightTimeSkybox;
         sun.intensity = 0.25f;
         IntroPPVolume.SetActive(false);
