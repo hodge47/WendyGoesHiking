@@ -24,13 +24,13 @@ MonoBehaviour:
     value: {r: 0.23584908, g: 0.23584908, b: 0.23584908, a: 0.7137255}
   _FarColor:
     overrideState: 1
-    value: {r: 0.4528302, g: 0.43360627, b: 0.43360627, a: 0.83137256}
+    value: {r: 0.1509434, g: 0.13314347, b: 0.13314347, a: 0.83137256}
   _GlowColor:
     overrideState: 1
-    value: {r: 0, g: 0, b: 0, a: 0.80784315}
+    value: {r: 0.23584908, g: 0.21693666, b: 0.21693666, a: 0.8352941}
   _ExcludeSkybox:
     overrideState: 1
-    value: 1
+    value: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
