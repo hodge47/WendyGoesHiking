@@ -12,16 +12,25 @@ public class TriggerAnimation : MonoBehaviour
 
     GameObject player;
 
+    [SerializeField]
+    GameObject BlackAndWhitePPVolume;
+    [SerializeField]
+    GameObject IntroPPVolume;
+
+    [SerializeField]
+    Material nightTimeSkybox;
+
+    [SerializeField]
+    Light sun;
+
     private void OnTriggerEnter(Collider coll)
     {
         if (coll.gameObject.tag == "Player")
         {
             GlideController.current.lockMovement = true;
             GlideController.current.lockCamera = true;
+            GlideController.current.playerCamera.enabled = false;
             player = coll.gameObject;
-            player.SetActive(false);
-            player.transform.position = spawnPoint.position;
-            player.transform.rotation = spawnPoint.rotation;
             objectToAnimate.SetActive(true);
             objectToAnimate.GetComponent<Animator>().Play("FallingCutscene", 0, 0);
             StartCoroutine(cutscenePause());
@@ -34,10 +43,15 @@ public class TriggerAnimation : MonoBehaviour
     IEnumerator cutscenePause()
     {
         yield return new WaitForSeconds(objectToAnimate.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
+        RenderSettings.skybox = nightTimeSkybox;
+        sun.intensity = 0.25f;
+        IntroPPVolume.SetActive(false);
+        BlackAndWhitePPVolume.SetActive(true);
+        objectToAnimate.SetActive(false);
+        GlideController.current.playerCamera.enabled = true;
+        GlideController.current.Teleport(spawnPoint.position);
         GlideController.current.lockMovement = false;
         GlideController.current.lockCamera = false;
-        GlideController.current.movement = Vector3.zero;
-        player.SetActive(true);
 
     }
 
