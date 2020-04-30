@@ -45,5 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   destroyGameObjectOnKill: 0
+  SightingTimeRange: {x: 3, y: 5}
+  SightingType: 0
   isTesting: 1
   AI: {fileID: 0}
