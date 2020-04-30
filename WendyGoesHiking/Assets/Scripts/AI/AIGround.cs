@@ -222,20 +222,20 @@ public class AIGround : MonoBehaviour
         this.gameObject.SetActive(false);
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "Player" || collision.gameObject.layer == LayerMask.NameToLayer("Player"))
-        {
-            Debug.Log("Attacked player!", this.gameObject);
-            switch (wendigoState)
-            {
-                case WendigoState.AGGRESSIVE:
-                    playerHealth.RemoveHealth(damageAggressive);
-                    break;
-                case WendigoState.PASSIVE:
-                    playerHealth.RemoveHealth(damagePassive);
-                    break;
-            }
-        }
-    }
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if (collision.gameObject.tag == "Player" || collision.gameObject.layer == LayerMask.NameToLayer("Player"))
+    //    {
+    //        Debug.Log("Attacked player!", this.gameObject);
+    //        switch (wendigoState)
+    //        {
+    //            case WendigoState.AGGRESSIVE:
+    //                playerHealth.RemoveHealth(damageAggressive);
+    //                break;
+    //            case WendigoState.PASSIVE:
+    //                playerHealth.RemoveHealth(damagePassive);
+    //                break;
+    //        }
+    //    }
+    //}
 }
