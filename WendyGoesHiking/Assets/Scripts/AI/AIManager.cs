@@ -44,7 +44,7 @@ public class AIManager : MonoBehaviour
     private float sightingElapsedTime = 0f;
     private float randomSightingTime = 0f;
 
-    public static AIManager Instance { get => instance; set => instance = value; }
+    public static AIManager Instance { get => instance; }
     public static AIManager instance;
 
     private void OnGUI()
@@ -68,7 +68,7 @@ public class AIManager : MonoBehaviour
             Destroy(this.gameObject);
         } 
         else
-            Instance = this;
+            instance = this;
     }
 
     private void Start()
