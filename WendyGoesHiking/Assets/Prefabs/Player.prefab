@@ -419,7 +419,6 @@ GameObject:
   - component: {fileID: 1831681106289819404}
   - component: {fileID: 68823243}
   - component: {fileID: 847948954634238972}
-  - component: {fileID: 790351278}
   - component: {fileID: 1293385529}
   - component: {fileID: 1957350508862504166}
   m_Layer: 8
@@ -640,24 +639,6 @@ MonoBehaviour:
   nativeInputOverrideUpdateRate: 0
   nativeInputUpdateRate: 0
   customProfiles: []
---- !u!114 &790351278
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8884561780859521506}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e619c3a25c098254ca663cb9d678cbbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nearbyGameObjects: []
-  maxNearbyGameObjects: 0
-  currentNearbyGameObjects: 0
-  repeatRate: 0
-  minRepeatRate: 0
-  maxRepeatRate: 0
 --- !u!114 &1293385529
 MonoBehaviour:
   m_ObjectHideFlags: 0
