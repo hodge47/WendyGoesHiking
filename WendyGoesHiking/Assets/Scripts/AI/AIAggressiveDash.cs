@@ -27,6 +27,15 @@ public class AIAggressiveDash : MonoBehaviour
     [Tooltip("How much the AI damages the player if it comes into contact in an aggressive state")]
     private int damageAggressive = 10;
 
+    [Title("Player Knock-back")]
+    [SerializeField]
+    private float forceToApplyToPlayer = 1000;
+    [SerializeField]
+    private bool useForceMode = false;
+    [ShowIf("useForceMode")]
+    [SerializeField]
+    private ForceMode forceMode = ForceMode.Force;
+
     public bool DashActive { get => dashActive; set => dashActive = value; }
     public Vector3 DashStartPoint { get => dashStartPoint; set => dashStartPoint = value; }
     public Vector3 DashEndPoint { get => dashEndPoint; set => dashEndPoint = value; }
@@ -34,8 +43,7 @@ public class AIAggressiveDash : MonoBehaviour
     private GameObject player;
     private PlayerHealth playerHealth;
     private NavMeshAgent navMeshAgent;
-    [SerializeField]
-    [ReadOnly]
+    private Rigidbody rb;
     private bool dashActive = false;
     private bool arrivedAtDashEndPoint = false;
     private Vector3 dashStartPoint = Vector3.zero;
@@ -52,6 +60,8 @@ public class AIAggressiveDash : MonoBehaviour
         playerHealth = player.GetComponent<PlayerHealth>();
         // Get the navmesh agent
         navMeshAgent = this.GetComponent<NavMeshAgent>();
+        // Get the rigidbody
+        rb = this.gameObject.GetComponent<Rigidbody>();
         // Check to see if the ground layer mask is set
         int _groundLayerMask = 1 << LayerMask.NameToLayer("Ground");
         if (groundLayer.value != _groundLayerMask)
@@ -144,6 +154,16 @@ public class AIAggressiveDash : MonoBehaviour
             playerHealth.RemoveHealth(damageAggressive);
             dashActive = false;
             arrivedAtDashEndPoint = true;
+            // Add force to player
+            CameraShake.Instance.StartShake();
+            if(useForceMode)
+            {
+                playerHealth.KnockBack(this.transform.position.normalized, forceToApplyToPlayer, forceMode);
+            }
+            else
+            {
+                playerHealth.KnockBack(this.transform.position.normalized, forceToApplyToPlayer);
+            }
         }
     }
 }
