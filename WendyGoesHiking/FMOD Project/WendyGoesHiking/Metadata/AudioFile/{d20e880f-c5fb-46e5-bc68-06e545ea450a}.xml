@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{d20e880f-c5fb-46e5-bc68-06e545ea450a}">
+		<property name="assetPath">
+			<value>sx_wgh_game_amb_bird_e_ 01.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>2.6773333333333333</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{6e3e2055-3c6c-4108-a84c-1a76373f8264}</destination>
+		</relationship>
+	</object>
+</objects>

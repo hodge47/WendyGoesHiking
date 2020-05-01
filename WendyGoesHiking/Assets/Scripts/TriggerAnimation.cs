@@ -36,6 +36,8 @@ public class TriggerAnimation : MonoBehaviour
             player = coll.gameObject;
             objectToAnimate.SetActive(true);
             objectToAnimate.GetComponent<Animator>().Play("FallingCutscene", 0, 0);
+            //jpost Audio test
+            PlayCutsceneAudio();
             StartCoroutine(cutscenePause());
 
         }
@@ -60,6 +62,13 @@ public class TriggerAnimation : MonoBehaviour
         GlideController.current.lockCamera = false;
 
     }
+
+    //jpost Audio
+    private void PlayCutsceneAudio()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Interactibles/sx_wgh_game_int_cutscene_fall_2d", spawnPoint.transform.position);
+    }
+
 
     // Start is called before the first frame update
     void Start()

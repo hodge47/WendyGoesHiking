@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.00.00">
 	<object class="Event" id="{b760a506-65ee-4ddb-b02b-0e55f96c7c25}">
 		<property name="name">
-			<value>sx_wgh_game_amb_tree_static</value>
+			<value>sx_wgh_game_amb_tree_static_night</value>
 		</property>
 		<property name="outputFormat">
 			<value>2</value>
@@ -226,10 +226,10 @@
 			<value>32</value>
 		</property>
 		<property name="minimumScatterDistance">
-			<value>9.19999981</value>
+			<value>5.59999943</value>
 		</property>
 		<property name="maximumScatterDistance">
-			<value>100</value>
+			<value>35</value>
 		</property>
 		<property name="pitchRandomization">
 			<value>3.99999976</value>
@@ -379,7 +379,7 @@
 			<value>6</value>
 		</property>
 		<property name="maximumScatterDistance">
-			<value>200</value>
+			<value>50</value>
 		</property>
 		<property name="volumeRandomization">
 			<value>-4</value>
@@ -415,8 +415,11 @@
 		<property name="length">
 			<value>2</value>
 		</property>
-		<property name="soundStealing">
-			<value>3</value>
+		<property name="polyphony">
+			<value>4</value>
+		</property>
+		<property name="totalSounds">
+			<value>16</value>
 		</property>
 		<property name="minimumTimeBetweenSounds">
 			<value>68</value>
@@ -441,9 +444,6 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{42ab10d8-11a1-43b9-8a0f-0389f2a4334e}">
-		<property name="volume">
-			<value>-6</value>
-		</property>
 		<property name="name">
 			<value>Crickets</value>
 		</property>
@@ -583,10 +583,16 @@
 	<object class="MixerBusFader" id="{6b094454-c5a7-44c8-a364-71281da6c836}" />
 	<object class="SpatialiserEffect" id="{7552573b-40f1-4744-bc57-137fe330d67a}">
 		<property name="minimumDistance">
-			<value>100</value>
+			<value>5</value>
 		</property>
 		<property name="maximumDistance">
-			<value>800</value>
+			<value>100</value>
+		</property>
+		<property name="extentMode">
+			<value>1</value>
+		</property>
+		<property name="soundSize">
+			<value>100</value>
 		</property>
 	</object>
 	<object class="SingleSound" id="{a99914f4-b206-4489-b527-1de74007d549}">
