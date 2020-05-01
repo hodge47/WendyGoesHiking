@@ -44,6 +44,9 @@ public class AIManager : MonoBehaviour
     private float sightingElapsedTime = 0f;
     private float randomSightingTime = 0f;
 
+    public static AIManager Instance { get => instance; set => instance = value; }
+    public static AIManager instance;
+
     private void OnGUI()
     {
         if(isTesting)
@@ -54,6 +57,18 @@ public class AIManager : MonoBehaviour
             GUI.color = Color.green;
             GUI.Label(new Rect(Screen.width - 90, Screen.height - 60, 100, 20), String.Format("{0:00.00}", sightingElapsedTime), style);
         }
+    }
+
+    // AIManager Singleton
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Debug.Log("An AIManager already exists in the scene!");
+            Destroy(this.gameObject);
+        } 
+        else
+            Instance = this;
     }
 
     private void Start()
