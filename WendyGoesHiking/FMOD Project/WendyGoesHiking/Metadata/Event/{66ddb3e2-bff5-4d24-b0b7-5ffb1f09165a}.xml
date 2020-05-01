@@ -183,6 +183,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{6efa1d2e-0e8a-4191-8c60-b7776b3cc18d}">
+		<property name="volume">
+			<value>10</value>
+		</property>
 		<relationship name="modulators">
 			<destination>{70855ff1-6323-4f37-89dd-8b17adf1d9f3}</destination>
 		</relationship>
@@ -448,6 +451,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{91dcf931-e8ad-4fff-9557-53602f48d9eb}">
+		<property name="volume">
+			<value>6.5</value>
+		</property>
 		<property name="name">
 			<value>Ac Guitar Layer 2</value>
 		</property>
@@ -477,7 +483,7 @@
 	</object>
 	<object class="EventMixerGroup" id="{26678776-b771-45f7-bc5c-c2f8c38c9579}">
 		<property name="volume">
-			<value>3</value>
+			<value>6.5</value>
 		</property>
 		<property name="name">
 			<value>Piano</value>
@@ -507,6 +513,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{5c5d7162-3922-4167-80c8-26438396d484}">
+		<property name="volume">
+			<value>4</value>
+		</property>
 		<property name="name">
 			<value>Bass</value>
 		</property>
@@ -535,6 +544,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{380b82c4-27c9-447f-b02f-f5042f04893f}">
+		<property name="volume">
+			<value>2.5</value>
+		</property>
 		<property name="name">
 			<value>Kick Drum</value>
 		</property>
@@ -563,6 +575,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{4b3eaef0-2e6a-4f76-b0b5-ac3abea1c2f2}">
+		<property name="volume">
+			<value>4</value>
+		</property>
 		<property name="name">
 			<value>Percussion</value>
 		</property>
@@ -648,6 +663,7 @@
 		<property name="quantizationInterval">
 			<value>8</value>
 		</property>
+		<property name="name" />
 		<relationship name="timeline">
 			<destination>{3e86ffa8-68db-43dd-9b99-c7a4eef4e5bd}</destination>
 		</relationship>
@@ -696,6 +712,7 @@
 		<property name="length">
 			<value>16.271186440677972</value>
 		</property>
+		<property name="name" />
 		<relationship name="timeline">
 			<destination>{3e86ffa8-68db-43dd-9b99-c7a4eef4e5bd}</destination>
 		</relationship>
@@ -1012,7 +1029,7 @@
 			<value>0</value>
 		</property>
 		<property name="maximum">
-			<value>10</value>
+			<value>9</value>
 		</property>
 		<relationship name="parameter">
 			<destination>{7b0a4a70-6e9f-4bcf-8f7e-13f563803edd}</destination>
@@ -1020,10 +1037,10 @@
 	</object>
 	<object class="ParameterCondition" id="{274a107d-3cae-471f-ad67-823001b26b0b}">
 		<property name="minimum">
-			<value>11</value>
+			<value>10</value>
 		</property>
 		<property name="maximum">
-			<value>20</value>
+			<value>19</value>
 		</property>
 		<relationship name="parameter">
 			<destination>{7b0a4a70-6e9f-4bcf-8f7e-13f563803edd}</destination>
@@ -1034,7 +1051,7 @@
 			<value>0</value>
 		</property>
 		<property name="maximum">
-			<value>10</value>
+			<value>9</value>
 		</property>
 		<relationship name="parameter">
 			<destination>{7b0a4a70-6e9f-4bcf-8f7e-13f563803edd}</destination>
@@ -1042,10 +1059,10 @@
 	</object>
 	<object class="ParameterCondition" id="{5a3617c4-29b3-459a-a886-0db6abdede2d}">
 		<property name="minimum">
-			<value>21</value>
+			<value>20</value>
 		</property>
 		<property name="maximum">
-			<value>30</value>
+			<value>29</value>
 		</property>
 		<relationship name="parameter">
 			<destination>{7b0a4a70-6e9f-4bcf-8f7e-13f563803edd}</destination>
@@ -1064,10 +1081,10 @@
 	</object>
 	<object class="ParameterCondition" id="{0a546f45-2b73-4738-8a39-43ea16e030e9}">
 		<property name="minimum">
-			<value>11</value>
+			<value>10</value>
 		</property>
 		<property name="maximum">
-			<value>20</value>
+			<value>19</value>
 		</property>
 		<relationship name="parameter">
 			<destination>{7b0a4a70-6e9f-4bcf-8f7e-13f563803edd}</destination>
@@ -1089,7 +1106,7 @@
 			<value>0</value>
 		</property>
 		<property name="maximum">
-			<value>10</value>
+			<value>9</value>
 		</property>
 		<relationship name="parameter">
 			<destination>{7b0a4a70-6e9f-4bcf-8f7e-13f563803edd}</destination>
@@ -1097,7 +1114,7 @@
 	</object>
 	<object class="ParameterCondition" id="{65a01021-3c7a-46c8-94ad-2837e85ebb72}">
 		<property name="minimum">
-			<value>20.5</value>
+			<value>30</value>
 		</property>
 		<property name="maximum">
 			<value>100</value>
