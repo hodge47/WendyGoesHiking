@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 3174481059143587896}
   - component: {fileID: 525571649}
   - component: {fileID: 525571657}
+  - component: {fileID: 8956883495044547047}
   m_Layer: 0
   m_Name: AI
   m_TagString: AI
@@ -244,7 +245,9 @@ MonoBehaviour:
     m_Bits: 512
   dashRadius: {x: 5, y: 15}
   damagePassive: 5
-  dashActive: 0
+  forceToApplyToPlayer: 300
+  useForceMode: 0
+  forceMode: 0
 --- !u!114 &525571657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,4 +267,22 @@ MonoBehaviour:
   aggressiveDashStartDistance: {x: 15, y: 35}
   maxAggressiveDashStartOffset: 10
   damageAggressive: 10
-  dashActive: 0
+  forceToApplyToPlayer: 500
+  useForceMode: 0
+  forceMode: 1
+--- !u!54 &8956883495044547047
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3174481059143587903}
+  serializedVersion: 2
+  m_Mass: 68
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 1

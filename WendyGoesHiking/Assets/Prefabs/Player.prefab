@@ -310,6 +310,7 @@ GameObject:
   - component: {fileID: 8860474101153015856}
   - component: {fileID: 8822117470780602374}
   - component: {fileID: 6640976579124599069}
+  - component: {fileID: 2082659267}
   m_Layer: 8
   m_Name: PlayerCamera
   m_TagString: MainCamera
@@ -403,6 +404,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ListenerNumber: -1
+--- !u!114 &2082659267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8884365201784807848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ef4098820a388041a36933a8be52515, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lerpSpeed: 5
+  duration: 0.5
+  magnitude: 1
 --- !u!1 &8884561780859521506
 GameObject:
   m_ObjectHideFlags: 0
@@ -421,7 +437,7 @@ GameObject:
   - component: {fileID: 847948954634238972}
   - component: {fileID: 790351278}
   - component: {fileID: 1293385529}
-  - component: {fileID: 1957350508862504166}
+  - component: {fileID: 1926765970}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -672,20 +688,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth: 200
   DestroyGameObjectOnDeath: 0
---- !u!114 &1957350508862504166
-MonoBehaviour:
+--- !u!65 &1926765970
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8884561780859521506}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61b83b3462b6314438f05aa4b8fee770, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MaxHealth: 200
-  DestroyGameObjectOnDeath: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1244512349
 PrefabInstance:
   m_ObjectHideFlags: 0

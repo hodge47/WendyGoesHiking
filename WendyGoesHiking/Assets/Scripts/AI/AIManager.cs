@@ -45,7 +45,7 @@ public class AIManager : MonoBehaviour
     private float randomSightingTime = 0f;
 
     public static AIManager Instance { get => instance; }
-    public static AIManager instance;
+    private static AIManager instance;
 
     private void OnGUI()
     {

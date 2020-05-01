@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Sirenix.OdinInspector;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -20,6 +21,17 @@ public class PlayerHealth : MonoBehaviour
         CurrentHealth = MaxHealth;
     }
 
+    public void KnockBack(Vector3 _wendigoPosition, float _force)
+    {
+        Vector3 _moveDirection = _wendigoPosition - this.transform.position;
+        this.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(-_moveDirection.normalized.x, 0, _moveDirection.normalized.z) * _force);
+    }
+
+    public void KnockBack(Vector3 _wendigoPosition, float _force, ForceMode _forceMode)
+    {
+        Vector3 _moveDirection = _wendigoPosition - this.transform.position;
+        this.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(-_moveDirection.normalized.x, 0, _moveDirection.normalized.z) * _force, _forceMode);
+    }
     public void RemoveHealth(int _healthReduction)
     {
         currentHealth -= _healthReduction;
