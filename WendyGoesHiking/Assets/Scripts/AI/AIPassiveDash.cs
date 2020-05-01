@@ -25,6 +25,15 @@ public class AIPassiveDash : MonoBehaviour
     [Tooltip("How much the AI damages the player if it comes into contact in a passive state")]
     private int damagePassive = 5;
 
+    [Title("Player Knock-back")]
+    [SerializeField]
+    private float forceToApplyToPlayer = 1000;
+    [SerializeField]
+    private bool useForceMode = false;
+    [ShowIf("useForceMode")]
+    [SerializeField]
+    private ForceMode forceMode = ForceMode.Force;
+
     public bool DashActive { get => dashActive; set => dashActive = value; }
     public Vector3 DashStartPoint { get => dashStartPoint; set => dashStartPoint = value; }
     public Vector3 DashEndPoint { get => dashEndPoint; set => dashEndPoint = value; }
@@ -32,8 +41,6 @@ public class AIPassiveDash : MonoBehaviour
     private GameObject player;
     private PlayerHealth playerHealth;
     private NavMeshAgent navMeshAgent;
-    [SerializeField]
-    [ReadOnly]
     private bool dashActive = false;
     private bool arrivedAtDashEndPoint = false;
     private Vector3 dashStartPoint = Vector3.zero;
@@ -134,6 +141,16 @@ public class AIPassiveDash : MonoBehaviour
         {
             Debug.Log("Attacked player!", this.gameObject);
             playerHealth.RemoveHealth(damagePassive);
+            // Add force to player
+            CameraShake.Instance.StartShake();
+            if (useForceMode)
+            {
+                playerHealth.KnockBack(this.transform.position.normalized, forceToApplyToPlayer, forceMode);
+            }
+            else
+            {
+                playerHealth.KnockBack(this.transform.position.normalized, forceToApplyToPlayer);
+            }
         }
     }
 }
