@@ -215,9 +215,6 @@
 		<property name="timelockedOffset">
 			<value>0.20000000000000001</value>
 		</property>
-		<relationship name="modulators">
-			<destination>{1b5982b7-af1f-458a-ab0b-e4cb267b4ea8}</destination>
-		</relationship>
 		<relationship name="audioFile">
 			<destination>{0ab68c65-89ba-4d54-b64b-f9c7b087d153}</destination>
 		</relationship>
@@ -235,9 +232,6 @@
 		<property name="timelockedOffset">
 			<value>55.115254237288134</value>
 		</property>
-		<relationship name="modulators">
-			<destination>{1bd8e9de-53b0-4baa-9d9c-1fa879d7726e}</destination>
-		</relationship>
 		<relationship name="audioFile">
 			<destination>{0ab68c65-89ba-4d54-b64b-f9c7b087d153}</destination>
 		</relationship>
@@ -255,9 +249,6 @@
 		<property name="timelockedOffset">
 			<value>8.335593220338982</value>
 		</property>
-		<relationship name="modulators">
-			<destination>{94d88248-80d8-4ca0-b6f9-ae117a730ddd}</destination>
-		</relationship>
 		<relationship name="audioFile">
 			<destination>{0ab68c65-89ba-4d54-b64b-f9c7b087d153}</destination>
 		</relationship>
@@ -275,9 +266,6 @@
 		<property name="timelockedOffset">
 			<value>16.471186440677965</value>
 		</property>
-		<relationship name="modulators">
-			<destination>{61941fe6-de8e-4f31-a90d-ad397bcdcfef}</destination>
-		</relationship>
 		<relationship name="audioFile">
 			<destination>{0ab68c65-89ba-4d54-b64b-f9c7b087d153}</destination>
 		</relationship>
@@ -295,9 +283,6 @@
 		<property name="timelockedOffset">
 			<value>0.12711864406779227</value>
 		</property>
-		<relationship name="modulators">
-			<destination>{43c6e88c-8502-4b77-9680-aa4999c9119e}</destination>
-		</relationship>
 		<relationship name="audioFile">
 			<destination>{0ab68c65-89ba-4d54-b64b-f9c7b087d153}</destination>
 		</relationship>
@@ -332,9 +317,6 @@
 		<property name="timelockedOffset">
 			<value>0.20000000000000001</value>
 		</property>
-		<relationship name="modulators">
-			<destination>{36e61f7f-4133-4ad4-b699-b5c1b7b2b146}</destination>
-		</relationship>
 		<relationship name="audioFile">
 			<destination>{33fb557d-ee70-4265-ad5e-f64d9a6900c1}</destination>
 		</relationship>
@@ -392,9 +374,6 @@
 		<property name="timelockedOffset">
 			<value>55.115254237288127</value>
 		</property>
-		<relationship name="modulators">
-			<destination>{f4fa22eb-3907-4396-b066-170fe0aa7ea8}</destination>
-		</relationship>
 		<relationship name="audioFile">
 			<destination>{33fb557d-ee70-4265-ad5e-f64d9a6900c1}</destination>
 		</relationship>
@@ -412,9 +391,6 @@
 		<property name="timelockedOffset">
 			<value>0.12711864406779227</value>
 		</property>
-		<relationship name="modulators">
-			<destination>{94609dc1-ce2f-40d1-af84-8c057e094990}</destination>
-		</relationship>
 		<relationship name="audioFile">
 			<destination>{33fb557d-ee70-4265-ad5e-f64d9a6900c1}</destination>
 		</relationship>
@@ -663,7 +639,6 @@
 		<property name="quantizationInterval">
 			<value>8</value>
 		</property>
-		<property name="name" />
 		<relationship name="timeline">
 			<destination>{3e86ffa8-68db-43dd-9b99-c7a4eef4e5bd}</destination>
 		</relationship>
@@ -712,7 +687,6 @@
 		<property name="length">
 			<value>16.271186440677972</value>
 		</property>
-		<property name="name" />
 		<relationship name="timeline">
 			<destination>{3e86ffa8-68db-43dd-9b99-c7a4eef4e5bd}</destination>
 		</relationship>
@@ -881,7 +855,7 @@
 			<value>0</value>
 		</property>
 		<property name="releaseTime">
-			<value>6000</value>
+			<value>8000</value>
 		</property>
 		<property name="finalValue">
 			<value>-80</value>
@@ -894,46 +868,6 @@
 	</object>
 	<object class="MixerBusPanner" id="{19a0a7ab-fe5a-4c52-9705-23871f887ae5}" />
 	<object class="MixerBusFader" id="{1112a731-8f2e-4525-b18c-9b45b65bbaf7}" />
-	<object class="RandomizerModulator" id="{1b5982b7-af1f-458a-ab0b-e4cb267b4ea8}">
-		<property name="nameOfPropertyBeingModulated">
-			<value>volume</value>
-		</property>
-		<property name="amount">
-			<value>2.5</value>
-		</property>
-	</object>
-	<object class="RandomizerModulator" id="{1bd8e9de-53b0-4baa-9d9c-1fa879d7726e}">
-		<property name="nameOfPropertyBeingModulated">
-			<value>volume</value>
-		</property>
-		<property name="amount">
-			<value>2.5</value>
-		</property>
-	</object>
-	<object class="RandomizerModulator" id="{94d88248-80d8-4ca0-b6f9-ae117a730ddd}">
-		<property name="nameOfPropertyBeingModulated">
-			<value>volume</value>
-		</property>
-		<property name="amount">
-			<value>2.5</value>
-		</property>
-	</object>
-	<object class="RandomizerModulator" id="{61941fe6-de8e-4f31-a90d-ad397bcdcfef}">
-		<property name="nameOfPropertyBeingModulated">
-			<value>volume</value>
-		</property>
-		<property name="amount">
-			<value>2.5</value>
-		</property>
-	</object>
-	<object class="RandomizerModulator" id="{43c6e88c-8502-4b77-9680-aa4999c9119e}">
-		<property name="nameOfPropertyBeingModulated">
-			<value>volume</value>
-		</property>
-		<property name="amount">
-			<value>2.5</value>
-		</property>
-	</object>
 	<object class="RandomizerModulator" id="{a66348c0-dcb7-4b0d-a5b9-326ec5d6598c}">
 		<property name="nameOfPropertyBeingModulated">
 			<value>volume</value>
@@ -948,14 +882,6 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{68ba9d80-1463-4181-acaf-1e86c4201d37}" />
-	<object class="RandomizerModulator" id="{36e61f7f-4133-4ad4-b699-b5c1b7b2b146}">
-		<property name="nameOfPropertyBeingModulated">
-			<value>volume</value>
-		</property>
-		<property name="amount">
-			<value>2.5</value>
-		</property>
-	</object>
 	<object class="RandomizerModulator" id="{43802acf-5f11-498b-9809-d1bdafa7beee}">
 		<property name="nameOfPropertyBeingModulated">
 			<value>volume</value>
@@ -965,22 +891,6 @@
 		</property>
 	</object>
 	<object class="RandomizerModulator" id="{a75570fb-9a38-46e0-a160-2f19d0dc4e93}">
-		<property name="nameOfPropertyBeingModulated">
-			<value>volume</value>
-		</property>
-		<property name="amount">
-			<value>2.5</value>
-		</property>
-	</object>
-	<object class="RandomizerModulator" id="{f4fa22eb-3907-4396-b066-170fe0aa7ea8}">
-		<property name="nameOfPropertyBeingModulated">
-			<value>volume</value>
-		</property>
-		<property name="amount">
-			<value>2.5</value>
-		</property>
-	</object>
-	<object class="RandomizerModulator" id="{94609dc1-ce2f-40d1-af84-8c057e094990}">
 		<property name="nameOfPropertyBeingModulated">
 			<value>volume</value>
 		</property>

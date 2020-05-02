@@ -348,7 +348,7 @@ public class WeaponManager : MonoBehaviour
             if (loadout[currentIndex].GetMagazine() == 0)
             {
                 //jpost Audio
-                PlayShotgunReload();
+                //PlayShotgunReload();
 
                 //unity audio deprecated DO NOT USE
                 //sfx2.Play();
@@ -360,7 +360,7 @@ public class WeaponManager : MonoBehaviour
             }
             else
             {
-                PlayShotgunReload();
+                //PlayShotgunReload();
                 //unity audio deprecated DO NOT USE
                 //sfx2.Play();
 

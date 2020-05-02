@@ -16,13 +16,19 @@ public class IntroMusicProgress : MonoBehaviour
     public FMOD.Studio.EventInstance introMusicEvent;
     public FMOD.Studio.PARAMETER_ID introProgressParameterId;
 
+    [SerializeField] bool playIntroMusic;
+
     private void Start()
     {
         introProgress = 0;
 
         introMusicEvent = FMODUnity.RuntimeManager.CreateInstance(introMusic);
         introMusicEvent.getParameterByName("introProgress", out introProgress);
-        introMusicEvent.start();
+        if (playIntroMusic)
+        {
+            introMusicEvent.start();
+        }
+        
     }
 
     private void OnTriggerEnter(Collider other)
