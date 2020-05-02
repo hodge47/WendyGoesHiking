@@ -10,6 +10,10 @@ public class TransitionTrigger : MonoBehaviour
     [SerializeField]
     GameObject ColorPPVolume;
 
+
+    //jpost Audio
+    AmbienceEmitterHandler ambienceEmitterHandler;
+
     private void OnTriggerEnter(Collider coll)
     {
         if (coll.gameObject.tag == "Player")

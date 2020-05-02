@@ -26,6 +26,9 @@ public class TriggerAnimation : MonoBehaviour
     [SerializeField]
     GameObject blackOverlay;
 
+    //jpost Audio
+    [SerializeField] GameObject ambienceEmitterHandler;
+
     private void OnTriggerEnter(Collider coll)
     {
         if (coll.gameObject.tag == "Player")
@@ -38,6 +41,7 @@ public class TriggerAnimation : MonoBehaviour
             objectToAnimate.GetComponent<Animator>().Play("FallingCutscene", 0, 0);
             //jpost Audio test
             PlayCutsceneAudio();
+            ambienceEmitterHandler.GetComponent<AmbienceEmitterHandler>().ChangeFMODEvent();
             StartCoroutine(cutscenePause());
 
         }
