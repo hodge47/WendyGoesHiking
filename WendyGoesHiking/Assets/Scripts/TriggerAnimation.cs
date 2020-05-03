@@ -33,17 +33,20 @@ public class TriggerAnimation : MonoBehaviour
     {
         if (coll.gameObject.tag == "Player")
         {
+
+            //jpost Audio test
+            //PlayCutsceneAudio();
+            ambienceEmitterHandler.GetComponent<AmbienceEmitterHandler>().ChangeFMODEvent();
+
             GlideController.current.lockMovement = true;
             GlideController.current.lockCamera = true;
             GlideController.current.playerCamera.enabled = false;
             player = coll.gameObject;
             objectToAnimate.SetActive(true);
             objectToAnimate.GetComponent<Animator>().Play("FallingCutscene", 0, 0);
-            //jpost Audio test
-            PlayCutsceneAudio();
-            ambienceEmitterHandler.GetComponent<AmbienceEmitterHandler>().ChangeFMODEvent();
+            
             StartCoroutine(cutscenePause());
-
+           
         }
     }
 

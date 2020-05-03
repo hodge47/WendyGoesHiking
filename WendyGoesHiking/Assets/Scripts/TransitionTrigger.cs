@@ -11,8 +11,7 @@ public class TransitionTrigger : MonoBehaviour
     GameObject ColorPPVolume;
 
 
-    //jpost Audio
-    AmbienceEmitterHandler ambienceEmitterHandler;
+    
 
     private void OnTriggerEnter(Collider coll)
     {
