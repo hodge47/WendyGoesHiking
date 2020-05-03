@@ -132,6 +132,9 @@
 		<property name="volume">
 			<value>7</value>
 		</property>
+		<relationship name="modulators">
+			<destination>{6f9658be-3f7c-4012-94da-f1c249edd8f1}</destination>
+		</relationship>
 		<relationship name="effectChain">
 			<destination>{d5ce9498-5416-438f-a201-15630fe961d5}</destination>
 		</relationship>
@@ -153,7 +156,7 @@
 			<value>true</value>
 		</property>
 		<property name="triggerProbability">
-			<value>10.5</value>
+			<value>50</value>
 		</property>
 		<property name="length">
 			<value>2</value>
@@ -161,14 +164,17 @@
 		<property name="volume">
 			<value>-21.5</value>
 		</property>
+		<property name="minimumTimeBetweenSounds">
+			<value>78</value>
+		</property>
 		<property name="maximumTimeBetweenSounds">
-			<value>6000</value>
+			<value>705</value>
 		</property>
 		<property name="minimumScatterDistance">
-			<value>0.699999928</value>
+			<value>7.80000019</value>
 		</property>
 		<property name="maximumScatterDistance">
-			<value>6.69999981</value>
+			<value>550</value>
 		</property>
 		<property name="volumeRandomization">
 			<value>-4</value>
@@ -202,7 +208,7 @@
 			<value>true</value>
 		</property>
 		<property name="triggerProbability">
-			<value>25</value>
+			<value>33</value>
 		</property>
 		<property name="length">
 			<value>2</value>
@@ -226,10 +232,10 @@
 			<value>32</value>
 		</property>
 		<property name="minimumScatterDistance">
-			<value>5.59999943</value>
+			<value>2</value>
 		</property>
 		<property name="maximumScatterDistance">
-			<value>35</value>
+			<value>8.54999924</value>
 		</property>
 		<property name="pitchRandomization">
 			<value>3.99999976</value>
@@ -266,10 +272,10 @@
 			<value>52</value>
 		</property>
 		<property name="minimumScatterDistance">
-			<value>29.5</value>
+			<value>0.899999976</value>
 		</property>
 		<property name="maximumScatterDistance">
-			<value>40</value>
+			<value>7.89999962</value>
 		</property>
 		<property name="volumeRandomization">
 			<value>-3</value>
@@ -300,7 +306,10 @@
 			<value>true</value>
 		</property>
 		<property name="triggerProbability">
-			<value>25</value>
+			<value>70.5</value>
+		</property>
+		<property name="start">
+			<value>0.28125</value>
 		</property>
 		<property name="length">
 			<value>2</value>
@@ -428,16 +437,16 @@
 			<value>525</value>
 		</property>
 		<property name="minimumScatterDistance">
-			<value>5</value>
+			<value>0.599999964</value>
 		</property>
 		<property name="maximumScatterDistance">
-			<value>80</value>
+			<value>8.34999943</value>
 		</property>
 		<property name="volumeRandomization">
 			<value>-4</value>
 		</property>
 		<property name="pitchRandomization">
-			<value>1.89999986</value>
+			<value>2.49999976</value>
 		</property>
 		<relationship name="sound">
 			<destination>{44b85157-df4e-46fd-855e-1443e4159c65}</destination>
@@ -471,10 +480,24 @@
 			<destination>{f486cf70-2298-46f0-82cd-51c567842b70}</destination>
 		</relationship>
 	</object>
+	<object class="ADSRModulator" id="{6f9658be-3f7c-4012-94da-f1c249edd8f1}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>volume</value>
+		</property>
+		<property name="initialValue">
+			<value>-80</value>
+		</property>
+		<property name="releaseTime">
+			<value>5000</value>
+		</property>
+		<property name="finalValue">
+			<value>-80</value>
+		</property>
+	</object>
 	<object class="MixerBusEffectChain" id="{d5ce9498-5416-438f-a201-15630fe961d5}">
 		<relationship name="effects">
 			<destination>{6b094454-c5a7-44c8-a364-71281da6c836}</destination>
-			<destination>{7552573b-40f1-4744-bc57-137fe330d67a}</destination>
+			<destination>{fa108a0e-31d4-4bf3-b720-983e24cad892}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{40b64925-3654-482e-b549-6b41d4b80f0f}" />
@@ -581,12 +604,12 @@
 	</object>
 	<object class="MixerBusPanner" id="{5ce00851-70e1-4572-8afb-c0f4e39a5793}" />
 	<object class="MixerBusFader" id="{6b094454-c5a7-44c8-a364-71281da6c836}" />
-	<object class="SpatialiserEffect" id="{7552573b-40f1-4744-bc57-137fe330d67a}">
+	<object class="SpatialiserEffect" id="{fa108a0e-31d4-4bf3-b720-983e24cad892}">
 		<property name="minimumDistance">
-			<value>5</value>
+			<value>10</value>
 		</property>
 		<property name="maximumDistance">
-			<value>100</value>
+			<value>300</value>
 		</property>
 		<property name="extentMode">
 			<value>1</value>
