@@ -25,6 +25,8 @@ public class FirstAidPickup : MonoBehaviour, IInteractive
         //Put audio play in here (probably)
         //I didn't implement it
         //Audio people should do it
+        //jpost Audio
+        PlayHealthPackPickup();
 
         FirstAidUI.SetActive(true);
 
@@ -32,6 +34,10 @@ public class FirstAidPickup : MonoBehaviour, IInteractive
         Destroy(gameObject);
     }
 
-
+    //jpost Audio
+    private void PlayHealthPackPickup()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Interactibles/sx_wgh_game_int_healthpack_pickup", gameObject.transform.position);
+    }
 
 }

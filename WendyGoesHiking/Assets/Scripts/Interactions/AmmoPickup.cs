@@ -20,12 +20,20 @@ public class AmmoPickup : MonoBehaviour, IInteractive
     /// <summary>
     /// This is where audio should probably go.
     /// </summary>
+    /// 
+    //jpost Audio
+    private void PlayAmmoPickup()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Interactibles/sx_wgh_game_int_ammobox_pickup", gameObject.transform.position);
+    }
+
     public virtual void InteractWith()
     {
         //Put audio play in here (probably)
         //I didn't implement it
         //Audio people should do it
-
+        //jpost Audio
+        PlayAmmoPickup();
         FirstAidUI.SetActive(true);
 
         Debug.Log($"Player just interacted with: {gameObject.name}");

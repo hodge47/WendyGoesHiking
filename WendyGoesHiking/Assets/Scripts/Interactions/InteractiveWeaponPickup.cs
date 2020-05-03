@@ -17,7 +17,9 @@ public class InteractiveWeaponPickup : MonoBehaviour, IInteractive
         //Put audio play in here (probably)
         //I didn't implement it
         //Audio people should do it
-
+        
+        //jpost Audio
+        PlayGunPickup();
 
         WeaponManager.current.loadout.Add(gun);
         WeaponManager.current.loadout[WeaponManager.current.loadout.Count - 1].Initialize();
@@ -33,7 +35,11 @@ public class InteractiveWeaponPickup : MonoBehaviour, IInteractive
 
     }
 
-
+    //jpost Audio
+    private void PlayGunPickup()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Interactibles/sx_wgh_game_int_shotgun_pickup", gameObject.transform.position);
+    }
 
 
 }
