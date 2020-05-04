@@ -10,6 +10,8 @@ public class Gun : ScriptableObject
     public int magazineSize;
     public int pellets;     //number of shots fired at once
     public float fireRate;
+    [Tooltip("This is per pellet hit on the object - EX. damage = 2, 8 pellets hit object for total damage of 16")]
+    public int damage = 0;
     public float bloom;     //accuracy --- higher bloom = less accurate
     public float adsBloom;  //accuracy while aiming the gun
     public float recoil;    //vertical rotation intensity when gun is fired
@@ -19,13 +21,15 @@ public class Gun : ScriptableObject
     public float aimSpeed;
     public float reloadSpeed;   //higher number = longer time = slower reload
     public bool recovery;   //whether or not you hava a recovery (like pumping a pump shotgun)
-    public AudioClip gunshotSound;
-    public AudioClip reloadSound;
-    public AudioClip emptyMagSound;
-    public AudioClip recoverySound;
+    public AudioClip[] gunshotSounds;
+    public AudioClip[] reloadSounds;
+    public AudioClip[] emptyMagSounds;
+    public AudioClip[] recoverySounds;
     public float pitchRandomization;
     public GameObject prefab;
     public bool isEquipped;
+
+    public GameObject[] muzzleFlashes;
 
 
     private int ammo;       // current stored ammo
@@ -70,6 +74,11 @@ public class Gun : ScriptableObject
     public int GetMagazine()
     {
         return magazine;
+    }
+
+    public void GiveAmmo(int _amount)
+    {
+        ammo = _amount;
     }
    
 }

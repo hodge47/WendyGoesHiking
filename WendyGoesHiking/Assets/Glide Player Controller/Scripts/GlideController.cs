@@ -4,6 +4,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class GlideController : MonoBehaviour
 {
@@ -249,6 +251,11 @@ public class GlideController : MonoBehaviour
 
     void Update()
     {
+
+        if (Input.GetKeyDown(KeyCode.F1)) {                                 /////////////////////////////////////////////////////// GET RID OF THIS
+            Scene s = SceneManager.GetActiveScene();
+            SceneManager.LoadScene(s.name);
+        }
 
         ///Crouching control/logic (check just a bit further down for the part where the height is actually affected!)
         if (crouchMode != GlideCrouchSetting.none) //Assuming we're actually letting the player crouch
@@ -636,8 +643,13 @@ public class GlideController : MonoBehaviour
              * ground, and this looks extremely ugly.
             */
 
-            m_grav = Mathf.Clamp(m_grav, -1f, Mathf.Infinity);
-
+            m_grav = Mathf.Clamp(m_grav, -0.5f, Mathf.Infinity);
+            RaycastHit m_slope;
+            if (Physics.Raycast(transform.position, Vector3.down, out m_slope, playerHeight * 0.66f, ~0, QueryTriggerInteraction.Ignore))
+            {
+                if (m_slope.normal.y > slopeBias && m_grav > -2f && m_grav < 0f && m_slope.normal.y < 0.99f) //If we're not set to slide down the slope normally
+                    transform.position = new Vector3(transform.position.x, m_slope.point.y + playerHeight * 0.55f, transform.position.z);
+            }
         }
         ///
 

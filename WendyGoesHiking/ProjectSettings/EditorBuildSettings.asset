@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Testing/Henry Terrain.unity
+    guid: 930cf955d6dde974f9484574476d7360
   m_configObjects: {}

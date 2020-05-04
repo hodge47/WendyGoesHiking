@@ -71,6 +71,8 @@ public class Door : InteractiveObject
             if(isLocked && !HasKey)
             {
                 //play locked door sound effect here
+                //jpost Audio
+                PlayTryLockedDoor();
             }
             else //if not locked or player has the key
             {
@@ -78,6 +80,8 @@ public class Door : InteractiveObject
                 displayText = string.Empty;
                 isOpen = true;
                 UnlockDoor();
+                //jpost Audio
+                PlayOpenDoor();
             }
             base.InteractWith(); //runs the logic from the base class         
         }
@@ -91,6 +95,29 @@ public class Door : InteractiveObject
         {
             PlayerInventory.InventoryObjects.Remove(key);
             Debug.Log($"The {key} has been removed from the inventory.");
+            //jpost Audio
+            PlayUseKey();
         }
+    }
+
+    //jpost Audio
+    private void PlayOpenDoor()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Interactibles/sx_wgh_game_int_door_open", gameObject.transform.position);
+    }
+
+    private void PlayUseKey()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Interactibles/sx_wgh_game_int_door_usekey", gameObject.transform.position);
+    }
+
+    private void PlayCloseDoor()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Interactibles/sx_wgh_game_int_door_close", gameObject.transform.position);
+    }
+
+    private void PlayTryLockedDoor()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Interactibles/sx_wgh_game_int_door_try_locked", gameObject.transform.position);
     }
 }

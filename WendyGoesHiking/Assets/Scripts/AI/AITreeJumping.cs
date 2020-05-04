@@ -49,11 +49,14 @@ public class AITreeJumping : MonoBehaviour
         SetUpAITreeJumping();
     }
 
+    public bool HasJumpSequence { get => hasJumpSequence; set => hasJumpSequence = value; }
+
     private AITree nextTree;
     private GameObject startPosition;
     private GameObject destination;
     private GameObject targetPosition;
     private float currentArc = 0;
+    [SerializeField]
     private bool hasJumpSequence = false;
     private bool arrived = false;
     private bool jumpPause = false;

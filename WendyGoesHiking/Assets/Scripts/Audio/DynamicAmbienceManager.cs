@@ -11,11 +11,24 @@ public class DynamicAmbienceManager : MonoBehaviour
 
     //a list of gameObjects
     [SerializeField] List<GameObject> nearbyGameObjects;
+    //a variable to adjust the maximum number of nearbyGameobjects
+    [SerializeField] int maxNearbyGameObjects;
+    //a variable to track the current number of nearbyGameObjects
+    [SerializeField] int currentNearbyGameObjects;
+    //how often to repeat playback of an FMOD event
+    [SerializeField] float repeatRate;
+    //the minimum possible repeatrate
+    [SerializeField] float minRepeatRate;
+    //the maximum possible repeatrate
+    [SerializeField] float maxRepeatRate;
 
     private void Start()
     {
         nearbyGameObjects = new List<GameObject>();
-        InvokeRepeating("CheckNearbyGameObjects", 1f, Random.Range(5f, 10f));
+        maxNearbyGameObjects = 32;
+        minRepeatRate = 2f;
+        maxRepeatRate = 20f;        
+        Invoke("CheckNearbyGameObjects", 1f);
     }
 
     //a way of detecting if a nearbyGameObject is tagged "Tree"
@@ -23,8 +36,15 @@ public class DynamicAmbienceManager : MonoBehaviour
     {
         if(other.gameObject.tag == "Tree")
         {
+            //count the number of gameobjects in proximity to the player
+            currentNearbyGameObjects = nearbyGameObjects.Count;
+            //add the new gameojbect
             nearbyGameObjects.Add(other.gameObject);
-            PlayTreeAmbience(other.gameObject);
+            //remove the "oldest" nearby gameobject if currentNearbyGameObjects has too many elements in it
+            if(currentNearbyGameObjects >= maxNearbyGameObjects)
+            {
+                nearbyGameObjects.Remove(nearbyGameObjects[0]);
+            }            
         }
     }
 
@@ -34,6 +54,8 @@ public class DynamicAmbienceManager : MonoBehaviour
         if (other.gameObject.tag == "Tree")
         {
             nearbyGameObjects.Remove(other.gameObject);
+            //count the number of gameobjects in proximity to the player
+            currentNearbyGameObjects = nearbyGameObjects.Count;
         }
     }
 
@@ -46,16 +68,28 @@ public class DynamicAmbienceManager : MonoBehaviour
     //a way of checking if the player is still in proximity to relevant gameobjects
     void CheckNearbyGameObjects()
     {
-        if(nearbyGameObjects.Count > 0)
+        //count the number of gameobjects in proximity to the player
+        currentNearbyGameObjects = nearbyGameObjects.Count;
+        
+        if (currentNearbyGameObjects > 0)
         {
             foreach(GameObject g in nearbyGameObjects)
             {
                 if(nearbyGameObjects.IndexOf(g) % 2 == 0)
-                {
+                {                    
                     PlayTreeAmbience(g);
                 }
-                
             }
         }
+        //recalculate repeatrate
+        repeatRate = CalculateRepeatRate();
+        //recursively call self at repeatrate
+        Invoke("CheckNearbyGameObjects", repeatRate);
+    }
+    //a method to determine a float within a random range constrained by the user
+    private float CalculateRepeatRate()
+    {
+        float repeatRateLocal = Random.Range(minRepeatRate, maxRepeatRate);
+        return repeatRateLocal;
     }
 }

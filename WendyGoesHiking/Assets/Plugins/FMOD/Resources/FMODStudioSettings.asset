@@ -80,6 +80,11 @@ MonoBehaviour:
   - Master
   Banks:
   - Ambience
+  - Interactibles
+  - Music
+  - NPC
   - Player
+  - UI
+  - VO
   BanksToLoad: []
   LiveUpdatePort: 9264

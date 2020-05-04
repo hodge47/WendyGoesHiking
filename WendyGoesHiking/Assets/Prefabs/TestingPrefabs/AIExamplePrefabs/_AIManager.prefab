@@ -43,4 +43,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f74e5bd5847b464ba9f3d830e9ee2af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 100
+  destroyGameObjectOnKill: 0
+  SightingTimeRange: {x: 3, y: 5}
+  SightingType: 0
+  isTesting: 1
   AI: {fileID: 0}

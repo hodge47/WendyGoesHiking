@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{c5db8ffb-f879-4447-847e-6ba6a153a4f1}">
+		<property name="assetPath">
+			<value>sx_wgh_game_npc_wendigo_takedamage_02.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.83725000000000005</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{6e3e2055-3c6c-4108-a84c-1a76373f8264}</destination>
+		</relationship>
+	</object>
+</objects>

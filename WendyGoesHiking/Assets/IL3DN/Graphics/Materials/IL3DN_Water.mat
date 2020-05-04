@@ -162,7 +162,7 @@ Material:
     - _TessValue: 16
     - _Tiling: 0.05
     - _TranslucencyViewDependency: 0
-    - _Transparency: 2
+    - _Transparency: 0
     - _UVSec: 0
     - _WaterDepth: 0
     - _WaterFalloff: -0.5

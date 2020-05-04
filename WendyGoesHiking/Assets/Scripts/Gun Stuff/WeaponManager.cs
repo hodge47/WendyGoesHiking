@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 using UnityEngine.AI;
+using Sirenix.OdinInspector;
 
 
 public class WeaponManager : MonoBehaviour
@@ -39,6 +40,15 @@ public class WeaponManager : MonoBehaviour
 
     [SerializeField] LayerMask mask;
 
+    [Button(ButtonSizes.Medium), GUIColor(0, 1, 0)]
+    private void GiveAmmo()
+    {
+        if(loadout[currentIndex].isEquipped)
+        {
+            loadout[currentIndex].GiveAmmo(50);
+        }
+    }
+
     //Input
     private PlayerControlActions playerControlActions;
 
@@ -69,6 +79,8 @@ public class WeaponManager : MonoBehaviour
         if (playerControlActions.CompassSwitch.WasPressed )
         {     //if the number key '1' is pressed, equip first weapon            && !loadout[currentIndex].isEquipped
             Equip(0);
+            //jpost Audio
+            PlayCompassEquip();
 
         }
         if (playerControlActions.ShotgunSwitch.WasPressed)
@@ -79,6 +91,8 @@ public class WeaponManager : MonoBehaviour
         if (playerControlActions.FlashlightSwitch.WasPressed)
         {     //if the number key '1' is pressed, equip first weapon
             Equip(2);
+            //jpost Audio
+            PlayFlashlightTurnOn();
         }
 
         if (equippedWeapon != null)
@@ -97,9 +111,13 @@ public class WeaponManager : MonoBehaviour
                 }
                 else
                 {
-                    sfx.clip = loadout[currentIndex].emptyMagSound;
-                    sfx.pitch = 1 - loadout[currentIndex].pitchRandomization + Random.Range(-loadout[currentIndex].pitchRandomization, loadout[currentIndex].pitchRandomization);
-                    sfx.Play();
+                    // I was annoyed with the out of bounds error of the empty mag sound so I just added this check for uninitialized array/list lol -Michael
+                    if(loadout[currentIndex].emptyMagSounds.Length > 0)
+                    {
+                        sfx.clip = loadout[currentIndex].emptyMagSounds[Random.Range(0, loadout[currentIndex].emptyMagSounds.Length)];
+                        sfx.pitch = 1 - loadout[currentIndex].pitchRandomization + Random.Range(-loadout[currentIndex].pitchRandomization, loadout[currentIndex].pitchRandomization);
+                        sfx.Play();
+                    } 
                 }
             }
 
@@ -152,8 +170,11 @@ public class WeaponManager : MonoBehaviour
         else if (GlideController.current.isSprinting)
         {
             //sprinting
-            anchorTransform.position = Vector3.Lerp(anchorTransform.position, stateRunning.position, Time.deltaTime * loadout[currentIndex].aimSpeed);
-            anchorTransform.rotation = Quaternion.Lerp(anchorTransform.rotation, stateRunning.rotation, Time.deltaTime * loadout[currentIndex].aimSpeed);
+            if (stateRunning != null)
+            {
+                anchorTransform.position = Vector3.Lerp(anchorTransform.position, stateRunning.position, Time.deltaTime * loadout[currentIndex].aimSpeed);
+                anchorTransform.rotation = Quaternion.Lerp(anchorTransform.rotation, stateRunning.rotation, Time.deltaTime * loadout[currentIndex].aimSpeed);
+            }
         }
     }
 
@@ -235,20 +256,55 @@ public class WeaponManager : MonoBehaviour
 
                 newBulletHole.transform.SetParent(tempHit.transform);
                 //Destroy(newBulletHole, 5f);
+                GameObject _hitObject = tempHit.collider.gameObject;
+                // Damage the wendigo - check raycast hit AI GameObject
+                if(_hitObject.tag == "AI")
+                {
+                    Debug.Log("Hit AI");
+                    // Get the AIHealth script from the AI GameObject
+                    AIHealth _aiHealth = _hitObject.GetComponent<AIHealth>();
+                    // Check to make sure the AIHealth script isn't null
+                    if(_aiHealth != null)
+                    {
+                        // Call DamageWendigo(AIHealth, (int)amount) function
+                        DamageWendigo(_aiHealth, loadout[currentIndex].damage);
+                    }
+                }
             }
         }
 
+        //jpost Audio
+        //play shotgun fire single barrel
+        if (!isAiming)
+        {
+            PlayFireSingleBarrel();
+        }
+        
 
-        //Audio
-        sfx.clip = loadout[currentIndex].gunshotSound;
-        sfx.pitch = 1 - loadout[currentIndex].pitchRandomization + Random.Range(-loadout[currentIndex].pitchRandomization, loadout[currentIndex].pitchRandomization);
-        sfx.Play();
+        //unity audio deprecated DO NOT USE
+        ////Audio
+        //sfx.clip = loadout[currentIndex].gunshotSounds[Random.Range(0, loadout[currentIndex].gunshotSounds.Length - 1)];
+        //sfx.pitch = 1 - loadout[currentIndex].pitchRandomization + Random.Range(-loadout[currentIndex].pitchRandomization, loadout[currentIndex].pitchRandomization);
+        //sfx.Play();
 
         // Gun FX
+
+        Transform muzzleFlashLocation = equippedWeapon.transform.Find("Anchor/Resources/MuzzleFlash");
+
+        Vector3 position = new Vector3(muzzleFlashLocation.position.x, muzzleFlashLocation.position.y, muzzleFlashLocation.position.z);
+        Quaternion rotation = new Quaternion(muzzleFlashLocation.rotation.x, muzzleFlashLocation.rotation.y, muzzleFlashLocation.rotation.z, muzzleFlashLocation.rotation.w);
+
+
+        GameObject muzzleFlash = Instantiate(loadout[currentIndex].muzzleFlashes[Random.Range(0, loadout[currentIndex].muzzleFlashes.Length - 1)], position, rotation); 
+
+        Destroy(muzzleFlash, 4);
+
         if (isAiming)
         {
             equippedWeapon.transform.Rotate(-loadout[currentIndex].adsRecoil, 0, 0);
             equippedWeapon.transform.position -= equippedWeapon.transform.forward * loadout[currentIndex].adsKickback;
+            //jpost Audio
+            PlayFireDoubleBarrel();
         }
         else
         {
@@ -259,13 +315,23 @@ public class WeaponManager : MonoBehaviour
 
         if (loadout[currentIndex].recovery)
         {
-            sfx2.clip = loadout[currentIndex].recoverySound;
+            sfx2.clip = loadout[currentIndex].recoverySounds[Random.Range(0, loadout[currentIndex].recoverySounds.Length-1)];
             sfx2.pitch = 1 - loadout[currentIndex].pitchRandomization + Random.Range(-loadout[currentIndex].pitchRandomization, loadout[currentIndex].pitchRandomization);
             sfx2.Play();
             equippedWeapon.GetComponent<Animator>().Play("Recovery", 0, 0);
         }
 
 
+    }
+
+    /// <summary>
+    /// Damages the wendigo's health by calling the RemoveHealth() function in AIHealth
+    /// </summary>
+    /// <param name="_healthScript"></param>
+    /// <param name="_amount"></param>
+    private void DamageWendigo(AIHealth _healthScript, int _amount)
+    {
+        _healthScript.RemoveHealth(_amount);
     }
 
     IEnumerator Reload()
@@ -275,14 +341,36 @@ public class WeaponManager : MonoBehaviour
         equippedWeapon.GetComponent<Animator>().Play("Reload", 0, 0);
 
 
-        if (loadout[currentIndex].reloadSound != null)
+        if (loadout[currentIndex].reloadSounds[0] != null)
         {
-            sfx2.clip = loadout[currentIndex].reloadSound;
+            sfx2.clip = loadout[currentIndex].reloadSounds[Random.Range(0, loadout[currentIndex].reloadSounds.Length-1)];
             sfx2.pitch = 1 - loadout[currentIndex].pitchRandomization + Random.Range(-loadout[currentIndex].pitchRandomization, loadout[currentIndex].pitchRandomization);
-            sfx2.Play();
+            if (loadout[currentIndex].GetMagazine() == 0)
+            {
+                //jpost Audio
+                //PlayShotgunReload();
+
+                //unity audio deprecated DO NOT USE
+                //sfx2.Play();
+                //yield return new WaitForSeconds(sfx2.clip.length);
+                //sfx2.clip = loadout[currentIndex].reloadSounds[Random.Range(0, loadout[currentIndex].reloadSounds.Length - 1)];
+                //sfx2.pitch = 1 - loadout[currentIndex].pitchRandomization + Random.Range(-loadout[currentIndex].pitchRandomization, loadout[currentIndex].pitchRandomization);
+                //sfx2.Play();
+
+            }
+            else
+            {
+                //PlayShotgunReload();
+                //unity audio deprecated DO NOT USE
+                //sfx2.Play();
+
+            }
         }
-        
-        yield return new WaitForSeconds(equippedWeapon.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
+
+        yield return new WaitForSeconds(sfx2.clip.length * 1.5f);
+
+
+        //yield return new WaitForSeconds(equippedWeapon.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
 
         loadout[currentIndex].Reload();
         isReloading = false;
@@ -315,16 +403,39 @@ public class WeaponManager : MonoBehaviour
 
         if (currentIndex == 1)
         {
-            uiText.text = ammo.ToString("D2");
+          //  uiText.text = ammo.ToString("D2");
         }
         else
         {
-            uiText.text = "";
+           // uiText.text = "";
         }
 
 
     }
 
-
-
+    //jpost Audio
+    private void PlayFireSingleBarrel()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Interactibles/sx_wgh_game_int_shotgun_fire_singlebarrel", gameObject.transform.position);
+    }
+    //jpost Audio
+    private void PlayFireDoubleBarrel()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Interactibles/sx_wgh_game_int_shotgun_fire_doublebarrel", gameObject.transform.position);
+    }
+    //jpost Audio
+    private void PlayShotgunReload()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Interactibles/sx_wgh_game_int_shotgun_reload", gameObject.transform.position);
+    }
+    //jpost Audio
+    private void PlayFlashlightTurnOn()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Interactibles/sx_wgh_game_int_flashlight_turnon", gameObject.transform.position);
+    }
+    //jpost Audio
+    private void PlayCompassEquip()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Interactibles/sx_wgh_game_int_compass_equip", gameObject.transform.position);
+    }
 }

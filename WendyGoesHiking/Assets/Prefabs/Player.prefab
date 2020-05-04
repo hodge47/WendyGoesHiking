@@ -309,8 +309,8 @@ GameObject:
   - component: {fileID: 8864853289791495212}
   - component: {fileID: 8860474101153015856}
   - component: {fileID: 8822117470780602374}
-  - component: {fileID: 1775026149}
   - component: {fileID: 6640976579124599069}
+  - component: {fileID: 2082659267}
   m_Layer: 8
   m_Name: PlayerCamera
   m_TagString: MainCamera
@@ -360,7 +360,7 @@ Camera:
   field of view: 60
   orthographic: 0
   orthographic size: 5
-  m_Depth: 0
+  m_Depth: 2
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -390,60 +390,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8884365201784807848}
-  m_Enabled: 0
---- !u!114 &1775026149
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8884365201784807848}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccfa547679dfb8b43aeef1e0ae038448, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Dither: 1
-  Pixelate: 0
-  Grain: 0
-  Grain_Old: 0
-  Grain_New: 1
-  grain:
-    m_Enabled: 1
-    m_Settings:
-      colored: 0
-      intensity: 0.121
-      size: 3
-      luminanceContribution: 1
-      animated: 0
-  colored: 0
-  intensity: 0.121
-  size: 3
-  luminanceContribution: 1
-  animated: 0
-  _palette: {fileID: 11400000, guid: 854bc12718d567943a288b57517a95c7, type: 2}
-  _pattern: {fileID: 11400000, guid: 805069b704972564cb72ed299cc8ec7e, type: 2}
-  _patternTexture: {fileID: 0}
-  _shader: {fileID: 4800000, guid: 0e4c0c6d48b7240d8b59f441b94c2b0e, type: 3}
-  _pixelScale: 0.5
-  intensityMultiplier: 0.25
-  generalIntensity: 0.5
-  blackIntensity: 1
-  whiteIntensity: 1
-  midGrey: 0.2
-  dx11Grain: 0
-  softness: 0.0001
-  monochrome: 1
-  intensities: {x: 1, y: 1, z: 1}
-  tiling: {x: 64, y: 64, z: 64}
-  monochromeTiling: 64
-  filterMode: 1
-  noiseTexture: {fileID: 2800000, guid: 7a632f967e8ad42f5bd275898151ab6a, type: 3}
-  noiseShader: {fileID: 4800000, guid: 68560b76e4c6d9b4d8b8bf6e844a3654, type: 3}
-  dx11NoiseShader: {fileID: 0}
-  profile: {fileID: 11400000, guid: c516024461997364f995fff307819980, type: 2}
-  ub: {fileID: 2100000, guid: 23f251be192cd1341aed054f1e2adf1d, type: 2}
-  gm: {fileID: 2100000, guid: 8c9430ef03ac7f843bc22de27c15d502, type: 2}
+  m_Enabled: 1
 --- !u!114 &6640976579124599069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -457,6 +404,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ListenerNumber: -1
+--- !u!114 &2082659267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8884365201784807848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ef4098820a388041a36933a8be52515, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lerpSpeed: 5
+  duration: 0.5
+  magnitude: 1
 --- !u!1 &8884561780859521506
 GameObject:
   m_ObjectHideFlags: 0
@@ -471,10 +433,10 @@ GameObject:
   - component: {fileID: 1070759581336776}
   - component: {fileID: 5454265985950863719}
   - component: {fileID: 1831681106289819404}
-  - component: {fileID: 1442645294}
   - component: {fileID: 68823243}
   - component: {fileID: 847948954634238972}
-  - component: {fileID: 790351278}
+  - component: {fileID: 1293385529}
+  - component: {fileID: 1926765970}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -532,7 +494,7 @@ MonoBehaviour:
   crouchSpeed: 2
   sprintSpeed: 9
   slideSpeed: 20
-  jumpPower: 12
+  jumpPower: 5
   slidingOnSlopes: 1
   slopeBias: 0.4
   crouchPercent: 0.5
@@ -555,13 +517,9 @@ MonoBehaviour:
   enableSounds: 1
   soundVolume: 1
   landingSoundTimer: 0.3
-  walkSounds:
-  - {fileID: 8300000, guid: 88cb40e51c12ef0409d8b820c91dae8d, type: 3}
-  - {fileID: 8300000, guid: 82c9e70742b05484795f42ef50f461aa, type: 3}
-  - {fileID: 8300000, guid: 239f23dc61abbc14983c3edb86523171, type: 3}
-  - {fileID: 8300000, guid: b074d3a6b288e0c45b6d297c6f993468, type: 3}
-  jumpingSound: {fileID: 8300000, guid: c2e97f3cf1a02d644b7e58c10ff53a17, type: 3}
-  landingSound: {fileID: 8300000, guid: c06be735375ec78418299f8fc2da9bd1, type: 3}
+  walkSounds: []
+  jumpingSound: {fileID: 0}
+  landingSound: {fileID: 0}
   slidingSound: {fileID: 0}
   playerAnimator: {fileID: 0}
   walkingParameter: 
@@ -650,21 +608,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   raycastOrigin: {fileID: 8889721390183370616}
   maxRange: 3
---- !u!114 &1442645294
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8884561780859521506}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62369bce2d11fb44181ace815e70cc68, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 0
-  healthBar: {fileID: 735293557}
 --- !u!114 &68823243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -677,9 +620,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4096e75238527b3408129f46a055c7c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minStaminaBeforeSprintingEnabled: 10
+  minStaminaBeforeSprintingEnabled: 0
   currentStamina: 0
-  staminaReductionAmount: 1
+  staminaReductionAmount: 0
   staminaRecoveryAmount: 1
   timeToWaitBeforeStaminaRecovers: 0
   hasEnoughStamina: 1
@@ -712,7 +655,7 @@ MonoBehaviour:
   nativeInputOverrideUpdateRate: 0
   nativeInputUpdateRate: 0
   customProfiles: []
---- !u!114 &790351278
+--- !u!114 &1293385529
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -721,10 +664,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 8884561780859521506}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e619c3a25c098254ca663cb9d678cbbb, type: 3}
+  m_Script: {fileID: 11500000, guid: 61b83b3462b6314438f05aa4b8fee770, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nearbyGameObjects: []
+  MaxHealth: 200
+  DestroyGameObjectOnDeath: 0
+--- !u!65 &1926765970
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8884561780859521506}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1244512349
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -796,6 +753,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Radius
       value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 7270480589234087645, guid: 0aa1a00e53ff8c64c8683b0ba3872c94,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0aa1a00e53ff8c64c8683b0ba3872c94, type: 3}
@@ -903,6 +865,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2438554362152516840, guid: 9f1a3aba2a7c2ce45a09403f2000a8e9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 27.200195
+      objectReference: {fileID: 0}
     - target: {fileID: 2438554362684232619, guid: 9f1a3aba2a7c2ce45a09403f2000a8e9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -976,18 +943,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2438554361346407170}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &735293557 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2438554361762909047, guid: 9f1a3aba2a7c2ce45a09403f2000a8e9,
-    type: 3}
-  m_PrefabInstance: {fileID: 2438554361346407170}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17761e32ae3a4fc4fbd4a132b5d6b556, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2042810951316636380 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4435757531402975710, guid: 9f1a3aba2a7c2ce45a09403f2000a8e9,
