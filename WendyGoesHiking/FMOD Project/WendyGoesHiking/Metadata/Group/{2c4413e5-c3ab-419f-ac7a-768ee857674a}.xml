@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="MixerGroup" id="{2c4413e5-c3ab-419f-ac7a-768ee857674a}">
+		<property name="name">
+			<value>Exterior Ambience</value>
+		</property>
+		<relationship name="effectChain">
+			<destination>{bca74773-8ec5-4c32-8d72-5da36adf3f21}</destination>
+		</relationship>
+		<relationship name="panner">
+			<destination>{2eebbe51-efc4-4cbc-ab4e-31a7e4efe26a}</destination>
+		</relationship>
+		<relationship name="output">
+			<destination>{38a7276b-6bf0-49bd-bdde-93126a562c28}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusEffectChain" id="{bca74773-8ec5-4c32-8d72-5da36adf3f21}">
+		<relationship name="effects">
+			<destination>{45a9db24-ed27-4344-acf0-f8ce54047288}</destination>
+			<destination>{0cdfd1d2-b14c-45d5-9e57-817e664e468a}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusPanner" id="{2eebbe51-efc4-4cbc-ab4e-31a7e4efe26a}" />
+	<object class="MixerBusFader" id="{45a9db24-ed27-4344-acf0-f8ce54047288}" />
+	<object class="ThreeEQEffect" id="{0cdfd1d2-b14c-45d5-9e57-817e664e468a}" />
+</objects>

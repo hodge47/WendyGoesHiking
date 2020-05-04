@@ -22,6 +22,7 @@ public class TransitionTrigger : MonoBehaviour
 
             //jpost Audio
             coll.gameObject.GetComponent<IntroMusicProgress>().ChangeToSafeZoneMusic();
+            coll.gameObject.GetComponent<IntroMusicProgress>().ChangeToInteriorSpaceSnapshot();
         }
     }
 
@@ -34,6 +35,7 @@ public class TransitionTrigger : MonoBehaviour
 
             //jpost Audio
             coll.gameObject.GetComponent<IntroMusicProgress>().ChangeToNightMusic();
+            coll.gameObject.GetComponent<IntroMusicProgress>().ChangeToDefaultSnapshot();
         }
     }
 

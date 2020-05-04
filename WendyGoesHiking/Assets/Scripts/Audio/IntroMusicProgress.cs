@@ -7,7 +7,7 @@ public class IntroMusicProgress : MonoBehaviour
 {
     //jpost Audio
 
-    ///A script to pass a parameter value from Unity to FMOD that controls what sections of a song to play based on player progression
+    ///A script to manage all FMOD music states as well as some mixing scripting
     ///
     public FMOD.Studio.PLAYBACK_STATE pState;
     public float introProgress;
@@ -15,10 +15,13 @@ public class IntroMusicProgress : MonoBehaviour
     public string introMusic = "event:/Music/Intro/mx_wgh_intro";
     public string nightMusic = "event:/Music/Night Time/mx_wgh_nighttime";
     public string safeMusic = "event:/Music/Safe Zone/mx_wgh_safezone";
+    public string interiorSnapshot = "snapshot:/Interior Space"; 
+
     //create FMOD events
     public FMOD.Studio.EventInstance introMusicEvent;
     public FMOD.Studio.EventInstance nightMusicEvent;
     public FMOD.Studio.EventInstance safeMusicEvent;
+    public FMOD.Studio.EventInstance interiorSnapshotEvent;
     //declare FMOD parameter link
     public FMOD.Studio.PARAMETER_ID introProgressParameterId;
 
@@ -32,6 +35,7 @@ public class IntroMusicProgress : MonoBehaviour
         introMusicEvent = FMODUnity.RuntimeManager.CreateInstance(introMusic);
         nightMusicEvent = FMODUnity.RuntimeManager.CreateInstance(nightMusic);
         safeMusicEvent = FMODUnity.RuntimeManager.CreateInstance(safeMusic);
+        interiorSnapshotEvent = FMODUnity.RuntimeManager.CreateInstance(interiorSnapshot);
 
         introMusicEvent.getParameterByName("introProgress", out introProgress);
         
@@ -100,8 +104,6 @@ public class IntroMusicProgress : MonoBehaviour
         {
             Debug.Log("Event instance already playing");
         }
-
-
     }
 
     public void ChangeToSafeZoneMusic()
@@ -111,5 +113,15 @@ public class IntroMusicProgress : MonoBehaviour
             nightMusicEvent.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
             safeMusicEvent.start();
         }
+    }
+
+    public void ChangeToInteriorSpaceSnapshot()
+    {
+        interiorSnapshotEvent.start();
+    }
+
+    public void ChangeToDefaultSnapshot()
+    {
+        interiorSnapshotEvent.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
 }
