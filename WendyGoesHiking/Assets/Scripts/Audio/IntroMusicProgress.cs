@@ -86,14 +86,30 @@ public class IntroMusicProgress : MonoBehaviour
         {
             introMusicEvent.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         }
-        
-        if(PlaybackState(nightMusicEvent) != FMOD.Studio.PLAYBACK_STATE.PLAYING)
+
+        if (PlaybackState(safeMusicEvent) == FMOD.Studio.PLAYBACK_STATE.PLAYING)
+        {
+            safeMusicEvent.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        }
+
+        if (PlaybackState(nightMusicEvent) != FMOD.Studio.PLAYBACK_STATE.PLAYING)
         {
             nightMusicEvent.start();
         }
         else
         {
             Debug.Log("Event instance already playing");
+        }
+
+
+    }
+
+    public void ChangeToSafeZoneMusic()
+    {
+        if (PlaybackState(nightMusicEvent) == FMOD.Studio.PLAYBACK_STATE.PLAYING)
+        {
+            nightMusicEvent.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            safeMusicEvent.start();
         }
     }
 }

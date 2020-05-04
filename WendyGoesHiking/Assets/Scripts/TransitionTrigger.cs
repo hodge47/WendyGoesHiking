@@ -10,7 +10,7 @@ public class TransitionTrigger : MonoBehaviour
     [SerializeField]
     GameObject ColorPPVolume;
 
-
+    
     
 
     private void OnTriggerEnter(Collider coll)
@@ -20,6 +20,8 @@ public class TransitionTrigger : MonoBehaviour
             ColorPPVolume.SetActive(true);
             BlackAndWhitePPVolume.SetActive(false);
 
+            //jpost Audio
+            coll.gameObject.GetComponent<IntroMusicProgress>().ChangeToSafeZoneMusic();
         }
     }
 
@@ -29,6 +31,9 @@ public class TransitionTrigger : MonoBehaviour
         {
             BlackAndWhitePPVolume.SetActive(true);
             ColorPPVolume.SetActive(false);
+
+            //jpost Audio
+            coll.gameObject.GetComponent<IntroMusicProgress>().ChangeToNightMusic();
         }
     }
 
