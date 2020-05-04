@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.00.00">
 	<object class="Event" id="{ddb6938d-78cb-4980-991a-3765013817c1}">
 		<property name="name">
-			<value>mx_wgh_safezone_test_v1</value>
+			<value>mx_wgh_safezone</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>

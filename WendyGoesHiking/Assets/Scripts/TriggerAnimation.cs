@@ -29,6 +29,7 @@ public class TriggerAnimation : MonoBehaviour
     //jpost Audio
     [SerializeField] GameObject ambienceEmitterHandler;
 
+
     private void OnTriggerEnter(Collider coll)
     {
         if (coll.gameObject.tag == "Player")
@@ -46,7 +47,9 @@ public class TriggerAnimation : MonoBehaviour
             objectToAnimate.GetComponent<Animator>().Play("FallingCutscene", 0, 0);
             
             StartCoroutine(cutscenePause());
-           
+
+            //jpost Audio
+            ChangeToNightMusic();
         }
     }
 
@@ -75,7 +78,11 @@ public class TriggerAnimation : MonoBehaviour
     {
         FMODUnity.RuntimeManager.PlayOneShot("event:/Interactibles/sx_wgh_game_int_cutscene_fall_2d", spawnPoint.transform.position);
     }
-
+    //jpost Audio
+    private void ChangeToNightMusic()
+    {
+        player.GetComponent<IntroMusicProgress>().ChangeToNightMusic();
+    }
 
     // Start is called before the first frame update
     void Start()

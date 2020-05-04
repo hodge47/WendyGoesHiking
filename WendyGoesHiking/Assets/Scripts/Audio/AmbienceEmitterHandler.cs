@@ -5,7 +5,7 @@ using FMODUnity;
 public class AmbienceEmitterHandler : MonoBehaviour
 {
     //jpost Audio
-    /// a script to control which type of ambience should be played based on if the player has progressed to nighttime or not
+    /// a script to control which type of ambience should be played 
     /// 
 
     //has a list of daytime emitters
