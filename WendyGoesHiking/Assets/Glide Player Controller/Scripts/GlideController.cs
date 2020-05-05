@@ -171,8 +171,6 @@ public class GlideController : MonoBehaviour
 
     void Start()
     {
-        PlayerControlActions.CreateWithDefaultBindings();
-
         FOV = playerCamera.fieldOfView;
 
         /// Initialization details.
@@ -244,6 +242,12 @@ public class GlideController : MonoBehaviour
 
         // Initialize input
         playerControlActions = PlayerControlActions.CreateWithDefaultBindings();
+        // Load the player's bindings
+        if (PlayerPrefs.HasKey("InputBindings"))
+        {
+            string saveData = PlayerPrefs.GetString("InputBindings");
+            playerControlActions.Load(saveData);
+        }
 
         //jpost Audio initialization
         footstepManager = GetComponentInChildren<FootstepManager>();
@@ -1119,4 +1123,9 @@ public class GlideController : MonoBehaviour
         leaping = 3
     }
 
+    private void OnDestroy()
+    {
+        // Destroy the player action set
+        playerControlActions.Destroy();
+    }
 }

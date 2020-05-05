@@ -18,6 +18,53 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &-9085251487808957278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Interactibles/sx_wgh_game_int_healthpack_use
+  m_EditorClassIdentifier: 
+  Path: event:/Interactibles/sx_wgh_game_int_healthpack_use
+  guid: 896585fe75d98845ba4412ee05a75477
+  Banks:
+  - {fileID: -7016554244947109304}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3000
+--- !u!114 &-8973120699860239680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/Intro/mx_wgh_intro
+  m_EditorClassIdentifier: 
+  Path: event:/Music/Intro/mx_wgh_intro
+  guid: e2b3dd66f5bf244db0b75ffb1f09165a
+  Banks:
+  - {fileID: 2828717176819477265}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 1997161942504073937}
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 162711
 --- !u!114 &-8958416622074001752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36,6 +83,29 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &-8788694240284101665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Interactibles/sx_wgh_game_int_door_try_locked
+  m_EditorClassIdentifier: 
+  Path: event:/Interactibles/sx_wgh_game_int_door_try_locked
+  guid: 3dcc53c10029c14cb2ba9f5905dbc8c3
+  Banks:
+  - {fileID: -7016554244947109304}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 500
 --- !u!114 &-8417861982651261422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54,6 +124,29 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &-8334607892586455392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/VO/Wendy/Inner Monologue/vx_wgh_game_wendy_dialogue_line5
+  m_EditorClassIdentifier: 
+  Path: event:/VO/Wendy/Inner Monologue/vx_wgh_game_wendy_dialogue_line5
+  guid: f96082640753fd4aa6dfc5ca5416445e
+  Banks:
+  - {fileID: -5129229040616062161}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 7268
 --- !u!114 &-7914799159314496071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,6 +201,29 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &-7573602043393234996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: snapshot:/Default
+  m_EditorClassIdentifier: 
+  Path: snapshot:/Default
+  guid: 160fd514ac94774d9e6fae76180b0656
+  Banks:
+  - {fileID: -3407778987166267724}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
 --- !u!114 &-7542450619663200803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,6 +260,52 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &-7133947113027884391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/NPC/Wendigo/Movement/sx_wgh_game_npc_wendigo_land_tree
+  m_EditorClassIdentifier: 
+  Path: event:/NPC/Wendigo/Movement/sx_wgh_game_npc_wendigo_land_tree
+  guid: ca65cfd5b249dd47af939708887bfd85
+  Banks:
+  - {fileID: -5477081569608705892}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1000
+--- !u!114 &-7123044765667477391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Interactibles/sx_wgh_game_int_cutscene_fall_2d
+  m_EditorClassIdentifier: 
+  Path: event:/Interactibles/sx_wgh_game_int_cutscene_fall_2d
+  guid: 35714b81b0518c43a65193ae3036a8ef
+  Banks:
+  - {fileID: -7016554244947109304}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 3226
 --- !u!114 &-7099011416402053105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,6 +324,47 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &-7039008091573521770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Interactibles/sx_wgh_game_int_cutscene_fall
+  m_EditorClassIdentifier: 
+  Path: event:/Interactibles/sx_wgh_game_int_cutscene_fall
+  guid: c68199d69aff154893f7b8b8571d1a97
+  Banks:
+  - {fileID: -7016554244947109304}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3226
+--- !u!114 &-7016554244947109304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Interactibles.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD Project/WendyGoesHiking/Build/Desktop/Interactibles.bank
+  SubDir: 
+  lastModified: 637242083257135404
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &-6843882213198822171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,6 +419,29 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &-6523709099589651036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/NPC/Wendigo/Movement/sx_wgh_game_npc_wendigo_jump_tree
+  m_EditorClassIdentifier: 
+  Path: event:/NPC/Wendigo/Movement/sx_wgh_game_npc_wendigo_jump_tree
+  guid: 88e26083a4184b40a59853e15c12d41d
+  Banks:
+  - {fileID: -5477081569608705892}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 790
 --- !u!114 &-6489126401030153292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,14 +475,14 @@ MonoBehaviour:
   Path: event:/Player/sx_wgh_game_plr_footstep_grass
   guid: 1db21ff705d72b4b8f07eaee07ffd780
   Banks:
-  - {fileID: -1439719194772402968}
+  - {fileID: 1943369260987360641}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 2000
+  Length: 2031
 --- !u!114 &-6326303259034692888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,6 +501,29 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &-6249455523986649101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/Night Time/mx_wgh_nighttime
+  m_EditorClassIdentifier: 
+  Path: event:/Music/Night Time/mx_wgh_nighttime
+  guid: 0920ab3a761b9d498c9a38bb8b4fa85c
+  Banks:
+  - {fileID: 2828717176819477265}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 376000
 --- !u!114 &-6122954969527054553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -311,6 +560,29 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &-5934319837727397122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Interactibles/sx_wgh_game_int_weapon_shotgun_dump_shells
+  m_EditorClassIdentifier: 
+  Path: event:/Interactibles/sx_wgh_game_int_weapon_shotgun_dump_shells
+  guid: cab82afee9c63546a3d10c80b258d4fe
+  Banks:
+  - {fileID: -7016554244947109304}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 148
 --- !u!114 &-5767761430500730413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -401,6 +673,47 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &-5477081569608705892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/NPC.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD Project/WendyGoesHiking/Build/Desktop/NPC.bank
+  SubDir: 
+  lastModified: 637242083257785996
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
+--- !u!114 &-5312866554910245286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/VO/Wendy/Inner Monologue/vx_wgh_game_wendy_dialogue_line1
+  m_EditorClassIdentifier: 
+  Path: event:/VO/Wendy/Inner Monologue/vx_wgh_game_wendy_dialogue_line1
+  guid: 2f823c7ba62e8448a481a2861c3eca07
+  Banks:
+  - {fileID: -5129229040616062161}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 10000
 --- !u!114 &-5170846975089143254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -419,6 +732,24 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &-5129229040616062161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/VO.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD Project/WendyGoesHiking/Build/Desktop/VO.bank
+  SubDir: 
+  lastModified: 637242083257836039
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &-5094637975265308378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -470,14 +801,14 @@ MonoBehaviour:
   Path: event:/Player/sx_wgh_game_plr_footstep_dirt
   guid: 4ae56639791d144db88fcca95274396a
   Banks:
-  - {fileID: -1439719194772402968}
+  - {fileID: 1943369260987360641}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 2000
+  Length: 2031
 --- !u!114 &-4841300793203624559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -532,6 +863,29 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &-4607605436074022502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/VO/Wendy/Inner Monologue/vx_wgh_game_wendy_dialogue_line2
+  m_EditorClassIdentifier: 
+  Path: event:/VO/Wendy/Inner Monologue/vx_wgh_game_wendy_dialogue_line2
+  guid: b8c9ac43d234a14ab73839b74edf09f5
+  Banks:
+  - {fileID: -5129229040616062161}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 14000
 --- !u!114 &-4607103139816382665
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -568,6 +922,76 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &-4514393990962393302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Interactibles/sx_wgh_game_int_shotgun_fire_singlebarrel
+  m_EditorClassIdentifier: 
+  Path: event:/Interactibles/sx_wgh_game_int_shotgun_fire_singlebarrel
+  guid: 7293c562914a8e4eb552dd32be1e80ff
+  Banks:
+  - {fileID: -7016554244947109304}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2000
+--- !u!114 &-4256898926527089452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/Intro/mx_wgh_menu
+  m_EditorClassIdentifier: 
+  Path: event:/Music/Intro/mx_wgh_menu
+  guid: 9e70b993fb615c4baf2ae702f555cb5d
+  Banks:
+  - {fileID: 2828717176819477265}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 9082188404692657174}
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 75254
+--- !u!114 &-4203954913224617667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/NPC/Wendigo/Vocalizations/sx_wgh_game_npc_wendigo_die
+  m_EditorClassIdentifier: 
+  Path: event:/NPC/Wendigo/Vocalizations/sx_wgh_game_npc_wendigo_die
+  guid: f6ba7fe766899d4fb43895e260acd35d
+  Banks:
+  - {fileID: -5477081569608705892}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-4145514361304493765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -622,6 +1046,24 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &-3916006976988305254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Ambience.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD Project/WendyGoesHiking/Build/Desktop/Ambience.bank
+  SubDir: 
+  lastModified: 637242083257115384
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &-3817318327520942503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -658,6 +1100,52 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &-3692051148755357755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Interactibles/sx_wgh_game_int_door_open
+  m_EditorClassIdentifier: 
+  Path: event:/Interactibles/sx_wgh_game_int_door_open
+  guid: a4a84f55acee3e4f8c9a605efbfe0f9f
+  Banks:
+  - {fileID: -7016554244947109304}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1000
+--- !u!114 &-3677957566066627307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Interactibles/sx_wgh_game_int_ammobox_pickup
+  m_EditorClassIdentifier: 
+  Path: event:/Interactibles/sx_wgh_game_int_ammobox_pickup
+  guid: 7312efa69c6de0448c8981cb28760037
+  Banks:
+  - {fileID: -7016554244947109304}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 617
 --- !u!114 &-3633032102841253358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -730,6 +1218,29 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &-3431771339557622706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/sx_wgh_game_ui_click_start_game
+  m_EditorClassIdentifier: 
+  Path: event:/UI/sx_wgh_game_ui_click_start_game
+  guid: abe45c3d0e65d14d9dc34d2cd28a6dea
+  Banks:
+  - {fileID: -472656272278395087}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 500
 --- !u!114 &-3427483880215273888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -745,6 +1256,24 @@ MonoBehaviour:
   Path: FMOD Project/WendyGoesHiking/Build/Desktop/Ambience.bank
   SubDir: 
   lastModified: 637180814151258769
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
+--- !u!114 &-3407778987166267724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD Project/WendyGoesHiking/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637242083257145413
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -784,6 +1313,29 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &-2872284204026145014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Interactibles/sx_wgh_game_int_shotgun_fire_doublebarrel
+  m_EditorClassIdentifier: 
+  Path: event:/Interactibles/sx_wgh_game_int_shotgun_fire_doublebarrel
+  guid: 8dff2706fa66bf4fa01c86f87af04e6a
+  Banks:
+  - {fileID: -7016554244947109304}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2000
 --- !u!114 &-2676560432578146179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -838,6 +1390,29 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &-2280795843991271227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/NPC/Wendigo/Vocalizations/sx_wgh_game_npc_wendigo_takedamage
+  m_EditorClassIdentifier: 
+  Path: event:/NPC/Wendigo/Vocalizations/sx_wgh_game_npc_wendigo_takedamage
+  guid: 4db35a32da2b884e90e8b0bdf6c5e0b7
+  Banks:
+  - {fileID: -5477081569608705892}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 849
 --- !u!114 &-2169254952288002143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -892,6 +1467,98 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &-1573360459973987435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/sx_wgh_game_ui_hover
+  m_EditorClassIdentifier: 
+  Path: event:/UI/sx_wgh_game_ui_hover
+  guid: 30d05e24a8ff9b4a885faec2a1262118
+  Banks:
+  - {fileID: -472656272278395087}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 505
+--- !u!114 &-1567896387911129605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/NPC/Wendigo/Vocalizations/sx_wgh_game_npc_wendigo_atk
+  m_EditorClassIdentifier: 
+  Path: event:/NPC/Wendigo/Vocalizations/sx_wgh_game_npc_wendigo_atk
+  guid: 765dfbac271a2d4f84256a2b7b3b16af
+  Banks:
+  - {fileID: -5477081569608705892}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1500
+--- !u!114 &-1547401680081330485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/NPC/Wendigo/Movement/sx_wgh_game_npc_wendigo_run
+  m_EditorClassIdentifier: 
+  Path: event:/NPC/Wendigo/Movement/sx_wgh_game_npc_wendigo_run
+  guid: b44c6b64e93d06468521c37fde5c4cc0
+  Banks:
+  - {fileID: -5477081569608705892}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-1454671147166421822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Interactibles/sx_wgh_game_int_weapon_shotgun_breach_open
+  m_EditorClassIdentifier: 
+  Path: event:/Interactibles/sx_wgh_game_int_weapon_shotgun_breach_open
+  guid: 60b567d22b0de04d9b8213d926270267
+  Banks:
+  - {fileID: -7016554244947109304}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 247
 --- !u!114 &-1439719194772402968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -928,6 +1595,29 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &-882319024778989619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/VO/Wendy/Inner Monologue/vx_wgh_game_wendy_dialogue_line4
+  m_EditorClassIdentifier: 
+  Path: event:/VO/Wendy/Inner Monologue/vx_wgh_game_wendy_dialogue_line4
+  guid: 47f3add0be22604c874d0443a9185436
+  Banks:
+  - {fileID: -5129229040616062161}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 6000
 --- !u!114 &-870004190963795223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -946,6 +1636,29 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &-660498727444656797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Interactibles/sx_wgh_game_int_shotgun_pickup
+  m_EditorClassIdentifier: 
+  Path: event:/Interactibles/sx_wgh_game_int_shotgun_pickup
+  guid: ce70d465235cc747a0d930ddb5c8f96d
+  Banks:
+  - {fileID: -7016554244947109304}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 484
 --- !u!114 &-585943700398272666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -964,6 +1677,24 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &-472656272278395087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/UI.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD Project/WendyGoesHiking/Build/Desktop/UI.bank
+  SubDir: 
+  lastModified: 637242083257806016
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &-226622068999563580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -982,6 +1713,29 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &-104285375188763780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Interactibles/sx_wgh_game_int_weapon_shotgun_load_shells
+  m_EditorClassIdentifier: 
+  Path: event:/Interactibles/sx_wgh_game_int_weapon_shotgun_load_shells
+  guid: 920fdbcc36a48f46968bfa23502f1a47
+  Banks:
+  - {fileID: -7016554244947109304}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 689
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -996,21 +1750,102 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 8914403071283873561}
-  - {fileID: -7721375524926091837}
-  - {fileID: -6326303259034692888}
-  - {fileID: -1439719194772402968}
+  - {fileID: -3916006976988305254}
+  - {fileID: -7016554244947109304}
+  - {fileID: -3407778987166267724}
+  - {fileID: 2828717176819477265}
+  - {fileID: -5477081569608705892}
+  - {fileID: 1943369260987360641}
+  - {fileID: -472656272278395087}
+  - {fileID: -5129229040616062161}
   EditorEvents:
   - {fileID: 6907778105595484926}
   - {fileID: 6370282740856571230}
   - {fileID: -4845599138590674480}
   - {fileID: -6374373514354190725}
+  - {fileID: 764463739777309934}
+  - {fileID: 6401587981658483001}
+  - {fileID: 2055251228222140988}
+  - {fileID: 2094928347379144032}
+  - {fileID: -7123044765667477391}
+  - {fileID: -8788694240284101665}
+  - {fileID: 421180045437431281}
+  - {fileID: -1454671147166421822}
+  - {fileID: 5238041126313590558}
+  - {fileID: 3378968511871942398}
+  - {fileID: 8097472200833536197}
+  - {fileID: -4514393990962393302}
+  - {fileID: -3677957566066627307}
+  - {fileID: -9085251487808957278}
+  - {fileID: -2872284204026145014}
+  - {fileID: -104285375188763780}
+  - {fileID: -3692051148755357755}
+  - {fileID: 882778054140000320}
+  - {fileID: 7601662068068761812}
+  - {fileID: -7039008091573521770}
+  - {fileID: 2359552260137953740}
+  - {fileID: -5934319837727397122}
+  - {fileID: -660498727444656797}
+  - {fileID: -7573602043393234996}
+  - {fileID: 6945311563355055792}
+  - {fileID: -6249455523986649101}
+  - {fileID: 667834602498618799}
+  - {fileID: -4256898926527089452}
+  - {fileID: -8973120699860239680}
+  - {fileID: 2499724252446393811}
+  - {fileID: -2280795843991271227}
+  - {fileID: -1567896387911129605}
+  - {fileID: -6523709099589651036}
+  - {fileID: -1547401680081330485}
+  - {fileID: -7133947113027884391}
+  - {fileID: -4203954913224617667}
+  - {fileID: 2946256609311955556}
+  - {fileID: -1573360459973987435}
+  - {fileID: 7965557756716948779}
+  - {fileID: 7840648427108689245}
+  - {fileID: -3431771339557622706}
+  - {fileID: 4430000624926402810}
+  - {fileID: -5312866554910245286}
+  - {fileID: 2947984607068796967}
+  - {fileID: -882319024778989619}
+  - {fileID: 3403293654275190717}
+  - {fileID: 6944417698471814201}
+  - {fileID: 9118581893425211228}
+  - {fileID: 5379863557394663733}
+  - {fileID: -4607605436074022502}
+  - {fileID: 5012657295226909506}
+  - {fileID: 1946393482916070026}
+  - {fileID: -8334607892586455392}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -6326303259034692888}
+  - {fileID: -3407778987166267724}
   StringsBanks:
   - {fileID: 8914403071283873561}
-  stringsBankWriteTime: 637184465862052005
+  stringsBankWriteTime: 637242083257155426
   cacheVersion: 3
+--- !u!114 &421180045437431281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Interactibles/sx_wgh_game_int_healthpack_pickup
+  m_EditorClassIdentifier: 
+  Path: event:/Interactibles/sx_wgh_game_int_healthpack_pickup
+  guid: 41b1e9e9d53ab144acf5d3249783a1f2
+  Banks:
+  - {fileID: -7016554244947109304}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 500
 --- !u!114 &496526396003863912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1083,6 +1918,29 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &667834602498618799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Music/Safe Zone/mx_wgh_safezone
+  m_EditorClassIdentifier: 
+  Path: event:/Music/Safe Zone/mx_wgh_safezone
+  guid: 8d93b6ddcb788049991a3765013817c1
+  Banks:
+  - {fileID: 2828717176819477265}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 134000
 --- !u!114 &680798247252642808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1101,6 +1959,52 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &764463739777309934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ambience/sx_wgh_game_amb_tree_static_night
+  m_EditorClassIdentifier: 
+  Path: event:/Ambience/sx_wgh_game_amb_tree_static_night
+  guid: 06a560b7ee65db4db02b0e55f96c7c25
+  Banks:
+  - {fileID: -3916006976988305254}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 10
+  MaxDistance: 300
+  Length: 3400
+--- !u!114 &882778054140000320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Interactibles/sx_wgh_game_int_shotgun_reload
+  m_EditorClassIdentifier: 
+  Path: event:/Interactibles/sx_wgh_game_int_shotgun_reload
+  guid: aad98e72dd56bf4d9fb58fa6b55b116c
+  Banks:
+  - {fileID: -7016554244947109304}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2000
 --- !u!114 &1547657173228065033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1173,6 +2077,110 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &1943369260987360641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Player.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD Project/WendyGoesHiking/Build/Desktop/Player.bank
+  SubDir: 
+  lastModified: 637242083257796003
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
+--- !u!114 &1946393482916070026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/VO/Wendy/Inner Monologue/vx_wgh_game_wendy_dialogue_line9
+  m_EditorClassIdentifier: 
+  Path: event:/VO/Wendy/Inner Monologue/vx_wgh_game_wendy_dialogue_line9
+  guid: f42f822f074fc649b71fcecc5f778508
+  Banks:
+  - {fileID: -5129229040616062161}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4000
+--- !u!114 &1997161942504073937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/mx_wgh_intro/introProgress
+  m_EditorClassIdentifier: 
+  Name: introProgress
+  Min: 0
+  Max: 100
+  Default: 0
+  Exists: 1
+--- !u!114 &2055251228222140988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Interactibles/sx_wgh_game_int_flashlight_turnon
+  m_EditorClassIdentifier: 
+  Path: event:/Interactibles/sx_wgh_game_int_flashlight_turnon
+  guid: 10b6bbb96949a749bbe4d23a11b5db13
+  Banks:
+  - {fileID: -7016554244947109304}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1000
+--- !u!114 &2094928347379144032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Interactibles/sx_wgh_game_int_door_close
+  m_EditorClassIdentifier: 
+  Path: event:/Interactibles/sx_wgh_game_int_door_close
+  guid: 1128dbfcc60db346b6540af18b0848fc
+  Banks:
+  - {fileID: -7016554244947109304}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 500
 --- !u!114 &2148469999532270152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1191,6 +2199,52 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &2359552260137953740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Interactibles/sx_wgh_game_int_door_usekey
+  m_EditorClassIdentifier: 
+  Path: event:/Interactibles/sx_wgh_game_int_door_usekey
+  guid: c7bb79a5574a654fb9b61ee9df1b2e2a
+  Banks:
+  - {fileID: -7016554244947109304}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1580
+--- !u!114 &2499724252446393811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/NPC/Wendigo/Vocalizations/sx_wgh_game_npc_wendigo_breath
+  m_EditorClassIdentifier: 
+  Path: event:/NPC/Wendigo/Vocalizations/sx_wgh_game_npc_wendigo_breath
+  guid: 4bbc6624e4c33a40b6462244fac2040c
+  Banks:
+  - {fileID: -5477081569608705892}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 4220
 --- !u!114 &2713091577407461940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1245,6 +2299,70 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &2828717176819477265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Music.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD Project/WendyGoesHiking/Build/Desktop/Music.bank
+  SubDir: 
+  lastModified: 637242083257755975
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
+--- !u!114 &2946256609311955556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/sx_wgh_game_ui_click_through
+  m_EditorClassIdentifier: 
+  Path: event:/UI/sx_wgh_game_ui_click_through
+  guid: 16384a64bf8c3a448976403deaf3645a
+  Banks:
+  - {fileID: -472656272278395087}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 500
+--- !u!114 &2947984607068796967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/VO/Wendy/Inner Monologue/vx_wgh_game_wendy_dialogue_line7
+  m_EditorClassIdentifier: 
+  Path: event:/VO/Wendy/Inner Monologue/vx_wgh_game_wendy_dialogue_line7
+  guid: 40aed2a5b821924387d0a517351f3d00
+  Banks:
+  - {fileID: -5129229040616062161}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 8203
 --- !u!114 &3083636322684942773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1281,6 +2399,29 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &3378968511871942398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Interactibles/sx_wgh_game_int_key_pickup
+  m_EditorClassIdentifier: 
+  Path: event:/Interactibles/sx_wgh_game_int_key_pickup
+  guid: 66eca473f2a055438a79da448586cd14
+  Banks:
+  - {fileID: -7016554244947109304}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 624
 --- !u!114 &3382442949429383732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1299,6 +2440,29 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &3403293654275190717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/VO/Wendy/Inner Monologue/vx_wgh_game_wendy_dialogue_line6
+  m_EditorClassIdentifier: 
+  Path: event:/VO/Wendy/Inner Monologue/vx_wgh_game_wendy_dialogue_line6
+  guid: 49c5861cad5c3e4ebb368d6bdb009c90
+  Banks:
+  - {fileID: -5129229040616062161}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 14500
 --- !u!114 &3668510507951599951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1371,6 +2535,29 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &4430000624926402810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/VO/Wendy/Inner Monologue/vx_wgh_game_wendy_dialogue_line8
+  m_EditorClassIdentifier: 
+  Path: event:/VO/Wendy/Inner Monologue/vx_wgh_game_wendy_dialogue_line8
+  guid: 1a5e4a7aef0f9b4badc1f589e1f72c92
+  Banks:
+  - {fileID: -5129229040616062161}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4500
 --- !u!114 &4626473199722206658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1389,6 +2576,29 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &5012657295226909506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/VO/Wendy/Inner Monologue/vx_wgh_game_wendy_dialogue_line10
+  m_EditorClassIdentifier: 
+  Path: event:/VO/Wendy/Inner Monologue/vx_wgh_game_wendy_dialogue_line10
+  guid: f0aee2b5c61cba4ebd4ec34e2e7547a8
+  Banks:
+  - {fileID: -5129229040616062161}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 5843
 --- !u!114 &5052942133455266960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1429,6 +2639,29 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1200
+--- !u!114 &5238041126313590558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Interactibles/sx_wgh_game_int_flashlight_turnoff
+  m_EditorClassIdentifier: 
+  Path: event:/Interactibles/sx_wgh_game_int_flashlight_turnoff
+  guid: 64349864986fb341b6702e3f697810bb
+  Banks:
+  - {fileID: -7016554244947109304}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 800
 --- !u!114 &5295875779683169125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1447,6 +2680,29 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &5379863557394663733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/VO/Wendy/Inner Monologue/vx_wgh_game_wendy_dialogue_line12
+  m_EditorClassIdentifier: 
+  Path: event:/VO/Wendy/Inner Monologue/vx_wgh_game_wendy_dialogue_line12
+  guid: a22c72fad33de6489f0a2e2cd78adaf3
+  Banks:
+  - {fileID: -5129229040616062161}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 7641
 --- !u!114 &6038236082088225878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1521,7 +2777,7 @@ MonoBehaviour:
   - {fileID: 7515221639825633920}
   - {fileID: -6560738060718920956}
   - {fileID: 1558935740861319505}
-  - {fileID: -6326303259034692888}
+  - {fileID: -3407778987166267724}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1529,6 +2785,29 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1200
+--- !u!114 &6401587981658483001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ambience/sx_wgh_game_amb_tree_static_day
+  m_EditorClassIdentifier: 
+  Path: event:/Ambience/sx_wgh_game_amb_tree_static_day
+  guid: 8f2e0b0c5d0d284f821ecb225f034feb
+  Banks:
+  - {fileID: -3916006976988305254}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 10
+  MaxDistance: 300
+  Length: 3400
 --- !u!114 &6501480955986955076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1567,14 +2846,14 @@ MonoBehaviour:
   - {fileID: -2396235195182777537}
   - {fileID: -7256459558419087505}
   - {fileID: -3427483880215273888}
-  - {fileID: -7721375524926091837}
+  - {fileID: -3916006976988305254}
   IsStream: 1
   Is3D: 1
   IsOneShot: 1
   Parameters: []
-  MinDistance: 1
-  MaxDistance: 100
-  Length: 2000
+  MinDistance: 0.49999997
+  MaxDistance: 150
+  Length: 3360
 --- !u!114 &6942073317882762510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1593,6 +2872,52 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &6944417698471814201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/VO/Wendy/Inner Monologue/vx_wgh_game_wendy_dialogue_line3
+  m_EditorClassIdentifier: 
+  Path: event:/VO/Wendy/Inner Monologue/vx_wgh_game_wendy_dialogue_line3
+  guid: 8248aceb55065a408a7a46160247ca4b
+  Banks:
+  - {fileID: -5129229040616062161}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 5500
+--- !u!114 &6945311563355055792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: snapshot:/Interior Space
+  m_EditorClassIdentifier: 
+  Path: snapshot:/Interior Space
+  guid: 17197a0ab2aa104897fe57db900ddfec
+  Banks:
+  - {fileID: -3407778987166267724}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
 --- !u!114 &7515221639825633920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1665,6 +2990,29 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &7601662068068761812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Interactibles/sx_wgh_game_int_weapon_shotgun_breach_close
+  m_EditorClassIdentifier: 
+  Path: event:/Interactibles/sx_wgh_game_int_weapon_shotgun_breach_close
+  guid: b2235bca07cae94b9918d3da770efe07
+  Banks:
+  - {fileID: -7016554244947109304}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 689
 --- !u!114 &7711550813877999218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1683,6 +3031,52 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &7840648427108689245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/sx_wgh_game_ui_click_exit_game
+  m_EditorClassIdentifier: 
+  Path: event:/UI/sx_wgh_game_ui_click_exit_game
+  guid: 43331a35c4d7a94bafb2e281396f3b16
+  Banks:
+  - {fileID: -472656272278395087}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 2476
+--- !u!114 &7965557756716948779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/sx_wgh_game_ui_click_back
+  m_EditorClassIdentifier: 
+  Path: event:/UI/sx_wgh_game_ui_click_back
+  guid: 310bf80cc4530a4286a505531845f39e
+  Banks:
+  - {fileID: -472656272278395087}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 515
 --- !u!114 &8076474934133711308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1701,6 +3095,29 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &8097472200833536197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Interactibles/sx_wgh_game_int_compass_equip
+  m_EditorClassIdentifier: 
+  Path: event:/Interactibles/sx_wgh_game_int_compass_equip
+  guid: 6c26cf956e68374da9e8ca7163d7e54a
+  Banks:
+  - {fileID: -7016554244947109304}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1000
 --- !u!114 &8876055071905708684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1751,11 +3168,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: FMOD Project/WendyGoesHiking/Build/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637184465862052005
+  lastModified: 637242083257155426
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 1024
+    Value: 3958
   Exists: 1
 --- !u!114 &9071537797082380231
 MonoBehaviour:
@@ -1775,3 +3192,43 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &9082188404692657174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/mx_wgh_menu/introProgress
+  m_EditorClassIdentifier: 
+  Name: introProgress
+  Min: 0
+  Max: 100
+  Default: 0
+  Exists: 1
+--- !u!114 &9118581893425211228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/VO/Wendy/Inner Monologue/vx_wgh_game_wendy_dialogue_line11
+  m_EditorClassIdentifier: 
+  Path: event:/VO/Wendy/Inner Monologue/vx_wgh_game_wendy_dialogue_line11
+  guid: 8c04639028e34a42a82fa0272a9acc0f
+  Banks:
+  - {fileID: -5129229040616062161}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4179

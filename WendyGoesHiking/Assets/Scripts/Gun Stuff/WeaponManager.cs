@@ -66,7 +66,11 @@ public class WeaponManager : MonoBehaviour
 
         // Initialize input
         playerControlActions = PlayerControlActions.CreateWithDefaultBindings();
-
+        // Load the player's bindings
+        if (PlayerPrefs.HasKey("InputBindings"))
+        {
+            playerControlActions.Load(PlayerPrefs.GetString("InputBindings"));
+        }
     }
 
     private void Update()
@@ -437,5 +441,11 @@ public class WeaponManager : MonoBehaviour
     private void PlayCompassEquip()
     {
         FMODUnity.RuntimeManager.PlayOneShot("event:/Interactibles/sx_wgh_game_int_compass_equip", gameObject.transform.position);
+    }
+
+    private void OnDestroy()
+    {
+        // Destroy the player action set
+        playerControlActions.Destroy();
     }
 }
