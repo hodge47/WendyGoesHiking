@@ -76,9 +76,11 @@ public class WendigoSounds : MonoBehaviour
     //play Wendigo Breath sfx
     public void PlayWendigoBreathEvent()
     {
+        wendigoBreathEvent.start();
         if (PlaybackState(wendigoBreathEvent) != FMOD.Studio.PLAYBACK_STATE.PLAYING)
         {
-            wendigoBreathEvent.start();
+            Debug.Log("try to play breath");
+            
         }
     }
     //play Wendigo Jump Tree sfx
