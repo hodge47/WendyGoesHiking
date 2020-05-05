@@ -100,10 +100,6 @@ public class IntroMusicProgress : MonoBehaviour
         {
             nightMusicEvent.start();
         }
-        else
-        {
-            Debug.Log("Event instance already playing");
-        }
     }
 
     public void ChangeToSafeZoneMusic()

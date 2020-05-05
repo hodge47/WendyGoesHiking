@@ -711,7 +711,7 @@ PrefabInstance:
     - target: {fileID: 8535438148190103251, guid: 137291ffb17847041bf8f2a45daf6a43,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8535438148190103251, guid: 137291ffb17847041bf8f2a45daf6a43,
         type: 3}
@@ -833,7 +833,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 199202763}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e335cb6f95c26748adbbe8a8a869152, type: 3}
+  m_Script: {fileID: 11500000, guid: 96965fce9f961994db067d9900dd76cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   objectToAnimate: {fileID: 1216813660}
@@ -987,8 +987,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c39eec55506ff1443900b7b72643f765, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BlackAndWhitePPVolume: {fileID: 937772649}
-  ColorPPVolume: {fileID: 1616632551}
 --- !u!1 &342387720
 GameObject:
   m_ObjectHideFlags: 0
@@ -1108,7 +1106,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh87366
+  m_Name: pb_Mesh20666
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1481,7 +1479,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 434240397}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 865556cafa2e2d54b8961f59340f2b91, type: 3}
+  m_Script: {fileID: 11500000, guid: cb0ff3dd5ea224743887d3c4dd57b4ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ambienceEmitters:
@@ -2595,7 +2593,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1209602717}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bccd245784597da4994a606b20e4a25d, type: 3}
+  m_Script: {fileID: 11500000, guid: 8f3484ae30100dc469954f29a5f3d021, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   pState: 0
@@ -2603,7 +2601,8 @@ MonoBehaviour:
   introMusic: event:/Music/Intro/mx_wgh_intro
   nightMusic: event:/Music/Night Time/mx_wgh_nighttime
   safeMusic: event:/Music/Safe Zone/mx_wgh_safezone
-  playIntroMusic: 1
+  interiorSnapshot: snapshot:/Interior Space
+  playIntroMusic: 0
 --- !u!1001 &1215244627
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3878,8 +3877,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1216813664}
   - component: {fileID: 1216813663}
-  - component: {fileID: 1216813662}
   - component: {fileID: 1216813661}
+  - component: {fileID: 1216813662}
   - component: {fileID: 1216813665}
   m_Layer: 0
   m_Name: Camera
@@ -3898,7 +3897,7 @@ Animator:
   m_GameObject: {fileID: 1216813660}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8d6f49e4329bc884c814075d78b457a0, type: 2}
+  m_Controller: {fileID: 9100000, guid: a7e5d0631069a194992c1693c27741d6, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -3907,14 +3906,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!81 &1216813662
-AudioListener:
+--- !u!114 &1216813662
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1216813660}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ListenerNumber: -1
 --- !u!20 &1216813663
 Camera:
   m_ObjectHideFlags: 0
@@ -5235,8 +5239,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c39eec55506ff1443900b7b72643f765, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BlackAndWhitePPVolume: {fileID: 937772649}
-  ColorPPVolume: {fileID: 1616632551}
 --- !u!135 &1948093240
 SphereCollider:
   m_ObjectHideFlags: 0
