@@ -75,29 +75,29 @@ public class PlayerControlActions : PlayerActionSet
         playerControlActions.ShotgunSwitch.AddDefaultBinding(Key.Key2);
         playerControlActions.FlashlightSwitch.AddDefaultBinding(Key.Key3);
         // Controller inputs
-        playerControlActions.MoveRight.AddDefaultBinding(InputControlType.LeftStickRight);
-        playerControlActions.MoveLeft.AddDefaultBinding(InputControlType.LeftStickLeft);
-        playerControlActions.MoveForward.AddDefaultBinding(InputControlType.LeftStickUp);
-        playerControlActions.MoveBackward.AddDefaultBinding(InputControlType.LeftStickDown);
+        //playerControlActions.MoveRight.AddDefaultBinding(InputControlType.LeftStickRight);
+        //playerControlActions.MoveLeft.AddDefaultBinding(InputControlType.LeftStickLeft);
+        //playerControlActions.MoveForward.AddDefaultBinding(InputControlType.LeftStickUp);
+        //playerControlActions.MoveBackward.AddDefaultBinding(InputControlType.LeftStickDown);
         playerControlActions.LookRight.AddDefaultBinding(InputControlType.RightStickRight);
         playerControlActions.LookLeft.AddDefaultBinding(InputControlType.RightStickLeft);
         playerControlActions.LookUp.AddDefaultBinding(InputControlType.RightStickUp);
         playerControlActions.LookDown.AddDefaultBinding(InputControlType.RightStickDown);
-        playerControlActions.Jump.AddDefaultBinding(InputControlType.Button2);
-        playerControlActions.Sprint.AddDefaultBinding(InputControlType.LeftStickButton);
-        playerControlActions.Shoot.AddDefaultBinding(InputControlType.RightTrigger);
-        playerControlActions.Zoom.AddDefaultBinding(InputControlType.LeftTrigger);
-        playerControlActions.Reload.AddDefaultBinding(InputControlType.Button3);
-        playerControlActions.Use.AddDefaultBinding(InputControlType.Button1);
-        playerControlActions.ShotgunSwitch.AddDefaultBinding(InputControlType.DPadUp);
-        playerControlActions.FlashlightSwitch.AddDefaultBinding(InputControlType.DPadRight);
-        playerControlActions.CompassSwitch.AddDefaultBinding(InputControlType.DPadDown);
+        //playerControlActions.Jump.AddDefaultBinding(InputControlType.Button2);
+        //playerControlActions.Sprint.AddDefaultBinding(InputControlType.LeftStickButton);
+        //playerControlActions.Shoot.AddDefaultBinding(InputControlType.RightTrigger);
+        //playerControlActions.Zoom.AddDefaultBinding(InputControlType.LeftTrigger);
+        //playerControlActions.Reload.AddDefaultBinding(InputControlType.Button3);
+        //playerControlActions.Use.AddDefaultBinding(InputControlType.Button1);
+        //playerControlActions.ShotgunSwitch.AddDefaultBinding(InputControlType.DPadUp);
+        //playerControlActions.FlashlightSwitch.AddDefaultBinding(InputControlType.DPadRight);
+        //playerControlActions.CompassSwitch.AddDefaultBinding(InputControlType.DPadDown);
 
         playerControlActions.ListenOptions.IncludeUnknownControllers = true;
         playerControlActions.ListenOptions.MaxAllowedBindings = 2;
 
         playerControlActions.ListenOptions.AllowDuplicateBindingsPerSet = false;
-        playerControlActions.ListenOptions.UnsetDuplicateBindingsOnSet = true;
+        playerControlActions.ListenOptions.UnsetDuplicateBindingsOnSet = false;
         playerControlActions.ListenOptions.IncludeMouseButtons = true;
 
         playerControlActions.ListenOptions.OnBindingFound = ( action, binding ) => {

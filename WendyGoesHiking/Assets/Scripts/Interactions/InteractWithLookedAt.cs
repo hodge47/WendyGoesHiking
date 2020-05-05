@@ -11,18 +11,23 @@ public class InteractWithLookedAt : MonoBehaviour
     private IInteractive lookedAtInteractive;
 
     // Input
-    PlayerControlActions playerControlActiosn;
+    PlayerControlActions playerControlActions;
 
     private void Start()
     {
         // Initialize input
-        playerControlActiosn = PlayerControlActions.CreateWithDefaultBindings();
+        playerControlActions = PlayerControlActions.CreateWithDefaultBindings();
+        // Load the Player's bindings
+        if (PlayerPrefs.HasKey("InputBindings"))
+        {
+            playerControlActions.Load(PlayerPrefs.GetString("InputBindings"));
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if((playerControlActiosn.Use.IsPressed && lookedAtInteractive != null))
+        if((playerControlActions.Use.IsPressed && lookedAtInteractive != null))
         {
             Debug.Log("Player pressed the interact button");
             lookedAtInteractive.InteractWith();
@@ -49,5 +54,11 @@ public class InteractWithLookedAt : MonoBehaviour
         DetectLookedAtInteractive.LookedAtInteractiveChanged -= OnLookedAtInteractiveChanged;
     }
     #endregion
+
+    private void OnDestroy()
+    {
+        // Destroy the player action set
+        playerControlActions.Destroy();
+    }
 
 }
