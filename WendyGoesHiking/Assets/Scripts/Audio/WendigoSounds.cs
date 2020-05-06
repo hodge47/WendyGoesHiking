@@ -24,6 +24,8 @@ public class WendigoSounds : MonoBehaviour
     public string wendigoLandTree = "event:/NPC/Wendigo/Movement/sx_wgh_game_npc_wendigo_land_tree";
     //die
     public string wendigoDie = "event:/NPC/Wendigo/Vocalizations/sx_wgh_game_npc_wendigo_die";
+    //thud
+    public string wendigoThud = "event:/NPC/Wendigo/Movement/sx_wgh_game_npc_wendigo_body_thud";
 
     ////event instances
     //public FMOD.Studio.EventInstance wendigoAttackEvent;
@@ -91,6 +93,11 @@ public class WendigoSounds : MonoBehaviour
     public void PlayWendigoDieEvent()
     {
         FMODUnity.RuntimeManager.PlayOneShot(wendigoDie, gameObject.transform.position);
+    }
+    //play Wendigo Body Thud sfx
+    public void PlayWendigoThudEvent()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot(wendigoThud, gameObject.transform.position);
     }
 
 }
