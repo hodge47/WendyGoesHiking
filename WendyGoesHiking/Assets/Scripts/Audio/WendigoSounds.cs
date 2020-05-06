@@ -25,25 +25,25 @@ public class WendigoSounds : MonoBehaviour
     //die
     public string wendigoDie = "event:/NPC/Wendigo/Vocalizations/sx_wgh_game_npc_wendigo_die";
 
-    //event instances
-    public FMOD.Studio.EventInstance wendigoAttackEvent;
-    public FMOD.Studio.EventInstance wendigoTakeDamageEvent;
-    public FMOD.Studio.EventInstance wendigoBreathEvent;
-    public FMOD.Studio.EventInstance wendigoJumpTreeEvent;
-    public FMOD.Studio.EventInstance wendigoLandTreeEvent;
-    public FMOD.Studio.EventInstance wendigoRunEvent;
-    public FMOD.Studio.EventInstance wendigoDieEvent;
+    ////event instances
+    //public FMOD.Studio.EventInstance wendigoAttackEvent;
+    //public FMOD.Studio.EventInstance wendigoTakeDamageEvent;
+    //public FMOD.Studio.EventInstance wendigoBreathEvent;
+    //public FMOD.Studio.EventInstance wendigoJumpTreeEvent;
+    //public FMOD.Studio.EventInstance wendigoLandTreeEvent;
+    //public FMOD.Studio.EventInstance wendigoRunEvent;
+    //public FMOD.Studio.EventInstance wendigoDieEvent;
 
     private void Start()
     {
-        //initialize events with strings
-        wendigoAttackEvent = FMODUnity.RuntimeManager.CreateInstance(wendigoAttack);
-        wendigoTakeDamageEvent = FMODUnity.RuntimeManager.CreateInstance(wendigoTakeDamage);
-        wendigoBreathEvent = FMODUnity.RuntimeManager.CreateInstance(wendigoBreath);
-        wendigoJumpTreeEvent = FMODUnity.RuntimeManager.CreateInstance(wendigoJumpTree);
-        wendigoLandTreeEvent = FMODUnity.RuntimeManager.CreateInstance(wendigoLandTree);
-        wendigoRunEvent = FMODUnity.RuntimeManager.CreateInstance(wendigoRun);
-        wendigoDieEvent = FMODUnity.RuntimeManager.CreateInstance(wendigoDie);
+        ////initialize events with strings
+        //wendigoAttackEvent = FMODUnity.RuntimeManager.CreateInstance(wendigoAttack);
+        //wendigoTakeDamageEvent = FMODUnity.RuntimeManager.CreateInstance(wendigoTakeDamage);
+        //wendigoBreathEvent = FMODUnity.RuntimeManager.CreateInstance(wendigoBreath);
+        //wendigoJumpTreeEvent = FMODUnity.RuntimeManager.CreateInstance(wendigoJumpTree);
+        //wendigoLandTreeEvent = FMODUnity.RuntimeManager.CreateInstance(wendigoLandTree);
+        //wendigoRunEvent = FMODUnity.RuntimeManager.CreateInstance(wendigoRun);
+        //wendigoDieEvent = FMODUnity.RuntimeManager.CreateInstance(wendigoDie);
     }
 
     //methods
@@ -59,61 +59,38 @@ public class WendigoSounds : MonoBehaviour
 
     //play Wendigo Attack sfx
     public void PlayWendigoAttackEvent()
-    {
-        if(PlaybackState(wendigoAttackEvent) != FMOD.Studio.PLAYBACK_STATE.PLAYING)
-        {
-            wendigoAttackEvent.start();
-        }        
+    {        
+        FMODUnity.RuntimeManager.PlayOneShot(wendigoAttack, gameObject.transform.position);                      
     }
     //play Wendigo Take Damage sfx
     public void PlayWendigoTakeDamageEvent()
     {
-        if (PlaybackState(wendigoAttackEvent) != FMOD.Studio.PLAYBACK_STATE.PLAYING)
-        {
-            wendigoTakeDamageEvent.start();
-        }
+        FMODUnity.RuntimeManager.PlayOneShot(wendigoTakeDamage, gameObject.transform.position);
     }
     //play Wendigo Breath sfx
     public void PlayWendigoBreathEvent()
     {
-        wendigoBreathEvent.start();
-        if (PlaybackState(wendigoBreathEvent) != FMOD.Studio.PLAYBACK_STATE.PLAYING)
-        {
-            Debug.Log("try to play breath");
-            
-        }
+        FMODUnity.RuntimeManager.PlayOneShot(wendigoBreath, gameObject.transform.position);
     }
     //play Wendigo Jump Tree sfx
     public void PlayWendigoJumpTreeEvent()
     {
-        if (PlaybackState(wendigoJumpTreeEvent) != FMOD.Studio.PLAYBACK_STATE.PLAYING)
-        {
-            wendigoJumpTreeEvent.start();
-        }
+        FMODUnity.RuntimeManager.PlayOneShot(wendigoJumpTree, gameObject.transform.position);
     }
     //play Wendigo Land Tree sfx
     public void PlayWendigoLandTreeEvent()
     {
-        if (PlaybackState(wendigoLandTreeEvent) != FMOD.Studio.PLAYBACK_STATE.PLAYING)
-        {
-            wendigoLandTreeEvent.start();
-        }
+        FMODUnity.RuntimeManager.PlayOneShot(wendigoLandTree, gameObject.transform.position);
     }
     //play Wendigo Run sfx
     public void PlayWendigoRunEvent()
     {
-        if (PlaybackState(wendigoRunEvent) != FMOD.Studio.PLAYBACK_STATE.PLAYING)
-        {
-            wendigoRunEvent.start();
-        }
+        FMODUnity.RuntimeManager.PlayOneShot(wendigoRun, gameObject.transform.position);
     }
     //play Wendigo Die sfx
     public void PlayWendigoDieEvent()
     {
-        if (PlaybackState(wendigoDieEvent) != FMOD.Studio.PLAYBACK_STATE.PLAYING)
-        {
-            wendigoDieEvent.start();
-        }
+        FMODUnity.RuntimeManager.PlayOneShot(wendigoDie, gameObject.transform.position);
     }
 
 }
