@@ -42,7 +42,7 @@ public class AITrigger : MonoBehaviour
         {
             if((firstTrigger == false || elapsedTimeSinceTrigger >= triggerCooldownTime) && aIManager.AiIsAlive)
             {
-                Debug.Log("Player hit an AITrigger!", this.gameObject);
+                //Debug.Log("Player hit an AITrigger!", this.gameObject);
                 // Need to show the AI
                 aIManager.ShowAI();
 

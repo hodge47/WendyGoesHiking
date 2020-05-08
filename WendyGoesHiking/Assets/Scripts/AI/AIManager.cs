@@ -32,19 +32,26 @@ public class AIManager : MonoBehaviour
     private GameObject AI;
 
     public bool AiIsAlive { get => healthAI.IsAlive; }
+    public AIAnimationController AnimationControllerAI { get => animationControllerAI; }
 
     private AIHealth healthAI;
     private AIPassiveDash passiveDashAI;
     private AIAggressiveDash aggressiveDashAI;
     private AITreeJumping treeJumpingAI;
+    private AIAnimationController animationControllerAI;
     private NavMeshAgent navMeshAgent;
     private bool activeMovement = false;
+    private float dashSpeed;
 
     System.Random random;
     private float sightingElapsedTime = 0f;
     private float randomSightingTime = 0f;
 
     public static AIManager Instance { get => instance; }
+    public AIAggressiveDash AggressiveDashAI { get => aggressiveDashAI; set => aggressiveDashAI = value; }
+    public int Health { get => health; set => health = value; }
+    public NavMeshAgent NavMeshAgent { get => navMeshAgent; set => navMeshAgent = value; }
+
     private static AIManager instance;
 
     private void OnGUI()
@@ -79,11 +86,13 @@ public class AIManager : MonoBehaviour
         healthAI = AI.gameObject.AddComponent<AIHealth>();
         // Get the necessary components from the AI gameObject
         passiveDashAI = AI.GetComponent<AIPassiveDash>();
-        aggressiveDashAI = AI.GetComponent<AIAggressiveDash>();
+        AggressiveDashAI = AI.GetComponent<AIAggressiveDash>();
         treeJumpingAI= AI.GetComponent<AITreeJumping>();
-        navMeshAgent = AI.GetComponent<NavMeshAgent>();
+        treeJumpingAI.Initialize(this);
+        animationControllerAI = AI.GetComponent<AIAnimationController>();
+        NavMeshAgent = AI.GetComponent<NavMeshAgent>();
         // Give the AI health from variable
-        healthAI.Initialize(health);
+        healthAI.Initialize(this);
         // Make sure the wendigo is alive
         healthAI.IsAlive = true;
         healthAI.DestroyGameObjectOnDeath = destroyGameObjectOnKill;
@@ -101,8 +110,32 @@ public class AIManager : MonoBehaviour
         {
             ShowAI();
         }
-        else if(activeMovement == false && AI.activeSelf == true)
+        else if (activeMovement == false && AI.activeSelf == true && !isTesting)
+        {
             HideAI();
+        }
+            
+
+        // Check to see if the wendigo has been shot and is still playing the agony animation
+        if(animationControllerAI.Animator.GetBool("Agony") == true)
+        {
+            AnimatorStateInfo _info = animationControllerAI.Animator.GetCurrentAnimatorStateInfo(0);
+
+            float _currentAnimationTime = 0f;
+            if (animationControllerAI.Animator.GetCurrentAnimatorStateInfo(0).IsName("Agony"))
+                _currentAnimationTime = _info.normalizedTime;
+            if (_currentAnimationTime <= 0.9f)
+            {
+                NavMeshAgent.speed = 0;
+                AI.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+            }
+            else if (_currentAnimationTime > 0.9f)
+            {
+                NavMeshAgent.speed = dashSpeed;
+                AI.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+                animationControllerAI.SetAnimationState(WendigoAnimationState.CRAWL);
+            }
+        }
 
         // Need to update Random sightings
         CheckElapsedSightingTime();
@@ -111,7 +144,7 @@ public class AIManager : MonoBehaviour
     private bool CheckActiveDash()
     {
         bool _dashActive = false;
-        if (passiveDashAI.DashActive || aggressiveDashAI.DashActive || treeJumpingAI.HasJumpSequence)
+        if (passiveDashAI.DashActive || AggressiveDashAI.DashActive || treeJumpingAI.HasJumpSequence)
         {
             _dashActive = true;
         }
@@ -126,14 +159,16 @@ public class AIManager : MonoBehaviour
         ShowAI();
         // Need to disable the NavMeshAgent so the AI can leave the ground
         treeJumpingAI.enabled = true;
-        navMeshAgent.enabled = false;
+        NavMeshAgent.enabled = false;
         passiveDashAI.enabled = false;
-        aggressiveDashAI.enabled = false;
+        AggressiveDashAI.enabled = false;
         
         //if (AiIsAlive == false) return;
         
         // Tell the AI to start the tree jumping
         treeJumpingAI.SetUpAITreeJumping();
+        // Activate the jumping animation
+        //animationControllerAI.SetAnimationState(WendigoAnimationState.JUMP);
     }
 
     public void TriggerAIGroundDashing(WendigoState _wendigoState)
@@ -143,10 +178,10 @@ public class AIManager : MonoBehaviour
             treeJumpingAI.HasJumpSequence = false;
         // Need to enable the NavMeshAganet so the AI can use the dash points around the player
         treeJumpingAI.enabled = false;
-        navMeshAgent.enabled = true;
+        NavMeshAgent.enabled = true;
         passiveDashAI.enabled = true;
-        aggressiveDashAI.enabled = true;
-        navMeshAgent.Warp(new Vector3(0, 2, 0));
+        AggressiveDashAI.enabled = true;
+        NavMeshAgent.Warp(new Vector3(0, 2, 0));
 
         if (AiIsAlive == false)
         {
@@ -163,14 +198,17 @@ public class AIManager : MonoBehaviour
             case WendigoState.PASSIVE:
                 //groundAI.wendigoState = WendigoState.PASSIVE;
                 passiveDashAI.StartPassiveDash();
+                dashSpeed = passiveDashAI.CurrentDashSpeed;
                 break;
             case WendigoState.AGGRESSIVE:
-                aggressiveDashAI.StartAggressiveDash();
+                AggressiveDashAI.StartAggressiveDash();
+                dashSpeed = AggressiveDashAI.CurrentDashSpeed;
                 break;
         }
-        // Tell the AI to start the ground dashing
-        //groundAI.Dash();
+        // Activate the crawling animation
+        animationControllerAI.SetAnimationState(WendigoAnimationState.CRAWL);
     }
+
     private float SetRandomTime()
     {
         // Get the random time in minutes from range

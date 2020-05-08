@@ -37,7 +37,7 @@ public class PlayerHealth : MonoBehaviour
         currentHealth -= _healthReduction;
         // Check to see if the player needs to die
         if (currentHealth <= 0) Kill();
-        Debug.Log($"Player health: {CurrentHealth}");
+        //Debug.Log($"Player health: {CurrentHealth}");
     }
 
     public void AddHealth(int _healthAddition)

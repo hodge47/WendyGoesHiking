@@ -49,6 +49,7 @@ public class WeaponManager : MonoBehaviour
         }
     }
 
+    private AIManager aiManager;
     //Input
     private PlayerControlActions playerControlActions;
 
@@ -64,6 +65,8 @@ public class WeaponManager : MonoBehaviour
             guns.Initialize();
         }
 
+        // Get the AI manager
+        aiManager = GameObject.FindObjectOfType<AIManager>();
         // Initialize input
         playerControlActions = PlayerControlActions.CreateWithDefaultBindings();
         // Load the player's bindings
@@ -272,6 +275,15 @@ public class WeaponManager : MonoBehaviour
                     {
                         // Call DamageWendigo(AIHealth, (int)amount) function
                         DamageWendigo(_aiHealth, loadout[currentIndex].damage);
+                    }
+                    // Play the wendigo agony animation
+                    if(aiManager != null)
+                    {
+                        if(aiManager.AiIsAlive && aiManager.AggressiveDashAI.IsRunAway == false)
+                        {
+                            aiManager.AnimationControllerAI.SetAnimationState(WendigoAnimationState.AGONY);
+                            aiManager.AggressiveDashAI.RunAway();
+                        }
                     }
                 }
             }

@@ -37,12 +37,14 @@ public class AIPassiveDash : MonoBehaviour
     public bool DashActive { get => dashActive; set => dashActive = value; }
     public Vector3 DashStartPoint { get => dashStartPoint; set => dashStartPoint = value; }
     public Vector3 DashEndPoint { get => dashEndPoint; set => dashEndPoint = value; }
+    public float CurrentDashSpeed { get => currentDashSpeed; }
 
     private GameObject player;
     private PlayerHealth playerHealth;
     private NavMeshAgent navMeshAgent;
     private bool dashActive = false;
     private bool arrivedAtDashEndPoint = false;
+    private float currentDashSpeed = 0;
     private Vector3 dashStartPoint = Vector3.zero;
     private Vector3 dashEndPoint = Vector3.zero;
     private RaycastHit raycastHit;
@@ -119,7 +121,7 @@ public class AIPassiveDash : MonoBehaviour
         // Set the agents destination to the dash end point
         navMeshAgent.destination = dashEndPoint;
         // Set the agent's speed from the speed range
-        navMeshAgent.speed = random.Next((int)dashSpeed.x, (int)dashSpeed.y + 1);
+        navMeshAgent.speed = currentDashSpeed = random.Next((int)dashSpeed.x, (int)dashSpeed.y + 1);
     }
     private Vector3 CalculatePointAxisY(Vector3 _point)
     {
@@ -142,7 +144,8 @@ public class AIPassiveDash : MonoBehaviour
             Debug.Log("Attacked player!", this.gameObject);
             playerHealth.RemoveHealth(damagePassive);
             // Add force to player
-            CameraShake.Instance.StartShake();
+            if (CameraShake.Instance != null)
+                CameraShake.Instance.StartShake();
             if (useForceMode)
             {
                 playerHealth.KnockBack(this.transform.position.normalized, forceToApplyToPlayer, forceMode);

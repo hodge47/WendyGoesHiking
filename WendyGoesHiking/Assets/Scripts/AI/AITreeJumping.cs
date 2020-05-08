@@ -5,7 +5,7 @@ using Sirenix.OdinInspector;
 
 public class AITreeJumping : MonoBehaviour
 {
-    
+    public bool canMove = false;
     [Title("Tree Jumping - General")]
     [SerializeField]
     [Tooltip("The distance a starting tree is choosen by the player.")]
@@ -17,11 +17,7 @@ public class AITreeJumping : MonoBehaviour
     [SerializeField]
     [Tooltip("The range [min, max] of the max height the AI reaches during its jump.")]
     [MinMaxSlider(5f, 35f, showFields: true)]
-    private Vector2 arcHeight = new Vector2(15f, 20f);
-    [SerializeField]
-    [Tooltip("The range [min, max] of time the AI has to wait to jump to the next tree after finishing a jump.")]
-    [MinMaxSlider(0f, 10f, showFields: true)]
-    private Vector2 arrivalPauseTime = new Vector2(1f, 5f);
+    private Vector2 arcHeight = new Vector2(15f, 20f);    
     [SerializeField]
     [Tooltip("The max distances the AI can jump from tree to tree.")]
     private float jumpRange = 20f;
@@ -49,8 +45,12 @@ public class AITreeJumping : MonoBehaviour
         SetUpAITreeJumping();
     }
 
+    public AIManager AiManager { get => aiManager; set => aiManager = value; }
     public bool HasJumpSequence { get => hasJumpSequence; set => hasJumpSequence = value; }
 
+
+    private AIManager aiManager;
+    [SerializeField]
     private AITree nextTree;
     private GameObject startPosition;
     private GameObject destination;
@@ -60,7 +60,7 @@ public class AITreeJumping : MonoBehaviour
     private bool hasJumpSequence = false;
     private bool arrived = false;
     private bool jumpPause = false;
-    private bool canMove = true;
+    private bool canMovee = true;
     private float timeSinceJumpPause = 0f;
     private bool hasTimeSinceArrived = false;
     private bool firstArrived = false;
@@ -74,10 +74,13 @@ public class AITreeJumping : MonoBehaviour
     private int randArcHeight = 0;
     private bool isStuck = false;
     private bool bentTree = false;
+    private float arrivalTimePause = 0f;
 
     // Start is called before the first frame update
-    void Start()
+    public void Initialize(AIManager _aim)
     {
+        // Set the AI Manager
+        AiManager = _aim;
         // Set first random jump speed and arcHeight
         randJumpSpeed = rand.Next((int)jumpSpeed.x, (int)jumpSpeed.y + 1);
         randArcHeight = rand.Next((int)arcHeight.x, (int)arcHeight.y + 1);
@@ -193,6 +196,8 @@ public class AITreeJumping : MonoBehaviour
             RotateTowardsNextJump();
             // Jump to next position
             this.transform.position = ComputeNextJumpPosition();
+            // Play the jump animation
+            AiManager.AnimationControllerAI.Animator.SetBool("Jump", true);
         }
     }
 
@@ -245,8 +250,12 @@ public class AITreeJumping : MonoBehaviour
         randJumpSpeed = rand.Next((int)jumpSpeed.x, (int)jumpSpeed.y + 1);
         randArcHeight = rand.Next((int)arcHeight.x, (int)arcHeight.y + 1);
 
+        // Play the tree jumping animation
+        Animator _anim = AiManager.AnimationControllerAI.Animator;
+        //_anim.SetBool("Jump", false);
+
         // Bend the tree if bendTreeOnArrival is true
-        if(bendTreeOnArrival && bentTree == false)
+        if (bendTreeOnArrival && bentTree == false)
         {
             nextTree.TweenBendDeformer(1, Quaternion.Euler(new Vector3(0, this.transform.rotation.eulerAngles.y, 0)));
             bentTree = true;
@@ -265,13 +274,16 @@ public class AITreeJumping : MonoBehaviour
         else
         {
             // Move to the next tree if the jump cool down is over
-            if(CheckIfCanMove())
+            if (CheckIfCanMove())
             {
                 
                 timeSinceJumpPause = 0f;
                 lastJumpPoint = nextTree;
                 nextTree = GetNextTreeDestination();
-                if(lastJumpPoint == nextTree){
+                // Rotate the wendigo to match the root motion animation
+                //this.gameObject.transform.rotation = Quaternion.LookRotation(transform.position - nextTree.gameObject.transform.position);
+
+                if (lastJumpPoint == nextTree){
                     isStuck = true;
                     return;
                 }
@@ -294,14 +306,26 @@ public class AITreeJumping : MonoBehaviour
         {
             timeSinceJumpPause = Time.time;
             hasTimeSinceArrived = true;
-            pauseTime = rand.Next((int)arrivalPauseTime.x, (int)arrivalPauseTime.y + 1);
-
+            //Set the pause time to 60 % of the clip's length
+            //if (AiManager.AnimationControllerAI.Animator.GetBool("Jump"))
+            //{
+            //    foreach (AnimationClip c in AiManager.AnimationControllerAI.Animator.runtimeAnimatorController.animationClips)
+            //    {
+            //        if (c.name == "Jump")
+            //        {
+            //            pauseTime = c.length * 0.6f;
+            //        }
+            //    }
+            //}
+            pauseTime = 0.9375f;
+            Debug.Log($"Arrived {pauseTime}");
         }
 
         // See if I can move
         if(hasTimeSinceArrived)
         {
-            if(Time.time - timeSinceJumpPause > (float)pauseTime && (bendTreeOnArrival) ? lastJumpPoint.isBending == false : 1 == 1)
+            Debug.Log(Time.time - timeSinceJumpPause);
+            if(Time.time - timeSinceJumpPause > (float)pauseTime)// && (bendTreeOnArrival) ? lastJumpPoint.isBending == false : 1 == 1)
             {
                 _canMove = true;
                 timeSinceJumpPause = 0;
@@ -311,6 +335,7 @@ public class AITreeJumping : MonoBehaviour
                 this.transform.position = nextTree.jumpPoint.transform.position;
             }
         }
+        canMovee = _canMove;
         return _canMove;
     }
 

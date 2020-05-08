@@ -39,6 +39,8 @@ public class AIAggressiveDash : MonoBehaviour
     public bool DashActive { get => dashActive; set => dashActive = value; }
     public Vector3 DashStartPoint { get => dashStartPoint; set => dashStartPoint = value; }
     public Vector3 DashEndPoint { get => dashEndPoint; set => dashEndPoint = value; }
+    public float CurrentDashSpeed { get => currentDashSpeed; }
+    public bool IsRunAway { get => runAway; set => runAway = value; }
 
     private GameObject player;
     private PlayerHealth playerHealth;
@@ -46,10 +48,13 @@ public class AIAggressiveDash : MonoBehaviour
     private Rigidbody rb;
     private bool dashActive = false;
     private bool arrivedAtDashEndPoint = false;
+    [SerializeField]
+    private float currentDashSpeed = 0;
     private Vector3 dashStartPoint = Vector3.zero;
     private Vector3 dashEndPoint = Vector3.zero;
     private RaycastHit raycastHit;
     private System.Random random;
+    private bool runAway = false;
 
     // Start is called before the first frame update
     void Start()
@@ -75,9 +80,13 @@ public class AIAggressiveDash : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(dashActive && arrivedAtDashEndPoint == false)
+        if(dashActive && arrivedAtDashEndPoint == false && IsRunAway == false)
         {
             navMeshAgent.destination = player.transform.position;
+        }
+        else if(dashActive && arrivedAtDashEndPoint == false && IsRunAway == true)
+        {
+            CheckRunAwayDashFinished();
         }
     }
 
@@ -95,6 +104,7 @@ public class AIAggressiveDash : MonoBehaviour
     // This is the aggressive state dash
     private void SetUpAggressiveDashPoints()
     {
+        IsRunAway = false;
         // Get the player's trasnform
         Transform _player = GameObject.FindGameObjectWithTag("Player").transform;
         // Calculate a dash sart distance from a range
@@ -129,7 +139,62 @@ public class AIAggressiveDash : MonoBehaviour
         // Set the agent's destination to the dash end point
         navMeshAgent.destination = player.gameObject.transform.position;
         // Set the agent's speed from tge speed range
-        navMeshAgent.speed = random.Next((int)dashSpeed.x, (int)dashSpeed.y + 1);
+        navMeshAgent.speed = currentDashSpeed = random.Next((int)dashSpeed.x, (int)dashSpeed.y + 1);
+    }
+
+    public void RunAway()
+    {
+        Debug.Log("Run away");
+        if(IsRunAway == false)
+        {
+            IsRunAway = true;
+            // Get the player's trasnform
+            Transform _player = GameObject.FindGameObjectWithTag("Player").transform;
+            // Calculate a dash sart distance from a range
+            float _dashStartPointDistance = (float)random.Next((int)aggressiveDashStartDistance.x, (int)aggressiveDashStartDistance.y + 1);
+            // Get the players position and forward direction in world space
+            Vector3 _playerPos = player.transform.position;
+            Vector3 _playerDir = player.transform.forward;
+            // Calculate a point in front of the player using player world space info and scale by dash point start distance
+            Vector3 pointInFrontOfPlayer = _playerPos + _playerDir * _dashStartPointDistance;
+            // Calculate an offset so dash point isn't directly in front of player but within a range in the forward direction
+            float _randNegate = (random.Next(0, 2) == 0) ? 1 : -1;
+            float _offset = random.Next((int)-maxAggressiveDashStartOffset * 3, (int)maxAggressiveDashStartOffset * 3 + 1) * _randNegate;
+            // Add the offset to the dash start point
+            pointInFrontOfPlayer += new Vector3(_offset, 0, _offset);
+            // Officially set the dash start point and assign dash end point to the player's position
+            dashStartPoint = this.transform.position;
+            dashStartPoint = CalculatePointAxisY(dashStartPoint);
+            dashEndPoint = pointInFrontOfPlayer * 3;
+            dashEndPoint = CalculatePointAxisY(dashEndPoint);
+            // Move the ground AI to the dash start position
+            if (Physics.Raycast(new Vector3(this.transform.position.x, 1000, this.transform.position.z), Vector3.down, out raycastHit, Mathf.Infinity, groundLayer))
+            {
+                navMeshAgent.Warp(new Vector3(dashStartPoint.x, raycastHit.point.y, dashStartPoint.z));
+            }
+            else
+            {
+                Debug.Log("You need to assign your ground layer!");
+                dashActive = false;
+                return;
+            }
+
+            // Set the agent's destination to the dash end point
+            navMeshAgent.destination = dashEndPoint;
+            // Set the agent's speed from tge speed range
+            navMeshAgent.speed = currentDashSpeed = dashSpeed.y * 3;
+            // Hide after x seconds
+            Invoke(nameof(HideFinishAfterSeconds), 10);
+        }
+    }
+
+    private void CheckRunAwayDashFinished()
+    {
+        if ((this.gameObject.transform.position.x == dashEndPoint.x && this.gameObject.transform.position.z == dashEndPoint.z) || navMeshAgent.isPathStale)
+        {
+            dashActive = false;
+            arrivedAtDashEndPoint = true;
+        }
     }
 
     private Vector3 CalculatePointAxisY(Vector3 _point)
@@ -150,12 +215,13 @@ public class AIAggressiveDash : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player" || collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            Debug.Log("Attacked player!", this.gameObject);
+            //Debug.Log("Attacked player!", this.gameObject);
             playerHealth.RemoveHealth(damageAggressive);
             dashActive = false;
             arrivedAtDashEndPoint = true;
             // Add force to player
-            CameraShake.Instance.StartShake();
+            if(CameraShake.Instance != null)
+                CameraShake.Instance.StartShake();
             if(useForceMode)
             {
                 playerHealth.KnockBack(this.transform.position.normalized, forceToApplyToPlayer, forceMode);
@@ -165,5 +231,12 @@ public class AIAggressiveDash : MonoBehaviour
                 playerHealth.KnockBack(this.transform.position.normalized, forceToApplyToPlayer);
             }
         }
+    }
+
+    private void HideFinishAfterSeconds()
+    {
+        dashActive = false;
+        arrivedAtDashEndPoint = true;
+        IsRunAway = false;
     }
 }
