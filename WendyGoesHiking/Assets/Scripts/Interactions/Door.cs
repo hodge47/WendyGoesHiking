@@ -5,17 +5,29 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class Door : InteractiveObject
 {
-    [Tooltip("Assigning a key will lock the door. Can be opened if the player has the key in their inventory.")]
+    public bool isOpen = false;
+
+    [Tooltip("Assigning a Key here will lock the door.")]
     [SerializeField]
     private InventoryObject key;
 
-    [Tooltip("If this is checked the key will be removed from the inventory when the key is used.")]
+    [Tooltip("If this is checked, assigned key will be removed from inventory once used")]
     [SerializeField]
     private bool consumesKey;
 
-    [Tooltip("Text that is displayed to player when door is locked.")]
+    [Tooltip("Check this box to lock the door.")]
     [SerializeField]
-    private string lockedDisplayText = "Locked.";
+    private bool isLocked;
+
+    [Tooltip("Display text for locked doors.")]
+    [SerializeField]
+    private string lockedDisplayText = "Locked";
+
+    private bool hasKey => PlayerInventory.InventoryObjects.Contains(key);
+    private Animator animator;
+    private int shouldOpenAnimParamater = Animator.StringToHash("shouldOpen");
+    private int shouldCloseAnimParamater = Animator.StringToHash("shouldClose");
+    private int shouldLockedAnimParamater = Animator.StringToHash("shouldLocked");
 
     public override string DisplayText
     {
@@ -24,7 +36,7 @@ public class Door : InteractiveObject
             string toReturn;
             if (isLocked)
             {
-                toReturn = HasKey ? $"Use {key.ObjectName}." : lockedDisplayText;
+                toReturn = hasKey ? $"Use {key.ObjectName}." : lockedDisplayText;
             }
             else
                 toReturn = base.displayText;
@@ -32,14 +44,6 @@ public class Door : InteractiveObject
             return toReturn;
         }
     }
-    //=> isLocked ? lockedDisplayText : base.DisplayText;
-    private bool HasKey => PlayerInventory.InventoryObjects.Contains(key);
-
-
-    private bool isLocked;
-    private Animator animator;
-    private bool isOpen = false;
-    private int shouldOpenAnimParameter = Animator.StringToHash(nameof(shouldOpenAnimParameter));
 
     /// <summary>
     /// Using a constructor to initial the displayText in the editor
@@ -48,6 +52,7 @@ public class Door : InteractiveObject
     {
         displayText = nameof(Door);
     }
+
 
 
     void Awake()
@@ -64,6 +69,43 @@ public class Door : InteractiveObject
         }
     }
 
+    public override void InteractWith()
+    {
+        if (!isOpen)
+        {
+            if (!isLocked)  //not locked
+            {
+             //   audioSource.clip = openSound;
+                animator.SetBool(shouldOpenAnimParamater, true);
+                animator.SetBool(shouldCloseAnimParamater, false);
+                isOpen = true;
+            }
+            else if (isLocked && !hasKey)   //locked no key
+            {
+                PlayTryLockedDoor();
+                animator.Play("Door_Locked_Try");
+            }
+            else if (isLocked && hasKey)    //locked has key
+            {
+                animator.SetBool(shouldOpenAnimParamater, true);
+                animator.SetBool(shouldCloseAnimParamater, false);
+                isOpen = true;
+                UnlockDoor();
+            }
+            base.InteractWith();    //plays a sound effect
+        }
+        else if (isOpen)
+        {
+           // audioSource.clip = closeSound;
+            base.InteractWith(); //plays a sound effect
+            animator.SetBool(shouldOpenAnimParamater, false);
+            animator.SetBool(shouldCloseAnimParamater, true);
+            isOpen = false;
+        }
+
+    }
+
+    /*
     public override void InteractWith()
     {
         if(!isOpen)
@@ -86,7 +128,7 @@ public class Door : InteractiveObject
             base.InteractWith(); //runs the logic from the base class         
         }
     }
-
+    */
     private void UnlockDoor()
     {
         isLocked = false;

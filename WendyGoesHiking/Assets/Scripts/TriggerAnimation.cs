@@ -26,8 +26,13 @@ public class TriggerAnimation : MonoBehaviour
     [SerializeField]
     GameObject blackOverlay;
 
+    [SerializeField]
+    GameObject WakeUpDialogueTrigger;
+
     //jpost Audio
     [SerializeField] GameObject ambienceEmitterHandler;
+
+
 
 
     // Start is called before the first frame update
@@ -46,7 +51,7 @@ public class TriggerAnimation : MonoBehaviour
 
             GlideController.current.lockMovement = true;
             GlideController.current.lockCamera = true;
-           // GlideController.current.playerCamera.enabled = false;
+            GlideController.current.playerCamera.enabled = false;
             player = coll.gameObject;
             objectToAnimate.SetActive(true);
             objectToAnimate.GetComponent<Animator>().Play("FallingCutscene", 0, 0);
@@ -66,13 +71,15 @@ public class TriggerAnimation : MonoBehaviour
         blackOverlay.SetActive(true);
         yield return new WaitForSeconds(2.24f);
         blackOverlay.SetActive(false);
+        WakeUpDialogueTrigger.SetActive(true);
         RenderSettings.skybox = nightTimeSkybox;
         sun.intensity = 0.25f;
         IntroPPVolume.SetActive(false);
         BlackAndWhitePPVolume.SetActive(true);
         objectToAnimate.SetActive(false);
-      //  GlideController.current.playerCamera.enabled = true;
+        GlideController.current.playerCamera.enabled = true;
         GlideController.current.Teleport(spawnPoint.position);
+        GlideController.current.sprintMode = GlideController.GlideSprintSetting.normal;
         GlideController.current.lockMovement = false;
         GlideController.current.lockCamera = false;
 
