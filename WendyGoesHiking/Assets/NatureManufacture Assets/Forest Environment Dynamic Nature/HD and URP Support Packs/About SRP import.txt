@@ -1,0 +1,3 @@
+Please import SRP packs only if your project is using HD or URP.
+If you import this to standard project you will get errors.
+Import proper rp compatibility pack to proper engine version like for 2019.3 URP 7.18 please use our URP 7.18 2019.3 forest environment compatibility pack.

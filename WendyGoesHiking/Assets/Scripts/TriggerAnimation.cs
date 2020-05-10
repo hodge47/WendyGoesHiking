@@ -29,6 +29,13 @@ public class TriggerAnimation : MonoBehaviour
     [SerializeField]
     GameObject WakeUpDialogueTrigger;
 
+    [SerializeField]
+    GameObject FogOutline;
+    [SerializeField]
+    GameObject FogOutlineNight;
+
+
+
     //jpost Audio
     [SerializeField] GameObject ambienceEmitterHandler;
 
@@ -77,6 +84,8 @@ public class TriggerAnimation : MonoBehaviour
         IntroPPVolume.SetActive(false);
         BlackAndWhitePPVolume.SetActive(true);
         objectToAnimate.SetActive(false);
+        FogOutline.SetActive(false);
+        FogOutlineNight.SetActive(true);
         GlideController.current.playerCamera.enabled = true;
         GlideController.current.Teleport(spawnPoint.position);
         GlideController.current.sprintMode = GlideController.GlideSprintSetting.normal;

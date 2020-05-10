@@ -98,7 +98,7 @@ namespace IL3DN
                             targetScript.materials[i].selectedProperty = 0;
                         }
 
-                        Color materialColor = targetScript.materials[i].properties[targetScript.materials[i].selectedProperty].color;
+                        Color materialColor = targetScript.materials[i].properties[targetScript.materials[i].selectedProperty-1].color;
                         Undo.RecordObject(targetScript, "Material Color Changed");
                         targetScript.materials[i].meterial.color = materialColor;
 

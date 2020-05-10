@@ -9,13 +9,7 @@ public class AmmoPickup : MonoBehaviour, IInteractive
     protected string displayText = nameof(InteractiveObject);
     public virtual string DisplayText => displayText;
 
-    [SerializeField] GameObject FirstAidUI;
 
-
-    private void Start()
-    {
-        FirstAidUI.SetActive(false);
-    }
 
     /// <summary>
     /// This is where audio should probably go.
@@ -34,7 +28,6 @@ public class AmmoPickup : MonoBehaviour, IInteractive
         //Audio people should do it
         //jpost Audio
         PlayAmmoPickup();
-        FirstAidUI.SetActive(true);
 
         Debug.Log($"Player just interacted with: {gameObject.name}");
         Destroy(gameObject);

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1953259897 &8574412962073106934
+TerrainLayer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Terrain_Layer3_Soil_Wet
+  m_DiffuseTexture: {fileID: 2800000, guid: 373c1e02adc45c649ae5f487c5c645be, type: 3}
+  m_NormalMapTexture: {fileID: 2800000, guid: f37a5c82f0466b546a6321154c6d4ca4, type: 3}
+  m_MaskMapTexture: {fileID: 2800000, guid: be8ea420f1d5ad647ac4b817361aa50f, type: 3}
+  m_TileSize: {x: 2, y: 2}
+  m_TileOffset: {x: 0, y: 0}
+  m_Specular: {r: 0, g: 0, b: 0, a: 0}
+  m_Metallic: 0.589
+  m_Smoothness: 1
+  m_NormalScale: 1
+  m_DiffuseRemapMin: {x: 0, y: 0, z: 0, w: 0}
+  m_DiffuseRemapMax: {x: 0.5754717, y: 0.5754717, z: 0.5754717, w: 1}
+  m_MaskMapRemapMin: {x: 0, y: 0, z: 0, w: 0}
+  m_MaskMapRemapMax: {x: 1, y: 1, z: 1, w: 1}

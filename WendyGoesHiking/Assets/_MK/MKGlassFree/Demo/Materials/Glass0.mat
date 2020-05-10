@@ -4,14 +4,15 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_Name: Glass0
   m_Shader: {fileID: 4800000, guid: 7f205347e1ebaf14c97b28211ae55dbe, type: 3}
   m_ShaderKeywords: _MK_BUMP_MAP _MK_LIGHTMODEL_BLINN_PHONG _MK_REFLECTIVE_DEFAULT
     _MK_RIM _MK_SPECULAR_MAP _USEREFLECTION_ON _USERIM_ON
   m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -20,7 +21,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: e07be47df2e750046a6eeaa358f48611, type: 3}
+        m_Texture: {fileID: 2800000, guid: 76738900a2dcf084990de478555ec33c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -73,7 +74,7 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DetailTint: 0.25
-    - _Distortion: 0.439
+    - _Distortion: 0.037
     - _DstBlend: 0
     - _FresnelFactor: 1.4
     - _GlossMapScale: 1
@@ -84,9 +85,9 @@ Material:
     - _MKEditorShowLightBehavior: 0
     - _MKEditorShowMainBehavior: 1
     - _MKEditorShowReflectionBehavior: 1
-    - _MKEditorShowRenderBehavior: 0
+    - _MKEditorShowRenderBehavior: 1
     - _MKEditorShowRimBehavior: 1
-    - _MKEditorShowSpecularBehavior: 0
+    - _MKEditorShowSpecularBehavior: 1
     - _MKEditorShowTranslucentBehavior: 0
     - _MainTint: 0
     - _Metallic: 0
@@ -95,13 +96,13 @@ Material:
     - _Parallax: 0.02
     - _ReflectIntensity: 0.25
     - _RenderMode: 0
-    - _RimIntensity: 0.116
+    - _RimIntensity: 0.095
     - _RimSize: 3.21
     - _ShadowIntensity: 0.1
-    - _Shininess: 0.115
+    - _Shininess: 0.297
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
-    - _SpecularIntensity: 0.5
+    - _SpecularIntensity: 0.087
     - _SrcBlend: 1
     - _TranslucentIntensity: 0.5
     - _TranslucentShininess: 0.275
