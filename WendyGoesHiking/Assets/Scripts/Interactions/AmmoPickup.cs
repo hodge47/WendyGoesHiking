@@ -9,7 +9,9 @@ public class AmmoPickup : MonoBehaviour, IInteractive
     protected string displayText = nameof(InteractiveObject);
     public virtual string DisplayText => displayText;
 
-
+    [SerializeField]
+    GameObject interactiveGameObject;
+    public GameObject InteractiveGameObject => interactiveGameObject;
 
     /// <summary>
     /// This is where audio should probably go.

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using ObjectOutline;
 /// <summary>
 /// Detects when the player presses the interact button while looking at an IInteractive,
 /// then calls the InteractWith method.
@@ -12,6 +12,7 @@ public class InteractWithLookedAt : MonoBehaviour
 
     // Input
     PlayerControlActions playerControlActions;
+    private ObjectOutline.Outline interactiveObjectOutline;
 
     private void Start()
     {
@@ -27,11 +28,28 @@ public class InteractWithLookedAt : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if((playerControlActions.Use.IsPressed && lookedAtInteractive != null))
+
+        if (lookedAtInteractive != null && lookedAtInteractive.InteractiveGameObject != null && lookedAtInteractive.InteractiveGameObject.GetComponent<Outline>() != null)
         {
-            Debug.Log("Player pressed the interact button");
-            lookedAtInteractive.InteractWith();
+            interactiveObjectOutline = lookedAtInteractive.InteractiveGameObject.GetComponent<Outline>();
+            interactiveObjectOutline.OutlineWidth = 3f;
+
+
+            if (playerControlActions.Use.IsPressed)
+            {
+
+                //Debug.Log("Player Pressed Interact Button");
+                lookedAtInteractive.InteractWith();
+
+            }
         }
+        else if (interactiveObjectOutline != null)
+        {
+            interactiveObjectOutline.OutlineWidth = 0f;
+        }
+
+
+
     }
 
     /// <summary>

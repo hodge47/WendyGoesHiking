@@ -7,6 +7,10 @@ using UnityEngine;
 /// </summary>
 public interface IInteractive
 {
+    GameObject InteractiveGameObject
+    {
+        get;
+    }
     string DisplayText { get; }
     void InteractWith();
 }

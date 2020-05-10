@@ -10,7 +10,9 @@ public class KeyPickup : MonoBehaviour, IInteractive
     public virtual string DisplayText => displayText;
 
     [SerializeField] GameObject KeyUI;
-
+    [SerializeField]
+    GameObject interactiveGameObject;
+    public GameObject InteractiveGameObject => interactiveGameObject;
 
     private void Start()
     {

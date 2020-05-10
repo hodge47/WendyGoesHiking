@@ -7,7 +7,11 @@ public class InteractiveWeaponPickup : MonoBehaviour, IInteractive
     [Tooltip("Name of the interactive object the UI will display when looked at in the world.")]
     [SerializeField]
     protected string displayText = nameof(InteractiveObject);
+    [SerializeField]
+    GameObject interactiveGameObject;
     public virtual string DisplayText => displayText;
+
+    public GameObject InteractiveGameObject => interactiveGameObject;
 
     [SerializeField] Gun gun;
 

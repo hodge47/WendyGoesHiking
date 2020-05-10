@@ -47,14 +47,19 @@ public class DetectLookedAtInteractive : MonoBehaviour
     /// <returns>The first IInteractive detected; or null if no IInteractive detected.</returns>
     private IInteractive GetLookedAtInteractive()
     {
+        int layerMask = 1 << 8;
+        layerMask = ~layerMask;
+
         Debug.DrawRay(raycastOrigin.position, raycastOrigin.forward * maxRange, Color.red);
         RaycastHit hitInfo;
-        bool objectWasDetected = Physics.Raycast(raycastOrigin.position, raycastOrigin.forward, out hitInfo, maxRange);
+        bool objectWasDetected = Physics.Raycast(raycastOrigin.position, raycastOrigin.forward, out hitInfo, maxRange, layerMask);
 
         IInteractive interactive = null;
         LookedAtInteractive = interactive;
 
-        if (objectWasDetected)
+        Debug.Log("Tag: " + hitInfo.collider.gameObject.tag);
+
+        if (objectWasDetected && hitInfo.collider.gameObject.tag != "Player")
         {
             interactive = hitInfo.collider.gameObject.GetComponent<IInteractive>();
         }

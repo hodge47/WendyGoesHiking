@@ -7,6 +7,9 @@ public class FirstAidPickup : MonoBehaviour, IInteractive
     [Tooltip("Name of the interactive object the UI will display when looked at in the world.")]
     [SerializeField]
     protected string displayText = nameof(InteractiveObject);
+    [SerializeField]
+    GameObject interactiveGameObject;
+    public GameObject InteractiveGameObject => interactiveGameObject;
     public virtual string DisplayText => displayText;
 
     [SerializeField] GameObject FirstAidUI;
