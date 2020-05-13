@@ -49,6 +49,7 @@ public class AIManager : MonoBehaviour
 
     public static AIManager Instance { get => instance; }
     public AIAggressiveDash AggressiveDashAI { get => aggressiveDashAI; set => aggressiveDashAI = value; }
+    public AIPassiveDash PassiveDashAI { get => passiveDashAI; set => passiveDashAI = value; }
     public int Health { get => health; set => health = value; }
     public NavMeshAgent NavMeshAgent { get => navMeshAgent; set => navMeshAgent = value; }
 
@@ -86,7 +87,9 @@ public class AIManager : MonoBehaviour
         healthAI = AI.gameObject.AddComponent<AIHealth>();
         // Get the necessary components from the AI gameObject
         passiveDashAI = AI.GetComponent<AIPassiveDash>();
+        passiveDashAI.Initialize(this);
         AggressiveDashAI = AI.GetComponent<AIAggressiveDash>();
+        AggressiveDashAI.Initialize(this);
         treeJumpingAI= AI.GetComponent<AITreeJumping>();
         treeJumpingAI.Initialize(this);
         animationControllerAI = AI.GetComponent<AIAnimationController>();
@@ -131,6 +134,13 @@ public class AIManager : MonoBehaviour
             }
             else if (_currentAnimationTime > 0.9f)
             {
+                if (passiveDashAI.IsRunAway)
+                {
+                    dashSpeed = passiveDashAI.RunAwaySpeed;
+                }
+                else if (aggressiveDashAI.IsRunAway)
+                    dashSpeed = aggressiveDashAI.RunAwaySpeed;
+
                 NavMeshAgent.speed = dashSpeed;
                 AI.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
                 animationControllerAI.SetAnimationState(WendigoAnimationState.CRAWL);
@@ -168,7 +178,7 @@ public class AIManager : MonoBehaviour
         // Tell the AI to start the tree jumping
         treeJumpingAI.SetUpAITreeJumping();
         // Activate the jumping animation
-        //animationControllerAI.SetAnimationState(WendigoAnimationState.JUMP);
+        animationControllerAI.SetAnimationState(WendigoAnimationState.JUMP);
     }
 
     public void TriggerAIGroundDashing(WendigoState _wendigoState)

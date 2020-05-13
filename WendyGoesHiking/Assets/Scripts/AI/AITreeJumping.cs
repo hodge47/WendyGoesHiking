@@ -8,7 +8,7 @@ public class AITreeJumping : MonoBehaviour
     public bool canMove = false;
     [Title("Tree Jumping - General")]
     [SerializeField]
-    [Tooltip("The distance a starting tree is choosen by the player.")]
+    [Tooltip("The distance a starting tree is chosen by the player.")]
     private float startPositionDistance = 30f;
     [SerializeField]
     [Tooltip("The range [min, max] of the speed the AI moves along the jump arc.")]

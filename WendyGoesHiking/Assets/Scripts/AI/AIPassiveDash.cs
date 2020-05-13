@@ -12,6 +12,9 @@ public class AIPassiveDash : MonoBehaviour
     [MinMaxSlider(5f, 100f, showFields: true)]
     [Tooltip("This is the speed range [min, max] that the ground AI uses.")]
     private Vector2 dashSpeed = new Vector2(35f, 50f);
+    [Tooltip("How fast the wendigo runs away after being shot")]
+    [SerializeField]
+    private float runAwaySpeed = 40f;
     [SerializeField]
     [Tooltip("This is the ground that the raycasting looks for. This is needed for dynamic Y-axis dash points.")]
     private LayerMask groundLayer;
@@ -38,7 +41,10 @@ public class AIPassiveDash : MonoBehaviour
     public Vector3 DashStartPoint { get => dashStartPoint; set => dashStartPoint = value; }
     public Vector3 DashEndPoint { get => dashEndPoint; set => dashEndPoint = value; }
     public float CurrentDashSpeed { get => currentDashSpeed; }
+    public bool IsRunAway { get => isRunAway; set => isRunAway = value; }
+    public float RunAwaySpeed { get => runAwaySpeed; }
 
+    private AIManager aiManager;
     private GameObject player;
     private PlayerHealth playerHealth;
     private NavMeshAgent navMeshAgent;
@@ -48,11 +54,14 @@ public class AIPassiveDash : MonoBehaviour
     private Vector3 dashStartPoint = Vector3.zero;
     private Vector3 dashEndPoint = Vector3.zero;
     private RaycastHit raycastHit;
+    private bool isRunAway = false;
     private System.Random random;
 
     // Start is called before the first frame update
-    void Start()
+    public void Initialize(AIManager _aim)
     {
+        // Get the AI manager
+        aiManager = _aim;
         // Get the player
         player = GameObject.FindGameObjectWithTag("Player");
         // Get the player's health script
@@ -78,6 +87,7 @@ public class AIPassiveDash : MonoBehaviour
 
     private void CheckDashFinished()
     {
+
         if ((this.gameObject.transform.position.x == dashEndPoint.x && this.gameObject.transform.position.z == dashEndPoint.z) || navMeshAgent.isPathStale)
         {
             dashActive = false;
@@ -123,6 +133,62 @@ public class AIPassiveDash : MonoBehaviour
         // Set the agent's speed from the speed range
         navMeshAgent.speed = currentDashSpeed = random.Next((int)dashSpeed.x, (int)dashSpeed.y + 1);
     }
+
+    public void RunAway()
+    {
+        Debug.Log("Run away");
+        if (IsRunAway == false)
+        {
+            IsRunAway = true;
+            // Get the player's transform
+            Transform _player = GameObject.FindGameObjectWithTag("Player").transform;
+            // Calculate a dash start distance from a range
+            float _dashStartPointDistance = (float)random.Next((int)30, (int)31);
+            // Get the players position and forward direction in world space
+            Vector3 _playerPos = player.transform.position;
+            Vector3 _playerDir = player.transform.forward;
+            // Calculate a point in front of the player using player world space info and scale by dash point start distance
+            Vector3 pointInFrontOfPlayer = _playerPos + _playerDir * _dashStartPointDistance;
+            // Calculate an offset so dash point isn't directly in front of player but within a range in the forward direction
+            float _randNegate = (random.Next(0, 2) == 0) ? 1 : -1;
+            float _offset = random.Next((int)-30 * 3, (int)30 * 3 + 1) * _randNegate;
+            // Add the offset to the dash start point
+            pointInFrontOfPlayer += new Vector3(_offset, 0, _offset);
+            // Officially set the dash start point and assign dash end point to the player's position
+            dashStartPoint = this.transform.position;
+            dashStartPoint = CalculatePointAxisY(dashStartPoint);
+            dashEndPoint = pointInFrontOfPlayer * 3;
+            dashEndPoint = CalculatePointAxisY(dashEndPoint);
+            // Move the ground AI to the dash start position
+            if (Physics.Raycast(new Vector3(this.transform.position.x, 1000, this.transform.position.z), Vector3.down, out raycastHit, Mathf.Infinity, groundLayer))
+            {
+                navMeshAgent.Warp(new Vector3(dashStartPoint.x, raycastHit.point.y, dashStartPoint.z));
+            }
+            else
+            {
+                Debug.Log("You need to assign your ground layer!");
+                dashActive = false;
+                return;
+            }
+
+            // Set the agent's destination to the dash end point
+            navMeshAgent.destination = dashEndPoint;
+            // Set the agent's speed from the speed range
+            navMeshAgent.speed = currentDashSpeed = dashSpeed.y * 3;
+            // Hide after x seconds
+            Invoke(nameof(HideFinishAfterSeconds), 10);
+        }
+    }
+
+    private void CheckRunAwayDashFinished()
+    {
+        if ((this.gameObject.transform.position.x == dashEndPoint.x && this.gameObject.transform.position.z == dashEndPoint.z) || navMeshAgent.isPathStale)
+        {
+            dashActive = false;
+            arrivedAtDashEndPoint = true;
+        }
+    }
+
     private Vector3 CalculatePointAxisY(Vector3 _point)
     {
         Vector3 _newPoint = Vector3.zero;
@@ -141,19 +207,31 @@ public class AIPassiveDash : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player" || collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            Debug.Log("Attacked player!", this.gameObject);
-            playerHealth.RemoveHealth(damagePassive);
-            // Add force to player
-            if (CameraShake.Instance != null)
-                CameraShake.Instance.StartShake();
-            if (useForceMode)
+            if (aiManager.AnimationControllerAI.AnimationState != WendigoAnimationState.AGONY && aiManager.AnimationControllerAI.AnimationState != WendigoAnimationState.DEAD)
             {
-                playerHealth.KnockBack(this.transform.position.normalized, forceToApplyToPlayer, forceMode);
-            }
-            else
-            {
-                playerHealth.KnockBack(this.transform.position.normalized, forceToApplyToPlayer);
+                //Debug.Log("Attacked player!", this.gameObject);
+                playerHealth.RemoveHealth(damagePassive);
+                dashActive = false;
+                arrivedAtDashEndPoint = true;
+                // Add force to player
+                if (CameraShake.Instance != null)
+                    CameraShake.Instance.StartShake();
+                if (useForceMode)
+                {
+                    playerHealth.KnockBack(this.transform.position.normalized, forceToApplyToPlayer, forceMode);
+                }
+                else
+                {
+                    playerHealth.KnockBack(this.transform.position.normalized, forceToApplyToPlayer);
+                }
             }
         }
+    }
+
+    private void HideFinishAfterSeconds()
+    {
+        dashActive = false;
+        arrivedAtDashEndPoint = true;
+        IsRunAway = false;
     }
 }

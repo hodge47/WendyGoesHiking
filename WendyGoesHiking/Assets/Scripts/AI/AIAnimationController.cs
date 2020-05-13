@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum WendigoAnimationState { IDLE, CRAWL, /*JUMP,*/ AGONY, DEAD}
+public enum WendigoAnimationState { IDLE, CRAWL, JUMP, AGONY, DEAD}
 
 public class AIAnimationController : MonoBehaviour
 {
@@ -28,9 +28,9 @@ public class AIAnimationController : MonoBehaviour
             case WendigoAnimationState.CRAWL:
                 AnimationState = WendigoAnimationState.CRAWL;
                 break;
-            //case WendigoAnimationState.JUMP:
-            //    AnimationState = WendigoAnimationState.JUMP;
-            //    break;
+            case WendigoAnimationState.JUMP:
+                AnimationState = WendigoAnimationState.JUMP;
+                break;
             case WendigoAnimationState.AGONY:
                 AnimationState = WendigoAnimationState.AGONY;
                 break;
@@ -51,42 +51,42 @@ public class AIAnimationController : MonoBehaviour
             case WendigoAnimationState.IDLE:
                 animator.SetBool("Idle", true);
                 animator.SetBool("Crawl", false);
-                //animator.SetBool("Jump", false);
+                animator.SetBool("Jump", false);
                 animator.SetBool("Agony", false);
                 animator.SetBool("Dead", false);
                 break;
             case WendigoAnimationState.CRAWL:
                 animator.SetBool("Idle", false);
                 animator.SetBool("Crawl", true);
-                //animator.SetBool("Jump", false);
+                animator.SetBool("Jump", false);
                 animator.SetBool("Agony", false);
                 animator.SetBool("Dead", false);
                 break;
-            //case WendigoAnimationState.JUMP:
-            //    animator.SetBool("Idle", false);
-            //    animator.SetBool("Crawl", false);
-            //    animator.SetBool("Jump", true);
-            //    animator.SetBool("Agony", false);
-            //    animator.SetBool("Dead", false);
-            //    break;
+            case WendigoAnimationState.JUMP:
+                animator.SetBool("Idle", false);
+                animator.SetBool("Crawl", false);
+                animator.SetBool("Jump", true);
+                animator.SetBool("Agony", false);
+                animator.SetBool("Dead", false);
+                break;
             case WendigoAnimationState.AGONY:
                 animator.SetBool("Idle", false);
                 animator.SetBool("Crawl", false);
-                //animator.SetBool("Jump", false);
+                animator.SetBool("Jump", false);
                 animator.SetBool("Agony", true);
                 animator.SetBool("Dead", false);
                 break;
             case WendigoAnimationState.DEAD:
                 animator.SetBool("Idle", false);
                 animator.SetBool("Crawl", false);
-                //animator.SetBool("Jump", false);
+                animator.SetBool("Jump", false);
                 animator.SetBool("Agony", false);
                 animator.SetBool("Dead", true);
                 break;
             default:
                 animator.SetBool("Idle", true);
                 animator.SetBool("Crawl", false);
-                //animator.SetBool("Jump", false);
+                animator.SetBool("Jump", false);
                 animator.SetBool("Agony", false);
                 animator.SetBool("Dead", false);
                 break;
