@@ -11,8 +11,11 @@ public class AIAggressiveDash : MonoBehaviour
     [MinMaxSlider(5f, 100f, showFields: true)]
     [Tooltip("This is the speed range [min, max] that the ground AI uses.")]
     private Vector2 dashSpeed = new Vector2(35f, 50f);
+    [Tooltip("How fast the wendigo runs away after being shot")]
     [SerializeField]
-    [Tooltip("This is the ground that the raycasting looks for. This is needed for dynamic Y-axis dash points.")]
+    private float runAwaySpeed = 40f;
+    [SerializeField]
+    [Tooltip("This is the ground that the ray casting looks for. This is needed for dynamic Y-axis dash points.")]
     private LayerMask groundLayer;
 
     [Title("Aggressive Settings")]
@@ -41,7 +44,9 @@ public class AIAggressiveDash : MonoBehaviour
     public Vector3 DashEndPoint { get => dashEndPoint; set => dashEndPoint = value; }
     public float CurrentDashSpeed { get => currentDashSpeed; }
     public bool IsRunAway { get => runAway; set => runAway = value; }
+    public float RunAwaySpeed { get => runAwaySpeed; }
 
+    private AIManager aiManager;
     private GameObject player;
     private PlayerHealth playerHealth;
     private NavMeshAgent navMeshAgent;
@@ -57,8 +62,10 @@ public class AIAggressiveDash : MonoBehaviour
     private bool runAway = false;
 
     // Start is called before the first frame update
-    void Start()
+    public void Initialize(AIManager _aim)
     {
+        // Get the AI Manager
+        aiManager = _aim;
         // Get the player
         player = GameObject.FindGameObjectWithTag("Player");
         // Get the player's health script
@@ -105,9 +112,9 @@ public class AIAggressiveDash : MonoBehaviour
     private void SetUpAggressiveDashPoints()
     {
         IsRunAway = false;
-        // Get the player's trasnform
+        // Get the player's transform
         Transform _player = GameObject.FindGameObjectWithTag("Player").transform;
-        // Calculate a dash sart distance from a range
+        // Calculate a dash start distance from a range
         float _dashStartPointDistance = (float)random.Next((int)aggressiveDashStartDistance.x, (int)aggressiveDashStartDistance.y + 1);
         // Get the players position and forward direction in world space
         Vector3 _playerPos = player.transform.position;
@@ -215,20 +222,23 @@ public class AIAggressiveDash : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player" || collision.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            //Debug.Log("Attacked player!", this.gameObject);
-            playerHealth.RemoveHealth(damageAggressive);
-            dashActive = false;
-            arrivedAtDashEndPoint = true;
-            // Add force to player
-            if(CameraShake.Instance != null)
-                CameraShake.Instance.StartShake();
-            if(useForceMode)
+            if(aiManager.AnimationControllerAI.AnimationState != WendigoAnimationState.AGONY && aiManager.AnimationControllerAI.AnimationState != WendigoAnimationState.DEAD)
             {
-                playerHealth.KnockBack(this.transform.position.normalized, forceToApplyToPlayer, forceMode);
-            }
-            else
-            {
-                playerHealth.KnockBack(this.transform.position.normalized, forceToApplyToPlayer);
+                //Debug.Log("Attacked player!", this.gameObject);
+                playerHealth.RemoveHealth(damageAggressive);
+                dashActive = false;
+                arrivedAtDashEndPoint = true;
+                // Add force to player
+                if (CameraShake.Instance != null)
+                    CameraShake.Instance.StartShake();
+                if (useForceMode)
+                {
+                    playerHealth.KnockBack(this.transform.position.normalized, forceToApplyToPlayer, forceMode);
+                }
+                else
+                {
+                    playerHealth.KnockBack(this.transform.position.normalized, forceToApplyToPlayer);
+                }
             }
         }
     }

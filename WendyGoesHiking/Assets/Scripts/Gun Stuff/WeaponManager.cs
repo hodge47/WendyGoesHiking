@@ -264,8 +264,8 @@ public class WeaponManager : MonoBehaviour
                 newBulletHole.transform.SetParent(tempHit.transform);
                 //Destroy(newBulletHole, 5f);
                 GameObject _hitObject = tempHit.collider.gameObject;
-                // Damage the wendigo - check raycast hit AI GameObject
-                if(_hitObject.tag == "AI")
+                // Damage the wendigo if not jumping or in agony or running away - check raycast hit AI GameObject
+                if(_hitObject.tag == "AI" && aiManager.AnimationControllerAI.AnimationState != WendigoAnimationState.JUMP && aiManager.AnimationControllerAI.AnimationState != WendigoAnimationState.AGONY && aiManager.PassiveDashAI.IsRunAway == false && aiManager.AggressiveDashAI.IsRunAway == false) // Gross!! future Michael plz fix ur code -Michael 
                 {
                     Debug.Log("Hit AI");
                     // Get the AIHealth script from the AI GameObject
@@ -279,10 +279,17 @@ public class WeaponManager : MonoBehaviour
                     // Play the wendigo agony animation
                     if(aiManager != null)
                     {
-                        if(aiManager.AiIsAlive && aiManager.AggressiveDashAI.IsRunAway == false)
+                        if(aiManager.AiIsAlive)
                         {
                             aiManager.AnimationControllerAI.SetAnimationState(WendigoAnimationState.AGONY);
-                            aiManager.AggressiveDashAI.RunAway();
+                            if (aiManager.AggressiveDashAI.DashActive && aiManager.AggressiveDashAI.IsRunAway == false)
+                            {
+                                aiManager.AggressiveDashAI.RunAway();
+                            }
+                            else if (aiManager.PassiveDashAI.DashActive && aiManager.PassiveDashAI.IsRunAway == false)
+                            {
+                                aiManager.PassiveDashAI.RunAway();
+                            }
                         }
                     }
                 }
